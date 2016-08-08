@@ -5,10 +5,16 @@ To test the updated skins, follow these instructions
 2. Visit any page that you wish to test the skin on
 3. Right click somewhere on the page and choose Inspect or Inspect Element
 4. Scroll to the top of the HTML pane and open the `<head>` element
+
+![Chrome Inspector](https://duke-cit.github.io/sakai-11-skins/instructions/step4.png)
+
 5. Find this line and double click inside the `href` attribute
+
 `<link href="/library/skin/duke-*skinname*/tool.css?version=" rel="stylesheet" media="screen, tty, tv, handheld, projection">`
 
+
 **\*skinname\*** will be one of these options, **do not** change this
+
 
 * default
 * crtp
