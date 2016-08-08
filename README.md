@@ -18,7 +18,7 @@ To test the updated skins, follow these instructions
 * samsi
 
 6. Before `/library` add the following text
-`https://github.com/Duke-CIT/sakai-11-skins/tree/master/prod/` and hit Enter
+`https://duke-cit.github.io/sakai-11-skins/prod` and hit Enter
 
 The line should now read `https://github.com/Duke-CIT/sakai-11-skins/tree/master/prod/library/skin/duke-*skinname*/tool.css`
 
@@ -27,3 +27,5 @@ The page should change slightly depending on what you are viewing.
 ##This change is not permanament##
 
 Moving to another page will require you to repeat these steps.
+
+The logo won't show up, that is the expected behavior.
