@@ -34,4 +34,4 @@ The page should change slightly depending on what you are viewing.
 
 Moving to another page will require you to repeat these steps.
 
-The logo won't show up, that is the expected behavior.
+The logo might not show up, that is the acceptable behavior for this setup.
