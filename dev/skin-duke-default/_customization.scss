@@ -4,13 +4,14 @@
 *
 *   Todos
 
+		Check after deploy
 		.bs-callout-warn, .Mrphs-sakai-forums .topicBlocLone, .bs-callout-alert, .messageWarning, .messageConfirmation{} https://dukedev.longsight.com/portal/site/f345fd2e-235d-4bf9-9372-c350c345430e/tool/cdc15f2c-6b98-4a98-bb54-41ff66a998f6/discussionForum/message/dfAllMessages
 
 		.Mrphs-sakai-schedule table.calendar .borderTodayTop {} https://dukedev.longsight.com/portal/site/f345fd2e-235d-4bf9-9372-c350c345430e/tool/a18cfc26-7a14-4656-9be1-fb0226292d3c
 
 		.Mrphs-sakai-schedule table.calendar .borderTodayCenter {} https://dukedev.longsight.com/portal/site/f345fd2e-235d-4bf9-9372-c350c345430e/tool/a18cfc26-7a14-4656-9be1-fb0226292d3c
 
-		.editable-empty, .editable-empty:hover, .editable-empty:focus {} https://dukedev.longsight.com/portal/site/f345fd2e-235d-4bf9-9372-c350c345430e/tool/0146a636-b5c9-45f0-a059-58200900332b/main
+
 
 * -----------------------------------------------------------------*/
 
@@ -59,6 +60,9 @@ $toolTabBGColor: $ebb;
 $toolBorderColor: $sisal;
 
 $warncolor: $wheat;
+
+$calendar-event-background-color: lighten($klein, 60%);
+$calendar-event-text-color:;
 
 $logo: '/library/skin/duke-default/images/dukeLogo.png';
 // $logo: 'http://www.local.dev/sakai/skin-duke-default/images/dukeLogo.png';
