@@ -3,7 +3,6 @@
 /* ==================================================================
 *
 *   Todos
-		upload to github and send shawn/jolie instructions on how to replace so they can test
 
 		.bs-callout-warn, .Mrphs-sakai-forums .topicBlocLone, .bs-callout-alert, .messageWarning, .messageConfirmation{} https://dukedev.longsight.com/portal/site/f345fd2e-235d-4bf9-9372-c350c345430e/tool/cdc15f2c-6b98-4a98-bb54-41ff66a998f6/discussionForum/message/dfAllMessages
 
@@ -32,6 +31,7 @@ $lochmara: #0680CD;
 $armadillo: #3d362f;
 $sisal: #DAD0C6;
 $california: #F09905;
+$wheat: #F6EAB8;
 
 $background-color-secondary: $klein;
 $tool-background-color: $white;
@@ -58,7 +58,7 @@ $toolMenuColor: $duke-blue;
 $toolTabBGColor: $ebb;
 $toolBorderColor: $sisal;
 
-$warncolor: #F6EAB8;
+$warncolor: $wheat;
 
 $logo: '/library/skin/duke-default/images/dukeLogo.png';
 // $logo: 'http://www.local.dev/sakai/skin-duke-default/images/dukeLogo.png';
@@ -110,6 +110,16 @@ $header-gradient-d: $midnight-blue;
 // .messageInstruction,
 // .messageProgress {}
 
+.bs-callout-warn,
+.Mrphs-sakai-forums .topicBlocLone,
+.bs-callout-alert,
+.messageWarning,
+.messageConfirmation{
+  border-color: darken($wheat, 30%) !important;
+  border-left-color: darken($wheat, 30%) !important;
+  color: darken($wheat, 60%) !important;
+  background-color: $wheat !important;
+}
 
 .ui-state-active,
 .ui-widget-content .ui-state-active,
