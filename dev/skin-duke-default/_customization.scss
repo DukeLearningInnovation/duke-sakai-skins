@@ -65,7 +65,6 @@ $calendar-event-background-color: lighten($klein, 60%);
 $calendar-event-text-color:;
 
 $logo: '/library/skin/duke-default/images/dukeLogo.png';
-// $logo: 'http://www.local.dev/sakai/skin-duke-default/images/dukeLogo.png';
 $logo-height: 43px;
 $logo-width: 87px;
 
@@ -115,10 +114,10 @@ $header-gradient-d: $midnight-blue;
 // .messageProgress {}
 
 .bs-callout-warn,
-.Mrphs-sakai-forums .topicBlocLone,
+.#{$namespace}sakai-forums .topicBlocLone,
 .bs-callout-alert,
 .messageWarning,
-.messageConfirmation{
+.messageConfirmation {
   border-color: darken($wheat, 30%) !important;
   border-left-color: darken($wheat, 30%) !important;
   color: darken($wheat, 60%) !important;
@@ -190,6 +189,7 @@ li.inputItem {
 		border-bottom-color:darken($warncolor, 10%);
 	}
 }
+
 /* ==================================================================
 *
 *   mainHeader Styles
@@ -310,7 +310,6 @@ li.inputItem {
 	}
 }
 
-
 /* ==================================================================
 *
 *   toolMenuWrap Styles
@@ -359,9 +358,6 @@ body.#{$namespace}toolMenu-collapsed{
 		}
 	}
 }
-
-
-
 
 /* ==================================================================
 *
