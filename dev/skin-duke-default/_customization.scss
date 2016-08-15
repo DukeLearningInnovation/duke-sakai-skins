@@ -138,6 +138,7 @@ $header-gradient-d: $midnight-blue;
 .editable-empty:focus {
 	color: $duke-blue !important;
 }
+
 .bs-callout-primary,
 .validationEmbedded,
 .validation,
@@ -184,8 +185,8 @@ li.inputItem {
 }
 .#{$namespace}siteStatus{
 	&.is-unpublished{
-		background:$warncolor;
-		border-bottom-color:darken($warncolor, 10%);
+		background:$warncolor !important;
+		border-bottom-color:darken($warncolor, 10%) !important;
 	}
 }
 
@@ -372,10 +373,14 @@ body.#{$namespace}toolMenu-collapsed{
 *   Calendar Styles
 *
 * -----------------------------------------------------------------*/
-.#{$namespace}sakai-schedule table.calendar,
-.#{$namespace}sakai-schedule table.calendar .borderTodayCenter {
-	background-color: lighten($klein, 60%) !important;
-}
+// .#{$namespace}sakai-schedule {
+// 	table.calendar {
+// 		background-color: lighten($klein, 60%) !important;
+// 		.borderTodayCenter{
+// 			background-color: lighten($klein, 60%) !important;
+// 		}
+// 	}
+// }
 
 /* ==================================================================
 *
