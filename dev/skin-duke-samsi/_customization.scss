@@ -17,8 +17,7 @@ $header-gradient-d: $samsi-green;
 *
 * -----------------------------------------------------------------*/
 .#{$namespace}topHeader{
-	// background: $white url("http://www.local.dev/sakai/skin-duke-samsi/images/background.jpg") repeat-y 0 0 !important;
-	background: $white url("/library/skin/duke-samsi/images/background.jpg") repeat-y 0 0 !important;
+	background: $white url("/library/skin/duke-samsi/images/background.jpg") repeat-x 0 0 !important;
 
 		a{
 			color: $samsi-green !important

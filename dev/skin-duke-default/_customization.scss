@@ -11,8 +11,8 @@
 
 		.Mrphs-sakai-schedule table.calendar .borderTodayCenter {} https://dukedev.longsight.com/portal/site/f345fd2e-235d-4bf9-9372-c350c345430e/tool/a18cfc26-7a14-4656-9be1-fb0226292d3c
 
-
-
+		.bs-callout-primary, .validationEmbedded, .validation, .Mrphs-sakai-samigo #samigo-create-new-box, .Mrphs-sakai-samigo #samigo-create-import-box, .bs-callout-info, .messageInformation, .messageInstruction, .messageProgress
+		https://sakai-test.duke.edu/portal/site/7bb145e1-822c-4a82-8401-a8fb76f16292/tool/8ba65973-3cee-4a93-9d99-f4a5f5985cc7?panel=Main
 * -----------------------------------------------------------------*/
 
 /* ==================================================================
@@ -105,14 +105,6 @@ $header-gradient-d: $midnight-blue;
 	@extend .fa-play-circle;
 }
 
-// .bs-callout-primary,
-// .validationEmbedded,
-// .validation,
-// .bs-callout-info,
-// .messageInformation,
-// .messageInstruction,
-// .messageProgress {}
-
 .bs-callout-warn,
 .#{$namespace}sakai-forums .topicBlocLone,
 .bs-callout-alert,
@@ -146,6 +138,13 @@ $header-gradient-d: $midnight-blue;
 .editable-empty:focus {
 	color: $duke-blue !important;
 }
+.bs-callout-primary,
+.validationEmbedded,
+.validation,
+.bs-callout-info,
+.messageInformation,
+.messageInstruction,
+.messageProgress,
 .instruction {
 	border-color:$klein !important;
 	background-color: lighten($klein, 60%) !important;
@@ -366,6 +365,16 @@ body.#{$namespace}toolMenu-collapsed{
 * -----------------------------------------------------------------*/
 .#{$namespace}footer{
 	color:$armadillo !important;
+}
+
+/* ==================================================================
+*
+*   Calendar Styles
+*
+* -----------------------------------------------------------------*/
+.#{$namespace}sakai-schedule table.calendar,
+.#{$namespace}sakai-schedule table.calendar .borderTodayCenter {
+	background-color: lighten($klein, 60%) !important;
 }
 
 /* ==================================================================
