@@ -156,6 +156,11 @@ li.inputItem {
 	border:1px solid $ebb !important;
 }
 
+.longtext {
+	textarea {
+		border:1px solid $ebb !important;
+	}
+}
 .navIntraTool{
 	li {
 		span {
@@ -178,6 +183,7 @@ li.inputItem {
 	}
 	.#{$namespace}toolTitleNav__button_container{
 		top: 7px !important;
+		margin-bottom:0px !important;
 		@media #{$phone}{
 			top: 0 !important;
 		}
