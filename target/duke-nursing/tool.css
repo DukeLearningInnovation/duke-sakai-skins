@@ -9,10 +9,16 @@
 
 /*# sourceMappingURL=tool.css.map */
 /* 11.x upgrade customizations */
-
+/* #8 Home Duke Events Calendar RSS Feed */
 .workspace .Mrphs-sakai-simple-rss .news-items h3 {
     font-size:16px;
 }
 .workspace .Mrphs-sakai-simple-rss .news-source {
-    display:none;
+    display: none;
+}
+
+/* #11 Forums thread buttons */
+.messagesThreaded .messageMetadata .itemToolBar .button,
+.messagesThreaded .messageMetadata .otherActions .button{
+    border-color: #CFCCC9;
 }
