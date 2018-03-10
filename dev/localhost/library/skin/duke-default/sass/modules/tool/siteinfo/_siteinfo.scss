@@ -1,0 +1,32 @@
+.#{$namespace}sakai-siteinfo{
+	.groups-site{
+		list-style: none;
+		
+		li {
+			min-height: 4em;
+			&:nth-child(odd){
+				background: darken( $tool-background-color, 5% );
+			}
+		}
+	}
+
+	#example {
+		width: 340px;
+	}
+
+	#groupfile, #groupuploadtextarea {
+		display: inline-block;
+	}
+	#groupuploadtextarea {
+		padding-right: 30px;
+	}
+	#groupfile {
+		vertical-align: top;
+	}
+}
+
+#toolSelectionList{
+	ul{
+		padding: 0 0 0 0;
+	}
+}
