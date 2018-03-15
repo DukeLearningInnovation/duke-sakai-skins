@@ -1,0 +1,74 @@
+/*
+Syntax error: File to import not found or unreadable: base/compass.
+              Load paths:
+                / (DEPRECATED)
+                /app/duke-default
+        on line 1 of /app/duke-default/sass/base/_extendables.scss
+        from line 4 of /app/duke-default/sass/access.scss
+
+1: /* access.scss : Styles for access servlet (/access/) directory listings *\/
+2: @import "defaults";
+3: 
+4: @import "base/extendables";
+5: @import "base/defaults";
+6: 
+
+Backtrace:
+/app/duke-default/sass/base/_extendables.scss:1
+/app/duke-default/sass/access.scss:4
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/tree/import_node.rb:66:in `rescue in import'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/tree/import_node.rb:45:in `import'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/tree/import_node.rb:28:in `imported_file'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/tree/import_node.rb:37:in `css_import?'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:283:in `visit_import'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/tree/visitors/base.rb:36:in `visit'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:152:in `block in visit'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/stack.rb:79:in `block in with_base'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/stack.rb:121:in `with_frame'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/stack.rb:79:in `with_base'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:152:in `visit'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:297:in `block (2 levels) in visit_import'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:297:in `map'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:297:in `block in visit_import'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/stack.rb:88:in `block in with_import'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/stack.rb:121:in `with_frame'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/stack.rb:88:in `with_import'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:294:in `visit_import'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/tree/visitors/base.rb:36:in `visit'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:152:in `block in visit'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/stack.rb:79:in `block in with_base'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/stack.rb:121:in `with_frame'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/stack.rb:79:in `with_base'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:152:in `visit'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/tree/visitors/base.rb:52:in `map'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:161:in `block in visit_children'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:173:in `with_environment'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:160:in `visit_children'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:180:in `visit_root'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/tree/visitors/base.rb:36:in `visit'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:151:in `visit'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/tree/root_node.rb:36:in `css_tree'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/tree/root_node.rb:20:in `render'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/engine.rb:274:in `render'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/plugin/compiler.rb:484:in `update_stylesheet'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/plugin/compiler.rb:214:in `block in update_stylesheets'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/plugin/compiler.rb:208:in `each'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/plugin/compiler.rb:208:in `update_stylesheets'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/plugin/compiler.rb:291:in `watch'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/plugin.rb:108:in `method_missing'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/exec.rb:509:in `watch_or_update'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/exec.rb:346:in `process_result'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/exec.rb:43:in `parse'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/lib/sass/exec.rb:22:in `parse!'
+/var/lib/gems/1.9.1/gems/sass-3.3.14/bin/sass:13:in `<top (required)>'
+/usr/local/bin/sass:23:in `load'
+/usr/local/bin/sass:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: File to import not found or unreadable: base/compass.\A               Load paths:\A                 / (DEPRECATED)\A                 /app/duke-default\A         on line 1 of /app/duke-default/sass/base/_extendables.scss\A         from line 4 of /app/duke-default/sass/access.scss\A \A 1: /* access.scss : Styles for access servlet (/access/) directory listings */\A 2: @import \"defaults\";\A 3: \A 4: @import \"base/extendables\";\A 5: @import \"base/defaults\";\A 6: "; }

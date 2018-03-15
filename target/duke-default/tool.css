@@ -9,6 +9,7 @@
 
 /*# sourceMappingURL=tool.css.map */
 /* 11.x upgrade customizations */
+
 /* #8 Home Duke Events Calendar RSS Feed */
 .workspace .Mrphs-sakai-simple-rss .news-items h3 {
     font-size:16px;
@@ -21,4 +22,49 @@
 .messagesThreaded .messageMetadata .itemToolBar .button,
 .messagesThreaded .messageMetadata .otherActions .button{
     border-color: #CFCCC9;
+}
+/* Fixed #13 */
+.Mrphs-portalWrapper.swapped-view .Mrphs-siteHierarchy {
+    background: #fff;
+    color: #0736A4;
+}
+/* Fixes #14 */
+#toolMenu .Mrphs-roleSwitch .Mrphs-toolsNav__menuitem {
+    background:#fff;
+}
+#toolMenu .Mrphs-roleSwitch__anchor {
+	margin:0;
+}
+#toolMenu .Mrphs-roleSwitch__anchor .Mrphs-toolsNav__menuitem--link {
+	margin:0;
+}
+#toolMenu .Mrphs-roleSwitch__anchor .Mrphs-toolsNav__menuitem--icon {
+	 background:#fff;
+	 position:relative;
+	 left: 13px;
+	 font-size: 1.25em;
+}
+#toolMenu .Mrphs-roleSwitch__anchor .Mrphs-roleSwitch__dropdown {
+	width:80%;
+	min-height:40px;
+	border:none;
+}
+
+/* Fixes #15 */
+@media only screen and (max-width: 800px){
+	.navIntraTool li span a,
+	.navIntraTool li span.current a,
+	.navIntraTool li span.current {
+		background:#f2f2f2;
+		
+	}
+	.navIntraTool  li span.current{
+		border:1px solid #e2e2e2;
+
+	}
+	.navIntraTool li span.current,
+	.navIntraTool li span.current a {
+		background-color:#fff;
+	}
+
 }
