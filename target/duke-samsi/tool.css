@@ -10,6 +10,7 @@
 /*# sourceMappingURL=tool.css.map */
 
 /* 11.x upgrade customizations */
+
 /* #8 Home Duke Events Calendar RSS Feed */
 .workspace .Mrphs-sakai-simple-rss .news-items h3 {
     font-size:16px;
@@ -28,28 +29,21 @@
     background: #fff;
     color: #0736A4;
 }
-.Mrphs-portalWrapper.swapped-view .Mrphs-siteHierarchy a {
-	color: #0736A4;
-}
 /* Fixes #14 */
-#toolMenu .Mrphs-roleSwitch .Mrphs-toolsNav__menuitem,
-#toolMenu #roleSwitch {
+#toolMenu .Mrphs-roleSwitch .Mrphs-toolsNav__menuitem {
     background:#fff;
-    color:#565656;
 }
 #toolMenu .Mrphs-roleSwitch__anchor {
 	margin:0;
 }
-
 #toolMenu .Mrphs-roleSwitch__anchor .Mrphs-toolsNav__menuitem--link {
 	margin:0;
-
 }
 #toolMenu .Mrphs-roleSwitch__anchor .Mrphs-toolsNav__menuitem--icon {
 	 background:#fff;
 	 position:relative;
 	 left: 13px;
-	 font-size: 1.2em;
+	 font-size: 1.25em;
 }
 #toolMenu .Mrphs-roleSwitch__anchor .Mrphs-roleSwitch__dropdown {
 	width:80%;
@@ -57,17 +51,6 @@
 	border:none;
 }
 
-/* Exit role switching */
-#toolMenu #roleSwitchAnchor .Mrphs-toolsNav__menuitem--icon {
-	left: 0;
-	margin-right:.25em;
-}
-#toolMenu #roleSwitchAnchor:hover {
-	background-color:#fff;
-}
-#toolMenu #roleSwitchAnchor .Mrphs-toolsNav__menuitem--title {
-	margin-left:0;
-}
 /* Fixes #15 */
 @media only screen and (max-width: 800px){
 	.navIntraTool li span a,
@@ -85,4 +68,31 @@
 		background-color:#fff;
 	}
 
+}
+/* Fixes #16 */
+body.Mrphs-toolMenu-collapsed #toolMenu ul li a,
+body.Mrphs-toolMenu-collapsed #subSites ul li a {
+	padding: 0;
+	min-height:auto;
+	line-height: 1.25em;
+    padding: 0.5em 0.25em;
+}
+body.Mrphs-toolMenu-collapsed #toolMenu ul li .Mrphs-toolsNav__menuitem--icon,
+body.Mrphs-toolMenu-collapsed #subSites ul li .Mrphs-toolsNav__menuitem--icon {
+	position:static;
+	display:block;
+	padding:0;
+	width:42px;
+	text-align:center;
+}
+body.Mrphs-toolMenu-collapsed #toolMenu ul li a:hover .Mrphs-toolsNav__menuitem--title,
+body.Mrphs-toolMenu-collapsed ul#subSites ul li a:hover .Mrphs-toolsNav__menuitem--title {
+	margin-top:-2.2em;
+	border:none;
+	border-radius:0;
+	line-height:1.25em;
+}
+#toolMenu ul li a.is-invisible:after,
+#subSites ul li a.is-invisible:after {
+	top:12px;
 }
