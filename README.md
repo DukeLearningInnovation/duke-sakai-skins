@@ -1,6 +1,12 @@
-### 11.x and 12.0 branch
+### 11.x branch
 
-`src` contains the source files for the skins. Final edits are placed here and compiled for deployment
+It looks like I lost the source files for the 11 skins... probably not worth it to reverse engineer them from the compiled version. Looks like [https://github.com/DukeLearningInnovation/duke-sakai-skins/commit/db49c3c8e2588ccfedaf84b42ddf5b6524ae161a](https://github.com/DukeLearningInnovation/duke-sakai-skins/commit/db49c3c8e2588ccfedaf84b42ddf5b6524ae161a) was the last commit from 11 that had the uncompiled files.
+
+For the time being, I'm writing CSS overrides to the end of tool.css in each target/skin-name folder
+
+### 12.0 branch
+
+`src` was pulled from contains the source files for the skins. Final edits are placed here and compiled for deployment
 
 `dev` contains temporary versions for testing and development
 
@@ -13,4 +19,4 @@ There is an issue on nightly with this in that it is rebuilt so often that the q
 `target` skins from `src` are built and placed here for deployment.
 
 
-It looks like I lost the source files for the 11 skins... probably not worth it to reverse engineer them from the compiled version. Looks like [https://github.com/DukeLearningInnovation/duke-sakai-skins/commit/db49c3c8e2588ccfedaf84b42ddf5b6524ae161a](https://github.com/DukeLearningInnovation/duke-sakai-skins/commit/db49c3c8e2588ccfedaf84b42ddf5b6524ae161a) was the last commit from 11 that had the uncompiled files. 
+

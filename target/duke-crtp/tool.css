@@ -25,16 +25,22 @@
     border-color: #CFCCC9;
 }
 /* Fixed #13 */
-.Mrphs-portalWrapper.swapped-view .Mrphs-siteHierarchy {
+.Mrphs-portalWrapper.swapped-view .Mrphs-siteHierarchy,
+.Mrphs-portalWrapper.swapped-view .Mrphs-siteHierarchy a {
     background: #fff;
     color: #0736A4;
 }
+.Mrphs-roleSwitch__anchor {
+	background:#fff;
+}
+
 /* Fixes #14 */
 #toolMenu .Mrphs-roleSwitch .Mrphs-toolsNav__menuitem {
     background:#fff;
 }
 #toolMenu .Mrphs-roleSwitch__anchor {
 	margin:0;
+	background:#fff;
 }
 #toolMenu .Mrphs-roleSwitch__anchor .Mrphs-toolsNav__menuitem--link {
 	margin:0;
@@ -44,6 +50,12 @@
 	 position:relative;
 	 left: 13px;
 	 font-size: 1.25em;
+}
+.Mrphs-portalWrapper.swapped-view #toolMenu .Mrphs-roleSwitch__anchor .Mrphs-toolsNav__menuitem--icon {
+	position:absolute;
+}
+.Mrphs-portalWrapper.swapped-view #toolMenu .Mrphs-roleSwitch__anchor .Mrphs-toolsNav__menuitem--title {
+	max-width:80%;
 }
 #toolMenu .Mrphs-roleSwitch__anchor .Mrphs-roleSwitch__dropdown {
 	width:80%;
@@ -84,6 +96,11 @@ body.Mrphs-toolMenu-collapsed #subSites ul li .Mrphs-toolsNav__menuitem--icon {
 	padding:0;
 	width:42px;
 	text-align:center;
+}
+body.Mrphs-toolMenu-collapsed #toolMenu .Mrphs-roleSwitch__anchor .Mrphs-toolsNav__menuitem--icon,
+body.Mrphs-toolMenu-collapsed #toolMenu .Mrphs-roleSwitch__anchor .Mrphs-roleSwitch__dropdown {
+	width:52px;
+	margin:0;
 }
 body.Mrphs-toolMenu-collapsed #toolMenu ul li a:hover .Mrphs-toolsNav__menuitem--title,
 body.Mrphs-toolMenu-collapsed ul#subSites ul li a:hover .Mrphs-toolsNav__menuitem--title {
