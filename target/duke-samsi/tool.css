@@ -54,6 +54,12 @@
 .Mrphs-portalWrapper.swapped-view #toolMenu .Mrphs-roleSwitch__anchor .Mrphs-toolsNav__menuitem--icon {
 	position:absolute;
 }
+body.Mrphs-toolMenu-collapsed .Mrphs-portalWrapper.swapped-view #toolMenu .Mrphs-roleSwitch__anchor .Mrphs-toolsNav__menuitem--icon {
+	position:static;
+}
+body.Mrphs-toolMenu-collapsed .Mrphs-portalWrapper.swapped-view #toolMenu .Mrphs-roleSwitch__anchor .Mrphs-toolsNav__menuitem--icon:hover {
+	background-color:#e4e4e4;
+}
 .Mrphs-portalWrapper.swapped-view #toolMenu .Mrphs-roleSwitch__anchor .Mrphs-toolsNav__menuitem--title {
 	max-width:80%;
 }
@@ -86,8 +92,13 @@ body.Mrphs-toolMenu-collapsed #toolMenu ul li a,
 body.Mrphs-toolMenu-collapsed #subSites ul li a {
 	padding: 0;
 	min-height:auto;
-	line-height: 1.25em;
-    padding: 0.5em 0.25em;
+	line-height: 42px;
+/*     padding: 0.5em 0.25em; */
+}
+body.Mrphs-toolMenu-collapsed #toolMenu .Mrphs-roleSwitch__anchor,
+body.Mrphs-toolMenu-collapsed #subSites .Mrphs-roleSwitch__anchor {
+/* 	height:42px; */
+
 }
 body.Mrphs-toolMenu-collapsed #toolMenu ul li .Mrphs-toolsNav__menuitem--icon,
 body.Mrphs-toolMenu-collapsed #subSites ul li .Mrphs-toolsNav__menuitem--icon {
@@ -95,19 +106,25 @@ body.Mrphs-toolMenu-collapsed #subSites ul li .Mrphs-toolsNav__menuitem--icon {
 	display:block;
 	padding:0;
 	width:42px;
+	height:42px;
+	line-height:42px;
 	text-align:center;
 }
 body.Mrphs-toolMenu-collapsed #toolMenu .Mrphs-roleSwitch__anchor .Mrphs-toolsNav__menuitem--icon,
 body.Mrphs-toolMenu-collapsed #toolMenu .Mrphs-roleSwitch__anchor .Mrphs-roleSwitch__dropdown {
-	width:52px;
+	
 	margin:0;
+	position:static;
+	left:0;
 }
 body.Mrphs-toolMenu-collapsed #toolMenu ul li a:hover .Mrphs-toolsNav__menuitem--title,
 body.Mrphs-toolMenu-collapsed ul#subSites ul li a:hover .Mrphs-toolsNav__menuitem--title {
-	margin-top:-2.2em;
+	margin-top:-42px;
 	border:none;
 	border-radius:0;
-	line-height:1.25em;
+    padding:0 .75em;
+    line-height:42px;
+    height:42px;
 }
 #toolMenu ul li a.is-invisible:after,
 #subSites ul li a.is-invisible:after {
