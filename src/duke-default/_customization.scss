@@ -40,6 +40,8 @@ $header-font-weight: 700 !default;										// 400 or 700 as you wish
 //http://chir.ag/projects/name-that-color
 $white: #fff;
 $ebb: #E8E5E2;
+$gallery: #ececec;
+$mercury: #e5e5e5;
 $sisal: #DAD0C6;
 $wheat: #F6EAB8;
 $armadillo: #3d362f;
@@ -51,82 +53,47 @@ $lochmara: #0680CD;
 $midnight-blue: #003366;
 $klein: #0736A4;
 
-// $background-color-secondary: $klein;
-// $tool-background-color: $white;
-// $button-background-color: $ebb;
-// $button-color-text-color: $white;
-// $button-color-border-color: $duke-blue;
-// $button-color-background-color: $klein;
-// $button-color-background-secondary-color: $duke-blue;
-// $btn-default-bg: $klein;
-// $button-gradiant: false;
-// $primary-color: $duke-blue;
-// $secondary-color: $klein;
-// $text-color: $mine-shaft;
-// $link-color: $klein;
-// $link-background-color:;
-// $link-hover-color:$duke-blue;
-// $link-hover-background-color:;
-// $link-active-color:;
-// $link-active-background-color:;
-// $breadcrumbs-tool-color: $duke-blue;
-
-// $toolMenuBGColor: $ebb;
-// $toolMenuColor: $duke-blue;
-// $toolTabBGColor: $ebb;
-// $toolBorderColor: $sisal;
-
-// $warncolor: $wheat;
-
-// $calendar-event-background-color: lighten($klein, 60%);
-// $calendar-event-text-color:;
-
-$background-color: 			 $white;
-$background-color-secondary: $klein;
-
-$primary-color:    			 $klein;
-$primary-color-highContrast: darken( $primary-color, 4% ) !default;	// for use of primary on non-white light backgrounds, such as greys
-$primary-color-shadow:			 adjust-hue( $primary-color, 5 ) !default;	// To give primary a darker shadow
-$secondary-color:  			 #F00 !default;
-$alt-colour: 				 #d36f00 !default;
-
-$text-color:				 #212121 !default;
-
-$body-background-color: #FAFAFA !default;
-
-$portal-background-color: $background-color !default;
+// Primary Colors
+$background-color: 			         $white;
+$background-color-secondary:         $klein;
+$primary-color:    			         $klein;
+$primary-color-highContrast:         darken( $primary-color, 4% );	// for use of primary on non-white light backgrounds, such as greys
+$primary-color-shadow:			     adjust-hue( $primary-color, 5 );	// To give primary a darker shadow
+$secondary-color:  			       #F00 !default;
+$alt-colour: 				         $california;
+$text-color:				         $mine-shaft;
+$body-background-color:              $background-color;
+$portal-background-color:            $background-color;
 
 /* Tool tabs */
-$tool-background-color:		 $background-color !default;
-$tool-menu-background-color:			 $body-background-color !default;
-$tool-menu-color: 			 #424242 !default;
-$tool-border-color:			 #E5E5E5 !default;
+$tool-background-color:		         $background-color;
+$tool-menu-background-color:         $body-background-color;
+$tool-menu-color: 			         $mine-shaft; //#424242;
+$tool-border-color:			         $mercury;
+$tool-tab-height:                    32px !default;
+$tool-tab-text-color:                $tool-menu-color;
+$tool-tab-text-size:                 12px !default;
+$tool-tab-text-weight:               normal !default;
+$tool-tab-text-transform:            none !default;
+$tool-tab-text-letter-spacing:       normal !default;
+$tool-tab-background-color:          $tool-menu-background-color;
+$tool-tab-border-color:              $tool-border-color;
+$tool-tab-hover-text-color:          $mine-shaft;
+$tool-tab-hover-background-color:    $gallery;
+$tool-tab-hover-highlight-color:     green; //#7F7F7F !default;
+$tool-tab-active-text-color:         $klein;
+$tool-tab-active-text-size:          12.5px !default;
+$tool-tab-active-background-color:   $white;
+$tool-tab-active-highlight-color:    $klein;
+$tool-nav-link-color:                lighten($mine-shaft, 5%);
 
-$tool-tab-height:                                         32px !default;
-$tool-tab-text-color:                                     $tool-menu-color !default;
-$tool-tab-text-size:                                      12px !default;
-$tool-tab-text-weight:                                    normal !default;
-$tool-tab-text-transform:                                 none !default;
-$tool-tab-text-letter-spacing:                            normal !default;
-$tool-tab-background-color:                               $tool-menu-background-color !default;
-$tool-tab-border-color:                                   #E5E5E5 !default;
-$tool-tab-hover-text-color:                               #191919 !default;
-$tool-tab-hover-background-color:                         #ECECEC !default;
-$tool-tab-hover-highlight-color:                          #7F7F7F !default;
-$tool-tab-active-text-color:                              #15597e !default;
-$tool-tab-active-text-size:                               12.5px !default;
-$tool-tab-active-background-color:                        #FFFFFF !default;
-$tool-tab-active-highlight-color:                         #15597e !default;
+$main-content-background:            $background-color;
+$top-header-background:              $background-color-secondary;
+$sites-nav-background:               $tool-menu-background-color;
 
-$tool-nav-link-color: #666 !default;
-
-$main-content-background: $background-color !default;
-$top-header-background: $background-color-secondary !default;
-$sites-nav-background: $tool-menu-background-color !default;
-
-$breadcrumbs-color:			 $text-color !default;
-$breadcrumbs-tool-color:		 #265b81 !default;
-$breadcrumbs-hover-color:		 #265b81 !default;
+$breadcrumbs-color:			         $text-color !default;
+$breadcrumbs-tool-color:		     $klein;
+$breadcrumbs-hover-color:		     $klein;
 
 /* Link colors */
 $link-color: $primary-color !default;

@@ -24,8 +24,8 @@ the CSS file size, but not by much.
 
 **Step 2.** Login to the instance you're designing against
 
-`https://qa12-mysql.nightly.sakaiproject.org/portal`
-`https://dukedev.longsight.com`
+`https://qa12-mysql.nightly.sakaiproject.org/portal`  
+`https://dukedev.longsight.com`  
 `https://sakai.duke.edu`
 
 **Step 3.** To report a bug
@@ -67,7 +67,7 @@ no sense. I duplicated morpheus-default into duke-default and edit the files
 directly. I moved the customization import out of _customization.scss and to
 the end of tool.scss so that it can act as an overrides.
 
-**Don't forget to do that the next time you pull in morpheus from sakaiproject/sakai**
+#### Don't forget to do that the next time you pull in morpheus from sakaiproject/sakai
 
 ### To override Morpheus on another Sakai server
 
