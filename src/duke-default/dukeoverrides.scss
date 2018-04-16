@@ -1,0 +1,119 @@
+@import "defaults";
+
+#topnav_container {
+	padding: .5em 1em;
+}
+#linkNav ul li.#{$namespace}sitesNav__menuitem {
+	border-radius:$button-radius;
+}
+#toolMenuWrap {
+	border-right:none;
+	box-shadow: $overview-portlet-shadow;
+	margin:1em .5em 1em 1em;
+	padding:0;
+}
+
+@media only screen and (min-width: 801px) {
+	.#{$namespace}collapseTools button.js-toggle-nav {
+		text-align: center;
+	}
+}
+
+#toolMenu,
+#subSites,
+.floatingToolMenu {
+	ul {
+		li {
+			list-style-type: none;
+			&.is-current {
+				margin-right:0;
+
+				.#{$namespace}toolsNav__menuitem--link {
+					.#{$namespace}toolsNav__menuitem--title {
+						font-weight: 400;
+					}
+				}
+			}
+			&.#{$namespace}collapseTools {
+				margin:1em;
+			}
+			.#{$namespace}toolsNav__menuitem--link {
+				&.is-invisible{
+					font-style:normal;
+					&::after{
+						top:13px;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+.navIntraTool {
+	border-bottom:none;
+	background: $background-color;
+	li {
+		span {
+			&.current{
+				border-bottom:1px solid $white;
+    			border-left:1px solid $white;
+				border-right:1px solid $white;
+				&::before {
+					border-radius:$button-radius $button-radius 0 0;
+					border-top-color: $dovegray;
+				}
+				a {
+					background:$white;
+					&:hover {
+						background:$white;
+						&::before{
+							top:-2px;
+							border-top-color: $dovegray;
+						}
+					}
+				}
+			}
+			a {
+				background:$background-color;
+				border-color:$background-color;
+			}
+		}
+	}
+}
+
+.#{$namespace}siteHierarchy{
+	background: $background-color;
+}
+.#{$namespace}mainHeader{
+	box-shadow: $overview-portlet-shadow;
+	&.is-maximized{
+		.siteNavWrap{
+			box-shadow: none;
+		}
+	}
+}
+#selectSite,
+#selectQuickLink {
+	.tab-bar{
+		.tab-btn.active {
+			border-radius: $button-radius;
+		}
+	}
+}
+
+.#{$namespace}toolTitleNav {
+	.#{$namespace}toolTitleNav__link {
+		.#{$namespace}itemTitle {
+			display: none;
+		}
+	}
+}
+.portletBody {
+	box-shadow: $overview-portlet-shadow;
+}
+
+.#{$namespace}container--footer {
+	margin:0 1em 1em;
+	box-shadow: $overview-portlet-shadow;
+}
