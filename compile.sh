@@ -14,8 +14,7 @@ docker run -it --rm --name sakai-maven \
   -Pcompile-skin \
   -Dsakai.skin.source=duke-default \
   -Dsakai.skin.target=duke-default \
-  -Dsakai.skin.customization.file=src/duke-default/dukeoverrides.scss \
-  sakai:deploy
+  -Dsakai.skin.customization.file=src/duke-default/dukeoverrides.scss
 
 echo "copying compiled duke-default skins to duke-sakai-skins/target"
 rm -rf ~/dev/dukelearninginnovation/duke-sakai-skins/target/duke-default/*

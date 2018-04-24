@@ -24,9 +24,9 @@ the CSS file size, but not by much.
 
 **Step 2.** Login to the instance you're designing against
 
-`https://qa12-mysql.nightly.sakaiproject.org/portal`  
-`https://dukedev.longsight.com`  
-`https://sakai.duke.edu`
+* `https://qa12-mysql.nightly.sakaiproject.org/portal`
+* `https://dukedev.longsight.com`
+* `https://sakai.duke.edu`
 
 **Step 3.** To report a bug
 

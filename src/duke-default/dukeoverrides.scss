@@ -53,6 +53,20 @@
 .navIntraTool {
 	border-bottom:none;
 	background: $background-color;
+	//target tools without 'default tabs'
+	.#{$namespace}sakai-siteinfo &,
+	.#{$namespace}sakai-chat &,
+	.#{$namespace}sakai-forums &,
+	.#{$namespace}sakai-mailbox &,
+	.#{$namespace}sakai-messages &,
+	.#{$namespace}sakai-poll &,
+	.#{$namespace}sakai-postem &,
+	.#{$namespace}sakai-signup &,
+	.#{$namespace}sakai-sitestats &,
+	.#{$namespace}sakai-syllabus &,
+	.#{$namespace}sakai-rwiki & {
+		border-top: 1px solid rgba(0,0,0,0.05);
+	}
 	li {
 		span {
 			&.current{
@@ -112,8 +126,33 @@
 .portletBody {
 	box-shadow: $overview-portlet-shadow;
 }
-
+.#{$namespace}multipleTools{
+	.#{$namespace}container {
+		border:none;
+		.portletBody {
+			box-shadow:none;
+		}
+	}
+}
 .#{$namespace}container--footer {
-	margin:0 1em 1em;
+    background:none;
+    box-shadow:none;
+    border:none;
+    margin-bottom: 1em;
+}
+.#{$namespace}footer {
+	background:$white;
+    width:98%;
+    margin-left: 1%;
 	box-shadow: $overview-portlet-shadow;
+}
+input[name="cancel"],
+input[name="Cancel"],
+input[value="Cancel"]{
+	background:	$scorpion;
+	border-color: darken($scorpion, 10%);
+	&:hover{
+		background: darken($scorpion, 10%);
+		border-color: darken($scorpion, 20%);
+	}
 }

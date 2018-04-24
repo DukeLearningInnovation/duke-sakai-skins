@@ -2,7 +2,9 @@
 /*
 TODO:
 - [ ] review swapped view
-- [ ] footer too wide now?
+- [ ] footer width on single column pages
+- [ ] collapse tools needs refinement
+- [ ] why isn't the selected favorite the right color?
 */
 
 
@@ -32,10 +34,10 @@ $more-sites-single-column: "only screen and (max-width : #{$break-more-sites-sin
 /* Typography*/
 
 //Google family Fonts URL
-$font-family-url: "//fonts.googleapis.com/css?family=Roboto:400,500,700" !default;
+$font-family-url: "//fonts.googleapis.com/css?family=Roboto:400,500,700";
 
 //Typography variables
-$font-family: "Roboto", sans-serif !default;
+$font-family: "Roboto", sans-serif;
 $default-font-size: 14px !default;
 $default-font-weight: 400 !default;										// 400 or 700 as you wish
 $header-font-family: $font-family;
@@ -51,6 +53,8 @@ $gallery: #ececec;
 $mercury: #e5e5e5;
 $alto: #cecece;
 $sisal: #DAD0C6;
+$lilac: #E8ECF6;
+$periwinkle: #D1DAEE;
 $spunpearl: #A6A6A8;
 $wheat: #F6EAB8;
 $armadillo: #3d362f;
@@ -76,6 +80,7 @@ $alt-colour: 				         $california;
 $text-color:				         $dovegray;
 $body-background-color:              $background-color;
 $portal-background-color:            $background-color;
+$headings-color:                     $mine-shaft;
 
 /* Tool tabs */
 $tool-background-color:		         $white;
@@ -154,7 +159,7 @@ $error-background-color:    #f2dede !default;
 $error-color:               darken($error-background-color, 30%) !default;
 
 /* Swapped 'View As' view */
-$swapped-view-enabled: false !default;
+$swapped-view-enabled: true;
 $swapped-view-primary: 		 $california;
 $swapped-view-text-color:	 #414141 !default;
 $swapped-view-sites-nav-background: $swapped-view-primary !default;
@@ -189,19 +194,19 @@ $sites-nav-menu-item-hover-border-right:    $sites-nav-menu-item-hover-border-to
 $sites-nav-menu-item-hover-border-bottom:   $sites-nav-menu-item-hover-border-top !default;
 $sites-nav-menu-item-hover-border-left:     $sites-nav-menu-item-hover-border-top !default;
 /* Favorites - item selected */
-$sites-nav-menu-item-selected-background:   darken($sites-nav-menu-item-background, 10%);
+$sites-nav-menu-item-selected-background:   $lilac;
 $sites-nav-menu-item-selected-color:        darken($sites-nav-menu-item-color, 10%);
 $sites-nav-menu-item-selected-icon-color:   darken($sites-nav-menu-item-icon-color, 10%);
-$sites-nav-menu-item-selected-border-color: darken($sites-nav-menu-item-border-color, 10%);
+$sites-nav-menu-item-selected-border-color: $periwinkle;
 $sites-nav-menu-item-selected-border-top:   1px solid $sites-nav-menu-item-selected-border-color !default;
 $sites-nav-menu-item-selected-border-right: $sites-nav-menu-item-selected-border-top !default;
 $sites-nav-menu-item-selected-border-bottom:$sites-nav-menu-item-selected-border-top !default;
 $sites-nav-menu-item-selected-border-left:  $sites-nav-menu-item-selected-border-top !default;
 /* Favorites - item selected and hovered */
-$sites-nav-menu-item-selected-hover-background:   darken($sites-nav-menu-item-background, 15%);
-$sites-nav-menu-item-selected-hover-color:        darken($sites-nav-menu-item-color, 15%);
-$sites-nav-menu-item-selected-hover-icon-color:   darken($sites-nav-menu-item-icon-color, 15%);
-$sites-nav-menu-item-selected-hover-border-color: darken($sites-nav-menu-item-border-color, 15%);
+$sites-nav-menu-item-selected-hover-background:   $button-secondary-hover-background-color;
+$sites-nav-menu-item-selected-hover-color:        $button-secondary-hover-text-color;
+$sites-nav-menu-item-selected-hover-icon-color:   $button-secondary-hover-icon-color;
+$sites-nav-menu-item-selected-hover-border-color: $button-secondary-hover-border-color;
 $sites-nav-menu-item-selected-hover-border-top:   1px solid $sites-nav-menu-item-selected-hover-border-color !default;
 $sites-nav-menu-item-selected-hover-border-right: $sites-nav-menu-item-selected-hover-border-top !default;
 $sites-nav-menu-item-selected-hover-border-bottom:$sites-nav-menu-item-selected-hover-border-top !default;
