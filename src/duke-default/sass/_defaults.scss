@@ -393,14 +393,14 @@ $icon-size: 20px !default;
 /* Icon Overrides */
 $sakai-custom-icons : ( 
 	sakai-message-bundle-manager : ( extend : fa-edit ), 
-	icon-sakai-blogwow : ( extend: fa-book ),
-	icon-sakai-help : ( extend: fa-info-circle ),
-	icon-sakai-piazza : (extend : fa-question-circle),
-	icon-sakai-playposit : (extend : fa-lightbulb-o),
-	icon-sakai-qna : (extend : fa-question-circle-o),
-	icon-sakai-simple-rss : (extend : fa-rss),
-	icon-sakai-voicethread : (extend : fa-microphone),
-	icon-sakai-warpwire : (extend : fa-play-circle)
+	icon-sakai--sakai-blogwow : ( extend: fa-book ),
+	icon-sakai--sakai-help : ( extend: fa-info-circle ),
+	icon-sakai--sakai-piazza : (extend : fa-question-circle),
+	icon-sakai--sakai-playposit : (extend : fa-lightbulb-o),
+	icon-sakai--sakai-qna : (extend : fa-question-circle-o),
+	icon-sakai--sakai-simple-rss : (extend : fa-rss),
+	icon-sakai--sakai-voicethread : (extend : fa-microphone),
+	icon-sakai--sakai-warpwire : (extend : fa-play-circle)
 );
 
 
