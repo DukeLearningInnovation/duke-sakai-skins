@@ -5,8 +5,8 @@ jQuery(function () {
             var width = $PBJQ('#toolMenuWrap').outerWidth();
 
             collapse.css('position', 'fixed')
-                    .css('bottom', '14px')
-                    .css('left', '14px')
+                    .css('bottom', '-3px')
+                    .css('left', '-3px')
                     .css('display', 'flex')
                     .css('width', width);
 
