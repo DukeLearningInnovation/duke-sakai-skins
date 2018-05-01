@@ -158,6 +158,20 @@ input[value="Cancel"]{
 	}
 }
 
+//////////////////////////////////////////////
+// WORKSPACE / HOME
+//////////////////////////////////////////////
+.workspace .#{$namespace}toolBody--sakai-simple-rss {
+	.news-feed {
+		padding:0 14px 14px;
+	}
+	.news-source {
+		display: none;
+	}
+}
+//////////////////////////////////////////////
+// LESSONS STYLES
+//////////////////////////////////////////////
 .#{$namespace}sakai-lessonbuildertool {
 	.navIntraTool {
 		margin:-14px -14px 0 -15px; 
@@ -169,5 +183,38 @@ input[value="Cancel"]{
 		li span a{
 			border-bottom:none;
 		}
+	}
+} 
+//////////////////////////////////////////////
+//SAMIGO STYLES
+//////////////////////////////////////////////
+.#{$namespace}sakai-samigo {
+	.navIntraTool {
+		margin:-15px -15px 0 -15px !important; //important because morpheus default has it
+	}
+	#samigo-create-new-box,
+	#samigo-create-import-box {
+		color:$mine-shaft;
+		h4 {
+			color:$mine-shaft;
+			font-weight:400;
+			font-size:21px;
+		}
+	}
+	ul.ui-tabs-nav{
+		border:none;
+		border-bottom:1px solid rgba(0,0,0,0.1);
+		background:none;
+	}
+	.ui-tabs .ui-tabs-nav li.ui-tabs-active {
+		background:$white;
+		border:1px solid rgba(0,0,0,0.1);
+		border-top:4px solid $dovegray;
+		border-bottom:1px solid $white;
+	}
+	.ui-state-active a,
+	.ui-state-active a:link,
+	.ui-state-active a:visited {
+		color:$mine-shaft;
 	}
 } 
