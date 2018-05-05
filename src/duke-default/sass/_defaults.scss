@@ -3,8 +3,6 @@
 TODO:
 - [ ] review swapped view
 - [ ] footer width on single column pages
-- [ ] collapse tools needs refinement
-- [ ] why isn't the selected favorite the right color?
 */
 
 
@@ -45,6 +43,8 @@ $header-font-weight: 700 !default;										// 400 or 700 as you wish
 
 /* Color palette */
 //http://chir.ag/projects/name-that-color
+$klein: #0736A4;
+$endeavour: #00529b;
 $white: #fff;
 $alabaster: #f7f7f7;
 $ebb: #E8E5E2;
@@ -55,6 +55,8 @@ $alto: #cecece;
 $sisal: #DAD0C6;
 $lilac: #E8ECF6;
 $periwinkle: #D1DAEE;
+$hawkes: #dfe8fe;
+$sail: #aec6fc;
 $spunpearl: #A6A6A8;
 $wheat: #F6EAB8;
 $armadillo: #3d362f;
@@ -65,14 +67,16 @@ $california: #F09905;
 $duke-blue: #001A57;
 $matisse: #235F9C;
 $lochmara: #0680CD;
+$cerulean: #0577b1;
 $midnight-blue: #003366;
 $bigstone: #13293D;
-$klein: #0736A4;
+
 
 // Primary Colors
 $background-color: 			         $alabaster;
 $background-color-secondary:         $klein;
-$primary-color:    			         $klein;
+$primary-color:    			         $endeavour;
+$primary-color-hover:				 $klein;
 $primary-color-highContrast:         darken( $primary-color, 4% );	// for use of primary on non-white light backgrounds, such as greys
 $primary-color-shadow:			     adjust-hue( $primary-color, 5 );	// To give primary a darker shadow
 $secondary-color:  			       #F00 !default;
@@ -109,13 +113,13 @@ $top-header-background:              $background-color-secondary;
 $sites-nav-background:               $tool-menu-background-color;
 
 $breadcrumbs-color:			         $text-color !default;
-$breadcrumbs-tool-color:		     $klein;
-$breadcrumbs-hover-color:		     $klein;
+$breadcrumbs-tool-color:		     $primary-color;
+$breadcrumbs-hover-color:		     $primary-color-hover;
 
 /* Link colors */
 $link-color: $primary-color;
-$link-active-color: $primary-color;
-$link-hover-color: $primary-color;
+$link-active-color: $primary-color-hover;
+$link-hover-color: $primary-color-hover;
 $link-background-color: transparent;
 $link-active-background-color: transparent;
 $link-hover-background-color: transparent;
@@ -128,20 +132,20 @@ $button-background-secondary-color: $alabaster;
 
 /* General button colors */
 $button-color-text-color: $white;
-$button-color-border-color: darken( $klein, 10%);
-$button-color-background-color: $klein;
+$button-color-border-color: darken( $primary-color, 10%);
+$button-color-background-color: $primary-color;
 $button-color-background-secondary-color: $mercury;
 $button-radius:                                           2px;
 $button-text-transform:                                   none !default;
 $button-primary-text-color:                               $button-color-text-color !default;
-$button-primary-background-color:                         $klein;
+$button-primary-background-color:                         $primary-color;
 $button-primary-border-color:                             $button-color-border-color !default;
 $button-primary-hover-text-color:                         $white;
-$button-primary-hover-background-color:                   $midnight-blue;
-$button-primary-hover-border-color:                       $bigstone;
+$button-primary-hover-background-color:                   $primary-color-hover;
+$button-primary-hover-border-color:                       darken($primary-color-hover, 10%);
 $button-secondary-text-color:                             $mine-shaft;
 $button-secondary-icon-color:                             $scorpion;
-$button-secondary-background-color:                       rgba(0,0,0,.05);
+$button-secondary-background-color:                       linear-gradient(-180deg, #fcfcfc 0%, #f6f6f6 90%);
 $button-secondary-border-color:                           rgba(0,0,0,.1);
 $button-secondary-hover-text-color:                       $button-secondary-text-color;
 $button-secondary-hover-icon-color:                       $button-secondary-icon-color;
@@ -150,13 +154,29 @@ $button-secondary-hover-border-color:                     rgba(0,0,0,.15);
 /* ///////////// */
 
 $info-color:                $periwinkle;
-$info-background-color:     $lilac;
+$info-background-color:     $hawkes;
 $ok-color:                  #3c763d !default;
 $ok-background-color:        lighten($ok-color, 45%) !default;
 $warn-background-color:     #F6ECB7 !default;
 $warn-color:                darken($warn-background-color, 35%) !default;
 $error-background-color:    #f2dede !default;
 $error-color:               darken($error-background-color, 30%) !default;
+
+$state-success-text:             #008701!default;
+$state-success-bg:               #dff0d8 !default;
+$state-success-border:           darken(adjust-hue($state-success-bg, -10), 5%) !default;
+
+$state-info-text:                #31708f !default;
+$state-info-bg:                  #d9edf7 !default;
+$state-info-border:              darken(adjust-hue($state-info-bg, -10), 7%) !default;
+
+$state-warning-text:             #8a6d3b !default;
+$state-warning-bg:               #fcf8e3 !default;
+$state-warning-border:           darken(adjust-hue($state-warning-bg, -10), 5%) !default;
+
+$state-danger-text:              #a94442 !default;
+$state-danger-bg:                #f2dede !default;
+$state-danger-border:            darken(adjust-hue($state-danger-bg, -10), 5%) !default;
 
 /* Swapped 'View As' view */
 $swapped-view-enabled: true;
@@ -169,6 +189,7 @@ $header-gradient-a: $midnight-blue;
 $header-gradient-b: $midnight-blue;
 $header-gradient-c: $midnight-blue;
 $header-gradient-d: $midnight-blue;
+
 /* topNav Main Menu */
 $header-size: 50px !default;
 $topNav-text-color:                         $white; /* used for links and text in the topNav */
@@ -176,7 +197,7 @@ $topNav-text-alt-color:                     green;
 
 /* Favorites */ 
 /* Favorites - item */
-$sites-nav-menu-item-background:            linear-gradient(-180deg, #fcfcfc 0%, #f6f6f6 90%);;
+$sites-nav-menu-item-background:            linear-gradient(-180deg, #fcfcfc 0%, #f6f6f6 90%);
 $sites-nav-menu-item-color:                 $button-secondary-text-color;
 $sites-nav-menu-item-icon-color:            $button-secondary-icon-color;
 $sites-nav-menu-item-border-color:          $button-secondary-border-color;
@@ -185,18 +206,18 @@ $sites-nav-menu-item-border-right:          $sites-nav-menu-item-border-top !def
 $sites-nav-menu-item-border-bottom:         $sites-nav-menu-item-border-top !default;
 $sites-nav-menu-item-border-left:           $sites-nav-menu-item-border-top !default;
 /* Favorites - item hovered */
-$sites-nav-menu-item-hover-background:      $button-secondary-hover-background-color;
-$sites-nav-menu-item-hover-color:           $button-secondary-hover-text-color;
-$sites-nav-menu-item-hover-icon-color:      $button-secondary-hover-icon-color;
+$sites-nav-menu-item-hover-background:      $hawkes;
+$sites-nav-menu-item-hover-color:           $primary-color-hover;
+$sites-nav-menu-item-hover-icon-color:      $primary-color-hover;
 $sites-nav-menu-item-hover-border-color:    $button-secondary-hover-border-color;
 $sites-nav-menu-item-hover-border-top:      1px solid $sites-nav-menu-item-hover-border-color !default;
 $sites-nav-menu-item-hover-border-right:    $sites-nav-menu-item-hover-border-top !default;
 $sites-nav-menu-item-hover-border-bottom:   $sites-nav-menu-item-hover-border-top !default;
 $sites-nav-menu-item-hover-border-left:     $sites-nav-menu-item-hover-border-top !default;
 /* Favorites - item selected */
-$sites-nav-menu-item-selected-background:   $lilac;
-$sites-nav-menu-item-selected-color:        darken($sites-nav-menu-item-color, 10%);
-$sites-nav-menu-item-selected-icon-color:   darken($sites-nav-menu-item-icon-color, 10%);
+$sites-nav-menu-item-selected-background:   $hawkes;
+$sites-nav-menu-item-selected-color:        $primary-color-hover;
+$sites-nav-menu-item-selected-icon-color:   $primary-color-hover;
 $sites-nav-menu-item-selected-border-color: $periwinkle;
 $sites-nav-menu-item-selected-border-top:   1px solid $sites-nav-menu-item-selected-border-color !default;
 $sites-nav-menu-item-selected-border-right: $sites-nav-menu-item-selected-border-top !default;
@@ -213,14 +234,14 @@ $sites-nav-menu-item-selected-hover-border-bottom:$sites-nav-menu-item-selected-
 $sites-nav-menu-item-selected-hover-border-left:  $sites-nav-menu-item-selected-hover-border-top !default;
 /* Favorites - tool submenu */
 $sites-nav-submenu-background:              $white;
-$sites-nav-submenu-topleft-border-color:    $sites-nav-menu-item-background !default;
-$sites-nav-submenu-border-color:            $sites-nav-menu-item-hover-border-color !default;
+$sites-nav-submenu-topleft-border-color:    transparent;
+$sites-nav-submenu-border-color:            transparent;
 /* Favorites - tool selected submenu */
 $sites-nav-selected-submenu-border-color: $sites-nav-menu-item-selected-hover-border-color !default;
 $sites-nav-selected-submenu-topleft-border-color: $sites-nav-menu-item-selected-background !default;
 /* Favorites - tool submenu items */
 $sites-nav-submenu-item-text-size:          13px !default;
-$sites-nav-submenu-item-background:         $sites-nav-menu-item-background;
+$sites-nav-submenu-item-background:         $white;
 $sites-nav-submenu-item-color:              $sites-nav-menu-item-color;
 $sites-nav-submenu-item-icon-color:         $sites-nav-menu-item-icon-color;
 $sites-nav-submenu-item-divider-color:      $sites-nav-menu-item-border-color;
@@ -310,14 +331,14 @@ $tool-menu-width-collapsed: $tool-menu-width / 4 !default;
 $tool-menu-item-separator-color:                           transparent;
 $tool-menu-item-text-weight:                               normal !default;
 
-$tool-menu-item-text-color:                                $button-secondary-text-color;
-$tool-menu-item-icon-color:                                $button-secondary-icon-color;
+$tool-menu-item-text-color:                                $primary-color;
+$tool-menu-item-icon-color:                                $primary-color;
 $tool-menu-item-background-color:                          $white;
 $tool-menu-item-border-left:                               none;
 
-$tool-menu-item-hover-text-color:                          $button-secondary-hover-text-color;
-$tool-menu-item-hover-icon-color:                          $button-secondary-hover-icon-color;
-$tool-menu-item-hover-background-color:                    $button-secondary-hover-background-color;
+$tool-menu-item-hover-text-color:                          $primary-color-hover;
+$tool-menu-item-hover-icon-color:                          $primary-color-hover;
+$tool-menu-item-hover-background-color:                    $hawkes;
 $tool-menu-item-hover-border-left:                         none;
 
 $tool-menu-item-hidden-text-color:                         lighten($tool-menu-item-text-color,15%);
@@ -330,9 +351,9 @@ $tool-menu-item-hidden-hover-icon-color:                   $tool-menu-item-hidde
 $tool-menu-item-hidden-hover-background-color:             $tool-menu-item-hover-background-color;
 $tool-menu-item-hidden-hover-border-left:                  $tool-menu-item-hover-border-left;
 
-$tool-menu-item-selected-text-color:                       $klein;
-$tool-menu-item-selected-icon-color:                       $klein;
-$tool-menu-item-selected-background-color:                 $white;
+$tool-menu-item-selected-text-color:                       $primary-color-hover;
+$tool-menu-item-selected-icon-color:                       $primary-color-hover;
+$tool-menu-item-selected-background-color:                 $hawkes;
 $tool-menu-item-selected-border-left:                      none;
 
 $tool-menu-item-selected-hover-text-color:                 $tool-menu-item-hover-text-color;
@@ -346,7 +367,7 @@ $tool-menu-collapse-border-top:                            none;
 $tool-menu-collapse-shadow:                                none;
 
 $tool-menu-collapse-hover-text-color:                      $tool-menu-item-hover-icon-color;
-$tool-menu-collapse-hover-background-color:                $tool-menu-item-hover-background-color;
+$tool-menu-collapse-hover-background-color:                darken($tool-menu-item-hover-background-color, 10%);
 $tool-menu-collapse-hover-border-top:                      $tool-menu-collapse-border-top;
 $tool-menu-collapse-hover-shadow:                          $tool-menu-collapse-shadow;
 
@@ -366,9 +387,9 @@ $tool-sub-menu-border-color: darken( $tool-menu-background-color, 10% ) !default
 $tool-sub-menu-background-color: darken( $tool-menu-background-color, 10% ) !default;
 $tool-sub-menu-hover-background-color: $primary-color !default;
 $tool-sub-menu-hover-color: $white;
-$tool-sub-menu-current-color: $primary-color !default;
+$tool-sub-menu-current-color: $primary-color-hover;
 $tool-sub-menu-current-background-color: $background-color !default;
-$tool-sub-menu-current-hover-color: $tool-menu-color !default;
+$tool-sub-menu-current-hover-color: $primary-color-hover;
 $tool-sub-menu-current-hover-background-color: $background-color !default;
 
 
@@ -395,12 +416,13 @@ $sakai-custom-icons : (
 	sakai-message-bundle-manager : ( extend : fa-edit ), 
 	sakai-blogwow : ( extend: fa-book ),
 	sakai-help : ( extend: fa-info-circle ),
-	sakai-piazza : (extend : fa-question-circle),
+	sakai-piazza : (extend : fa-comments-o),
 	sakai-playposit : (extend : fa-lightbulb-o),
 	sakai-qna : (extend : fa-question-circle-o),
 	sakai-simple-rss : (extend : fa-rss),
 	sakai-voicethread : (extend : fa-microphone),
-	sakai-warpwire : (extend : fa-play-circle)
+	sakai-warpwire : (extend : fa-play-circle),
+	sakai-attendance : (extend : fa-id-card-o)
 );
 
 

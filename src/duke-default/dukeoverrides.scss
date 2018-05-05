@@ -150,23 +150,48 @@
 input[name="cancel"],
 input[name="Cancel"],
 input[value="Cancel"]{
-	background:	$scorpion;
-	border-color: darken($scorpion, 10%);
+	background:	#888;
+	border-color: #999;
 	&:hover{
-		background: darken($scorpion, 10%);
-		border-color: darken($scorpion, 20%);
+		background: $scorpion;
+		border-color: darken($scorpion, 10%);
 	}
 }
 
 //////////////////////////////////////////////
 // WORKSPACE / HOME
 //////////////////////////////////////////////
-.workspace .#{$namespace}toolBody--sakai-simple-rss {
-	.news-feed {
-		padding:0 14px 14px;
+.workspace {
+	.#{$namespace}multipleTools {
+		.#{$namespace}toolTitleNav {
+			.#{$namespace}toolTitleNav__title {
+				font-size:1em;
+			}
+		}
 	}
-	.news-source {
-		display: none;
+	.#{$namespace}siteHierarchy {
+		a.#{$namespace}hierarchy--toolName {
+			display:none;
+		}
+	}
+	
+	.#{$namespace}toolBody--sakai-simple-rss {
+		.news-feed {
+			padding: 14px;
+			.news-items h3 {
+				font-size:16px;
+			}
+			.news-items ul {
+				padding:0;
+			}
+		}
+		.#{$namespace}toolTitleNav__title a {
+			color:#353535;
+			text-decoration:none;
+		}
+		.news-source {
+			display: none;
+		}
 	}
 }
 //////////////////////////////////////////////
