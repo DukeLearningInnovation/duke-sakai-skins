@@ -6,13 +6,39 @@
 #linkNav ul li.#{$namespace}sitesNav__menuitem {
 	border-radius:$button-radius;
 }
+#selectSite,
+#selectQuickLink  {
+	.tab-bar {
+		.tab-btn{
+			background:$alabaster;
+			border-color:$alabaster;
+			&.active{
+				background:$white;
+			}
+		}
+	}
+}
 #toolMenuWrap {
 	border-right:none;
 	box-shadow: $overview-portlet-shadow;
 	margin:1em .5em 1em 1em;
 	padding:0;
 }
-
+#toolMenu,
+#subSites,
+.floatingToolMenu {
+	ul {
+		li {
+			.#{$namespace}toolsNav__menuitem--link {
+				&.is-invisible {
+					.#{$namespace}toolsNav__menuitem--icon {
+						font-style: normal;
+					}
+				}
+			}
+		} 
+	} 
+} 
 @media only screen and (min-width: 801px) {
 	.#{$namespace}collapseTools button.js-toggle-nav {
 		text-align: center;
@@ -69,14 +95,16 @@
 		border-top: 1px solid rgba(0,0,0,0.05);
 	}
 	li {
+		
 		span {
+			
 			&.current{
-				border-bottom:1px solid $white;
+				border-bottom:none;
     			border-left:1px solid rgba(0,0,0,0.1);
-				border-right:1px solid $white;
+				border-right:1px solid rgba(0,0,0,0.1);
 				&::before {
 					border-radius:$button-radius $button-radius 0 0;
-					border-top-color: $dovegray;
+					border-top-color: $endeavour;
 				}
 				a {
 					background:$white;
@@ -149,9 +177,11 @@
 }
 input[name="cancel"],
 input[name="Cancel"],
-input[value="Cancel"]{
+input[value="Cancel"],
+input[value="Clear"],
+input[value="Back"]{
 	background:	#888;
-	border-color: #999;
+	border-color: #808080;
 	&:hover{
 		background: $scorpion;
 		border-color: darken($scorpion, 10%);
@@ -162,35 +192,61 @@ input[value="Cancel"]{
 // WORKSPACE / HOME
 //////////////////////////////////////////////
 .workspace {
+	// Hides breadcrumbs in HOME
+	// .#{$namespace}pagebody,
+	// #toolMenuWrap {
+	// 	margin-top:2em;
+	// }
+	// .navIntraTool {
+	// 	padding-right:10%;
+	// }
+	// .#{$namespace}siteHierarchy {
+	// 	a.#{$namespace}hierarchy--toolName {
+	// 		display:none;
+	// 	}
+	// }
+	// .#{$namespace}pageColumns--single {
+	// 	.#{$namespace}toolTitleNav__button_container {
+	// 		top: 0;
+	// 		z-index:2;
+	// 	}
+	// }
+	// END Hides breadcrumbs
+	.#{$namespace}pageColumns--single {
+		.#{$namespace}toolTitleNav__button_container{
+			right:0;
+		}
+	}
 	.#{$namespace}multipleTools {
 		.#{$namespace}toolTitleNav {
 			.#{$namespace}toolTitleNav__title {
 				font-size:1em;
 			}
-		}
-	}
-	.#{$namespace}siteHierarchy {
-		a.#{$namespace}hierarchy--toolName {
-			display:none;
-		}
-	}
-	
-	.#{$namespace}toolBody--sakai-simple-rss {
-		.news-feed {
-			padding: 14px;
-			.news-items h3 {
-				font-size:16px;
+			.#{$namespace}container--toolTitleNav {
+				padding: .6em 1em;
 			}
-			.news-items ul {
-				padding:0;
+			.#{$namespace}toolTitleNav__button_container {
+				right:14px;
 			}
 		}
-		.#{$namespace}toolTitleNav__title a {
-			color:#353535;
-			text-decoration:none;
-		}
-		.news-source {
-			display: none;
+
+		.#{$namespace}sakai-simple-rss {
+			.news-feed {
+				padding: 14px;
+				.news-items h3 {
+					font-size:16px;
+				}
+				.news-items ul {
+					padding:0;
+				}
+			}
+			.#{$namespace}toolTitleNav__title a {
+				color:#353535;
+				text-decoration:none;
+			}
+			.news-source {
+				display: none;
+			}
 		}
 	}
 }

@@ -341,13 +341,13 @@ $tool-menu-item-hover-icon-color:                          $primary-color-hover;
 $tool-menu-item-hover-background-color:                    $hawkes;
 $tool-menu-item-hover-border-left:                         none;
 
-$tool-menu-item-hidden-text-color:                         lighten($tool-menu-item-text-color,15%);
-$tool-menu-item-hidden-icon-color:                         lighten($tool-menu-item-icon-color,15%);
+$tool-menu-item-hidden-text-color:                         $spunpearl;
+$tool-menu-item-hidden-icon-color:                         $spunpearl;
 $tool-menu-item-hidden-background-color:                   $tool-menu-item-background-color;
 $tool-menu-item-hidden-border-left:                        $tool-menu-item-border-left;
 
-$tool-menu-item-hidden-hover-color:                        $tool-menu-item-hidden-text-color;
-$tool-menu-item-hidden-hover-icon-color:                   $tool-menu-item-hidden-icon-color;
+$tool-menu-item-hidden-hover-color:                        $tool-menu-item-hover-text-color;
+$tool-menu-item-hidden-hover-icon-color:                   $tool-menu-item-hover-icon-color;
 $tool-menu-item-hidden-hover-background-color:             $tool-menu-item-hover-background-color;
 $tool-menu-item-hidden-hover-border-left:                  $tool-menu-item-hover-border-left;
 
