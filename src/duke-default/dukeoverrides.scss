@@ -1,3 +1,4 @@
+
 @import "defaults";
 
 #topnav_container {
@@ -10,8 +11,8 @@
 #selectQuickLink  {
 	.tab-bar {
 		.tab-btn{
-			background:$alabaster;
-			border-color:$alabaster;
+			background:$background-color;
+			border-color:$background-color;
 			&.active{
 				background:$white;
 			}
@@ -77,7 +78,7 @@
 
 
 .navIntraTool {
-	border-bottom:none;
+	// border-bottom:none;
 	background: $background-color;
 	margin-left:-15px;
 	//target tools without 'default tabs'
@@ -107,12 +108,12 @@
 					border-top-color: $endeavour;
 				}
 				a {
-					background:$white;
+					
 					&:hover {
 						background:$white;
 						&::before{
 							top:-2px;
-							border-top-color: $dovegray;
+							border-top-color: $endeavour;
 						}
 					}
 				}
