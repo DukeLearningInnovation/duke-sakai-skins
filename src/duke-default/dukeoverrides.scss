@@ -1,6 +1,8 @@
 
 @import "defaults";
-
+a[href]:focus, a[href]::-moz-focus-inner {
+	outline:1px solid $california;
+}
 #topnav_container {
 	padding: .5em 1em;
 }
@@ -186,6 +188,38 @@ input[value="Back"]{
 	&:hover{
 		background: $scorpion;
 		border-color: darken($scorpion, 10%);
+	}
+}
+.#{$namespace}siteStatus{
+	&.is-unpublished {
+		margin:0 0 2.4em 1em;
+		width:98%;
+	}
+}
+//////////////////////////////////////////////
+// SWAPPED View
+//////////////////////////////////////////////
+@if $swapped-view-enabled {
+	.#{$namespace}portalWrapper{
+		color: $swapped-view-text-color;
+		&.swapped-view{
+			.#{$namespace}topHeader{
+				background: $swapped-view-primary;
+			}
+			.#{$namespace}headerLogo{
+				background: $swapped-view-primary;
+			}
+			.#{$namespace}siteHierarchy{
+				background: $background-color;
+				color: $mine-shaft;
+				a {
+					color: $endeavour;
+				}
+			}
+			.#{$namespace}mainHeader.is-maximized .siteNavWrap{
+				background: $swapped-view-sites-nav-background;
+			}
+		}
 	}
 }
 
