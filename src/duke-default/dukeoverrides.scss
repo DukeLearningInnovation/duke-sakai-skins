@@ -6,8 +6,28 @@ a[href]:focus, a[href]::-moz-focus-inner {
 #topnav_container {
 	padding: .5em 1em;
 }
-#linkNav ul li.#{$namespace}sitesNav__menuitem {
-	border-radius:$button-radius;
+#linkNav {
+	ul {
+		li {
+			&.#{$namespace}sitesNav__menuitem {
+				border-radius:$button-radius;
+
+				> a.link-container {
+					padding-right:32px;
+				}
+				&.#{$namespace}sitesNav__menuitem--myworkspace {
+					a.#{$namespace}sitesNav__dropdown {
+						padding:0;
+					}
+					.fa-home {
+						padding-right: 4px;
+					}
+				}
+			}
+			
+			
+		}
+	}
 }
 #selectSite,
 #selectQuickLink  {
@@ -284,7 +304,12 @@ input[value="Back"]{
 			}
 		}
 	}
+	// Hide message of the day options
+	// a[title="Message of the Day Options"]{
+		
+	// }
 }
+
 //////////////////////////////////////////////
 // LESSONS STYLES
 //////////////////////////////////////////////
@@ -335,7 +360,7 @@ input[value="Back"]{
 	}
 } 
 //////////////////////////////////////////////
-//SAMIGO STYLES
+//GRADEBOOK STYLES
 //////////////////////////////////////////////
 .gb-summary-grade-flags {
 	.gb-external-app-flag {

@@ -415,7 +415,7 @@ $icon-size: 20px !default;
 /* Icon Overrides */
 $sakai-custom-icons : ( 
 	sakai-message-bundle-manager : ( extend : fa-edit ), 
-	sakai-blogwow : ( extend: fa-book ),
+	sakai-blogwow : ( extend: fa-keyboard-o ),
 	sakai-help : ( extend: fa-info-circle ),
 	sakai-piazza : (extend : fa-comments-o),
 	sakai-playposit : (extend : fa-lightbulb-o),
@@ -447,3 +447,8 @@ $instruction-color: #5c5c5c !default;
 $instruction-background-color: #fff !default;
 
 @import url(#{$font-family-url});
+
+// SAK-40006 CK Editor full screen bug
+.cke_inner.cke_reset.cke_maximized {
+	position: fixed !important; 
+}
