@@ -1,0 +1,1577 @@
+
+    <!DOCTYPE html>
+<html lang="en-US" dir="ltr" class="Mrphs-html">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <script>                                     var portal = {
+                "bullhorns": {
+                    "enabled": false,
+                                    },
+                "chat": {
+                    "enabled": false,
+                    "pollInterval": 5000,
+                    "video" : {
+                        "enabled": true
+                    }
+                },
+                "i18n": {},
+                "loggedIn": true,
+                "portalPath": "https://dukedev.longsight.com/portal",
+                "loggedOutUrl": "https://shib.oit.duke.edu/cgi-bin/logout.pl?returnto=https://dukedev.longsight.com/",
+                "siteId": "fd58cd72-7a25-44e7-b575-62df77d16c1d",
+                "siteTitle": "NURSING DTA 101 1660",
+                "shortDescription" : "",
+                "toolsCollapsed":  false ,
+                "locale": "en-US",
+                "user": {
+                    "id": "8c41a379-a522-4b2b-b00b-8ac6c4914c65",
+                    "eid": "citfac@duke.edu",
+                    "userType": "faculty",
+                    "siteRole": "Student"
+                },
+                "timeoutDialog" : {
+                "enabled": true,
+                "seconds": 900
+                },
+                "toggle" : {
+                    "allowauto": false,
+                    "tools": false,
+                    "sitenav": false // This is not allowed in morpheus
+                },
+                "pageScriptPath" : "/library/js/",
+                "editor" : {
+                    "type": "",
+                },
+                "portalCDNQuery" : "?version=ae"
+            };
+        </script>
+
+            <!-- Head material from Tool in PDA mode (will include title and headscripts) -->
+    
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <META CONTENT="NO-CACHE" HTTP-EQUIV="CACHE-CONTROL"/>
+ 
+ <link href="/library/skin/tool_base.css?version=ae" type="text/css" rel="stylesheet" media="screen, tty, tv, handheld, projection" />
+<script type="text/javascript" src="/library/js/headscripts.js?version=ae"></script>
+<script type="text/javascript">var sakai = sakai || {}; sakai.editor = sakai.editor || {}; sakai.editor.editors = sakai.editor.editors || {}; sakai.editor.editors.ckeditor = sakai.editor.editors.ckeditor || {}; sakai.locale = sakai.locale || {};
+sakai.locale.userCountry = 'US';
+sakai.locale.userLanguage = 'en';
+sakai.locale.userLocale = 'en_US';
+sakai.editor.collectionId = '/group/fd58cd72-7a25-44e7-b575-62df77d16c1d/';
+sakai.editor.enableResourceSearch = false;
+sakai.editor.contentItemUrl = '/portal/tool/c47ade11-4e5a-4370-8629-65c260dfe17e/sakai.basiclti.admin.helper.helper?panel=CKEditor';
+sakai.editor.siteToolSkin = '/library/skin/duke-default/tool.css';
+sakai.editor.sitePrintSkin = '/library/skin/duke-default/print.css';
+sakai.editor.editors.ckeditor.browser = 'elfinder';
+</script>
+<script type="text/javascript">var CKEDITOR_BASEPATH='/library/webjars/ckeditor/4.9.1/full/';
+</script>
+<script type="text/javascript" src="/library/webjars/ckeditor/4.9.1/full/ckeditor.js?version=ae"></script>
+<script type="text/javascript" src="/library/editor/ckeditor.launch.js?version=ae"></script>
+
+ 
+ <script  language="JavaScript" type="text/javascript" src="https://dukedev.longsight.com/lessonbuilder-tool/js/rsf.js?version=ae"></script>
+ <link  rel="stylesheet" href="https://dukedev.longsight.com/lessonbuilder-tool/css/simplepage-theme/jquery-ui-1.11.1.smoothness.css?version=ae" type="text/css"/>	
+ 
+ 
+ <link  rel="stylesheet" href="https://dukedev.longsight.com/lessonbuilder-tool/css/Simplepagetool.css?version=ae" type="text/css"/>
+ <link  rel="stylesheet" href="https://dukedev.longsight.com/lessonbuilder-tool/css/checklist.css?version=ae" type="text/css"/>
+ 
+
+ <style type="text/css">
+	 #outer{
+		 min-height:325px;
+	 }
+	 html>body #outer{height:auto}
+ /* siteTitle is added by portal, but we don't want it */
+	 .siteTitle{display:none !important;}
+	 .pageTitle{width:auto !important;}
+
+         .Mrphs-toolTitleNav .Mrphs-toolTitleNav__button_container {
+            /* top: 2px !important; */
+         }
+ </style>
+ 
+ 
+    <!-- End of Head material from Tool -->
+ <title>Sakai : NURSING DTA 101 1660 : Course</title>
+        <!--[if (lt IE 9)]>
+  <link href="/library/skin/duke-default/tool-ie.css?version=ae" rel="stylesheet">
+<![endif]-->
+<link href="/library/skin/duke-default/tool.css?version=ae" rel="stylesheet" media="screen, tty, tv, handheld, projection">
+<link href="/library/skin/duke-default/print.css?version=ae" rel="stylesheet" media="print">        
+        <link href="/library/webjars/jquery-ui/1.12.1/jquery-ui.min.css?version=ae" rel="stylesheet" />  
+        <link href="/library/js/jquery/cluetip/1.2.10/css/jquery.cluetip.css?version=ae" rel="stylesheet">
+        <link href="/library/js/jquery/qtip/jquery.qtip-latest.min.css?version=ae" rel="stylesheet">
+        <link href="/library/webjars/pnotify/2.1.0/pnotify.core.min.css?version=ae" rel="stylesheet">
+	<link href="/library/webjars/pnotify/2.1.0/pnotify.buttons.min.css?version=ae" rel="stylesheet">
+        <link href="/library/webjars/cropper/2.3.2/dist/cropper.min.css?version=ae" rel="stylesheet">
+        <script src="/library/skin/duke-default/js/lib/modernizr.js?version=ae"></script>
+            
+        <!-- inlined tool header contribution -->
+                        	        		
+        	                        <!-- end inlined tool header contribution -->
+    </head>
+
+    <body  class="Mrphs-portalBody course "  class="course">
+
+        <noscript>
+            <span id="portal_js_warn" class="Mrphs-noJs js-warn-no-js">Sakai works much better when JavaScript is enabled. Please enable JavaScript in your Browser.</span>
+        </noscript>
+        
+                 
+        <div  class="Mrphs-portalWrapper">
+
+                        <nav id="skipNav" class="Mrphs-skipNav">
+    <ul class="Mrphs-skipNav__menu">
+
+                 <li class="Mrphs-skipNav__menuitem Mrphs-skipNav__menuitem--content">
+            <a href="#tocontent" class="Mrphs-skipNav__link" title="jump to content" accesskey="c">
+                jump to content
+                <span class="accesibility_key">[c]</span>
+            </a>
+        </li>
+        <li class="Mrphs-skipNav__menuitem Mrphs-skipNav__menuitem--worksite">
+            <a href="#txtSearch" id="more-sites-menu" class="Mrphs-skipNav__link js-toggle-sites-nav" title="jump to site list" accesskey="w">
+                <i class="fa fa-th all-sites-icon" aria-hidden="true"></i> Sites
+                <span class="accesibility_key">[w]</span>
+            </a>
+        </li>
+        <li class="Mrphs-skipNav__menuitem Mrphs-skipNav__menuitem--tools">
+            <a href="#totoolmenu" class="Mrphs-skipNav__link js-toggle-tools-nav" title="jump to tools list" accesskey="l">
+                <i class="fa fa-bars tools-icon" aria-hidden="true"></i>
+                Tools
+                <span class="accesibility_key">[l]</span>
+            </a>
+																										<a href="https://dukedev.longsight.com/portal/site/fd58cd72-7a25-44e7-b575-62df77d16c1d/tool-reset/39274ff7-733f-4d11-966e-c18019b4c0d4" title="Tool Home" class="xs-visible Mrphs-skipNav--toolName">
+						<span class="Mrphs-breadcrumb--icon icon-sakai--sakai-lessonbuildertool "></span>
+						<span>Course</span>
+					</a>
+																					        </li>
+    </ul>
+</nav>
+
+            <div  class="Mrphs-mainHeader is-maximized" >
+
+                                <div class="Mrphs-topHeader">
+                    
+<header role="banner" class="Mrphs-headerLogo">
+    <span class="Mrphs-headerLogo--institution"></span>
+    <span class="Mrphs-headerLogo--banner"></span>
+
+    
+<nav id="mastLogin" class="Mrphs-loginNav">
+
+    
+                     
+                    
+        
+                    <div class="Mrphs-sitesNav__menuitem view-all-sites-btn">
+                <a href="javascript:void(0);" title="View All Sites" aria-haspopup="true">
+                    <i class="fa fa-th all-sites-icon" aria-hidden="true"></i> <span class="all-sites-label">Sites</span>
+                </a>
+            </div>
+        
+        <ul id="loginLinks" class="Mrphs-userNav">
+
+                
+                    
+                        <li class="Mrphs-userNav__popup js-toggle-user-nav">
+
+                                
+                                    
+                                        <div id="loginUser" class="has-avatar Mrphs-userNav__submenuitem--userlink ">
+                                            <a href="javascript:void(0);" class="Mrphs-userNav__drop-btn Mrphs-userNav__submenuitem--profilepicture" style="background-image:url(/direct/profile/8c41a379-a522-4b2b-b00b-8ac6c4914c65/image/thumb)" tabindex="-1"></a>
+                                            <a href="javascript:void(0);" class="Mrphs-userNav__drop-btn Mrphs-userNav__submenuitem--username" aria-haspopup="true">FacultyFirstName</a>
+                                        </div>
+
+                                     
+                                 
+                            <ul class="Mrphs-userNav__subnav is-hidden" role="menu">
+
+                                <li class="Mrphs-userNav__submenuitem Mrphs-userData">
+                                    <div class="Mrphs-userNav__submenuitem--profile-and-image">
+                                                                                    <div class="has-avatar">
+                                                <a role="menuitem" class="Mrphs-userNav__submenuitem--profilelink" href="https://dukedev.longsight.com/portal/site/%7E8c41a379-a522-4b2b-b00b-8ac6c4914c65/tool-reset/37ef74fc-c965-480e-9f5f-32f8f649a235">
+                                                    <span class="Mrphs-userNav__submenuitem--profilepicture Mrphs-userNav__pic-changer" style="background-image:url(/direct/profile/8c41a379-a522-4b2b-b00b-8ac6c4914c65/image/thumb)" tabindex="-1"></span>
+                                                </a>
+                                            </div>
+                                            <div class="Mrphs-userNav__submenuitem--profile">
+                                                <a role="menuitem" href="https://dukedev.longsight.com/portal/site/%7E8c41a379-a522-4b2b-b00b-8ac6c4914c65/tool-reset/37ef74fc-c965-480e-9f5f-32f8f649a235">
+                                                    <span>Profile</span>
+                                                </a>
+                                            </div>
+                                                                            </div>
+                                    <div class="Mrphs-userNav__submenuitem--fullname-and-id">
+                                        <div class="Mrphs-userNav__submenuitem--fullname">
+                                            FacultyFirstName FacultyLastName
+                                        </div>
+                                        <div class="Mrphs-userNav__submenuitem--displayid">
+                                            citfac@duke.edu
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li class="Mrphs-userNav__submenuitem Mrphs-userNav__submenuitem-indented">
+                                    <a role="menuitem" href="javascript:;" id="Mrphs-userNav__submenuitem--connections">
+                                        <span>My Connections</span>
+                                    </a>
+                                </li>
+
+                                                
+                                        <li class="Mrphs-userNav__submenuitem Mrphs-userNav__submenuitem-indented">
+                                            <a role="menuitem" href="https://dukedev.longsight.com/portal/site/%7E8c41a379-a522-4b2b-b00b-8ac6c4914c65/page/1c96ff54-2d86-41ed-acfc-117ece0cca7f" class="Mrphs-userNav__submenuitem--calendar">
+                                                <span>Calendar</span>
+                                            </a>
+                                        </li>
+            
+                                     
+                                    
+                                        <li class="Mrphs-userNav__submenuitem Mrphs-userNav__submenuitem-indented">
+                                            <a role="menuitem" href="https://dukedev.longsight.com/portal/site/%7E8c41a379-a522-4b2b-b00b-8ac6c4914c65/page/f40f9daa-3ac7-4691-8350-2df895e47873" class="Mrphs-userNav__submenuitem--prefs">
+                                                <span>Preferences</span>
+                                            </a>
+                                        </li>
+
+                                     
+                                    
+                                        <li class="Mrphs-userNav__submenuitem Mrphs-userNav__submenuitem-indented">
+                                            <a id="tutorialLink" role="menuitem" href="#" onclick="startTutorial({});" class="Mrphs-userNav__submenuitem--tutorial">
+                                                <span>Tutorial</span>
+                                            </a>
+                                        </li>
+
+                                     
+                             
+                        
+                     
+                        
+                     
+                        
+                     
+                        
+                     
+                        
+                     
+                        
+                     
+                        
+                     
+                        
+                     
+                        
+                     
+                         
+                            <li class="Mrphs-userNav__logout Mrphs-userNav__submenuitem-indented">
+                                <div id="loginLinksImage" class="Mrphs-loginUser" tabindex="999">
+
+    
+        <p class="Mrphs-loginUser__menuitem">
+            <a href="https://dukedev.longsight.com/portal/logout" title="Log Out" id="loginLink1" class="Mrphs-loginUser__message" data-warning="">
+                <i class="login-Icon"></i>
+                <span class="Mrphs-login-Message">Log Out</span>
+            </a>
+        </p>
+
+     
+     
+</div>
+                            </li>
+
+                        </ul>
+
+            </li>
+
+        </ul> <!-- end of nav#loginLinks-->
+
+             
+</nav>
+</header>                </div>
+
+                                                        
+    
+    
+         
+         
+ 
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+ 
+<!-- START VM includeTabs.vm -->
+    <div id="Mrphs-sites-nav" class="siteNavWrap course Mrphs-container Mrphs-container--navs">
+
+        <nav id="linkNav" role="navigation" aria-labelledby="sitetabs" class="Mrphs-sitesNav" data-max-tools-int="10" data-max-tools-anchor="Go to the site to view all">
+    <h1 class="skip" tabindex="-1" id="sitetabs">Sites list begins here</h1>
+    <div id="show-all-sites" tabindex="-1"><i class="fa fa-angle-double-left" aria-hidden="true"></i><span>All Sites</span></div>
+    <div id="topnav_container">
+        <ul class="Mrphs-sitesNav__menu" id="topnav" aria-label="Sites list begins here">
+
+            
+                                    <li class="Mrphs-sitesNav__menuitem Mrphs-sitesNav__menuitem--myworkspace ">
+                        <a class="link-container" href="https://dukedev.longsight.com/portal/site/%7E8c41a379-a522-4b2b-b00b-8ac6c4914c65" title="Home">
+                            <span class="fa fa-home" aria-hidden="true"></span>
+                            <span class="Mrphs-sitesNav__menuitem--myworkspace-label">Home</span>
+                        </a>
+                        <a class="Mrphs-sitesNav__dropdown" href="#" data-site-id="~8c41a379-a522-4b2b-b00b-8ac6c4914c65" aria-haspopup="true" aria-label="Home - open attached menu"></a>
+                    </li>           
+                 
+                                 
+            
+                 
+                                                    <li class="Mrphs-sitesNav__menuitem  is-selected ">
+                        <a class="link-container" href="https://dukedev.longsight.com/portal/site/fd58cd72-7a25-44e7-b575-62df77d16c1d" title="NURSING DTA 101 1660">
+                            <span>NURSING DTA 101 1660</span>
+                        </a>
+                        <a class="Mrphs-sitesNav__dropdown" href="#" data-site-id="fd58cd72-7a25-44e7-b575-62df77d16c1d" aria-haspopup="true" aria-label="NURSING DTA 101 1660 - open attached menu"></a>
+                    </li>
+
+                 
+            
+                 
+                                                    <li class="Mrphs-sitesNav__menuitem ">
+                        <a class="link-container" href="https://dukedev.longsight.com/portal/site/39519eb3-b1ed-4c89-9c53-40470664e9d6" title="mg test sp 18 1630">
+                            <span>mg test sp 18 1630</span>
+                        </a>
+                        <a class="Mrphs-sitesNav__dropdown" href="#" data-site-id="39519eb3-b1ed-4c89-9c53-40470664e9d6" aria-haspopup="true" aria-label="mg test sp 18 1630 - open attached menu"></a>
+                    </li>
+
+                 
+            
+                 
+                                                    <li class="Mrphs-sitesNav__menuitem ">
+                        <a class="link-container" href="https://dukedev.longsight.com/portal/site/effa768e-8d2d-438e-ac4f-c3132a1dde82" title="michael 101 01 1630">
+                            <span>michael 101 01 1630</span>
+                        </a>
+                        <a class="Mrphs-sitesNav__dropdown" href="#" data-site-id="effa768e-8d2d-438e-ac4f-c3132a1dde82" aria-haspopup="true" aria-label="michael 101 01 1630 - open attached menu"></a>
+                    </li>
+
+                 
+            
+                 
+                                 
+            
+                 
+                                 
+            
+                 
+                                 
+            
+                 
+                                 
+            
+                 
+                                 
+            
+                 
+                                 
+                     </ul>
+    </div>
+
+</nav> <!-- /Mrphs-sitesNav -->
+
+    </div> <!-- /end of div.tabsCssClass -->
+    
+<!-- END VM includeTabs.vm -->
+                 
+            </div>
+
+                <div id="maxToolsText" style="display: none">Go to the site to view all</div>
+    <div id="maxToolsInt" style="display: none">10</div>
+    <div id="refreshNotificationText" style="display: none"><a href="javascript:location.reload()">Reload</a> to see your updated favorite sites</div>
+    <div id="addToFavoritesText" style="display: none">Add [site] to favorites</div>
+    <div id="removeFromFavoritesText" style="display: none">Remove [site] from favorites</div>
+    <div id="maxFavoritesLimitReachedText" style="display: none">Only the first 15 sites (above) will display in your favorites bar.</div>
+
+    <div id="selectSiteModal" class="outscreen" role="dialog" aria-label="Navigate to a site, mark a site as a favorite, or organize favorites">
+
+        <div class="hidden" id="max-favorite-entries">15</div>
+
+        <ul id="otherSitesMenu" role="menu">
+            
+                <li><a role="menuitem" id="allSites" href="https://dukedev.longsight.com/portal/site/%7E8c41a379-a522-4b2b-b00b-8ac6c4914c65/tool-reset/0efcc0a4-bda0-4e68-bb4a-81dcd00d72e0"><span>View All Sites</span></a></li>
+
+                
+                    <li><a role="menuitem" id="newSite" href="https://dukedev.longsight.com/portal/site/%7E8c41a379-a522-4b2b-b00b-8ac6c4914c65/tool-reset/0efcc0a4-bda0-4e68-bb4a-81dcd00d72e0?panel=Shortcut&amp;sakai_action=doNew_site&amp"><span>Create New Site</span></a></li>
+
+                 
+             
+            
+                <li><a role="menuitem" href="https://dukedev.longsight.com/portal/site/%7E8c41a379-a522-4b2b-b00b-8ac6c4914c65/page/f40f9daa-3ac7-4691-8350-2df895e47873"><span>Preferences</span></a></li>
+
+             
+            <li class="otherSitesMenuClose">
+                <a role="menuitem" href="javascript:void(0);">
+                    <span class="sr-only">Close this drawer</span>
+                    <span class="fa fa-times" aria-hidden="true"></span>
+                </a>
+            </li>
+        </ul>
+
+        <div id="selectSite">
+            <!-- View all sites, add new site, preferences -->
+            <ul class="tab-bar" role="tablist">
+                <li class="tab-btn active" id="tab-othersites" aria-selected="true" role="tab" data-tab-target="otherSitesCategorWrap" tabindex="0">
+                    Sites
+                </li>
+                <li class="organizeFavorites tab-btn" id="tab-favorites" aria-selected="false" role="tab" data-tab-target="organizeFavorites" tabindex="-1">
+                    <span class="favorites-desktop">Organize Favorites</span>
+                    <span class="favorites-mobile">Favorites</span>
+                    <span class="favoriteCountAndWarning">
+                        <span class="favoriteCount"></span>
+                        <span id="favoriteMaxWarningIndicator"> <span class="fa fa-warning" aria-hidden="true"></span></span>
+                    </span>
+                </li>
+            </ul>
+
+            <div class="tab-pane">
+                <div class="tab-box" id="otherSitesCategorWrap" aria-labelledby="tab-othersites" role="tabpanel">
+
+                    <p style="display: none" class="favorites-help-text autofavorite-enabled">Star sites below to add them to your favorites bar. New sites will be automatically added to your favorites.</p>
+                    <p style="display: none" class="favorites-help-text autofavorite-disabled">Star sites below to add them to your favorites bar.</p>
+
+                    <hr />
+
+                    <div id="otherSiteSearch">
+                        <label for="txtSearch">Filter sites</label>
+                        <input type="text" id="txtSearch" name="txtSearch" maxlength="50">
+                        <a id="otherSiteSearchClear" class="other-site-search-clear" href="javascript:void(0);"></a>
+                    </div>
+                    <div id="noSearchResults" class="is-hidden">No search results found</div>
+
+
+                    
+                    <div class="moresites-left-col">
+                                                                                    <div class="fav-sites-term">
+                                                                            <h3 class="favorites-term-header"><a href='javascript:void(0);' class="favorites-select-all-none"></a>2018 Fall Term</h3>
+                                    
+                                    <ul class="otherSitesCategorList favoriteSiteList">
+                                                                                                            <li role="presentation" class="fav-sites-entry is-selected  ">
+                                                        	<a class="site-favorite-btn" data-site-id="fd58cd72-7a25-44e7-b575-62df77d16c1d" href="javascript:void(0);"></a>
+                            							
+                            <div class="fav-title ">
+                            	<a href="https://dukedev.longsight.com/portal/site/fd58cd72-7a25-44e7-b575-62df77d16c1d" title="NURSING DTA 101 1660">
+                                                                            <span class="fullTitle">NURSING DTA 101 1660</span>
+                                                                    </a>
+                            </div>
+                            <a href="#" id="fd58cd72-7a25-44e7-b575-62df77d16c1d" class="toolMenus" aria-haspopup="true" aria-label="NURSING DTA 101 1660 - open attached menu">
+                                <span class="fa fa-chevron-down" aria-hidden="true"></span>
+                            </a>
+                        </li>
+                                                                                                </ul>
+                                </div>
+                                                                                                                <div class="fav-sites-term">
+                                                                            <h3 class="favorites-term-header"><a href='javascript:void(0);' class="favorites-select-all-none"></a>2018 Spring Term</h3>
+                                    
+                                    <ul class="otherSitesCategorList favoriteSiteList">
+                                                                                                            <li role="presentation" class="fav-sites-entry  ">
+                                                        	<a class="site-favorite-btn" data-site-id="39519eb3-b1ed-4c89-9c53-40470664e9d6" href="javascript:void(0);"></a>
+                            							
+                            <div class="fav-title ">
+                            	<a href="https://dukedev.longsight.com/portal/site/39519eb3-b1ed-4c89-9c53-40470664e9d6" title="mg test sp 18 1630">
+                                                                            <span class="fullTitle">mg test sp 18 1630</span>
+                                                                    </a>
+                            </div>
+                            <a href="#" id="39519eb3-b1ed-4c89-9c53-40470664e9d6" class="toolMenus" aria-haspopup="true" aria-label="mg test sp 18 1630 - open attached menu">
+                                <span class="fa fa-chevron-down" aria-hidden="true"></span>
+                            </a>
+                        </li>
+                                                                                                                                <li role="presentation" class="fav-sites-entry  ">
+                                                        	<a class="site-favorite-btn" data-site-id="effa768e-8d2d-438e-ac4f-c3132a1dde82" href="javascript:void(0);"></a>
+                            							
+                            <div class="fav-title ">
+                            	<a href="https://dukedev.longsight.com/portal/site/effa768e-8d2d-438e-ac4f-c3132a1dde82" title="michael 101 01 1630">
+                                                                            <span class="fullTitle">michael 101 01 1630</span>
+                                                                    </a>
+                            </div>
+                            <a href="#" id="effa768e-8d2d-438e-ac4f-c3132a1dde82" class="toolMenus" aria-haspopup="true" aria-label="michael 101 01 1630 - open attached menu">
+                                <span class="fa fa-chevron-down" aria-hidden="true"></span>
+                            </a>
+                        </li>
+                                                                                                </ul>
+                                </div>
+                                                                                                                <div class="fav-sites-term">
+                                                                            <h3 class="favorites-term-header"><a href='javascript:void(0);' class="favorites-select-all-none"></a>2016 Spring Term</h3>
+                                    
+                                    <ul class="otherSitesCategorList favoriteSiteList">
+                                                                                                            <li role="presentation" class="fav-sites-entry  ">
+                                                        	<a class="site-favorite-btn" data-site-id="071dd959-3b89-441c-8fcf-cec569334354" href="javascript:void(0);"></a>
+                            							
+                            <div class="fav-title ">
+                            	<a href="https://dukedev.longsight.com/portal/site/071dd959-3b89-441c-8fcf-cec569334354" title="BIOLOGY.157.01.Sp16">
+                                                                            <span class="fullTitle">BIOLOGY.157.01.Sp16</span>
+                                                                    </a>
+                            </div>
+                            <a href="#" id="071dd959-3b89-441c-8fcf-cec569334354" class="toolMenus" aria-haspopup="true" aria-label="BIOLOGY.157.01.Sp16 - open attached menu">
+                                <span class="fa fa-chevron-down" aria-hidden="true"></span>
+                            </a>
+                        </li>
+                                                                                                </ul>
+                                </div>
+                                                                                                                                                                                </div>
+
+                    <div class="moresites-right-col">
+                                                                                                                                                                                                                                                <div class="fav-sites-term">
+                                                                            <h3 class="favorites-term-header"><a href='javascript:void(0);' class="favorites-select-all-none"></a>OTHER</h3>
+
+                                        <ul class="otherSitesCategorList favoriteSiteList">
+                                            <!-- anchor "my workspace" to the top of the list -->
+                                                                                                                                                                        <li role="presentation" class="fav-sites-entry  my-workspace ">
+                            							
+                            <div class="fav-title  fav-title-myworkspace ">
+                            	<a href="https://dukedev.longsight.com/portal/site/%7E8c41a379-a522-4b2b-b00b-8ac6c4914c65" title="Home">
+                                                                            <span class="fa fa-home" aria-hidden="true"></span><span class="fullTitle">Home</span>
+                                                                    </a>
+                            </div>
+                            <a href="#" id="~8c41a379-a522-4b2b-b00b-8ac6c4914c65" class="toolMenus" aria-haspopup="true" aria-label="Home - open attached menu">
+                                <span class="fa fa-chevron-down" aria-hidden="true"></span>
+                            </a>
+                        </li>
+                                                                                                                
+                                                                                                                                                                                </ul>
+                                                                    </div>
+                                                                                                                <div class="fav-sites-term">
+                                                                            <h3 class="favorites-term-header"><a href='javascript:void(0);' class="favorites-select-all-none"></a>PROJECTS</h3>
+
+                                        <ul class="otherSitesCategorList favoriteSiteList">
+                                            <!-- anchor "my workspace" to the top of the list -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                        <li role="presentation" class="fav-sites-entry  ">
+                                                        	<a class="site-favorite-btn" data-site-id="7b356c1f-bdc9-4738-b926-83cd393a3677" href="javascript:void(0);"></a>
+                            							
+                            <div class="fav-title ">
+                            	<a href="https://dukedev.longsight.com/portal/site/7b356c1f-bdc9-4738-b926-83cd393a3677" title="PebbleMWLTITest">
+                                                                            <span class="fullTitle">PebbleMWLTITest</span>
+                                                                    </a>
+                            </div>
+                            <a href="#" id="7b356c1f-bdc9-4738-b926-83cd393a3677" class="toolMenus" aria-haspopup="true" aria-label="PebbleMWLTITest - open attached menu">
+                                <span class="fa fa-chevron-down" aria-hidden="true"></span>
+                            </a>
+                        </li>
+                                                                                                                                                                                                                                            <li role="presentation" class="fav-sites-entry  ">
+                                                        	<a class="site-favorite-btn" data-site-id="7dcfdd21-2c56-4acf-ac8e-0427647a826d" href="javascript:void(0);"></a>
+                            							
+                            <div class="fav-title ">
+                            	<a href="https://dukedev.longsight.com/portal/site/7dcfdd21-2c56-4acf-ac8e-0427647a826d" title="PebblePad Test">
+                                                                            <span class="fullTitle">PebblePad Test</span>
+                                                                    </a>
+                            </div>
+                            <a href="#" id="7dcfdd21-2c56-4acf-ac8e-0427647a826d" class="toolMenus" aria-haspopup="true" aria-label="PebblePad Test - open attached menu">
+                                <span class="fa fa-chevron-down" aria-hidden="true"></span>
+                            </a>
+                        </li>
+                                                                                                                                                                                                                                            <li role="presentation" class="fav-sites-entry  ">
+                                                        	<a class="site-favorite-btn" data-site-id="e9895784-e16b-4467-b736-769758c8aacc" href="javascript:void(0);"></a>
+                            							
+                            <div class="fav-title ">
+                            	<a href="https://dukedev.longsight.com/portal/site/e9895784-e16b-4467-b736-769758c8aacc" title="Sakai Regression 1708">
+                                                                            <span class="fullTitle">Sakai Regression 1708</span>
+                                                                    </a>
+                            </div>
+                            <a href="#" id="e9895784-e16b-4467-b736-769758c8aacc" class="toolMenus" aria-haspopup="true" aria-label="Sakai Regression 1708 - open attached menu">
+                                <span class="fa fa-chevron-down" aria-hidden="true"></span>
+                            </a>
+                        </li>
+                                                                                                                                                                                                                                            <li role="presentation" class="fav-sites-entry  ">
+                                                        	<a class="site-favorite-btn" data-site-id="9d2b7878-a7df-4d8e-86bb-b805bbb25e9e" href="javascript:void(0);"></a>
+                            							
+                            <div class="fav-title ">
+                            	<a href="https://dukedev.longsight.com/portal/site/9d2b7878-a7df-4d8e-86bb-b805bbb25e9e" title="Ste Pebble Testing TestVM">
+                                                                            <span class="fullTitle">Ste Pebble Testing TestVM</span>
+                                                                    </a>
+                            </div>
+                            <a href="#" id="9d2b7878-a7df-4d8e-86bb-b805bbb25e9e" class="toolMenus" aria-haspopup="true" aria-label="Ste Pebble Testing TestVM - open attached menu">
+                                <span class="fa fa-chevron-down" aria-hidden="true"></span>
+                            </a>
+                        </li>
+                                                                                                                                                                                                                                            <li role="presentation" class="fav-sites-entry  ">
+                                                        	<a class="site-favorite-btn" data-site-id="20b23c96-ffbf-4bfa-87e1-49fb77ac8bd0" href="javascript:void(0);"></a>
+                            							
+                            <div class="fav-title ">
+                            	<a href="https://dukedev.longsight.com/portal/site/20b23c96-ffbf-4bfa-87e1-49fb77ac8bd0" title="Ste Testing Pebble Lti">
+                                                                            <span class="fullTitle">Ste Testing Pebble Lti</span>
+                                                                    </a>
+                            </div>
+                            <a href="#" id="20b23c96-ffbf-4bfa-87e1-49fb77ac8bd0" class="toolMenus" aria-haspopup="true" aria-label="Ste Testing Pebble Lti - open attached menu">
+                                <span class="fa fa-chevron-down" aria-hidden="true"></span>
+                            </a>
+                        </li>
+                                                                                                                                                        </ul>
+                                                                    </div>
+                                                                        </div>
+
+                </div><!--  end of #otherSitesCategorWrap -->
+
+                <div style="display: none" class="tab-box" id="organizeFavorites" aria-labelledby="tab-favorites" role="tabpanel">
+                    <div id="organize-favorites-pane">
+                        <h2 class="heading">Organize Favorites</h2>
+
+                        <p style="display: none" id="favoritesToShow">Drag sites to reorder them. Up to 15 sites can be displayed in your favorites bar.</p>
+
+                        <p style="display: none" id="noFavoritesToShow">You do not have any favorite sites. Star sites in the "My Sites" menu to add them to your favorites.</p>
+
+                        <ul id="organizeFavoritesList" class="organizeFavoritesList favoriteSiteList">
+                        </ul>
+
+                        <!-- Items are put here when unfavorited from the "organize" screen -->
+                        <ul id="organizeFavoritesPurgatoryList" class="favoriteSiteList">
+                        </ul>
+                    </div>
+
+                    <div id="favorite-settings-pane">
+                        <div id="autofav-description">Automatically add new sites to your favorites bar:</div>
+
+                        <div class="onoffswitch" style="display: none">
+                            <button role="switch" aria-checked="true" aria-labelledby="autofav-description" class="btn btn-lg" id="autoFavoritesEnabled">
+                                <span class="onoffswitch-inner">On</span>
+                                <span class="onoffswitch-switch">Off</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+            <!-- START VM includePageWithNav.vm -->
+
+    <div id="pageBody">
+    
+    
+        <!-- START VM includePageNav.vm -->
+
+<div id="toolMenuWrap" class="Mrphs-container Mrphs-container--nav-tools"  scrollingToolbarEnabled >
+
+     
+    <h1 class="skip" tabindex="-1" id="totoolmenu">Tools list begins here</h1>
+    <!--Added this check in to make sure that we just don't have an empty img element in the page. -->
+	
+	<div id="toolSubsitesContainer">
+		<nav id="toolMenu" role="navigation" aria-label="Tools list begins here" class="Mrphs-toolsNav__menu">
+			<ul>
+				<li id="toolsNav-toggle-li" class="Mrphs-toolsNav__menuitem Mrphs-collapseTools  max ">
+					<button type="button" aria-pressed="false" title="Expand/collapse tool navigation" class="Mrphs-toggleNav js-toggle-nav btn-link   max ">
+						<span class="fa fa-lg fa-angle-double-left" aria-hidden="true"></span>
+						<span class="sr-only">Expand/collapse tool navigation</span>
+					</button>
+				</li>
+				
+				
+												
+							
+								
+								<li>
+									<a class="Mrphs-toolsNav__menuitem--link " href="https://dukedev.longsight.com/portal/site/fd58cd72-7a25-44e7-b575-62df77d16c1d/page/4f1f73d5-ecce-4228-9c39-bd681f00c70f" title="Home - For displaying Site information | Display recent announcements, updated as messages arrive | Display unread discussion and forum topic messages for all sites or a site">
+										<span class="Mrphs-toolsNav__menuitem--icon icon-sakai--sakai-iframe-site "></span>
+										<span class="Mrphs-toolsNav__menuitem--title">Home</span>
+									</a>
+								</li>
+	
+							 	
+						 	
+					 			 	
+													
+							
+								
+								<li>
+									<a class="Mrphs-toolsNav__menuitem--link " href="https://dukedev.longsight.com/portal/site/fd58cd72-7a25-44e7-b575-62df77d16c1d/tool/5193e443-14b9-47d5-b0dc-abe95a760797" title="Welcome - For creating content modules and sequences; can be organized by week or unit">
+										<span class="Mrphs-toolsNav__menuitem--icon icon-sakai--sakai-lessonbuildertool "></span>
+										<span class="Mrphs-toolsNav__menuitem--title">Welcome</span>
+									</a>
+								</li>
+	
+							 	
+						 	
+					 			 	
+													
+						<li class="Mrphs-toolsNav__menuitem is-current">
+							<a class="Mrphs-toolsNav__menuitem--link " href="https://dukedev.longsight.com/portal/site/fd58cd72-7a25-44e7-b575-62df77d16c1d/tool-reset/39274ff7-733f-4d11-966e-c18019b4c0d4" title="Course">
+								<span class="Mrphs-toolsNav__menuitem--icon icon-sakai--sakai-lessonbuildertool  icon-active"></span>
+								<span class="Mrphs-toolsNav__menuitem--title">Course</span>
+							</a>
+						</li>
+	
+					 			 	
+													
+							
+								
+								<li>
+									<a class="Mrphs-toolsNav__menuitem--link " href="https://dukedev.longsight.com/portal/site/fd58cd72-7a25-44e7-b575-62df77d16c1d/tool/2a360bb2-22c3-449e-8e1f-9378cf7750e7" title="Discussion - Display forums and topics of a particular site">
+										<span class="Mrphs-toolsNav__menuitem--icon icon-sakai--sakai-forums "></span>
+										<span class="Mrphs-toolsNav__menuitem--title">Discussion</span>
+									</a>
+								</li>
+	
+							 	
+						 	
+					 			 	
+													
+							
+								
+								<li>
+									<a class="Mrphs-toolsNav__menuitem--link " href="https://dukedev.longsight.com/portal/site/fd58cd72-7a25-44e7-b575-62df77d16c1d/tool/838e15c3-55b5-49e3-9065-11b7aea3dd28" title="Test - For creating content modules and sequences; can be organized by week or unit">
+										<span class="Mrphs-toolsNav__menuitem--icon icon-sakai--sakai-lessonbuildertool "></span>
+										<span class="Mrphs-toolsNav__menuitem--title">Test</span>
+									</a>
+								</li>
+	
+							 	
+						 	
+					 			 	
+				 	
+			
+		 	
+				 	
+				 
+					
+					<li class="Mrphs-toolsNav__menuitem--help">
+						<a class="Mrphs-toolsNav__menuitem--link" accesskey="6" href="https://dukedev.longsight.com/portal/help/main" target="_blank" onclick="openWindow('https://dukedev.longsight.com/portal/help/main', 'Help', 'resizable=yes,toolbar=no,scrollbars=yes,menubar=yes,width=1024,height=768'); return false" title="Help">
+							<span  class="Mrphs-toolsNav__menuitem--icon icon-sakai--help"> </span>
+							<span class="Mrphs-toolsNav__menuitem--title">Help</span>
+							<span class="skip">Opens in a new window</span>
+						</a>
+					</li>
+	
+				 	
+			</ul>
+		</nav>
+	
+		 	</div>
+
+			<script src="/library/js/lessons-subnav.js?version=ae"></script>
+		<script>
+			sakai.lessons_subnav = new LessonsSubPageNavigation({"pages":{"39274ff7-733f-4d11-966e-c18019b4c0d4":[{"toolId":"39274ff7-733f-4d11-966e-c18019b4c0d4","itemId":"158434","hidden":"false","name":"About This Course","prerequisite":"false","siteId":"fd58cd72-7a25-44e7-b575-62df77d16c1d","description":"","sakaiPageId":"90ce937f-8bb9-4100-ab8e-144a5b495322","completed":"true","sendingPage":"43699","required":"false"},{"toolId":"39274ff7-733f-4d11-966e-c18019b4c0d4","itemId":"158436","hidden":"false","name":"Pre-test","prerequisite":"false","siteId":"fd58cd72-7a25-44e7-b575-62df77d16c1d","description":"","sakaiPageId":"90ce937f-8bb9-4100-ab8e-144a5b495322","completed":"false","sendingPage":"43701","required":"false"},{"toolId":"39274ff7-733f-4d11-966e-c18019b4c0d4","itemId":"158439","hidden":"false","name":"Recognition","prerequisite":"false","siteId":"fd58cd72-7a25-44e7-b575-62df77d16c1d","description":"","sakaiPageId":"90ce937f-8bb9-4100-ab8e-144a5b495322","completed":"false","sendingPage":"43703","required":"false"},{"toolId":"39274ff7-733f-4d11-966e-c18019b4c0d4","itemId":"158443","hidden":"false","name":"Comprehension","prerequisite":"false","siteId":"fd58cd72-7a25-44e7-b575-62df77d16c1d","description":"","sakaiPageId":"90ce937f-8bb9-4100-ab8e-144a5b495322","completed":"false","sendingPage":"43707","required":"false"},{"toolId":"39274ff7-733f-4d11-966e-c18019b4c0d4","itemId":"158441","hidden":"false","name":"Learn","prerequisite":"false","siteId":"fd58cd72-7a25-44e7-b575-62df77d16c1d","description":"","sakaiPageId":"90ce937f-8bb9-4100-ab8e-144a5b495322","completed":"false","sendingPage":"43705","required":"false"},{"toolId":"39274ff7-733f-4d11-966e-c18019b4c0d4","itemId":"158442","hidden":"false","name":"Subsection","prerequisite":"false","siteId":"fd58cd72-7a25-44e7-b575-62df77d16c1d","description":"","sakaiPageId":"90ce937f-8bb9-4100-ab8e-144a5b495322","completed":"false","sendingPage":"43706","required":"false"},{"toolId":"39274ff7-733f-4d11-966e-c18019b4c0d4","itemId":"158446","hidden":"false","name":"Follow-up Assessment","prerequisite":"false","siteId":"fd58cd72-7a25-44e7-b575-62df77d16c1d","description":"","sakaiPageId":"90ce937f-8bb9-4100-ab8e-144a5b495322","completed":"false","sendingPage":"43708","required":"false"},{"toolId":"39274ff7-733f-4d11-966e-c18019b4c0d4","itemId":"158447","hidden":"false","name":"Overview","prerequisite":"false","siteId":"fd58cd72-7a25-44e7-b575-62df77d16c1d","description":"","sakaiPageId":"90ce937f-8bb9-4100-ab8e-144a5b495322","completed":"false","sendingPage":"43709","required":"false"},{"toolId":"39274ff7-733f-4d11-966e-c18019b4c0d4","itemId":"158449","hidden":"false","name":"Case 1","prerequisite":"false","siteId":"fd58cd72-7a25-44e7-b575-62df77d16c1d","description":"","sakaiPageId":"90ce937f-8bb9-4100-ab8e-144a5b495322","completed":"false","sendingPage":"43710","required":"false"}]},"isInstructor":false,"siteId":"fd58cd72-7a25-44e7-b575-62df77d16c1d","i18n":{"prerequisite_and_disabled":"[You must complete all prerequisites before viewing this item]","expand":"Expand to show subpages","open_top_level_page":"Click to open top-level page","hidden":"[Hidden]","hidden_with_release_date":"[Not released until {releaseDate}]","prerequisite":"[Has prerequisites]","collapse":"Collapse to hide subpages"}});
+		</script>
+	</div>
+
+<!-- END VM includePageNav.vm -->
+
+     
+    <div class="Mrphs-pagebody">
+        <nav class="Mrphs-siteHierarchy">
+         
+                            <span class="Mrphs-hierarchy--siteName" title="NURSING DTA 101 1660">
+                <a href="https://dukedev.longsight.com/portal/site/fd58cd72-7a25-44e7-b575-62df77d16c1d/page-reset/4f1f73d5-ecce-4228-9c39-bd681f00c70f">
+                                        <span class="Mrphs-hierarchy--siteName-label">
+                        NURSING DTA 101 1660
+                    </span>
+                </a>
+            </span>
+            <span class="Mrphs-hierarchy--siteNameSeparator Mrphs-hierarchy--separator"><i class="fa fa-lg fa-angle-right" aria-hidden="true"></i></span>
+                                                            
+    
+                                                <a href="https://dukedev.longsight.com/portal/site/fd58cd72-7a25-44e7-b575-62df77d16c1d/tool-reset/39274ff7-733f-4d11-966e-c18019b4c0d4" title="Tool Home" class="Mrphs-hierarchy-item Mrphs-hierarchy--toolName">
+                <span class="Mrphs-breadcrumb--reset-icon fa fa-share" aria-hidden="true"></span>
+                <span class="Mrphs-breadcrumb--icon icon-sakai--sakai-lessonbuildertool "></span>
+                <span>Course</span>
+            </a>
+                                    </nav>
+
+        
+
+    
+
+ 
+<!-- START VM includePageBody.vm -->
+
+<h1 class="skip" tabindex="-1" id="tocontent">Content begins here</h1>
+
+        
+    <main id="content" class="Mrphs-mainContent " role="main">
+
+        
+ 
+        <div id="col1" class="Mrphs-pageColumns Mrphs-pageColumns--single">
+
+            
+                
+                                    
+                    <!-- start Tool Container -->
+                    
+                    
+                    <div class="Mrphs-container Mrphs-sakai-lessonbuildertool">
+                    
+                    <!-- start Tool Header -->
+
+                    
+                        
+
+                            <nav class="Mrphs-toolTitleNav Mrphs-container--toolTitleNav">
+
+                                
+                                    
+                                        <h2 class="Mrphs-toolTitleNav__title">
+                                            <a href="https://dukedev.longsight.com/portal/site/fd58cd72-7a25-44e7-b575-62df77d16c1d/tool-reset/39274ff7-733f-4d11-966e-c18019b4c0d4" title="Tool Home: Course">
+                                                <span class="Mrphs-toolTitleNav__link Mrphs-toolTitleNav__link--reset"></span>
+                                                <span class="Mrphs-toolTitleNav__text">Course</span>
+                                            </a>
+					    <span class="Mrphs-toolTitleNav__addLeft"></span>
+                                        </h2>
+
+                                     
+                                 
+                                <div class="Mrphs-toolTitleNav__button_container">
+                                
+                                 
+				                <span class="Mrphs-toolTitleNav__addRight"></span>
+                                
+                                    <button class="Mrphs-toolTitleNav__link Mrphs-toolTitleNav__link--directurl" rel="#Main39274ff7x733fx4d11x966exc18019b4c0d4_directurl" title="Direct link to this tool" aria-haspopup="dialog">
+                                        <span class="Mrphs-itemTitle">Link</span>
+                                    </button>
+                                    <div id="Main39274ff7x733fx4d11x966exc18019b4c0d4_directurl" role="dialog" aria-labelledby="Main39274ff7x733fx4d11x966exc18019b4c0d4_directurl__title" class="Mrphs-directUrl Mrphs-directUrl__dropDown">
+                                        <i class="fa fa-times dropDown_close" aria-hidden="true" tabindex="0"></i>
+                                        <label for="Main39274ff7x733fx4d11x966exc18019b4c0d4_urlholder" id="Main39274ff7x733fx4d11x966exc18019b4c0d4_directurl__title" class="dropDown_title">Direct link to this tool</label>
+                                        
+                                            <input tabindex="0" type="checkbox" id="directToolUrl-1" onclick="toggleShortUrlOutput('https://dukedev.longsight.com/portal/directtool/39274ff7-733f-4d11-966e-c18019b4c0d4/', this, 'Main39274ff7x733fx4d11x966exc18019b4c0d4_urlholder');" class="Mrphs-directUrl__checkbox"><label for="directToolUrl-1">Short URL</label>
+
+                                         
+                                        <textarea name="Main39274ff7x733fx4d11x966exc18019b4c0d4_urlholder" id="Main39274ff7x733fx4d11x966exc18019b4c0d4_urlholder" tabindex="0" class="Mrphs-directUrl__textarea Main39274ff7x733fx4d11x966exc18019b4c0d4_urlholder" >https://dukedev.longsight.com/portal/directtool/39274ff7-733f-4d11-966e-c18019b4c0d4/</textarea>
+                                    </div>
+
+                                 
+                                
+                                    
+                                        <a class="Mrphs-toolTitleNav__link Mrphs-toolTitleNav__link--help-popup" href="https://dukedev.longsight.com/portal/help/main?help=sakai.lessonbuildertool" title="Help for Course" target="_blank" onclick="openWindow('https://dukedev.longsight.com/portal/help/main?help=sakai.lessonbuildertool', 'Help', 'resizable=yes,toolbar=no,scrollbars=yes,menubar=yes,width=1024,height=768'); return false">
+                                            <span class="Mrphs-itemTitle">Help</span>
+                                            <span class="skip">Opens in a new window</span>
+                                        </a>
+
+                                     
+                                 
+                                </div>
+
+                            </nav> 
+                         
+                     
+                    <!-- END Tool Header -->
+
+                    <!-- START Tool Body -->
+
+                    
+                        <!-- Buffered Body Tool Content -->
+                        
+ <input  id="lessonsSubnavToolId" type="hidden" value="39274ff7-733f-4d11-966e-c18019b4c0d4"/>
+ 
+ <input  id="lessonsSubnavPageId" type="hidden" value="43699"/>
+ <input  id="lessonsSubnavItemId" type="hidden" value="158434"/>
+ <input  id="lessonsCurrentPageId" type="hidden" value="43699"/>
+ <script >
+     if (sakai) {
+         if (sakai.lessons_subnav) {
+             // Notify the lessons_subnav that we're on a lessons page
+             sakai.lessons_subnav.set_current_lessons_page();
+         }
+     }
+ </script>
+ <script  type="text/javascript" src="https://dukedev.longsight.com/lessonbuilder-tool/js/jquery-1.9.1.min.js?version=ae"></script>
+ <script  type="text/javascript" src="https://dukedev.longsight.com/lessonbuilder-tool/js/jquery-ui-1.11.1.custom.min.js?version=ae"></script>
+ <script  type="text/javascript" src="/library/js/lang-datepicker/lang-datepicker.js?version=ae"></script>
+ <script  type="text/javascript" src="https://dukedev.longsight.com/lessonbuilder-tool/js/jqBarGraph.1.1.customized.js?version=ae"></script>
+ <script  type="text/javascript" src="https://dukedev.longsight.com/lessonbuilder-tool/js/jquery.oembed.js?version=ae"></script>
+ <link  rel="stylesheet" href="https://dukedev.longsight.com/lessonbuilder-tool/js/jquery.oembed.css?version=ae" type="text/css"/>
+ <script  type="text/javascript" src="https://dukedev.longsight.com/lessonbuilder-tool/js/jquery.cluetip.min.js?version=ae"></script>
+ <link  rel="stylesheet" href="https://dukedev.longsight.com/lessonbuilder-tool/css/jquery.cluetip.css?version=ae" type="text/css"/>
+ <link rel="stylesheet" href="/library/editor/ckextraplugins/folder-listing/css/file-tree.css?version=ae" type="text/css"/>
+ <link rel="stylesheet" href="/library/webjars/fullcalendar/3.0.0/fullcalendar.min.css?version=ae" type="text/css"/>
+ <script  type="text/javascript" src="https://dukedev.longsight.com/lessonbuilder-tool/js/peer-eval.js?version=ae"></script>
+ <script  type="text/javascript" src="https://dukedev.longsight.com/lessonbuilder-tool/js/hoverIntent.js?version=ae"></script>
+ <script type="text/javascript" src="/library/editor/ckextraplugins/folder-listing/js/file-tree.js?version=ae"></script>
+ <script type="text/javascript" src="/library/editor/ckextraplugins/folder-listing/js/folder-listing.js?version=ae"></script>
+ <script  type="text/javascript" src="https://dukedev.longsight.com/lessonbuilder-tool/js/show-page.js?version=ae"></script>
+ <script  type="text/javascript" src="https://dukedev.longsight.com/lessonbuilder-tool/js/twitter.js?version=ae"></script>
+ <script  type="text/javascript" src="https://dukedev.longsight.com/lessonbuilder-tool/js/announcements.js?version=ae"></script>
+ <script  type="text/javascript" src="https://dukedev.longsight.com/lessonbuilder-tool/js/gradingAjax.js?version=ae"></script>
+ <script  type="text/javascript" src="https://dukedev.longsight.com/lessonbuilder-tool/js/checklistDisplay.js?version=ae"></script>
+ <script  type="text/javascript" src="https://dukedev.longsight.com/lessonbuilder-tool/js/forum-summary.js?version=ae"></script>
+ <script type="text/javascript" src="/library/webjars/momentjs/2.11.1/min/moment.min.js?version=ae"></script>
+ <script type="text/javascript" src="/library/webjars/fullcalendar/3.0.0/fullcalendar.min.js?version=ae"></script>
+ <script  type="text/javascript" src="https://dukedev.longsight.com/lessonbuilder-tool/js/lessons-calendar.js?version=ae"></script>
+ 
+
+ 
+ 
+ 
+ 
+
+	 <div  sakaimajor="12" class="portletBody" sakaiversion="12.0">
+
+		 
+
+		 
+
+		 
+
+		 
+
+		 <div  class="neoPortletTitleWrap" style="display:none">
+		     <div class="portletTitle title-tools Mrphs-toolTitleNav Mrphs-container--toolTitleNav">
+			 <div class="title">
+			     <div  role="navigation" class="fullwidth breadcrumbs">
+			      
+			       <h2 ><span><a  style="background:none" href="https://dukedev.longsight.com/portal/site/fd58cd72-7a25-44e7-b575-62df77d16c1d/tool/39274ff7-733f-4d11-966e-c18019b4c0d4/ShowPage?returnView=&amp;studentItemId=0&amp;backPath=&amp;errorMessage=&amp;clearAttr=&amp;messageId=&amp;source=&amp;title=&amp;sendingPage=43691&amp;newTopLevel=false&amp;postedComment=false&amp;addBefore=&amp;itemId=158410&amp;path=0&amp;topicId=&amp;addTool=-1&amp;recheck=&amp;id=&amp;forumId=">Course</a><span  class="Mrphs-hierarchy--separator"><i aria-hidden="true" class="fa fa-lg fa-angle-right"></i></span></span><span><span  class="lessons-siteHierarchy-title bold">About This Course</span></span></h2>
+			     </div>
+			     
+				   <h2 >
+				       
+			   </h2>
+		       </div>
+	     <div class="action topaction">
+                 <span style="display:none;" id="expandCollapseButtons">
+                   <a href="#" role="button" id="expandAllSections" class="button menuitem"><span aria-hidden="true" style="padding-right:5px;" class="fa fa-toggle-down"></span><span >Expand All</span></a>
+                   <a role="button" style="display:none;" href="#" id="collapseAllSections" class="button menuitem"><span aria-hidden="true" style="padding-right:5px;" class="fa fa-toggle-up"></span><span >Collapse All</span></a>
+		 </span>
+		 <span >
+		   <a  role="button" href="https://dukedev.longsight.com/portal/site/fd58cd72-7a25-44e7-b575-62df77d16c1d/tool/39274ff7-733f-4d11-966e-c18019b4c0d4/ShowPage?returnView=&amp;studentItemId=0&amp;backPath=pop&amp;errorMessage=&amp;clearAttr=&amp;messageId=&amp;source=&amp;title=&amp;sendingPage=43691&amp;newTopLevel=false&amp;postedComment=false&amp;addBefore=&amp;itemId=158410&amp;path=0&amp;topicId=&amp;addTool=-1&amp;recheck=&amp;id=&amp;forumId=" class="nexprev prev menuitem button">Back</a>
+		   <a  role="button" href="https://dukedev.longsight.com/portal/site/fd58cd72-7a25-44e7-b575-62df77d16c1d/tool/39274ff7-733f-4d11-966e-c18019b4c0d4/ShowPage?returnView=&amp;studentItemId=0&amp;backPath=&amp;errorMessage=&amp;clearAttr=&amp;messageId=&amp;source=&amp;title=&amp;sendingPage=43691&amp;newTopLevel=false&amp;postedComment=false&amp;addBefore=&amp;itemId=158410&amp;path=0&amp;topicId=&amp;addTool=-1&amp;recheck=&amp;id=&amp;forumId=" class="nexprev prev menuitem button">Next</a>
+		 </span>
+		 <a  role="button" onclick="window.open(printView(window.location.href));return false" href="https://dukedev.longsight.com/portal/site/fd58cd72-7a25-44e7-b575-62df77d16c1d/tool/39274ff7-733f-4d11-966e-c18019b4c0d4/PagePicker?returnView=&amp;studentItemId=0&amp;backPath=&amp;errorMessage=&amp;clearAttr=&amp;messageId=&amp;source=summary&amp;title=&amp;sendingPage=-1&amp;newTopLevel=false&amp;postedComment=false&amp;addBefore=&amp;itemId=-1&amp;path=&amp;topicId=&amp;addTool=-1&amp;recheck=&amp;id=&amp;forumId=" id="print-view" title="Print view" class="Mrphs-toolTitleNav__link top-icon fa fa-print"><span  class="Mrphs-itemTitle">Print view</span></a>
+		 <a  role="button" href="https://dukedev.longsight.com/portal/site/fd58cd72-7a25-44e7-b575-62df77d16c1d/tool/39274ff7-733f-4d11-966e-c18019b4c0d4/PagePicker?returnView=&amp;studentItemId=0&amp;backPath=&amp;errorMessage=&amp;clearAttr=&amp;messageId=&amp;source=summary&amp;title=&amp;sendingPage=-1&amp;newTopLevel=false&amp;postedComment=false&amp;addBefore=&amp;itemId=-1&amp;path=&amp;topicId=&amp;addTool=-1&amp;recheck=&amp;id=&amp;forumId=" id="show-pages" title="Index of pages" class="Mrphs-toolTitleNav__link top-icon fa fa-list-ul"><span  class="Mrphs-itemTitle">Index of pages</span></a>
+		 
+
+		   
+		   
+		   
+		     
+	       </div>
+	     <div style="clear:both"> </div>
+    		</div>
+        </div>
+		
+		 <div id="subpage-breadcrumb-div" class="subpage-breadcrumb-div"></div>
+	
+		
+		
+<script type="text/javascript">
+	var breadcrumbs = jQuery(".breadcrumbs span");
+	if (jQuery(".oldPortal").size() === 0) {
+	    var title = jQuery(".title span:last").text();
+	    var owner = jQuery("#owner").text();
+	    var title = title + owner;
+	    if (breadcrumbs.size() > 0) {
+		jQuery(".subpage-breadcrumb-div").append(jQuery(".breadcrumbs span").slice(1));
+		jQuery(".subpage-breadcrumb-div").prepend('<a id="lessonReset">' + jQuery(".Mrphs-hierarchy--toolName").text().trim() + '</a>');
+		jQuery("#lessonReset").attr("href", jQuery(".Mrphs-hierarchy--toolName")[0].href);
+	    } else {
+		jQuery(".subpage-breadcrumb-div").css({"display": "none"});
+	    }
+	    jQuery(".Mrphs-siteHierarchy").children().wrapAll('<div class="hierarchyWrap"/>');
+
+	    jQuery(".Mrphs-toolTitleNav__addRight").before(jQuery(".topaction > a"));
+	    jQuery(".Mrphs-toolTitleNav__button_container > a").addClass("Mrphs-toolTitleNav__link");
+
+         } else {
+	     jQuery(".topaction > a").addClass("button");
+         }
+
+	jQuery(".Mrphs-toolTitleNav__button_container").after(jQuery(".action"));
+
+	jQuery(".portletBody").prepend(jQuery(".navIntraTool"));
+</script>
+
+		<div role="menu" style="display:none" id="addContentDiv" class="dropDownDiv specialLink lessonsDialog" aria-label="Add content menu">
+		<div  class="addContentMessage instruction">Use this to add a new content item at the end of the page. Use + icons to add content at other points in the page.</div>
+		<ul >
+		  <li >
+		    
+		  </li>
+		  <li >
+		    
+		  </li>
+		  <li >
+		    
+		  </li>
+		  <li >
+		    
+		  </li>
+		  <li >
+		    
+		  </li>
+		  
+		  
+		  
+		  <hr style="border:none"/>
+		  
+		  
+		  
+                  
+                  
+		  
+		  
+		  <hr style="border:none"/>
+            
+		  
+                  
+                  
+                  
+                  
+                  
+		</ul>
+		</div>
+
+		
+
+		<div  role="alert" class="ui-widget messageError error-spacingabove error-nospcebelow">
+			<div >
+				<span style="float: left; margin-right: .3em;" class="ui-icon ui-icon-info"></span>
+				<div >There are no items on this page currently visible to you.</div>
+				
+			</div>
+		</div>
+
+		
+		
+		
+	
+		
+		   <ul class="navIntraTool">
+		   <li class="bottomButtons contentButton">
+		   <a  role="button" href="https://dukedev.longsight.com/portal/site/fd58cd72-7a25-44e7-b575-62df77d16c1d/tool/39274ff7-733f-4d11-966e-c18019b4c0d4/ShowPage?returnView=&amp;studentItemId=0&amp;backPath=pop&amp;errorMessage=&amp;clearAttr=&amp;messageId=&amp;source=&amp;title=&amp;sendingPage=43691&amp;newTopLevel=false&amp;postedComment=false&amp;addBefore=&amp;itemId=158410&amp;path=0&amp;topicId=&amp;addTool=-1&amp;recheck=&amp;id=&amp;forumId=" class="nexprev prev menuitem button">Back</a> 
+		   <a  role="button" href="https://dukedev.longsight.com/portal/site/fd58cd72-7a25-44e7-b575-62df77d16c1d/tool/39274ff7-733f-4d11-966e-c18019b4c0d4/ShowPage?returnView=&amp;studentItemId=0&amp;backPath=&amp;errorMessage=&amp;clearAttr=&amp;messageId=&amp;source=&amp;title=&amp;sendingPage=43691&amp;newTopLevel=false&amp;postedComment=false&amp;addBefore=&amp;itemId=158410&amp;path=0&amp;topicId=&amp;addTool=-1&amp;recheck=&amp;id=&amp;forumId=" class="bottomRight nexprev prev menuitem button">Next</a>
+		   </li>
+		   </ul>
+
+		<div style="display:none;">
+			<p  id="simplepage.announcements-no-message">There are currently no announcements</p>
+			<p  id="simplepage.calendar-more-info">Full details...</p>
+            <p  id="simplepage.announcements-header-title">Announcements</p>
+            <p  id="simplepage.eventAttachments">Attachments:</p>
+			<p  id="simplepage.add-comment">Add Comment</p>
+			<p  id="simplepage.edit-comment">Edit</p>
+			<p  id="simplepage.cancel_message">Cancel</p>
+			<p  id="simplepage.save_message">Save</p>
+			<p  id="simplepage.ckeditor">Editor, type ALT-0 for help</p>
+			<p  id="simplepage.forum-summary-no-message">There are currently no conversations to display.</p>
+			<p  id="simplepage.forum-summary-error-message">Error in adding forum summary:</p>
+			<p  id="simplepage.forum-header-title">Latest forum posts</p>
+			<p  id="simplepage.clickToExpand">Click to expand</p>
+			<p  id="simplepage.clickToCollapse">Click to collapse</p>
+			<p  id="simplepage.twitter-name-notblank">Please supply username.</p>
+			<p  id="simplepage.height-error-message">Numbers only</p>
+			<p  id="simplepage.status.completed">Completed</p>
+			<p  id="simplepage.announcements-error-message">Error in adding announcements:</p>
+			<p  id="simplepage.announcements-header-title!1">Announcements</p>
+		</div>
+
+		
+		
+		
+
+         
+
+         
+
+		
+
+
+
+	</div>
+	
+
+	
+
+	<div style="display:none;" id="calendarEventDialog">
+		<div id="eventInfo">
+			<label  for="startTime">Start Time:</label>
+			<span id="startTime"></span><br /><br />
+			<label  for="endTime">End Time:</label>
+			<span id="endTime"></span><br /><br />
+			<label  for="event-type">Event Type:</label>
+			<span id="event-type-icon"></span><span id="event-type"></span><br /><br />
+			<label  for="event-description">Description:</label>
+			<span id="event-description"></span><br /><br />
+			<label  for="site-name">Site:</label>
+			<span id="site-name"></span><br />
+			<span id="eventAttachmentsDiv">
+			<label  for="event-attachments">Attachments:</label>
+			<span id="event-attachments"></span><br />
+			</span>
+			<br />
+		</div>
+	</div>
+	
+
+       <form  action="https://dukedev.longsight.com/portal/site/fd58cd72-7a25-44e7-b575-62df77d16c1d/tool/39274ff7-733f-4d11-966e-c18019b4c0d4/ShowPage" style="display:none" method="post"><input type="hidden"  name="returnView" value="" />
+<input type="hidden"  name="studentItemId" value="0" />
+<input type="hidden"  name="backPath" value="" />
+<input type="hidden"  name="errorMessage" value="" />
+<input type="hidden"  name="clearAttr" value="" />
+<input type="hidden"  name="messageId" value="" />
+<input type="hidden"  name="source" value="" />
+<input type="hidden"  name="title" value="" />
+<input type="hidden"  name="sendingPage" value="43699" />
+<input type="hidden"  name="newTopLevel" value="false" />
+<input type="hidden"  name="postedComment" value="false" />
+<input type="hidden"  name="addBefore" value="" />
+<input type="hidden"  name="itemId" value="158434" />
+<input type="hidden"  name="path" value="push" />
+<input type="hidden"  name="topicId" value="" />
+<input type="hidden"  name="addTool" value="-1" />
+<input type="hidden"  name="recheck" value="" />
+<input type="hidden"  name="id" value="" />
+<input type="hidden"  name="forumId" value="" />
+
+         <input  type="hidden" name="csrf22" value="37226ad00c3e5deec28065182a001a69fc5441a463dd279277b8d0644038dfc3"/><input type="hidden"  name="csrf22-fossil" value="istring#{simplePageBean.csrfToken}37226ad00c3e5deec28065182a001a69fc5441a463dd279277b8d0644038dfc3" />
+
+	 <input  name="delete-item-itemid" id="delete-item-itemid" type="hidden" value=""/><input type="hidden"  name="delete-item-itemid-fossil" value="istring#{simplePageBean.itemId}" />
+
+         <input  name="command link parameters&amp;Submitting%20control=delete-item-button&amp;Fast%20track%20action=simplePageBean.deleteItem" id="delete-item-button" type="submit"/>
+       </form>
+
+
+                        <!-- End Buffered Body Tool Content -->
+
+                     
+                    <!-- end Tool Body -->
+                    
+                    </div>
+
+                    <!-- end Tool Container -->
+
+                 
+             
+        </div>
+
+         
+    </main> <!-- END of main.Mrphs-mainContent -->
+
+<!-- END VM includePageBody.vm -->        
+        <div class="Mrphs-container Mrphs-container--footer">
+
+    
+        <footer id="footer" role="contentinfo" class="Mrphs-footer">
+
+            <ul id="footer-links" class="Mrphs-footer--nav Mrphs-footer--nav__main">
+
+                
+                    <li>
+                        <span><a href="http://www.duke.edu">Duke University</a></span>
+                    </li>
+
+                 
+            </ul>
+
+            <ul class="Mrphs-footer--nav Mrphs-footer--nav__project">
+                <li id="Mrphs-footer--nav__project--sakai">
+
+                    
+                        <a href="http://sakaiproject.org" target="_blank" class="external__link"><span class="Mrphs-footer--nav__project--poweredby">Powered by Sakai</span><span class="skip external">(Opens in a new window)</span>
+                        </a>
+
+                     
+                </li>
+                <li class="Mrphs-footer--nav__project--copyright">(c) sakaiproject.org. All rights reserved.</li>
+            </ul>
+
+            <details class="Mrphs-footer--details Mrphs-footer--details__build-info">
+                <summary>Build Info:</summary>
+                <p class="Mrphs-footer--nav__build__panel">Sakai - 12.0 - Sakai 12.0 - Server dukedev1</p>
+            </details>
+
+            
+                <details class="Mrphs-footer--details Mrphs-footer--details__server-time" aria-live="off">
+                <summary>Server Time:</summary>
+
+                    
+                    <span id="serverTime" class="Mrphs-footer--server-time" data-servertzdisplay="EDT" data-serverdateandgmtoffset="1532691171306"></span>
+                </details>
+
+             
+        </footer>
+        
+        <div class="Mrphs-container Mrphs-container--extras">
+
+        
+    <div id="Mrphs-footerApp">
+
+        
+             
+         
+    </div>
+
+ 
+ 
+ 
+        </div>         <div id="tutorial" class="Mrphs-tutorial Mrphs-modal"></div>
+        <div id="social-alerts" class="Mrphs-tutorial Mrphs-modal"></div>
+
+     
+</div>
+
+    </div>
+    
+    </div>
+    
+
+</div>
+
+    
+<!-- END VM includePageWithNav.vm -->
+
+        </div> <!-- end Mrphs-portalWrapper -->
+        <!-- END VM site.vm -->
+
+        <!-- Viewport helpers -->
+        <div id='Mrphs-viewport-helpers' aria-hidden='true'>
+          <div class='phone'></div>
+          <div class='tablet'></div>
+          <div class='desktop'></div>
+        </div>
+
+            <script>
+        var needJQuery = true;
+        var secondJQuery = false;
+        var notJQuery = false;
+        var dollarEmpty = false;
+        var dollarVersion = false;
+        if ( window.$ ) {
+              if ( window.$.fn && window.$.fn ) {
+                 dollarVersion = window.$.fn.jquery;
+              } else {
+                 dollarVersion = 'not jQuery';
+                 window.console && console.log('Dollar is defined but is not jQuery');
+                 window.console && console.log($);
+                 //Just have it reload this other $ afterward
+                 notJQuery = true;
+              }
+         } else {
+              dollarEmpty = true;
+              dollarVersion = 'not present';
+              if ( window.jQuery ) {
+                  window.console && console.log('tool called jQuery.noConflict()');
+              }
+        }
+        if ( window.jQuery ) {
+            tver = jQuery.fn.jquery;
+            if ( tver.indexOf('1.12.') == 0 ) {
+                window.console && console.log('Using tool jQuery '+tver);
+                needJQuery = false;
+            } else {
+                secondJQuery = true;
+            }
+        }
+        if ( needJQuery ) {
+            document.write('\x3Cscript src="/library/webjars//jquery/1.12.4/jquery.min.js?version=ae">'+'\x3C/script>')
+            document.write('\x3Cscript src="/library/webjars/jquery-migrate/1.4.1/jquery-migrate.min.js?version=ae">'+'\x3C/script>')
+            document.write('\x3Cscript src="/library/webjars/bootstrap/3.3.7/js/bootstrap.min.js?version=ae">'+'\x3C/script>')
+            document.write('\x3Cscript src="/library/webjars/jquery-ui/1.12.1/jquery-ui.min.js?version=ae">'+'\x3C/script>')
+            document.write('\x3Clink rel="stylesheet" href="/library/webjars/jquery-ui/1.12.1/jquery-ui.min.css?version=ae"/>')
+            if (Modernizr.touch) {
+              document.write('\x3Cscript type="text/javascript" src="/library/webjars/jquery-ui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js?version=ae">'+'\x3C/script>')
+            }
+            window.console && console.log('Portal scripts loaded JQ+MI+BS+UI');
+        } else {
+            if (typeof jQuery.migrateWarnings == 'undefined') {
+                document.write('\x3Cscript type="text/javascript" src="/library/webjars/jquery-migrate/1.4.1/jquery-migrate.min.js?version=ae">'+'\x3C/script>')
+                window.console && console.log('Portal adding jQuery migrate');
+            }
+            if ( typeof jQuery.fn.popover == 'undefined') {
+                document.write('\x3Cscript type="text/javascript" src="/library/webjars/bootstrap/3.3.7/js/bootstrap.min.js?version=ae">'+'\x3C/script>')
+                window.console && console.log('Portal adding Bootstrap');
+            }
+            if (typeof jQuery.ui == 'undefined') {
+                document.write('\x3Cscript type="text/javascript" src="/library/webjars/jquery-ui/1.12.1/jquery-ui.min.js?version=ae">'+'\x3C/script>')
+		document.write('\x3Clink rel="stylesheet" href="/library/webjars/jquery-ui/1.12.1/jquery-ui.min.css?version=ae"/>')
+                window.console && console.log('Portal adding jQuery UI');
+            }
+            if (typeof jQuery.ui == 'undefined' || (typeof jQuery.ui.mouse != 'undefined' && typeof jQuery.ui.mouse.prototype._touchStart == 'undefined')) {
+                document.write('\x3Cscript type="text/javascript" src="/library/webjars/jquery-ui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js?version=ae">'+'\x3C/script>')
+                window.console && console.log('Portal adding jQuery UI Touch Punch for touch device support');
+            }
+        }
+    </script>
+    <script>
+        $PBJQ = jQuery; // The Portal's jQuery (also in $ for now)
+    </script>
+
+                    <script src="/portal/scripts/sessionstoragemanager.js?version=ae"></script>
+                 
+        <!--[if lt IE 9]>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script>
+<![endif]-->
+
+        <script>
+            if (typeof Handlebars == 'undefined') {
+                document.write('\x3Cscript src="/library/webjars/handlebars/4.0.6/handlebars.runtime.min.js?version=ae">\x3C/script>');
+            }
+        </script>
+        <script src="/library/templates.js?version=ae"></script>
+        <script src="/library/js/trimpath-template-latest.js?version=ae"></script>
+        <script src="/library/js/jquery/bgiframe/jquery.bgiframe.min.js?version=ae"></script>
+        <script src="/library/js/jquery/cluetip/1.2.10/jquery.cluetip.min.js?version=ae"></script>
+        <script>
+            if (typeof jQuery.i18n == 'undefined') {
+                document.write('\x3Cscript src="/library/webjars/jquery-i18n-properties/1.2.2/jquery.i18n.properties.min.js?version=ae">\x3C/script>');
+            }
+        </script>
+        <script src="/library/js/jquery/jquery.clearsearch.js?version=ae"></script>
+        <script src="/library/skin/duke-default/js/morpheus.plugins.min.js?version=ae"></script>
+        <script src="/library/skin/duke-default/js/morpheus.scripts.min.js?version=ae"></script>
+        <script src="/library/webjars//pnotify/2.1.0/pnotify.core.min.js?version=ae"></script>
+	<script src="/library/webjars//pnotify/2.1.0/pnotify.buttons.min.js?version=ae"></script>
+        <script src="/library/js/jquery/qtip/jquery.qtip-latest.min.js?version=ae"></script>
+        <script src="/library/js/jquery/qtip/tutorial.js?version=ae"></script>
+        <script src="/library/webjars/cropper/2.3.2/dist/cropper.min.js?version=ae"></script>
+
+         
+        
+ 
+         
+                    <script>
+                var sakaiPortalWindow = "";
+                $PBJQ(document).ready(function() {
+                    setupSkipNav();
+                });
+            </script>
+         
+        <script>
+            // If we loaded a second jQuery, revert $ and jQuery to the first jQuery
+            if ( secondJQuery ) {
+                $PBJQ = jQuery.noConflict(true); // Safely return $ to the tool jQuery
+                if ( ! dollarEmpty && !notJQuery ) jQuery = $;  // Return jQuery to point at the tool jQuery
+            }
+            if (notJQuery && !secondJQuery) {
+                $PBJQ = jQuery.noConflict(true); // Safely return $ to the tool jQuery
+                //Just set jQuery to be the same thing since it didn't exist before
+                jQuery = $PBJQ;
+
+            }
+            window.console && console.log('Portal script load complete PBJQ='+$PBJQ.fn.jquery+' jQuery='+jQuery.fn.jquery+' $='+dollarVersion);
+
+            $PBJQ(document).ready(function() {
+                setupSiteNav();
+                            });
+        </script>
+
+        <script>
+        PNotify.prototype.options.styling = "jqueryui";
+        function portal_check_pnotify() {
+            $PBJQ.getJSON( "/direct/portal/notify.json", function( data ) {
+                for(i=0; i<data.error.length; i++ ) {
+                     $PBJQ(function(){
+                        new PNotify({
+                            title: 'Notice',
+                            text: data.error[i],
+                            type: 'notice'
+                        });
+                    });
+                }
+            });
+        }
+            </script>
+
+        <!--[if lt IE 9]>
+        <script src="/library/skin/duke-default/js/ie/sakai.portal.ie.js?version=ae"></script>
+<![endif]-->
+
+        <script src="/library/js/caps-lock-checker.js?version=ae"></script>
+
+         
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-67434859-1', { 'userId': portal.user.id });
+        ga('send', 'pageview');
+    </script>
+
+         <link href="/pasystem-tool/stylesheets/pasystem.css?version&#x3D;ae" rel="stylesheet" property="stylesheet" type="text/css" />
+
+<script>
+// Work around the fact that several pages pull in very old versions
+// of JQuery.
+function paSystemJQueryOK() {
+    if (!window.jQuery) {
+        /* no jQuery at all */
+        return false;
+    }
+
+    var version_numbers = jQuery.fn.jquery.split('.');
+
+    /* >= 1.9+ */
+    return (parseInt(version_numbers[0]) > 1) || (parseInt(version_numbers[0]) == 1 && parseInt(version_numbers[1]) >= 9);
+}
+
+if (paSystemJQueryOK()) {
+  document.write('\x3Cscript src="/pasystem-tool/scripts/pasystem.js?version&#x3D;ae">\x3C/script>');
+  document.write('\x3Cscript type="text/javascript" src="/pasystem-tool/scripts/featherlight.min.js?version&#x3D;ae">\x3C/script>');
+
+  var pasystem = pasystem || {'loaded': true};
+} else {
+  console.log("PASystem not loaded for this page because jQuery is missing or unsupported.");
+}
+</script>
+<script id="pasystemBannerAlertsTemplate" type="text/template">
+  <div class="pasystem-banner-alert pasystem-banner-${type}" id="${id}">
+    <span class="pasystem-banner-alert-message">${message}</span>
+    {if dismissible}<a class="pasystem-banner-alert-close" href="javascript:void(0)"></a>{/if}
+  </div>
+</script>
+<script id="pasystemBannerAlertsToggleTemplate" type="text/template">
+  <li class="pasystem-banner-alert-toggle-list-item">
+    <a href="javscript:void(0)" class="pasystem-banner-alert-toggle">
+      Show System Alerts
+    </a>
+  </li>
+</script>
+<script>
+  if (pasystem) {
+    pasystem['banners'] = new PASystemBannerAlerts([], "37226ad00c3e5deec28065182a001a69fc5441a463dd279277b8d0644038dfc3");
+  }
+</script>
+<script type="text/template" id="popup-container-content">
+
+</script>
+
+<script type="text/template" id="popup-container-footer">
+<div class="popup-container-footer">
+  <a href="javascript:void(0)" class="popup-dismiss-button permanent" id="popup-acknowledged-button">Don't show this again</a>
+  <a href="javascript:void(0)" class="popup-dismiss-button temporary" id="popup-later-button">Remind me later</a>
+</div>
+</script>
+
+
+<script id="timezoneBannerTemplate" type="text/template">
+  <span>
+    Your computer's time zone <span class="computerTimezone">${reportedTimezone}</span> does not match your account's time zone of <span class="prefsTimezone">${prefsTimezone}</span>. <span class="pasystem-tz-click-here"><a href="${setTimezoneUrl}" id="setTimezoneMsg">Click here to update your time zone preferences</a></span>.
+  </span>
+</script>
+
+<script>
+  if (pasystem) {
+    new PASystemTimezoneChecker().checkTimezone();
+  }
+</script>
+
+
+        <!-- START VM includeCookieNotice.vm -->
+<!-- END VM includeCookieNotice.vm -->
+
+         
+        <script type="text/javascript" src="/library/warpwire.js"></script>
+
+        <!-- Modal popup for profile picture changer -->
+        <div class="modal fade" id="profileImageUpload" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header"><h3>Change Profile Picture</h3></div>
+                    <div class="modal-body">
+                        <div id="remove-error" class="alert alert-danger">Error removing image</div>
+                        <div id="upload-error" class="alert alert-danger">Error uploading image</div>
+                        <a id="upload" class="button">
+                            Upload
+                            <input type="file" id="file" value="Choose a file" accept="image/*">
+                        </a>
+                        <div id="cropme">
+                            <img style="maxWidth: 100%" />
+                        </div>
+                        <div id="cropToolbar" class="btn-toolbar" style="display: none;">
+                            <div class="btn-group">
+                                <a class="profile-image-zoom-in btn btn-sm btn-default" href="javascript:void(0)"></a>
+                                <a class="profile-image-zoom-out btn btn-sm btn-default" href="javascript:void(0)"></a>
+                            </div>
+                            <div class="btn-group">
+                                <a class="profile-image-pan-up btn btn-sm btn-default" href="javascript:void(0)"></a>
+                                <a class="profile-image-pan-down btn btn-sm btn-default" href="javascript:void(0)"></a>
+                                <a class="profile-image-pan-left btn btn-sm btn-default" href="javascript:void(0)"></a>
+                                <a class="profile-image-pan-right btn btn-sm btn-default" href="javascript:void(0)"></a>
+                            </div>
+                            <div class="btn-group">
+                                <a class="profile-image-rotate btn btn-sm btn-default" href="javascript:void(0)"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="button_color pull-left" id="save" disabled="disabled">Save</button>
+                        <button type="button" class="button pull-left" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-link remove-profile-image pull-right">Remove</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+                <!-- Social connection manager modal-->
+        <div class="modal fade" id="connection-manager" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span id="connection-manager-title">Connections</span>
+                        <button id="connection-manager-close-button" class="close" title="Close" aria-label="Close" data-dismiss="modal"><span id="connection-manager-close-icon" aria-hidden="true" class="fa fa-times"></span></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="connection-manager-connectionsview">
+                            <div id="connection-manager-connectionsview-topbar">
+                                <div id="connection-manager-connectionsview-searchbox-wrapper">
+                                    <input type="text" id="connection-manager-connectionsview-searchbox" class="connection-manager-searchbox" placeholder="Search for people ..."/>
+                                    <div id="connection-manager-connectionsview-searchresults-wrapper">
+                                        <div id="connection-manager-connectionsview-searchresults"></div>
+                                        <div id="connection-manager-connectionsview-searchresults-more"><a id="connection-manager-view-more-link" href="javascript:;">View More</a></div>
+                                    </div>
+                                </div>
+                                <ul id="connection-manager-navbar" class="navIntraTool actionToolBar" role="menu">
+                                    <li id="connection-manager-navbar-current" role="menuitem"><span class="firstToolBarItem current"><a href="javascript:;">My Connections</a></span></li>
+                                    <li id="connection-manager-navbar-pending" role="menuitem"><span><a href="javascript:;">Pending Connections</a></span></li>
+                                </ul>
+                            </div>
+                            <div id="connection-manager-current-connections-wrapper" class="connection-manager-connections-wrapper">
+                                <div id="connection-manager-current-connections" class="connection-manager-connections">
+                                </div>
+                                <div id="connection-manager-no-current-connections-wrapper" class="connection-manager-no-connections-wrapper">
+                                    <div id="connection-manager-no-current-connections" class="connection-manager-no-connections">
+                                        <div id="connection-manager-no-current-connections-image" class="connection-manager-no-connections-image"></div>
+                                        <div id="connection-manager-no-current-connections-text" class="connection-manager-no-connections-text">You don't have any connnections yet. Search for people above to get started.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="connection-manager-pending-connections-wrapper" class="connection-manager-connections-wrapper">
+                                <div id="connection-manager-pending-connections" class="connection-manager-connections">
+                                </div>
+                                <div id="connection-manager-no-pending-connections-wrapper" class="connection-manager-no-connections-wrapper">
+                                    <div id="connection-manager-no-pending-connections" class="connection-manager-no-connections">
+                                        <div id="connection-manager-no-pending-connections-image" class="connection-manager-no-connections-image"></div>
+                                        <div id="connection-manager-no-pending-connections-text" class="connection-manager-no-connections-text">You have no pending connections.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="connection-manager-searchresultsview">
+                            <div id="connection-manager-searchresultsview-topbar">
+                                <div id="connection-manager-searchresultsview-backlinkwrapper">
+                                    <span class="fa fa-long-arrow-left"></span><a href="javascript:;" id="connection-manager-backtoconnections-link">Back to My Connections</a>
+                                </div>
+                                <input type="text" id="connection-manager-searchresultsview-searchbox" class="connection-manager-searchbox" placeholder="Search for people ..."/>
+                            </div>
+                            <div id="connection-manager-searchresultsview-content">
+                                <div id="connection-manager-searchresultsview-count">$({cmLoader.getString("connection_manager_no_results")}</div>
+                                <div id="connection-manager-searchresultsview-results"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="button pull-right" data-dismiss="modal">Done</button>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- Social connection manager modal -->
+    </body>
+</html>

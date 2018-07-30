@@ -2,13 +2,31 @@
 
 `src` contains the source files for the skins. Final edits are placed here and compiled for deployment
 
-`dev` contains temporary versions for testing and development
+`dev` contains compiled versions of `src` for testing and development
 
-Chrome 66 has a new feature we can use to make the live updating process easier
+Chrome 66+ has a new feature called [local overrides](https://developers.google.com/web/updates/2018/01/devtools#overrides) we can use to make the live updating process easier
 
-[https://developers.google.com/web/updates/2018/01/devtools#overrides](https://developers.google.com/web/updates/2018/01/devtools#overrides)
+`target` skins from `src` are compiled and placed here for deployment to Duke Sakai environments.
 
-`target` skins from `src` are built and placed here for deployment.
+## Upgrading to a new Sakai 12 release
+1. Clone sakaiproject/sakai
+2. Checkout the tag or branch you're working on
+3. Copy the `library/src/morpheus-master` folder from sakaiproject/sakai to `src`
+4. Copy the `sass/duke.scss` and `sass/overrides.scss` files from previous version of skin to `morpheus-master/sass`
+5. Add `@import "overrides";` to the end of `morpheus-master/sass/tool.scss`
+6. Rename morpheus-master to duke-default
+7. Run `devdefault.sh` to create the skins
+8. Begin dev To report a bug
+
+1. Take a screenshot
+2. In Chrome, right click and Inspect it.
+3. In the Developer Tools Elements tab, right click the HTML element and Copy :: Copy Selector
+4. Create a [new Github Issue](https://github.com/DukeLearningInnovation/duke-sakai-skins/issues/new)
+5. Drop the screenshot into the Write Comment box, paste the Selector, and describe the issue.
+6. If you want to fix it, assign yourself under Assignees
+
+
+# Archive, not currently in use
 
 ## 12.0 branch
 
@@ -28,14 +46,7 @@ the CSS file size, but not by much.
 * `https://dukedev.longsight.com`
 * `https://sakai.duke.edu`
 
-**Step 3.** To report a bug
 
-1. Take a screenshot
-2. In Chrome, right click and Inspect it.
-3. In the Developer Tools Elements tab, right click the HTML element and Copy :: Copy Selector
-4. Create a [new Github Issue](https://github.com/DukeLearningInnovation/duke-sakai-skins/issues/new)
-5. Drop the screenshot into the Write Comment box, paste the Selector, and describe the issue.
-6. If you want to fix it, assign yourself under Assignees
 
 **Step 4.** To fix a bug
 
