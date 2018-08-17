@@ -1604,7 +1604,7 @@ background: none !important;
 .addbottom {
    position:absolute;
    top: auto;
-   bottom:0px;
+   bottom: 0px;
    right:0px;
 }
 .addbottom a {
