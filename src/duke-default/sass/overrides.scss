@@ -87,6 +87,8 @@
 			}
 			&.#{$namespace}collapseTools {
 				margin:1em;
+				left:-3px;
+				width: #{$tool-menu-width};
 			}
 			.#{$namespace}toolsNav__menuitem--link {
 				&.is-invisible{

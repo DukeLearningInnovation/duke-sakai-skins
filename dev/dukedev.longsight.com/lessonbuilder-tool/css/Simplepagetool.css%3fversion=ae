@@ -1833,7 +1833,7 @@ span.nextprev {
   font-family:FontAwesome;
 }
 .mainList div:hover.canEdit {
-    background-color: #eee;
+    background-color: inherit;
 }
 .peer-eval-row .newPeerCell {
    background-color: rgb(173,216,230) !important;

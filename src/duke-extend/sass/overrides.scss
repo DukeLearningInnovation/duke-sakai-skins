@@ -1,5 +1,5 @@
 // - [ ] handle long lesson titles
-// - [ ] profile image
+
 @import "duke";
 // SAK-40006 CK Editor full screen bug
 .cke_inner.cke_reset.cke_maximized {
@@ -116,6 +116,8 @@
 			}
 			&.#{$namespace}collapseTools {
 				margin:1em;
+				left:-3px;
+				width: #{$tool-menu-width};
 			}
 			.#{$namespace}toolsNav__menuitem--link {
 				&.is-invisible{
@@ -367,7 +369,11 @@ $font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
 	.portletBody {
 		box-shadow:none;
 		margin:-2em 0 0;
-		padding:0 2em;
+		padding:0;
+	}
+	.itemclass,
+	.navIntraTool {
+		padding:0 2em 1em;
 	}
 	.Mrphs-toolTitleNav {
 		float:none;
@@ -417,12 +423,13 @@ $font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
 		}
 	}
 	.navIntraTool {
-		// display: none;
+		border-top:1px solid $tool-border-color;
+
 		background:none;
 		&[role="application"]{
-			margin:32px -32px 0 -32px; 
+			margin:32px 0 0; 
 			min-height:32px;
-			border-bottom:1px solid rgba(0,0,0,0.05);
+			border-bottom:1px solid $tool-border-color;
 			display:block;
 			background: $background-color;
 		}
@@ -434,8 +441,10 @@ $font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
 			border-bottom:none;
 		}
 		.bottomButtons{
+			padding:1em 2em;
 			.button {
 				font-size: 14px;
+				margin:0;
 				&:last-of-type{
 					background: $endeavour;
 					color: $white !important;
@@ -448,6 +457,9 @@ $font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
 	}
 	.column {
 		border:none;
+		.addbottom {
+			bottom:-2em;
+		}
 	}
 	.column .commentDiv,
 	.column .studentContentTable,
@@ -506,6 +518,35 @@ $font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
 	.ui-widget.ui-widget-content {
 		font-size: 14px;
 	}
+
+	.mainList div:hover.canEdit {
+		background-color:inherit;
+	}
+	//////////////////////////////////////////////
+	// EDX STYLE PROGRESS BAR
+	// https://gist.github.com/profmikegreene/77f69d3b5e5b188f4ee5d514d524237b
+	// - [ ] add links
+	// - [ ] add hover/active state
+	//////////////////////////////////////////////
+	.lesson-progress-bar {
+		border:1px solid rgba(0,0,0,0.1);
+		margin-bottom:2em;
+		text-align:center;
+	}
+	.lesson-progress-bar .col {
+		border:1px solid rgba(0,0,0,0.1);
+		padding:.5em;
+	} 
+		
+	.lesson-progress-bar .next {
+
+		background:#00529b;
+		color:#fff;
+	}
+	.lesson-progress-bar .current {
+		background:#Ececec;
+	} 
+
 } 
 //////////////////////////////////////////////
 //SAMIGO STYLES

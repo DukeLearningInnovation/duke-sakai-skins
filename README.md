@@ -13,17 +13,18 @@ Chrome 66+ has a new feature called [local overrides](https://developers.google.
 2. Checkout the tag or branch you're working on
 3. Copy the `library/src/morpheus-master` folder from sakaiproject/sakai to `src`
 4. Copy the `sass/duke.scss` and `sass/overrides.scss` files from previous version of skin to `morpheus-master/sass`
-5. Add `@import "overrides";` to the end of `morpheus-master/sass/tool.scss`
-6. Rename morpheus-master to duke-default
-7. Run `devdefault.sh` to create the skins
-8. Begin dev To report a bug
+5. Copy the `images/LOGOS` files from the previous version to `morpheus-master/images`
+6. Add `@import "overrides";` to the end of `morpheus-master/sass/tool.scss`
+7. Rename morpheus-master to duke-default
+8. Run `devdefault.sh` to create the skins
+9. Begin dev To report a bug
 
-1. Take a screenshot
-2. In Chrome, right click and Inspect it.
-3. In the Developer Tools Elements tab, right click the HTML element and Copy :: Copy Selector
-4. Create a [new Github Issue](https://github.com/DukeLearningInnovation/duke-sakai-skins/issues/new)
-5. Drop the screenshot into the Write Comment box, paste the Selector, and describe the issue.
-6. If you want to fix it, assign yourself under Assignees
+10. Take a screenshot
+11. In Chrome, right click and Inspect it.
+12. In the Developer Tools Elements tab, right click the HTML element and Copy :: Copy Selector
+13. Create a [new Github Issue](https://github.com/DukeLearningInnovation/duke-sakai-skins/issues/new)
+14. Drop the screenshot into the Write Comment box, paste the Selector, and describe the issue.
+15. If you want to fix it, assign yourself under Assignees
 
 
 # Archive, not currently in use
