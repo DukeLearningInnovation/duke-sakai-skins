@@ -1457,7 +1457,7 @@ div.navIntraTool {
    margin-right: 5px;
 }
 #print-view {
-    margin-right: 7px;
+    /* margin-right: 7px; */
 }
 
 /* temporary, to avoid changing old stuff for the moment */
