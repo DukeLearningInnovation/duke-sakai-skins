@@ -213,7 +213,8 @@ input[name="cancel"],
 input[name="Cancel"],
 input[value="Cancel"],
 input[value="Clear"],
-input[value="Back"]{
+input[value="Back"],
+input[name="eventSubmit_doCancel_assignment_honor_pledge"]{
 	background:	#888;
 	border-color: #808080;
 	&:hover{
@@ -320,7 +321,14 @@ input[value="Back"]{
 		
 	// }
 }
-
+//////////////////////////////////////////////
+// ASSIGNMENTS STYLES
+//////////////////////////////////////////////
+.#{$namespace}sakai-assignment-grades{
+	.jumbotron {
+		padding:2em;
+	}
+}
 //////////////////////////////////////////////
 // LESSONS STYLES
 //////////////////////////////////////////////

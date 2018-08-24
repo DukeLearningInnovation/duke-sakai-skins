@@ -347,7 +347,8 @@ nav#subSites{
 						}
 						&:focus
 						{
-							outline-color: invert($tool-menu-collapse-background-color) !important;
+							// why though??
+							// outline-color: invert($tool-menu-collapse-background-color) !important;
 						}
 				}
 
