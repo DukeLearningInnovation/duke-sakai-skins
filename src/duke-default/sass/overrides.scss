@@ -85,6 +85,7 @@
 			&.#{$namespace}collapseTools {
 				margin:1em;
 				left:-3px;
+				bottom:-3px;
 				width: #{$tool-menu-width};
 			}
 			.#{$namespace}toolsNav__menuitem--link {
@@ -381,19 +382,25 @@ input[name="eventSubmit_doCancel_assignment_honor_pledge"]{
 //////////////////////////////////////////////
 //GRADEBOOK STYLES
 //////////////////////////////////////////////
-.gb-summary-grade-flags {
-	.gb-external-app-flag {
-		&[aria-label$="Assignments"] {
-			@extend .fa-file-text !optional;
-		}
-		&[aria-label$="Quizzes"] {
-			@extend .fa-check-square-o !optional;
-		}
-		&[aria-label$="Forums"] {
-			@extend .fa-comments !optional;
+.#{$namespace}sakai-gradebookng{
+	.gb-summary-grade-flags {
+		.gb-external-app-flag {
+			&[aria-label$="Assignments"] {
+				@extend .fa-file-text !optional;
+			}
+			&[aria-label$="Quizzes"] {
+				@extend .fa-check-square-o !optional;
+			}
+			&[aria-label$="Forums"] {
+				@extend .fa-comments !optional;
+			}
 		}
 	}
+	.icon-sakai--default-tool:before {
+		@extend .fa-cloud !optional;
+	}
 }
+
 
 //////////////////////////////////////////////
 //GRADEBOOK STYLES
