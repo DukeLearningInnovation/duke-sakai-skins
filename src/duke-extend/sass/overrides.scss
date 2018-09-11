@@ -2,6 +2,10 @@
 // - [ ] hide .navIntraTool .bottomButtons if empty
 
 
+
+
+
+
 @import "duke";
 // SAK-40006 CK Editor full screen bug
 .cke_inner.cke_reset.cke_maximized {
@@ -29,6 +33,14 @@
 	.has-avatar .#{$namespace}userNav__submenuitem--profilepicture {
 		border:2px solid #fff;
 		margin:0;
+	}
+	.has-avatar,
+	.no-avatar {
+		.#{$namespace}userNav__submenuitem--username,
+		.#{$namespace}userNav__submenuitem--userid {
+			height: 2.3em;
+    		width:2.3em;
+		}
 	}
 	#loginUser {
 		border-radius:50%;
@@ -531,6 +543,33 @@ $font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
 	.mainList div:hover.canEdit {
 		background-color:inherit;
 	}
+
+	///////////////////////////////
+	// Collapsable Sections
+	///////////////////////////////
+	.sectionHeader {
+		padding: .5em 0;
+		&:hover {
+			.sectionCollapsedIcon:before {
+				color:#eee;
+			}
+		}
+	}
+	.sectionCollapsedIcon:before {
+		color:$white;
+	}
+	
+	.collapsibleSectionHeader {
+		.collapseIcon {
+			float:left;
+			margin-right:1em;
+			line-height:30px;
+		}
+	}
+	.sectionHeaderText {
+		@extend .h2 !optional;
+	}
+
 	//////////////////////////////////////////////
 	// EDX STYLE PROGRESS BAR
 	// https://gist.github.com/profmikegreene/77f69d3b5e5b188f4ee5d514d524237b
