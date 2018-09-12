@@ -471,6 +471,9 @@ $font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
 					color: $white !important;
 				}
 			}
+			&:empty {
+				display:none;
+			}
 		}
 	}
 	.subpage-breadcrumb-div {
