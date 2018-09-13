@@ -14,6 +14,14 @@
 #topnav_container {
 	display:none;
 }
+.#{$namespace}headerLogo--institution:after {
+    content: "Extend";
+    text-transform:uppercase;
+    color: $grenadier;
+    margin-left:4em;
+    line-height:52px;
+    font-size:1.6em;
+}
 .#{$namespace}topHeader {
 	
 	.view-all-sites-btn {
@@ -46,8 +54,8 @@
 		border-radius:50%;
 		border:2px solid $klein;
 		border-right-color:$klein;
-		border-bottom-color: $california;
-		border-left-color:$california;
+		border-bottom-color: $grenadier;
+		border-left-color:$grenadier;
 		line-height:1;
 	}
 }
@@ -400,7 +408,7 @@ $font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
 		float:none;
 		max-width:100%;
 		width:100%;
-		display:block;
+		display:none; //change to block to reenable Index of Pages
 		margin:0;
 		border-bottom:1px solid rgba(0,0,0,0.05);
 		background:white;
@@ -444,6 +452,7 @@ $font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
 		}
 	}
 	.navIntraTool {
+		display:none;
 		border-top:1px solid $tool-border-color;
 
 		background:none;
@@ -476,8 +485,10 @@ $font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
 			}
 		}
 	}
+
+	// Disable this if hiding toolMenuWrap left menu to give sense of place
 	.subpage-breadcrumb-div {
-		clear:both;
+		display:none;
 	}
 	.column {
 		border:none;
@@ -580,24 +591,54 @@ $font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
 	// - [ ] add hover/active state
 	//////////////////////////////////////////////
 	.lesson-progress-bar {
-		border:1px solid rgba(0,0,0,0.1);
 		margin-bottom:2em;
 		text-align:center;
+		margin-left:-28px;
+		margin-right:-28px;
+		margin-top:-10px;
+		font-size:13px;
+		a {
+			display:block;
+			text-decoration: none;
+			color:$endeavour;
+			padding:.7em .5em;
+			&:hover {
+				color:$klein;
+				background:$hawkes;
+			}
+		}
+		.col {
+			border:1px solid $button-secondary-border-color;
+			border-right:none;
+			padding:0;
+		} 
+			
+		.prev {
+			border-radius:$button-radius 0 0 0;
+			.fa {
+				margin-right:.5em
+			}
+		}
+		.next {
+			background:$endeavour;
+			color:$white;
+			border-radius: 0 $button-radius 0 0;
+			border-right:1px solid $button-secondary-border-color;
+			.fa {
+				margin-left:.5em;
+			}
+			a {
+				color:$white;
+				&:hover {
+					background:$klein;
+				}
+			}
+		}
+		.current {
+			background:$gallery;
+			border-right:1px solid $button-secondary-border-color;
+		} 
 	}
-	.lesson-progress-bar .col {
-		border:1px solid rgba(0,0,0,0.1);
-		padding:.5em;
-	} 
-		
-	.lesson-progress-bar .next {
-
-		background:#00529b;
-		color:#fff;
-	}
-	.lesson-progress-bar .current {
-		background:#Ececec;
-	} 
-
 } 
 //////////////////////////////////////////////
 //SAMIGO STYLES
