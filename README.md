@@ -10,14 +10,18 @@ Chrome 66+ has a new feature called [local overrides](https://developers.google.
 
 ## Upgrading to a new Sakai 12 release
 1. Clone sakaiproject/sakai
-2. Checkout the tag or branch you're working on
+1. Checkout the tag or branch you're working on
+1. Edit `create.sh` with the info you need and run it
+
 3. Copy the `library/src/morpheus-master` folder from sakaiproject/sakai to `src`
 4. Copy the `sass/duke.scss` and `sass/overrides.scss` files from previous version of skin to `morpheus-master/sass`
 5. Copy the `images/LOGOS` files from the previous version to `morpheus-master/images`
 6. Add `@import "overrides";` to the end of `morpheus-master/sass/tool.scss`
 7. Rename morpheus-master to duke-default
 8. Run `devdefault.sh` to create the skins
-9. Begin dev To report a bug
+9. Begin dev 
+1. 
+   To report a bug
 
 10. Take a screenshot
 11. In Chrome, right click and Inspect it.

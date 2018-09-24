@@ -2,6 +2,7 @@ echo "copying duke-default to sakai-master-docker for compiling"
 rm -rf ~/dev/profmikegreene/sakai-master-docker/maven/src/library/src/duke-default/*
 cp -R src/duke-default/* ~/dev/profmikegreene/sakai-master-docker/maven/src/library/src/duke-default
 
+
 cd ~/dev/profmikegreene/sakai-master-docker
 
 docker run -it --rm --name sakai-maven \
@@ -14,7 +15,7 @@ docker run -it --rm --name sakai-maven \
   -Pcompile-skin \
   -Dsakai.skin.source=duke-default \
   -Dsakai.skin.target=duke-default \
-  -Dsakai.skin.customization.file=src/duke-default/sass/duke.scss
+  -Dsakai.skin.customization.file=src/duke-default/sass/dd-defaults.scss
 
 echo "copying compiled duke-default skin to duke-sakai-skins/target"
 rm -rf ~/dev/dukelearninginnovation/duke-sakai-skins/target/duke-default/*
