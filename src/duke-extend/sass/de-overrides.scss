@@ -1,9 +1,8 @@
 // - [ ] handle long lesson titles
-// - [ ] hide .navIntraTool .bottomButtons if empty
-
-
-
-
+// - [x] hide .navIntraTool .bottomButtons if empty
+// - [x] add index of pages back and move it to the bottom right in the footer
+// - [ ] fix 2 columns when using section/column break
+// - [ ] add column widths to edx progress bar
 
 
 @import "de-defaults";
@@ -410,10 +409,13 @@ $font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
 	.Mrphs-toolTitleNav {
 		float:none;
 		max-width:100%;
-		width:100%;
-		display:none; //change to block to reenable Index of Pages
+		width:135px;
+		display:inline-block;
+		position: absolute;
+		right:1.5em;
+		bottom:2em;
 		margin:0;
-		border-bottom:1px solid rgba(0,0,0,0.05);
+		border-bottom:none;
 		background:white;
 		.menuitem {
 			margin:1em .5em;
@@ -428,8 +430,9 @@ $font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
 				margin:0;
 			}
 			&.fa-list-ul {
-				float:left;
-				margin:1em 1em 1em 2em;
+				float:none;
+				margin:0;
+				background: none;
 				.#{$namespace}itemTitle {
 					display:inline;
 					margin-left:5px;
@@ -452,6 +455,8 @@ $font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
 		.#{$namespace}toolTitleNav__button_container {
 			display:inline-block;
 			float:none;
+			right:0;
+			top:0;
 		}
 	}
 	.navIntraTool {
@@ -544,14 +549,33 @@ $font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
 		h6{
 			font-size: $font-size-h6;
 		}
+		table {
+			@extend .table !optional;
+			@extend .table-bordered !optional;
+		}
 	}
 	.indent{
 		margin:0;
 	}
-	.cols1, .column { 
+	.cols1 { 
 		margin:0;
 		padding:0;
 		width:100% !important;
+	}
+	.cols2,.cols3 {
+		width:calc(100% / 2 - .5em) !important;
+		margin-right:1em !important;
+		padding:1em;
+	}
+	.cols3 {
+		width: calc(100% / 3 ) !important;
+	}
+	.cols3.double {
+		width: calc(200% / 3 - 1em) !important;
+	}
+	.cols2.lastcol,
+	.cols3.lastcol {
+		margin-right:0 !important;
 	}
 	.ui-widget.ui-widget-content {
 		font-size: 14px;
@@ -613,7 +637,30 @@ $font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
 			border-right:none;
 			padding:0;
 		} 
-			
+		.col-md-10-9 {
+			width:9.259%;
+			float: left;
+		}	
+		.col-md-10-8 {
+			width:10.416%;
+			float: left;
+		}
+		.col-md-10-7 {
+			width:11.904%;
+			float: left;
+		}
+		.col-md-10-6 {
+			width:13.888%;
+			float: left;
+		}
+		.col-md-10-4 {
+			width:20.833%;
+			float:left;
+		}
+		.col-md-10-3 {
+			width:27.777%;
+			float: left;
+		}
 		.prev {
 			border-radius:$button-radius 0 0 0;
 			border-left:none;
@@ -637,8 +684,13 @@ $font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
 			}
 		}
 		.current {
-			background:$hawkes;
-			border-right:none;
+			a {
+				background:$hawkes;
+				border-right:none;
+			&:hover {
+				background:$sail;
+			}
+		}
 		} 
 	}
 } 
