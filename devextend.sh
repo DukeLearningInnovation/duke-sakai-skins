@@ -27,18 +27,18 @@ echo "copying skin to /dev"
 rm -rf dev/sakai.duke.edu/library/skin/duke-extend/*
 cp -R target/duke-extend/* dev/sakai.duke.edu/library/skin/duke-extend
 cd dev/sakai.duke.edu/library/skin/duke-extend
-mv access.css access.css%3fversion=ae
-mv portal.css portal.css%3fversion=ae
-mv print.css print.css%3fversion=ae
-mv tool.css tool.css%3fversion=ae
+mv access.css access.css%3fversion=af
+mv portal.css portal.css%3fversion=af
+mv print.css print.css%3fversion=af
+mv tool.css tool.css%3fversion=af
 cd ~/dev/dukelearninginnovation/duke-sakai-skins
 
 rm -rf dev/dukedev.longsight.com/library/skin/duke-extend/*
 cp -R target/duke-extend/* dev/dukedev.longsight.com/library/skin/duke-extend
 cd dev/dukedev.longsight.com/library/skin/duke-extend
-mv access.css access.css%3fversion=ae
-mv portal.css portal.css%3fversion=ae
-mv print.css print.css%3fversion=ae
-mv tool.css tool.css%3fversion=ae
+mv access.css access.css%3fversion=af
+mv portal.css portal.css%3fversion=af
+mv print.css print.css%3fversion=af
+mv tool.css tool.css%3fversion=af
 cd ~/dev/dukelearninginnovation/duke-sakai-skins
 echo "all done"
