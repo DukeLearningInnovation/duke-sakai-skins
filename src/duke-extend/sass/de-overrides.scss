@@ -275,70 +275,92 @@ body #toolMenu {
 // }
 
 /* V4 left aligned with revised Extend "Logo" */
-	.#{$namespace}headerLogo--institution:after,
-	.join .logo:after {
-        color: #001A57;
-        content:none;
-	}
-    .#{$namespace}siteHierarchy {
-		display:flex;
-		position:fixed;
-		width:50%;
-        top:0;
-        line-height:52px;
-        left: 110px;
-        z-index:1000;
-		background:transparent;
+.#{$namespace}headerLogo--institution:after,
+.join .logo:after {
+	color: #001A57;
+	content:none;
+}
+.#{$namespace}siteHierarchy {
+	display:flex;
+	position:fixed;
+	width:calc(100% - (1em + 83px + 1em + 105px + 1em)); //outer margin + logo + inner margin + mysites + profile pic + outer margin
+	top:0;
+	line-height:52px;
+	left: 110px;
+	z-index:1000;
+	background:transparent;
+	color:$mine-shaft;
+	overflow:hidden;
 
-		&:before {
-			content: "EXTEND";
-			color: $mine-shaft;
-			padding:0;
+	&:before {
+		content: "EXTEND";
+		color: $mine-shaft;
+		padding:0;
+	}
+	a,
+	span,
+	span:last-child {
+		margin:0;
+		padding:0;
+		color:inherit;
+	}
+	a:hover,
+	a:active {
+    	border:none;
+    	text-decoration:underline;
+    	color:$klein;
+	}
+	.#{$namespace}hierarchy--siteName{
+		display:flex;
+		color: inherit;
+	}
+	.#{$namespace}hierarchy--siteName:before,
+	.#{$namespace}hierarchy--siteName:after,
+	.crumb-link:before {
+		content: "/";
+		color: inherit;
+		padding:0 .5em;
+		font-weight:400;
 		}
-		a,
-		span,
-		span:last-child {
-			margin:0;
-			padding:0;
-			color:$mine-shaft;
+	.#{$namespace}hierarchy--siteName a {
+		font-size:1em;
+		display:flex;
+	}
+	a.#{$namespace}hierarchy--toolName {
+		display:flex;
+		color:inherit;
+		font-weight:400;
+		text-transform:none;
+		font-size:1em;
+		margin:0;
+		&:hover {
+			// hopefully fulfilled by 307-308
+			// border:none;
+			// text-decoration:underline;
+			// color:inherit;
 		}
-		.#{$namespace}hierarchy--siteName{
-			display:inline-block;
-			color: $mine-shaft;
-		}
-		.#{$namespace}hierarchy--siteName:before,
-    	.#{$namespace}hierarchy--siteName:after {
-        	content: "/";
-        	color: $mine-shaft;
-        	padding:0 .5em;
-        	font-weight:400;
-			}
-		.#{$namespace}hierarchy--siteName a {
-			font-size:1em;
-		}
-		a.#{$namespace}hierarchy--toolName {
-			display:flex;
-			color:$mine-shaft;
-			font-weight:400;
-			text-transform:none;
-			font-size:1em;
-			margin:0;
-			&:hover {
-				border:none;
-				text-decoration:underline;
-				color:$klein;
-			}
-		}
-		.#{$namespace}breadcrumb--icon,
-    	a.#{$namespace}hierarchy--toolName:hover .#{$namespace}breadcrumb--reset-icon {
-        	display:none;
-    	}
-    	.hierarchyWrap {
-			margin:0;
-			display:flex;
-        	justify-content:left;
-    	}
-    }
+	}
+	a .#{$namespace}hierarchy--siteName-label,
+	.#{$namespace}hierarchy--toolName span:last-child,
+	.crumb-link {
+		display:block;
+    	text-overflow:ellipsis;
+    	overflow:hidden;
+    	white-space:nowrap;
+	}
+	.#{$namespace}breadcrumb--icon,
+	a.#{$namespace}hierarchy--toolName:hover .#{$namespace}breadcrumb--reset-icon,
+	span.nextprev,
+	.#{$namespace}hierarchy--separator,
+	.lessons-siteHierarchy-title  {
+		display:none;
+	}
+	.hierarchyWrap {
+		margin:0;
+		display:flex;
+		justify-content:left;
+	}
+}
 @media only screen and (max-width: 800px) {
 	.#{$namespace}siteHierarchy {
 		z-index:2;
