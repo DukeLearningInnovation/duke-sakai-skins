@@ -313,6 +313,11 @@ body #toolMenu {
 	.#{$namespace}hierarchy--siteName{
 		display:flex;
 		color: inherit;
+		&:hover {
+			border:none;
+			text-decoration:underline;
+			color:inherit;
+		}
 	}
 	.#{$namespace}hierarchy--siteName:before,
 	.#{$namespace}hierarchy--siteName:after,
@@ -334,10 +339,9 @@ body #toolMenu {
 		font-size:1em;
 		margin:0;
 		&:hover {
-			// hopefully fulfilled by 307-308
-			// border:none;
-			// text-decoration:underline;
-			// color:inherit;
+			border:none;
+			text-decoration:underline;
+			color:inherit;
 		}
 	}
 	a .#{$namespace}hierarchy--siteName-label,
