@@ -609,20 +609,21 @@ $font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
 		padding:0;
 		
 	}
-	.playerwidth{
-		max-width: 100%;
-		width:100%;
-		height: auto;
-		display: block;
-		& iframe,
-		& object,
-		& embed {
-			max-width: 100%;
-			width:100%;
-			height: auto;
-			display: block;
-		}
-	}
+	// handled in js/src/de.js instead
+	// .playerwidth{
+	// 	max-width: 100%;
+	// 	width:100%;
+	// 	height: auto;
+	// 	display: block;
+		// & iframe,
+		// & object,
+		// & embed {
+		// 	max-width: 100%;
+		// 	width:100%;
+		// 	height: auto;
+		// 	display: block;	
+		// }
+	// }
 	
 	.#{$namespace}toolTitleNav {
 		float:none;
