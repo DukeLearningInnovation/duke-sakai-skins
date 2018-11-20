@@ -63,6 +63,7 @@ mv access.css access.css%3fversion=af
 mv portal.css portal.css%3fversion=af
 mv print.css print.css%3fversion=af
 mv tool.css tool.css%3fversion=af
+mv js/morpheus.scripts.min.js js/morpheus.scripts.min.js%3fversion=af
 cd ~/dev/dukelearninginnovation/duke-sakai-skins
 
 rm -rf dev/dukedev.longsight.com/library/skin/duke-default/*
@@ -72,5 +73,6 @@ mv access.css access.css%3fversion=af
 mv portal.css portal.css%3fversion=af
 mv print.css print.css%3fversion=af
 mv tool.css tool.css%3fversion=af
+mv js/morpheus.scripts.min.js js/morpheus.scripts.min.js%3fversion=af
 cd ~/dev/dukelearninginnovation/duke-sakai-skins
 echo "all done"
