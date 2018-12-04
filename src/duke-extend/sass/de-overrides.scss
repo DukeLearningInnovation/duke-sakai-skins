@@ -330,6 +330,9 @@ body #toolMenu {
 	.#{$namespace}hierarchy--siteName a {
 		font-size:1em;
 		display:flex;
+		&:hover {
+			border:none;
+		}
 	}
 	a.#{$namespace}hierarchy--toolName {
 		display:flex;
