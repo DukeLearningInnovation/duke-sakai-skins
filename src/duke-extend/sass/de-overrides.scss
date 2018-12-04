@@ -801,6 +801,8 @@ $font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
 		img[style*="float: right;"]{
 			margin-left:1em;
 		}
+
+
 	}
 	.indent{
 		margin:0;
@@ -832,6 +834,47 @@ $font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
 	.mainList div:hover.canEdit {
 		background-color:inherit;
 	}
+	//////////////////////////////////
+	// Inline Multiple Choice Questions
+	//////////////////////////////////
+	.mainList .question{
+		
+		h3.questionText {
+			color:$mine-shaft;
+			font-family:$font-family;
+			font-weight:400;
+			font-size: 18px;
+		}
+		.questionDiv {
+			border-top:1px solid #eee;
+		}
+		.questionDiv .contentCol,
+		.checklistDiv {
+			margin:0;
+		}
+		input[value="Submit Answer"].question-submit.btn-primary {
+			background:$endeavour;
+			color:$white !important;
+			border-color:$midnight-blue;
+		}
+		.multipleChoiceForm .multipleChoiceAnswer {
+			border:2px solid $mercury;
+			margin:.25em 0;
+			padding:.25em;
+		}
+		.multipleChoiceForm .multipleChoiceAnswer:hover {
+			background:$mercury;
+			cursor:pointer;
+		}
+		.multipleChoiceForm.disabled .multipleChoiceAnswer:hover {
+			background:$mercury;
+			cursor:not-allowed;
+		}
+		.questionStatusText {
+			margin-top:15px;
+		}
+	}
+	
 
 	///////////////////////////////
 	// Collapsable Sections
