@@ -434,6 +434,11 @@ input[value="Back"]{
 		width:98%;
 	}
 }
+// fixes #38 for Warpwire videos
+.dejs.embed-responsive-16by9 .embed-responsive-item {
+    max-width:960px;
+    max-height:540px;
+}
 //////////////////////////////////////////////
 // Footer
 //////////////////////////////////////////////
