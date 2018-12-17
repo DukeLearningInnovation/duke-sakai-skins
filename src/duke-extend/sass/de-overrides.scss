@@ -19,11 +19,27 @@
 	line-height:1.5em;
 }
 .#{$namespace}topHeader {
-	
+	.#{$namespace}loginNav #roleSwitch {
+		border:none;
+    	padding:0;
+	}
 	.view-all-sites-btn {
+		padding-left:0;
 		a {
-			margin-top: 6px;
+			margin:0;
+			padding:.5em;
+			&:hover, &:active {
+				background: rgba(0,0,0,.15);
+				border-radius: 50%;
+				i {
+					text-shadow: none;
+				}
+			}
 		}
+	}
+	.all-sites-icon {
+		padding:0;
+		margin-top:1px;
 	}
 	.fa-user-secret {
 		color:$klein;
@@ -31,8 +47,11 @@
 }
 #mastLogin {
 	#loginLinks {
-        margin:0;
-    }
+		margin:0;
+		border:none;
+    	padding:0;
+	}
+	
 	.all-sites-label,
 	.has-avatar .textlink {
 		display: none;
@@ -40,6 +59,10 @@
 	.has-avatar .#{$namespace}userNav__submenuitem--profilepicture {
 		border:2px solid #fff;
 		margin:0;
+		&:hover, &:active {
+			border-color: rgba(0,0,0,.15);
+    		box-shadow:none;
+		}
 	}
 	.has-avatar,
 	.no-avatar {
@@ -283,7 +306,7 @@ body #toolMenu {
 .#{$namespace}siteHierarchy {
 	display:flex;
 	position:fixed;
-	width:calc(100% - (1em + 83px + 1em + 105px + 1em)); //outer margin + logo + inner margin + mysites + profile pic + outer margin
+	width:calc(100% - (1em + 83px + 1em + 164px + 1em + 105px + 1em)); //outer margin + logo + padding + roleSwitch + padding + mysites + profile pic + outer margin
 	top:0;
 	line-height:52px;
 	left: 110px;
