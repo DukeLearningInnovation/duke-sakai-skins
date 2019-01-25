@@ -7,7 +7,7 @@ var getDirName = require('path').dirname;
 function compileSass(options = {}) {
     // set default options
     options = Object.assign({
-        style: 'expanded'
+        style: 'compressed'
     }, options);
 
     // render the result
