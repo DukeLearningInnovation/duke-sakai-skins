@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node-sass --watch src/duke-default/ -o dev/sakai.duke.edu/library/skin --include-path src/duke-default/bootstrap-sass-3.3.7/assets/stylesheets/ --include-path src/duke-default/font-awesome-sass-4.7.0/assets/stylesheets/ --include-path src/duke-default/sass/base/"
+    "build-css": "bash watch.sh",
+    "watch": "nodemon -e scss -x \"npm run build-css\""
   },
   "repository": {
     "type": "git",
@@ -33,5 +34,8 @@
     "grunt-postcss": "^0.8.0",
     "grunt-ssh": "^0.12.9",
     "time-grunt": "^1.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
   }
 }
