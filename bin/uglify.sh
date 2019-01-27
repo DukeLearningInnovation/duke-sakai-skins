@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 FILEEXTENSION=${3##*.}
 
-if [ $FILEEXTENSION = "js" ]; then
+if [ $FILEEXTENSION = "js" ] || [ $FILEEXTENSION = "{{changed}}" ]; then
     echo "bin/uglify.sh $1 start"
     SAK_V_CUR='12.x'
     SAK_V_NEW='19.x'

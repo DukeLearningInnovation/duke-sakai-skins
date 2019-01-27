@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-
+echo "$3"
 FILEEXTENSION=${3##*.}
 
-if [ $FILEEXTENSION = "scss" ]; then
+if [ $FILEEXTENSION = "scss" ] || [ $FILEEXTENSION = "{{changed}}" ]; then
     echo "bin/scss.sh $1 start: Compiling SCSS to CSS"
     SAK_V_CUR='12.x'
     SAK_V_NEW='19.x'

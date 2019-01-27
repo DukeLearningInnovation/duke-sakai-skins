@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 FILEEXTENSION=${3##*.}
 
-if [ $FILEEXTENSION = "png" ]; then
+if [ $FILEEXTENSION = "png" ] || [ $FILEEXTENSION = "{{changed}}" ]; then
     echo "bin/imagemin.sh start"
     SAK_V_CUR='12.x'
     SAK_V_NEW='19.x'
