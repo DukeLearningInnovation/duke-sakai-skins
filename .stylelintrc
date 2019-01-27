@@ -1,0 +1,11 @@
+{
+  "extends": "stylelint-config-recommended",
+  "ignoreFiles": [
+      "src/19.x/morpheus-master/**/*.scss",
+      "src/12.x/**/*.scss"
+  ],
+  "defaultSeverity": "error",
+  "rules": {
+      "rule-empty-line-before": null
+  }
+}

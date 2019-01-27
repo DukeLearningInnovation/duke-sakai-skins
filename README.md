@@ -1,3 +1,14 @@
+# 19.x
+
+1. git clone
+1. npm install
+1. npm
+
+    when using npm run serve, check the version to see if it matches what's currently on the server, otherwise your changes won't appear.
+
+1. change the arguments on on scripts:watch to the skin and environment you are developing for
+1. npm run watch
+
 # 12.x branches
 
 `src` contains the source files for the skins. Final edits are placed here and compiled for deployment
