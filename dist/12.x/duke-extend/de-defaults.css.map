@@ -1,0 +1,10 @@
+{
+	"version": 3,
+	"file": "de-defaults.css",
+	"sources": [
+		"../../../duke-extend/sass/de-defaults.scss",
+		"../../../duke-extend/sass/de-defaults.scss/JSASS_CUSTOM.scss"
+	],
+	"names": [],
+	"mappings": ""
+}

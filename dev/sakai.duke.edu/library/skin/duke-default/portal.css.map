@@ -1,0 +1,10 @@
+{
+	"version": 3,
+	"file": "portal.css",
+	"sourceRoot": "file:///Users/mg287/dev/dukelearninginnovation/duke-sakai-skins/dev/sakai.duke.edu/",
+	"sources": [
+		"../../../../../src/duke-default/sass/portal.scss"
+	],
+	"names": [],
+	"mappings": ""
+}
