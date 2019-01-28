@@ -47,15 +47,15 @@ fi
 case $USER_ENV in
 dev)
     ENV=$DEV
-    VERSION=af
+    VERSION='af'
     ;;
 test)
     ENV=$TEST
-    VERSION=af
+    VERSION='af'
     ;;
 prod)
     ENV=$PROD
-    VERSION=af
+    VERSION='af'
     ;;
 nightly)
     ENV=$NIGHTLY

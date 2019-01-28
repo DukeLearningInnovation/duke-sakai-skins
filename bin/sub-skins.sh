@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 if [ $1 = "duke-default" ]; then
-    echo "bin/build-other-skins.sh $1 start"
+    echo "bin/sub-skins.sh $1 start"
     SAK_V_CUR='12.x'
     SAK_V_NEW='19.x'
     DATE=`date +%Y-%m-%d_%H-%M-%S`
@@ -34,5 +34,5 @@ if [ $1 = "duke-default" ]; then
     rm -rf dist/$SAK_V_NEW/duke-samsi
     cp -R dist/$SAK_V_NEW/$1 dist/$SAK_V_NEW/duke-samsi
     printf "\n.Mrphs-mainHeader .Mrphs-headerLogo .Mrphs-headerLogo--institution{background-image: url('images/samsiLogo.png'); background-size: 107px 50px;width:107px;}\n" >> dist/$SAK_V_NEW/duke-samsi/tool.css
-    echo "bin/build-other-skins.sh $1 end"
+    echo "bin/sub-skins.sh $1 end"
 fi
