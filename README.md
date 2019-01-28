@@ -138,3 +138,12 @@ This script only runs if the third argument is a js file or the string `{{change
 1. Create a [new Github Issue](https://github.com/DukeLearningInnovation/duke-sakai-skins/issues/new)
 1. Drop the screenshot into the Write Comment box, paste the Selector, and describe the issue.
 1. If you want to fix it, assign yourself under Assignees
+
+## Troubleshooting
+
+Thanks to https://github.com/cilt-uct/sakai-skin-vula for the inspiration!!
+
+[Grunt based build](https://github.com/cilt-uct/sakai-skin-vula/blob/r/12.x/Gruntfile.js)
+[Sakai 19 skin POM](https://github.com/sakaiproject/sakai/blob/19.x/library/pom.xml)
+
+If something's not right, those are two places to look and see what's wrong with the build.
