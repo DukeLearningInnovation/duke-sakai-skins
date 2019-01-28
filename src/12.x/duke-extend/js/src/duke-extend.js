@@ -1,8 +1,4 @@
 (function ($) {
-    $('iframe[src^="https://www.youtube"], iframe[src^="https://warpwire"]')
-        .addClass('embed-responsive-item')
-        .parent().addClass('dejs embed-responsive-16by9 embed-responsive');
-
 
     /*****************************
     Look for inline multiple choice questions in Lessons
