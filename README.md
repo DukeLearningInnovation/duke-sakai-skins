@@ -2,7 +2,9 @@
 
 ## Getting Started
 
-Requires Node and NPM. I recommend using [Homebrew](https://brew.sh/) which makes the install pretty easy. [dyclassrom](https://www.dyclassroom.com/howto-mac/how-to-install-nodejs-and-npm-on-mac-using-homebrew) has a good tutorial. I recommend copying the homebrew install command directly from Homebrew's website to ensure you get the right one.
+Requires Node and NPM. I recommend using [Homebrew](https://brew.sh/) which makes the install pretty easy. [dyclassrom](https://www.dyclassroom.com/howto-mac/how-to-install-nodejs-and-npm-on-mac-using-homebrew) has a good tutorial. 
+
+I recommend copying the homebrew install command directly from Homebrew's website to ensure you get the right one.
 
 I'm using the follow versions at this time
 
