@@ -2,6 +2,8 @@
 
 ## Getting Started
 
+Requires Node and NPM. I recommend using [Homebrew](https://brew.sh/) which makes the install pretty easy. [dyclassrom](https://www.dyclassroom.com/howto-mac/how-to-install-nodejs-and-npm-on-mac-using-homebrew) has a good tutorial. I recommend copying the homebrew install command directly from Homebrew's website to ensure you get the right one.
+
 1. Run `git clone https://github.com/DukeLearningInnovation/duke-sakai-skins.git`
 1. Run `npm install`
 1. change the arguments on on scripts:watch to the skin and environment you are developing for. The defaults are duke-default and nightly. Environment options are:
