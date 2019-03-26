@@ -5,13 +5,13 @@
   "main": "index.js",
   "scripts": {
     
-    "watch": "onchange \"src/19.x/**/*\" -- run-s \"watch2:** duke-default nightly {{changed}}\"",
+    "watch": "onchange \"src/19.x/**/*\" -- run-s \"watch:** duke-19 nightly {{changed}}\"",
       "watch:css": "npm run scss",
       "watch:fonts": "npm run fonts",
       "watch:images": "npm run imagemin",
       "watch:js": "npm run uglify",
       "watch:serve": "npm run serve",
-    "build": "run-s \"build:* duke-default nightly {{changed}}\" \"build:* duke-extend nightly {{changed}}\"",
+    "build": "run-s \"build:* duke-19 nightly {{changed}}\" \"build:* duke-19 nightly {{changed}}\"",
       "build:step1": "npm run lint-scss",
       "build:step2": "npm run scss",
       "build:step3": "npm run autoprefixer",
@@ -31,7 +31,7 @@
     "lint-js": "eslint src/19.x/**/js || true",
     "scss": "bash bin/scss.sh",
     "serve": "bash bin/serve.sh",
-    "sub-skins": "bash bin/build-other-skins.sh",
+    "sub-skins": "bash bin/sub-skins.sh",
     "uglify": "bash bin/uglify.sh"
   },
   "repository": {

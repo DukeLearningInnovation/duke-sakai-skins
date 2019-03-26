@@ -8,7 +8,7 @@ DATE=`date +%Y-%m-%d_%H-%M-%S`
 DEV='dukedev.longsight.com'
 TEST='sakai-test.duke.edu'
 PROD='sakai.duke.edu'
-NIGHTLY='qa19-mysql.nightly.sakaiproject.org'
+NIGHTLY='qa1-us.nightly.sakaiproject.org'
 
 COLOR='\033[1;35m'
 NC='\033[0m'
@@ -29,7 +29,7 @@ else
     printf "\tdev: ${COLOR}dukedev.longsight.com${NC}\n"
     printf "\ttest:${COLOR}sakai-test.duke.edu${NC}\n"
     printf "\tprod:${COLOR}sakai.duke.edu${NC}\n"
-    printf "\tnightly: ${COLOR}qa19-mysql.nightly.sakaiproject.org${NC}\n"
+    printf "\tnightly: ${COLOR}qa1-us.nightly.sakaiproject.org${NC}\n"
     printf "\tor manually enter a domain name\n"
 
     read USER_ENV
@@ -59,12 +59,13 @@ prod)
     ;;
 nightly)
     ENV=$NIGHTLY
-    VERSION='7e84d015'
+    VERSION='b5f86457'
     SVR_SKIN='morpheus-default'
     ;;
 *)
     ENV=$USER_ENV
-    VERSION=af
+    SVR_SKIN='morpheus-default'
+    VERSION='65c2b156'
 esac
 
 SKIN=$USER_SKIN
@@ -80,6 +81,9 @@ rm -rf dev/$ENV/library/skin/$SVR_SKIN
 mkdir -p dev/$ENV/library/skin/$SVR_SKIN
 cp -R dist/$SAK_V_NEW/$SKIN/ dev/$ENV/library/skin/$SVR_SKIN
 
+if [[ $USER_ENV = "nightly" ]]; then
+    mv dev/$ENV/library/skin/$SVR_SKIN/images/logo-duke@2x-blue.png dev/$ENV/library/skin/$SVR_SKIN/images/logo-jewel.png
+fi
 
 find dev/$ENV/library/skin/$SVR_SKIN -type f -name '*.css' -exec mv {} {}%3fversion=$VERSION \;
 find dev/$ENV/library/skin/$SVR_SKIN -type f -name '*.js' -exec mv {} {}%3fversion=$VERSION \;

@@ -1,0 +1,113 @@
+@import "defaults";
+@import "customization";
+
+@media #{$nonPhone}{
+    /* modules/tool/_base.scss */
+    .#{$namespace}toolBody,
+    .portletBody {
+        background: $tool-background-color; 
+    }
+    /* modules/tool/_base.scss */
+    .#{$namespace}multipleTools{
+        .#{$namespace}container{
+            border: none;
+            border-radius: $button-radius;
+        }
+
+        .#{$namespace}toolTitleNav{
+            .#{$namespace}toolTitleNav__title{
+                color: $text-color;
+                font-weight: 700;
+
+            }
+            .#{$namespace}toolTitleNav__link--directurl,
+            .#{$namespace}toolTitleNav__link--help-popup{
+                background: none;
+                border:0;
+                &:before {
+                    color: $link-color;
+                }
+                .#{$namespace}itemTitle {
+                    display:none;
+                }
+            }
+        }
+    }
+
+    /* modules/navigation/_breadCrumbs.scss */
+    .#{$namespace}siteHierarchy{
+        background: $background-color;
+    }
+    /* modules/navigation/_navigation.scss */
+    ##{$namespace}academic-bullhorn,
+    ##{$namespace}social-bullhorn,
+    #roleSwitchDropDownToggle,
+    .view-all-sites-btn a {
+        border-radius: 50%;
+
+        &:hover,
+        &:active{
+            text-shadow:0;
+            background-color:$granite;
+        }
+        
+    }
+    .portal-bullhorns-buttons {
+        padding:0;
+    }
+    ##{$namespace}academic-bullhorn,
+    ##{$namespace}social-bullhorn {
+        margin:0 0 0 $standard-spacing;
+        span {
+            padding:.5em;
+        }
+    }
+    .view-all-sites-btn{
+        margin:0 0 0 $standard-spacing;
+        padding:0;
+        a {
+            display: inline-block;
+            .all-sites-icon{
+                padding:.5em;
+            }
+            span.all-sites-label {
+                display: none;
+            }
+        }
+    } 
+
+    /* modules/navigation/_base.scss */
+    .#{$namespace}mainHeader{
+        box-shadow: none;
+        border-bottom:1px solid $limestone;
+    }
+    #mastLogin{
+        .has-avatar{
+            border-radius:50%;
+
+            .#{$namespace}userNav__submenuitem--username,
+            .#{$namespace}userNav__submenuitem--userid {
+                span.textlink {
+                    display: none;
+                }
+            }
+            .#{$namespace}userNav__submenuitem--profilepicture {
+                &:hover,
+                &:active {
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+    .is-maximized #loginLinks,
+    .portal-bullhorns-buttons {
+        border: none;
+    }
+}
+/* end nonPhone overrides */
+
+/* start phone overrides */
+@media #{$phone}{
+
+}
+/* end phone overrides */

@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "duke-19.css",
+	"sourceRoot": "https://sakai.duke.edu",
+	"sources": [
+		"../../../../src/19.x/duke-19/sass/duke-19.scss",
+		"../../../../src/19.x/duke-19/sass/_defaults.scss",
+		"../../../../src/19.x/duke-19/sass/_customization.scss"
+	],
+	"names": [],
+	"mappings": "ACwBA,OAAO,CAAC,kEAAI,CDjBZ,AAAA,eAAe,CACf,YAAY,AAAC,CACT,UAAU,CEcN,IAAI,CFbX,AACD,AACC,oBADmB,CACnB,gBAAgB,AAAO,CAChB,MAAM,CAAC,CAAC,CACR,aAAa,CE8BL,GAAG,CF7Bd,AAIL,AAAA,oBAAoB,AAAO,CACvB,UAAU,CEEL,OAAO,CFDf"
+}
