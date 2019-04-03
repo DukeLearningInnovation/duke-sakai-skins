@@ -18,5 +18,6 @@ cp src/$SAK_V_NEW/duke-default/images/playposit.png src/$SAK_V_NEW/$2/images/pla
 rm -rf src/$SAK_V_NEW/$2/sass/examples
 rm src/$SAK_V_NEW/$2/.gitignore
 rm src/$SAK_V_NEW/$2/*.md
+rm src/$SAK_V_NEW/$2/sass/morpheus-master.scss
 
 echo "bin/create-skin.sh done creating $2 from $1"

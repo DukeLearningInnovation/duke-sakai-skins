@@ -17,7 +17,7 @@
 
 ## Stage 2: Development
 
-1. Change the arguments on on `package.json scripts:watch` to the skin and environment you are developing for. The defaults are duke-default and nightly. Environment options are:
+1. Change the arguments on on `package.json scripts:watch` to the skin and environment you are developing for. The defaults are duke-default and dev. Environment options are:
     1. dev =        dukedev.longsight.com
     1. test =       sakai-test.duke.edu
     1. prod =       sakai.duke.edu

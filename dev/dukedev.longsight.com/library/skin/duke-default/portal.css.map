@@ -1,9 +1,9 @@
 {
 	"version": 3,
 	"file": "portal.css",
+	"sourceRoot": "https://sakai.duke.edu",
 	"sources": [
-		"../../../duke-default/sass/portal.scss",
-		"../../../duke-default/sass/portal.scss/JSASS_CUSTOM.scss"
+		"../../../../src/19.x/duke-default/sass/portal.scss"
 	],
 	"names": [],
 	"mappings": ""
