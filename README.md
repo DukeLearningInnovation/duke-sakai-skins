@@ -17,12 +17,23 @@
 
 ## Stage 2: Development
 
+### Quick Start
+
+1. Open a terminal to `cd` to the duke-sakai-skins directory on your machine
+1. Run `npm run watch` this script auto-updates and deploys everything when you save a file
+1. Open Chrome and navigate to dukedev.longsight.com
+1. Open Devtools and go to the Sources Tab then the Overrides sub-tab (in the left pane)
+1. Enable local overrides and select the `dev` folder in your duke-sakai-skins directory. Chrome will find the correct subfolder based on the domain name of the server.
+1. Edit SCSS or JS in `src` and save. Upon save, watch will auto-compile and about 10-15s later, Chrome will auto-update with your edited code.
+
+### More options
+
 1. Change the arguments on on `package.json scripts:watch` to the skin and environment you are developing for. The defaults are duke-default and dev. Environment options are:
     1. dev =        dukedev.longsight.com
     1. test =       sakai-test.duke.edu
     1. prod =       sakai.duke.edu
     1. nightly =    qa19-mysql.nightly.sakaiproject.org
-1. If you are developing against any of the Sakai Community Nightly servers, you'll need to change the version number in `bin/serve.sh`.
+1. If you are developing against any of the Sakai Community Nightly servers, you'll need to change the version number in `bin/serve.sh` to match the current build which changes daily.
    1. Open Chrome Devtools and visit the environment you wish to develop against.
    1. Open the Network tab and find a CSS or JS file.
    1. Copy the string at the end of the filename `version=XXX`
@@ -49,7 +60,7 @@ You can do a full compile at any time build running `npm run build`.
 * `dist` contains compiled versions of `src` ready for sending to Longsight
 * `src` contains the source files for the skins. Edit here.
 
-All skins except `duke-extend` are based off the `duke-default` skin which is why there are only two folders in `src`.
+All skins except `duke-extend` are currently based off the `duke-default` skin which is why there are only two folders in `src`.
 
 ## Scripts
 
