@@ -1,17 +1,21 @@
 language: node_js
 node_js:
-    - "10"
+- '10'
 branches:
   only:
   - master
+cache:
+  directories:
+  - node_modules
 deploy:
   provider: pages
   skip_cleanup: true
-  github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  github_token: "$GITHUB_TOKEN"
   keep_history: true
   target_branch: dukedev
   local_dir: dist/19.x
   on:
     branch: master
 notifications:
-  slack: dukeli:wKyuXwgTtAVE4NSCiUhocOYj
+  slack:
+    secure: dxCFyyk4RaD8PriH+Km37yckn84ppj18oaZkYdgK+h+H902sZ/DnvpJfPDRTrPfVneo+efhvOWa0dt3WJFHIEalRXhaEJBlS43Jbyz91LzpJJb8Bmg0JbOLK2A70t+z2sB7ybuoEJwLrjGb/Wj25qAZ3OXrKHBJrmzWv1OXtiNVYuEkbPOxL0eMMacsvIhzpx3SuaW7ldeXGE7o5krrUJsO2vpl6Qk4qqpOq/DdPdHg80Pd96gHDW2R7iakjdH5Xt9HaCHOOPHYiYDYTLHusM4jlO/B5poHBQvVj8tfNnyNGYZhqLNpdymyZuyVyKHUjBReEB7GvaPQUL7/77vHDAn6J4JOX3IXIv8TBkBZmP+stqPq+BJJLfnWxq6F+6xCGAXBjH9C+GM5nVXkdafYJmnAFTCUiTYPYtHlhQSzQDZz5ZEHyvrKfV6RKyTOwMC2ZYUCIS+S5vb/g9fjggkPPCbr8F99xWD+ofZE87IhykFF6IvkcEvXYCLwHHMPAPP/6Wv/6lB+e3iVt2Kk5fa2ZN5Bn9DPi7i23y+LLc16qPmBEw7ocdtoNRTRzclp3NRD2y+9iv+DWyt/aCy1MzbLIFMRQu/pOk1CGzjPO2RfUCzJGXh6dxrId2BIrngZRTJC0ZmaVIfetRERWTJBw/0HY6TA3uLKUh33w3Hfow79CCJg=
