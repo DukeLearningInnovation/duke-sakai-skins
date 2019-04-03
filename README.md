@@ -1,26 +1,34 @@
 # Duke Sakai Skins
 
-## Getting Started
+## Stage 1: Install and setup
 
-Requires Node and NPM. I recommend using [Homebrew](https://brew.sh/) which makes the install pretty easy. [dyclassrom](https://www.dyclassroom.com/howto-mac/how-to-install-nodejs-and-npm-on-mac-using-homebrew) has a good tutorial. 
+1. Install Node and NPM. I recommend using [Homebrew](https://brew.sh/) which makes the install pretty easy. [dyclassrom](https://www.dyclassroom.com/howto-mac/how-to-install-nodejs-and-npm-on-mac-using-homebrew) has a good tutorial.
 
-I recommend copying the homebrew install command directly from Homebrew's website to ensure you get the right one.
+    I recommend copying the homebrew install command directly from Homebrew's website to ensure you get the right one.
 
-I'm using the follow versions at this time
+    I'm using the follow versions at this time
 
-* Homebrew 1.9.3
-* Node 11.6.0
-* npm 6.7.0
+   * Homebrew 1.9.3
+   * Node 11.6.0
+   * npm 6.7.0
 
 1. Run `git clone https://github.com/DukeLearningInnovation/duke-sakai-skins.git`
 1. Run `npm install`
-1. change the arguments on on scripts:watch to the skin and environment you are developing for. The defaults are duke-default and nightly. Environment options are:
+
+## Stage 2: Development
+
+1. Change the arguments on on `package.json scripts:watch` to the skin and environment you are developing for. The defaults are duke-default and dev. Environment options are:
     1. dev =        dukedev.longsight.com
     1. test =       sakai-test.duke.edu
     1. prod =       sakai.duke.edu
     1. nightly =    qa19-mysql.nightly.sakaiproject.org
+1. If you are developing against any of the Sakai Community Nightly servers, you'll need to change the version number in `bin/serve.sh`.
+   1. Open Chrome Devtools and visit the environment you wish to develop against.
+   1. Open the Network tab and find a CSS or JS file.
+   1. Copy the string at the end of the filename `version=XXX`
+   1. Replace the `VERSION` variable with the current version and save.
 1. Run `npm run watch`
-1. Open Chrome Devtools and go to the enviromnt you are currently watching.
+1. Open Chrome Devtools and go to the environment you are currently watching.
 1. In Devtools go to the Sources Tab and the Overrides sub-tab (in the left pane)
 1. Enable local overrides and select the `dev` folder. Chrome will find the correct subfolder based on the domain name of the server.
 1. Edit SCSS or JS in `src` and save. Upon save, watch will auto-compile and about 10-15s later, Chrome will auto-update with your edited code.

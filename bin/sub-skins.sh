@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-if [ $1 = "duke-default" ]; then
+if [[ $1 = "duke-default" ]]; then
     echo "bin/sub-skins.sh $1 start"
     SAK_V_CUR='12.x'
     SAK_V_NEW='19.x'
