@@ -1,5 +1,7 @@
 # Duke Sakai Skins
 
+[![Build Status](https://travis-ci.org/DukeLearningInnovation/duke-sakai-skins.svg?branch=master)](https://travis-ci.org/DukeLearningInnovation/duke-sakai-skins)
+
 ## Stage 1: Install and setup
 
 1. Install Node and NPM. I recommend using [Homebrew](https://brew.sh/) which makes the install pretty easy. [dyclassrom](https://www.dyclassroom.com/howto-mac/how-to-install-nodejs-and-npm-on-mac-using-homebrew) has a good tutorial.

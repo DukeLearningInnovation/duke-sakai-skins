@@ -19,20 +19,6 @@
     box-shadow:none;
 }
 
-// #linkNav ul {
-//     flex-wrap: nowrap;
-//     li.Mrphs-sitesNav__menuitem {
-        
-//         &>a.link-container {
-//             flex: 1;
-//             min-width: 0;
-//             span {
-//                 white-space: nowrap;
-//                 overflow: hidden;
-//             }
-//         }
-//     }
-// }
 
 #topnav_container {
     margin-left: $tool-menu-width;
@@ -68,6 +54,87 @@
 }
 body.#{$namespace}toolMenu-collapsed{
     #toolMenuWrap{
-        margin-left:calc(#{$tool-menu-width-collapsed} * -1);
+        // margin-left:calc(#{$tool-menu-width-collapsed} * -1);
+    }
+}
+
+.#{$namespace}mainContent {
+    background: $white;
+    &.#{$namespace}multipleTools {
+        background: $alabaster;
+    }
+}
+body.workspace {
+    .#{$namespace}siteHierarchy {
+        display:none;
+    }
+    .#{$namespace}sakai-siteinfo,
+    .#{$namespace}sakai-sitesetup {
+        #siteTypeList {
+            width: 50%;
+        }
+    }
+    .#{$namespace}multipleTools {
+        .#{$namespace}pageColumns--single{
+            display:flex;
+            flex-wrap:wrap;
+            justify-content: flex-start;
+            .#{$namespace}container {
+                    width: 46%;
+                    border:none;
+                    margin:$standard-spacing;
+            }
+            .#{$namespace}sakai-motd {
+                width:95%;
+                .#{$namespace}toolTitleNav {
+                    display:none;
+                }
+            }
+        }
+        .#{$namespace}toolTitleNav__button_container.home{
+            display:none;
+        }
+        .#{$namespace}toolTitleNav{
+            padding-bottom:0;
+            .#{$namespace}toolTitleNav__title {
+                color: $castiron;
+                font-weight: 500;
+                font-size: 1.25em;
+            }
+        }
+    }
+}
+.#{$namespace}toolBody--sakai-motd .portletMainIframe {
+    padding:0;
+    .textPanel {
+        padding: $standard-spacing;
+    }
+}
+.motd-content {
+    padding:0 $standard-spacing;
+    .row {
+        margin-left:-$standard-spacing;
+        margin-right:-$standard-spacing;
+    }
+    h1 {
+        color: $castiron;
+        font-weight: 500;
+        font-size: 1.25em;
+        margin:1em 0;
+    }
+    .label {
+        margin-right:$standard-spacing;
+        margin-left: -.6em;
+        background:none;
+        font-size:1em;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+    .label-primary {
+        &:hover,
+        &:active {
+            background:$royal-light;
+            text-decoration: none;
+        }
     }
 }

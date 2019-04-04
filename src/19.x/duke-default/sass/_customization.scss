@@ -26,10 +26,12 @@ $granite: #B5B5B5;
 $limestone: #E5E5E5;
 $athens: #F8F9FA;
 $white: #fff;
-
-
+$alabaster: #fafafa;
+$wildsand: #f5f5f5;
+$gallery: #eee;
+$alto: #dcdcdc;
 $primary-color: $bay;
-$background-color:rgb(250,250,250);
+$background-color:$alabaster;
 $background-color-secondary: $white;
 
 $alt-colour: $persimmon;
@@ -37,10 +39,10 @@ $text-color: $castiron;
 $text-color-disabled: $graphite;
 
 $body-background-color: $white;
-$portal-background-color:rgb(250,250,250);
+$portal-background-color:$alabaster;
 
 /* Tool tabs */
-$tool-menu-background-color: rgb(245,245,245);
+$tool-menu-background-color: $wildsand;
 $tool-background-color: $white;
 $top-header-background: $navy;
 $sites-nav-background: $background-color;
@@ -50,8 +52,42 @@ $sites-nav-background: $background-color;
 /* General button design */
 $button-radius: 4px;
 $button-text-color:#333;
-$button-background: rgb(238,238,238);
+$button-background: $gallery;
 $button-border-color: transparent;
+
+// Default (non-primary) button design:
+$button-text-color:             #333 !default;
+$button-background:             linear-gradient(#fff, #f9f9f9) !default;
+$button-border-color:           #ccc !default;
+// hover and focus states:
+$button-hover-text-color:       $button-text-color !default;
+$button-hover-background:       $button-background !default;
+$button-hover-border-color:     #999 !default;
+// active state:
+$button-active-text-color:      $button-text-color !default;
+$button-active-background:      linear-gradient(#f9f9f9, #fff) !default;	//note: inverse order from above
+$button-active-border-color:    $button-hover-border-color !default;
+$button-active-shadow-color:    rgba(0, 0, 0, 0.3) !default;
+// disabled state:
+$button-disabled-text-color:    #717171 !default;
+$button-disabled-background:    #f6f6f6 !default;
+$button-disabled-border-color:  #dbdbdb !default;
+$button-disabled-shadow:        none !default;
+$button-disabled-font-weight:   300 !default;
+
+// Primary action button design:
+$button-primary-text-color:                 #fff !default;
+$button-primary-background:                 $primary-color !default;
+$button-primary-border-color:               $navy;
+// hover and focus states for primary action button:
+$button-primary-hover-text-color:           $button-primary-text-color !default;
+$button-primary-hover-background:           $navy;
+$button-primary-hover-border-color:         darken($navy, 10%);
+// active state for primary action button:
+$button-primary-active-text-color:          $button-primary-text-color !default;
+$button-primary-active-background:          $button-primary-hover-background !default;
+$button-primary-active-border-color:        $button-primary-hover-border-color !default;
+$button-primary-active-shadow-color:        $button-active-shadow-color !default;
 /* Swapped 'View As' view */
 
 /* This is the gradient in the header of the page */
@@ -69,11 +105,11 @@ $sites-nav-menu-item-border-color:          $button-border-color;
 /* Tool Menu */
 // $tool-menu-width-collapsed: 0;
 
-$tool-menu-item-separator-color:                           rgb(245,245,245);
+$tool-menu-item-separator-color:                           $wildsand;
 $tool-menu-item-text-color:                                $castiron;
 $tool-menu-item-icon-color:                                $graphite;
 $tool-menu-item-text-weight:                               normal;
-$tool-menu-item-background-color:                          rgb(245,245,245);
+$tool-menu-item-background-color:                          $tool-menu-item-separator-color;
 $tool-menu-item-border-left:                               none;
 $tool-menu-item-hover-text-color:                          $royal;
 $tool-menu-item-hover-icon-color:                          $royal;
@@ -86,15 +122,15 @@ $tool-menu-item-hidden-border-left:                        $tool-menu-item-borde
 $tool-menu-item-hidden-hover-text-color:                   $tool-menu-item-hover-text-color !default;
 $tool-menu-item-hidden-hover-icon-color:                   $tool-menu-item-hover-icon-color !default;
 $tool-menu-item-hidden-hover-background-color:             $tool-menu-item-hover-background-color !default;
-$tool-menu-item-hidden-hover-border-left:                  $tool-menu-item-hover-border-left !default;
+$tool-menu-item-hidden-hover-border-left:                  $tool-menu-item-border-left;
 $tool-menu-item-selected-text-color:                       $castiron;
 $tool-menu-item-selected-icon-color:                       $royal;
-$tool-menu-item-selected-background-color:                 rgb(220,220,220);
-$tool-menu-item-selected-border-left:                      none;
-$tool-menu-item-selected-hover-text-color:                 $primary-color !default;
-$tool-menu-item-selected-hover-icon-color:                 $primary-color !default;
-$tool-menu-item-selected-hover-background-color:           #FFFFFF !default;
-$tool-menu-item-selected-hover-border-left:                4px solid $primary-color !default;
+$tool-menu-item-selected-background-color:                 $alto;
+$tool-menu-item-selected-border-left:                      $tool-menu-item-border-left;
+$tool-menu-item-selected-hover-text-color:                 $tool-menu-item-hover-text-color;
+$tool-menu-item-selected-hover-icon-color:                 $tool-menu-item-hover-icon-color;
+$tool-menu-item-selected-hover-background-color:           $tool-menu-item-hover-background-color;
+$tool-menu-item-selected-hover-border-left:                $tool-menu-item-border-left;
 
 
 /* The standards for items in Sakai */
