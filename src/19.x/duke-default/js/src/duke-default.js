@@ -149,5 +149,8 @@
     if ( $('#loginLink1').find('.Mrphs-login-Message').text().startsWith("Return") ){
         $('body').addClass('become-user');
     }
-    
+
+    var currentUrl = new URL(window.location.href);
+    var serverClass = currentUrl.hostname.replace(/\./g, '-');
+    $('body').addClass(serverClass);
 }) ($PBJQ);
