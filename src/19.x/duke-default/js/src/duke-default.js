@@ -121,24 +121,25 @@
     /////////////////////////////////////////////////////
     // ADJUST TOOLMENUWRAP BASED ON FAV SITES HEIGHT
     ////////////////////////////////////////////////////
-    var favHeight = $('#topnav').height();
-    var newFavHeight = favHeight;
-    var resizeTimeout;
-    console.log(favHeight);
-    var toolWrapMargin = (favHeight + 22) * -1;
-    $('#toolMenuWrap').css('margin-top', toolWrapMargin );
     
-    $( window ).resize(function() {
-        if (resizeTimeout) {
-            clearTimeout(resizeTimeout);
-        }
-        resizeTimeout = setTimeout(function() {
-            newFavHeight = $('#topnav').height();
-            toolWrapMargin = (newFavHeight + 22) * -1;
-            $('#toolMenuWrap').css('margin-top', toolWrapMargin );
-            console.log(toolWrapMargin);
-        }, 100);
+    // var favHeight = $('#topnav').height();
+    // var newFavHeight = favHeight;
+    // var resizeTimeout;
+    // console.log(favHeight);
+    // var toolWrapMargin = (favHeight + 54) * -1;
+    // $('#toolMenuWrap').css('margin-top', toolWrapMargin );
+    
+    // $( window ).resize(function() {
+    //     if (resizeTimeout) {
+    //         clearTimeout(resizeTimeout);
+    //     }
+    //     resizeTimeout = setTimeout(function() {
+    //         newFavHeight = $('#topnav').height();
+    //         toolWrapMargin = (newFavHeight + 54) * -1;
+    //         $('#toolMenuWrap').css('margin-top', toolWrapMargin );
+    //         console.log(toolWrapMargin);
+    //     }, 100);
         
-    });
+    // });
 
 }) ($PBJQ);

@@ -1,15 +1,181 @@
 @import "defaults";
+///////////////////////////////////
+// topHeader 
+//////////////////////////////////
+.portal-bullhorns-buttons,
+.is-maximized #loginLinks {
+    border:none;
+}
+.#{$namespace}topHeader #mastLogin {
+    #loginUser.has-avatar,
+    #loginUser.no-avatar {
+        border:2px solid $royal-light;
+        border-right-color: $royal-light;
+        border-bottom-color: $copper;
+        border-left-color:$copper;
+        border-radius: 50%;
+        background:$white;
+        .#{$namespace}userNav__submenuitem--username,
+        .#{$namespace}userNav__submenuitem--userid {
+            padding:2px;
+            span.textlink {
+                display:none;
+            }
+        }
+        .#{$namespace}userNav__submenuitem--profilepicture {
+            margin:0;
+            &:hover, &:active {
+                text-shadow: none;
+                margin-left:0;
+                box-shadow: none;
+            }
+        }
+        &:active, &:hover {
+            border-color:$dodger;
+            .#{$namespace}userNav__submenuitem--profilepicture {
+                box-shadow: none;
+            }
+        }
+    }
+}
 
+.all-sites-label {
+    display: none;
+}
+.all-sites-icon {
+    padding:0;
+}
+.view-all-sites-btn a{
+    display: inline-block;
+}
+
+.portal-bullhorns-buttons,
+##{$namespace}social-bullhorn,
+.view-all-sites-btn,
+.#{$namespace}userNav {
+    padding:0;
+    margin-left:$standard-spacing;
+}
+##{$namespace}social-bullhorn {
+    margin-left:14px;
+}
+.icon-sakai--academic-bullhorn {
+    padding-right:0;
+}
+##{$namespace}academic-bullhorn,
+##{$namespace}social-bullhorn {
+    padding: 4px 10px;
+    &:hover, &:active {
+        background: $dodger;
+        border-radius: 50%;
+        text-shadow: none;
+        i {
+            text-shadow: none;
+        }
+    }
+}
+##{$namespace}academic-bullhorn,
+##{$namespace}social-bullhorn,
+.view-all-sites-btn {
+    margin-top:-4px;
+    a {
+        padding: 4px 10px;
+        &:hover, &:active {
+            background: $dodger;
+            border-radius: 50%;
+            text-shadow: none;
+            
+            i {
+                text-shadow: none;
+            }
+        }
+    }
+}
+.view-all-sites-btn {
+    margin-top:-7px;
+}
+///////////////////////////////////
+// Left hand Tool Menu 
+//////////////////////////////////
 .#{$namespace}mainHeader .#{$namespace}headerLogo .#{$namespace}headerLogo--institution {
     margin-left: 36px;
 }
 #toolMenuWrap {
     border-right:none;
-    margin-top: -70px;
+    // margin-top: -70px;
+    position: absolute;
+    top:52px;
+    padding:0;
+    height: calc(100% - 52px);
 }
-#toolMenu ul li:first-of-type a, #subSites ul li:first-of-type a {
-    border-top:none;
+.#{$namespace}pagebody {
+    margin-left:200px;
 }
+body.#{$namespace}toolMenu-collapsed{
+    
+    .#{$namespace}pagebody,
+    #topnav_container {
+        margin-left:#{$tool-menu-width-collapsed};
+    }
+}
+
+#topnav_container {
+    margin-left: $tool-menu-width;
+    .#{$namespace}toolMenu-collapsed & {
+        margin-left:0;
+    }
+}
+#toolMenu,
+#subSites {
+    ul {
+        li:first-of-type a {
+            border-top:none;
+        }
+        li.is-current{
+            margin-right:0;
+            .#{$namespace}toolsNav__menuitem--link .#{$namespace}toolsNav__menuitem--title {
+                font-weight:400;
+            }
+        }
+        li.Mrphs-collapseTools,
+        li.Mrphs-collapseTools {
+            top:0;
+            left:0;
+            bottom:auto;
+            box-shadow:none;
+            width: 52px;
+            height: 52px;
+            z-index:1001;
+            background:$dodger;
+
+            &.min {
+                display: flex;
+                width:52px;
+                background:$royal-light;
+                box-shadow: none;
+                
+            }
+            button:hover,
+            button:active {
+                    box-shadow: none;
+                }
+            button:active{
+
+            }
+            button.js-toggle-nav {
+                width:52px;
+                height:52px;
+                span.fa-angle-double-left {
+                    color:$white;
+                    &:before {
+                        content: "\f0c9"
+                    }
+                }
+            }
+        }
+    }
+} 
+
 #linkNav ul
 .#{$namespace}siteHierarchy{
     background: $background-color;
@@ -19,52 +185,23 @@
     box-shadow:none;
 }
 
-
-#topnav_container {
-    margin-left: $tool-menu-width;
-    .#{$namespace}toolMenu-collapsed & {
-        margin-left:0;
-    }
-}
-#toolMenu ul li.Mrphs-collapseTools,
-#subSites ul li.Mrphs-collapseTools {
-    top:0;
-    left:0;
-    bottom:auto;
-    box-shadow:none;
-    width: 52px;
-    height: 52px;
-    z-index:1001;
-    background:$dodger;
-
-    &.min {
-        display: flex;
-        width:52px;
-    }
-    button.js-toggle-nav {
-        width:52px;
-        height:52px;
-        span.fa-angle-double-left {
-            color:$white;
-            &:before {
-                content: "\f0c9"
-            }
-        }
-    }
-}
-body.#{$namespace}toolMenu-collapsed{
-    #toolMenuWrap{
-        // margin-left:calc(#{$tool-menu-width-collapsed} * -1);
-    }
-}
-
 .#{$namespace}mainContent {
     background: $white;
     &.#{$namespace}multipleTools {
         background: $alabaster;
     }
 }
+
+/////////////////////////////////////////
+// HOME Styles
+//////////////////////////////////////////
 body.workspace {
+    #topnav_container {
+        padding: 0 calc(#{$standard-spacing*2});
+    }
+    #linkNav ul {
+        margin:calc(#{$standard-spacing*2}) 0 $standard-spacing;
+    }
     .#{$namespace}siteHierarchy {
         display:none;
     }
@@ -80,9 +217,10 @@ body.workspace {
             flex-wrap:wrap;
             justify-content: flex-start;
             .#{$namespace}container {
-                    width: 46%;
-                    border:none;
-                    margin:$standard-spacing;
+                width: 45%;
+                border:none;
+                margin: 0 0 calc(#{$standard-spacing}*2) calc(#{$standard-spacing}*2);
+                border-radius: $button-radius;
             }
             .#{$namespace}sakai-motd {
                 width:95%;
@@ -122,7 +260,7 @@ body.workspace {
         font-size: 1.25em;
         margin:1em 0;
     }
-    .label {
+    a.label {
         margin-right:$standard-spacing;
         margin-left: -.6em;
         background:none;
@@ -130,10 +268,120 @@ body.workspace {
         text-decoration: none;
         text-transform: uppercase;
     }
+    a.label-primary {
+        &:hover,
+        &:active {
+            background:$royal-light;
+            text-decoration: none;
+            color: $royal;
+        }
+    }
+}
+
+//////////////////////////////////
+// 3 column MOTD
+/////////////////////////////////
+body.workspace {
+    .#{$namespace}multipleTools{
+        .#{$namespace}pageColumns--single .#{$namespace}container{
+            &.#{$namespace}sakai-motd{
+                box-shadow: none;
+                margin: 0 $standard-spacing;
+            }
+        }
+    }
+}
+.#{$namespace}toolBody--sakai-motd {
+    background:none;
+    margin-bottom:-1em;
+}
+body>.portletBody {
+    background:none;
+    &>.synopticList li {
+        margin:0;
+        .textPanel {
+            // margin:0;
+        }
+    }
+}
+.container-motd{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: flex-start;
+    // margin-left:-$standard-spacing;
+    margin-right:-$standard-spacing;
+    .panel {
+        border-radius: $button-radius;
+        width: 30%;
+        border:none;
+        margin:0 $standard-spacing;
+        box-shadow: $card-shadow;
+    }
+    .panel-title {
+        background:$white;
+        color: $castiron;
+        font-weight: 500;
+        font-size: 1.25em;
+        margin:.5em $standard-spacing 0;
+        border:none;
+        line-height: 1.5em;
+        min-height:60px;
+        
+    }
+
+    .panel-body {
+        letter-spacing: .0178571429em;
+        color: rgba(0,0,0,.54);
+    }
+    .panel-body,
+    .panel-action {
+        padding: calc(#{$standard-spacing}/2) $standard-spacing;
+    }
+    .label {
+        margin-left:-.6em;
+        background:none;
+        font-size:1em;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: .0892857143em;
+        padding:.3em .6em;
+    }
     .label-primary {
         &:hover,
         &:active {
             background:$royal-light;
+            text-decoration: none;
+            color:$royal;
+        }
+    }
+}
+// RSS Portlets
+body.workspace .#{$namespace}multipleTools{
+    .#{$namespace}toolBody--sakai-simple-rss {
+        .news-source {
+            display:none;
+        }
+        .news-items {
+            ul {
+                padding-left:$standard-spacing;
+            }
+            h3 {
+                font-size: 14px;
+                font-weight:500;
+            }
+        }
+    }
+    .#{$namespace}toolTitleNav__title {
+        margin-bottom: $standard-spacing;
+    }
+    .#{$namespace}toolTitleNav__link--inline {
+        text-decoration: none;
+        color:$castiron;
+        
+        &:hover,
+        &:active {
+            cursor: default;
+            color:$castiron;
             text-decoration: none;
         }
     }
