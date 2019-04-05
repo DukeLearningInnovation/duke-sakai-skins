@@ -386,3 +386,12 @@ body.workspace .#{$namespace}multipleTools{
         }
     }
 }
+
+/////////////////////
+// BECOME USER
+////////////////////
+body.become-user {
+    .#{$namespace}mainHeader .#{$namespace}headerLogo {
+        background: $ironweed;
+    }
+}

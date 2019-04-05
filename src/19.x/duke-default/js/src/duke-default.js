@@ -120,6 +120,7 @@
 
     /////////////////////////////////////////////////////
     // ADJUST TOOLMENUWRAP BASED ON FAV SITES HEIGHT
+    // Currently using CSS absolute positioning for this
     ////////////////////////////////////////////////////
     
     // var favHeight = $('#topnav').height();
@@ -142,4 +143,11 @@
         
     // });
 
+    /////////////////////////////////////////////////
+    // Add styles when impersonating another user
+    ////////////////////////////////////////////////
+    if ( $('#loginLink1').find('.Mrphs-login-Message').text().startsWith("Return") ){
+        $('body').addClass('become-user');
+    }
+    
 }) ($PBJQ);
