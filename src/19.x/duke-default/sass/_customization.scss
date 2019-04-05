@@ -1,5 +1,14 @@
 /* Global namespace */
 /* Typography*/
+//Google family Fonts URL
+$font-family-url: "https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700" !default;
+@import url(#{$font-family-url});
+$font-family: "Roboto",sans-serif;
+$default-font-size: 14px !default;
+$default-font-weight: 400 !default;
+$header-font-family: $font-family;
+$header-font-weight: 700 !default;
+
 /* Color palette */
 $navy: #012169;
 $royal: #005199;
@@ -38,6 +47,7 @@ $alt-colour: $persimmon;
 $text-color: $castiron;
 $text-color-disabled: $graphite;
 
+$body-bg: transparent;
 $body-background-color: $white;
 $portal-background-color:$alabaster;
 
@@ -103,7 +113,7 @@ $sites-nav-menu-item-border-color:          $button-border-color;
 /* All Sites menu */
 
 /* Tool Menu */
-// $tool-menu-width-collapsed: 0;
+$tool-menu-width-collapsed: 52px;
 
 $tool-menu-item-separator-color:                           $wildsand;
 $tool-menu-item-text-color:                                $castiron;
@@ -159,5 +169,5 @@ $logo-width: 81px;
 
 /* From NYU 11 Skin */
 $overview-portlet-title-background-color: $background-color-secondary;
-
+$overview-portlet-border-color: transparent;
 /* focus styles for all control elements (e.g. buttons, form controls, links, etc) */
