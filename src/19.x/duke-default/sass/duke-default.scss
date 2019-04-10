@@ -293,28 +293,33 @@ body.workspace {
 }
 .#{$namespace}toolBody--sakai-motd {
     background:none;
-    margin-bottom:-1em;
+    margin:0 0 0 $standard-spacing;
 }
 body>.portletBody {
     background:none;
-    &>.synopticList li {
+    &>.synopticList{
+        list-style: none;
+        padding:0;
         margin:0;
-        .textPanel {
-            // margin:0;
+        li {
+            margin:0;
+            .textPanel {
+                // margin:0;
+            }
         }
-    }
+    } 
 }
 .container-motd{
     display:flex;
     flex-wrap:wrap;
-    justify-content: flex-start;
+    justify-content: space-between;
     // margin-left:-$standard-spacing;
-    margin-right:-$standard-spacing;
+    // margin-right:-$standard-spacing;
     .panel {
         border-radius: $button-radius;
-        width: 30%;
+        width:30%;
         border:none;
-        margin:0 $standard-spacing;
+        margin:0;
         box-shadow: $card-shadow;
     }
     .panel-title {
