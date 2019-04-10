@@ -218,7 +218,7 @@ body.workspace {
             justify-content: flex-start;
             .#{$namespace}container {
                 width: 45%;
-                border:none;
+                // border:none;
                 margin: 0 0 calc(#{$standard-spacing}*2) calc(#{$standard-spacing}*2);
                 border-radius: $button-radius;
             }
