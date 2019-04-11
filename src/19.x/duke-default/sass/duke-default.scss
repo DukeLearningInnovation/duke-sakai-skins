@@ -1,5 +1,35 @@
 @import "defaults";
 ///////////////////////////////////
+// bootstrap components
+//////////////////////////////////
+@mixin sakai_label {
+    height: 2em;
+    display:inline-flex;
+    justify-content: center;
+    text-transform: uppercase;
+    letter-spacing: 1.25px;
+    padding: 0 calc(#{$standard-spacing}/2);
+    text-align: center;
+    vertical-align: middle;
+    font-weight:500;
+    background:none;
+    font-size:1em;
+    text-decoration: none;
+    align-items: center;
+    line-height: inherit;
+    color:$navy;
+    &:hover,
+    &:active {
+        background: $royal-light;
+        color: $royal;
+        border-color:transparent;
+    }
+}
+.label {
+    @include sakai_label();
+}
+
+///////////////////////////////////
 // topHeader 
 //////////////////////////////////
 .portal-bullhorns-buttons,
@@ -31,7 +61,7 @@
             }
         }
         &:active, &:hover {
-            border-color:$dodger;
+            border-color:$royal-light;
             .#{$namespace}userNav__submenuitem--profilepicture {
                 box-shadow: none;
             }
@@ -66,7 +96,8 @@
 ##{$namespace}social-bullhorn {
     padding: 4px 10px;
     &:hover, &:active {
-        background: $dodger;
+        background: $topNav-hover-background;
+        color:$topNav-hover-text-color;
         border-radius: 50%;
         text-shadow: none;
         i {
@@ -81,7 +112,7 @@
     a {
         padding: 4px 10px;
         &:hover, &:active {
-            background: $dodger;
+            background: $topNav-hover-background;
             border-radius: 50%;
             text-shadow: none;
             
@@ -93,6 +124,12 @@
 }
 .view-all-sites-btn {
     margin-top:-7px;
+    a {
+        &:active,
+        &:hover {
+            color: $topNav-hover-text-color;
+        }
+    }
 }
 ///////////////////////////////////
 // Left hand Tool Menu 
@@ -146,12 +183,16 @@ body.#{$namespace}toolMenu-collapsed{
             width: 52px;
             height: 52px;
             z-index:1001;
-            background:$dodger;
-
+            &:active,
+            &:hover {
+                button span.fa-angle-double-left {
+                    color: $tool-menu-collapse-hover-text-color;
+                }
+                
+            }
             &.min {
                 display: flex;
                 width:52px;
-                background:$royal-light;
                 box-shadow: none;
                 
             }
@@ -166,15 +207,17 @@ body.#{$namespace}toolMenu-collapsed{
                 width:52px;
                 height:52px;
                 span.fa-angle-double-left {
-                    color:$white;
                     &:before {
                         content: "\f0c9"
                     }
+                    
                 }
             }
         }
     }
 } 
+
+
 
 #linkNav ul
 .#{$namespace}siteHierarchy{
@@ -191,6 +234,27 @@ body.#{$namespace}toolMenu-collapsed{
         background: $alabaster;
     }
 }
+
+/////////////////////////////////////////
+// Favorite Sites
+//////////////////////////////////////////
+#linkNav {
+    ul {
+        li {
+            &.Mrphs-sitesNav__menuitem{
+
+                &>a.link-container {
+                    border-radius: $button-radius 0 0 $button-radius;
+                }
+                .Mrphs-sitesNav__drop,
+                .Mrphs-sitesNav__dropdown{
+                    border-radius: 0 $button-radius $button-radius 0;
+                }
+            }
+        }
+    }
+}
+
 
 /////////////////////////////////////////
 // HOME Styles
@@ -218,12 +282,13 @@ body.workspace {
             justify-content: flex-start;
             .#{$namespace}container {
                 width: 45%;
-                // border:none;
+                background: $white;
                 margin: 0 0 calc(#{$standard-spacing}*2) calc(#{$standard-spacing}*2);
                 border-radius: $button-radius;
             }
             .#{$namespace}sakai-motd {
                 width:95%;
+                background: transparent;
                 .#{$namespace}toolTitleNav {
                     display:none;
                 }
@@ -242,6 +307,8 @@ body.workspace {
         }
     }
 }
+
+// MOTD Message of the Day
 .#{$namespace}toolBody--sakai-motd .portletMainIframe {
     padding:0;
     .textPanel {
@@ -259,22 +326,6 @@ body.workspace {
         font-weight: 500;
         font-size: 1.25em;
         margin:1em 0;
-    }
-    a.label {
-        margin-right:$standard-spacing;
-        margin-left: -.6em;
-        background:none;
-        font-size:1em;
-        text-decoration: none;
-        text-transform: uppercase;
-    }
-    a.label-primary {
-        &:hover,
-        &:active {
-            background:$royal-light;
-            text-decoration: none;
-            color: $royal;
-        }
     }
 }
 
@@ -344,12 +395,9 @@ body>.portletBody {
     }
     .label {
         margin-left:-.6em;
-        background:none;
-        font-size:1em;
         text-decoration: none;
-        text-transform: uppercase;
-        letter-spacing: .0892857143em;
-        padding:.3em .6em;
+
+        
     }
     .label-primary {
         &:hover,
@@ -360,6 +408,31 @@ body>.portletBody {
         }
     }
 }
+
+// Calendar Portlet
+.#{$namespace}calendarSynoptic {
+
+    .calRight {
+        input[value=" < "],
+        input[value=" > "] {
+            @include sakai_label();
+            border-radius: 50%;
+            font-size:1.25em;
+            padding: 0 6px;
+
+            &:hover,
+            &:active {
+                // background: $gallery;
+                border-color:transparent;
+            }
+        }
+        input[value="Today"] {
+            @include sakai_label();
+            margin:0 calc(#{$standard-spacing}/2);
+        }
+    }
+}
+
 // RSS Portlets
 body.workspace .#{$namespace}multipleTools{
     .#{$namespace}toolBody--sakai-simple-rss {
