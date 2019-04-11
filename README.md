@@ -55,6 +55,10 @@ You can do a full compile at any time build running `npm run build`.
 
 **Look at the scripts section of package.json** Some scripts have default arguments in them. Change them and save the file to change the skin or environment you want to dev against.
 
+## Stage 3: Deployment
+
+The github repo currently uses Travis-CI to watch the `master` branch for commits/pull requests and will automatically send the changed `dist/19.x` files
+
 ## Organization
 
 * `bin` contains bash scripts used in package.json

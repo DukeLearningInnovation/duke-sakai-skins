@@ -61,23 +61,20 @@ $sites-nav-background: $background-color;
 
 /* General button design */
 $button-radius: 4px;
-$button-text-color:#333;
-$button-background: $gallery;
-$button-border-color: transparent;
 
 // Default (non-primary) button design:
-$button-text-color:             #333 !default;
-$button-background:             linear-gradient(#fff, #f9f9f9) !default;
-$button-border-color:           #ccc !default;
+$button-text-color:             $castiron;
+$button-background:             $gallery;
+$button-border-color:           transparent;
 // hover and focus states:
-$button-hover-text-color:       $button-text-color !default;
-$button-hover-background:       $button-background !default;
-$button-hover-border-color:     #999 !default;
+$button-hover-text-color:       $button-text-color;
+$button-hover-background:       $alto;
+$button-hover-border-color:     $limestone;
 // active state:
 $button-active-text-color:      $button-text-color !default;
-$button-active-background:      linear-gradient(#f9f9f9, #fff) !default;	//note: inverse order from above
-$button-active-border-color:    $button-hover-border-color !default;
-$button-active-shadow-color:    rgba(0, 0, 0, 0.3) !default;
+$button-active-background:      $royal-light;	//note: inverse order from above
+$button-active-border-color:    $dodger;;
+$button-active-shadow-color:    rgba(0, 0, 0, 0.1);
 // disabled state:
 $button-disabled-text-color:    #717171 !default;
 $button-disabled-background:    #f6f6f6 !default;
@@ -104,12 +101,68 @@ $button-primary-active-shadow-color:        $button-active-shadow-color !default
 
 /* topNav Main Menu */
 $topNav-text-color: $athens;
-
+$topNav-hover-text-color: $royal;
+$topNav-hover-background: $royal-light;
 /* Favorites */
-$sites-nav-menu-item-background:            $button-background;
-$sites-nav-menu-item-color:                 $button-text-color;
-$sites-nav-menu-item-icon-color:            $graphite;
-$sites-nav-menu-item-border-color:          $button-border-color;
+
+$sites-nav-menu-item-border-thickness:		0;
+/* Favorites - item */
+$sites-nav-menu-item-background:            $gallery;
+$sites-nav-menu-item-color:                 $castiron;
+$sites-nav-menu-item-icon-color:            $sites-nav-menu-item-color;
+$sites-nav-menu-item-border-color:          $sites-nav-menu-item-color;
+$sites-nav-menu-item-border-top:            $sites-nav-menu-item-border-thickness solid $sites-nav-menu-item-border-color !default;
+$sites-nav-menu-item-border-right:          $sites-nav-menu-item-border-top !default;
+$sites-nav-menu-item-border-bottom:         $sites-nav-menu-item-border-top !default;
+$sites-nav-menu-item-border-left:           $sites-nav-menu-item-border-top !default;
+/* Favorites - item hovered */
+$sites-nav-menu-item-hover-background:      $royal-light;
+$sites-nav-menu-item-hover-color:           $royal;
+$sites-nav-menu-item-hover-icon-color:      $sites-nav-menu-item-icon-color;
+$sites-nav-menu-item-hover-border-color:    $sites-nav-menu-item-border-color;
+$sites-nav-menu-item-hover-border-top:      $sites-nav-menu-item-border-thickness solid $sites-nav-menu-item-hover-border-color !default;
+$sites-nav-menu-item-hover-border-right:    $sites-nav-menu-item-hover-border-top !default;
+$sites-nav-menu-item-hover-border-bottom:   $sites-nav-menu-item-hover-border-top !default;
+$sites-nav-menu-item-hover-border-left:     $sites-nav-menu-item-hover-border-top !default;
+/* Favorites - item selected */
+$sites-nav-menu-item-selected-background:   $sites-nav-menu-item-hover-background;
+$sites-nav-menu-item-selected-color:        $sites-nav-menu-item-hover-color;
+$sites-nav-menu-item-selected-icon-color:   $sites-nav-menu-item-hover-icon-color;
+$sites-nav-menu-item-selected-border-color: $sites-nav-menu-item-hover-border-color;
+$sites-nav-menu-item-selected-border-top:   $sites-nav-menu-item-border-thickness solid $sites-nav-menu-item-selected-border-color !default;
+$sites-nav-menu-item-selected-border-right: $sites-nav-menu-item-selected-border-top !default;
+$sites-nav-menu-item-selected-border-bottom:$sites-nav-menu-item-selected-border-top !default;
+$sites-nav-menu-item-selected-border-left:  $sites-nav-menu-item-selected-border-top !default;
+/* Favorites - item selected and hovered */
+$sites-nav-menu-item-selected-hover-background:   darken($sites-nav-menu-item-selected-background, 5%);
+$sites-nav-menu-item-selected-hover-color:        $sites-nav-menu-item-selected-color;
+$sites-nav-menu-item-selected-hover-icon-color:   $sites-nav-menu-item-selected-icon-color;
+$sites-nav-menu-item-selected-hover-border-color: $sites-nav-menu-item-selected-border-color;
+$sites-nav-menu-item-selected-hover-border-top:   $sites-nav-menu-item-border-thickness solid $sites-nav-menu-item-selected-hover-border-color !default;
+$sites-nav-menu-item-selected-hover-border-right: $sites-nav-menu-item-selected-hover-border-top !default;
+$sites-nav-menu-item-selected-hover-border-bottom:$sites-nav-menu-item-selected-hover-border-top !default;
+$sites-nav-menu-item-selected-hover-border-left:  $sites-nav-menu-item-selected-hover-border-top !default;
+/* Favorites - tool submenu */
+$sites-nav-submenu-background:              $sites-nav-menu-item-hover-background !default;
+$sites-nav-submenu-topleft-border-color:    $sites-nav-menu-item-hover-background !default;
+$sites-nav-submenu-border-color:            $sites-nav-menu-item-hover-border-color !default;
+/* Favorites - tool selected submenu */
+$sites-nav-selected-submenu-border-color: $sites-nav-menu-item-selected-hover-border-color !default;
+$sites-nav-selected-submenu-topleft-border-color: $sites-nav-menu-item-selected-hover-background !default;
+/* Favorites - tool submenu items */
+$sites-nav-submenu-item-text-size:          13px !default;
+$sites-nav-submenu-item-background:          $sites-nav-menu-item-hover-background !default;
+$sites-nav-submenu-item-color:              #4C4C4C !default;
+$sites-nav-submenu-item-icon-color:         #666666 !default;
+$sites-nav-submenu-item-divider-color:      #E5E5E5 !default;
+$sites-nav-submenu-item-left-border-color:  transparent !default;
+/* Favorites - tool submenu items hovered */
+$sites-nav-submenu-item-hover-background:   #ECECEC !default;
+$sites-nav-submenu-item-hover-color:        #191919 !default;
+$sites-nav-submenu-item-hover-icon-color:   #424242 !default;
+$sites-nav-submenu-item-hover-left-border-color: #7F7F7F !default;
+
+
 /* All Sites menu */
 
 /* Tool Menu */
@@ -141,6 +194,25 @@ $tool-menu-item-selected-hover-text-color:                 $tool-menu-item-hover
 $tool-menu-item-selected-hover-icon-color:                 $tool-menu-item-hover-icon-color;
 $tool-menu-item-selected-hover-background-color:           $tool-menu-item-hover-background-color;
 $tool-menu-item-selected-hover-border-left:                $tool-menu-item-border-left;
+$tool-menu-collapse-text-color:                            $wildsand;
+$tool-menu-collapse-icon-color:                            $tool-menu-collapse-text-color;
+$tool-menu-collapse-background-color:                      $dodger;
+$tool-menu-collapse-border-top:                            none;
+$tool-menu-collapse-shadow:                                none;
+$tool-menu-collapse-hover-text-color:                      $royal;
+$tool-menu-collapse-hover-background-color:                $tool-menu-item-hover-background-color !default;
+$tool-menu-collapse-hover-border-top:                      $tool-menu-collapse-border-top !default;
+$tool-menu-collapse-hover-shadow:                          $tool-menu-collapse-shadow !default;
+$tool-menu-collapse-min-text-color:                        $royal;
+$tool-menu-collapse-min-icon-color:                        $tool-menu-collapse-min-text-color;
+$tool-menu-collapse-min-background-color:                  $tool-menu-collapse-background-color !default;
+$tool-menu-collapse-min-border-top:                        $tool-menu-collapse-border-top !default;
+$tool-menu-collapse-min-shadow:                            $tool-menu-collapse-shadow !default;
+$tool-menu-collapse-min-hover-text-color:                  $tool-menu-collapse-hover-text-color !default;
+$tool-menu-collapse-min-hover-background-color:            $tool-menu-collapse-hover-background-color !default;
+$tool-menu-collapse-min-hover-border-top:                  $tool-menu-collapse-border-top !default;
+$tool-menu-collapse-min-hover-shadow:                      $tool-menu-collapse-shadow !default;
+
 
 
 /* The standards for items in Sakai */
@@ -171,3 +243,72 @@ $logo-width: 81px;
 $overview-portlet-title-background-color: $background-color-secondary;
 $overview-portlet-border-color: transparent;
 /* focus styles for all control elements (e.g. buttons, form controls, links, etc) */
+
+
+@mixin sakai_button($sb-text-color,
+					$sb-background,
+					$sb-border-color,
+					$sb-hover-text-color,
+					$sb-hover-background,
+					$sb-hover-border-color,
+					$sb-active-text-color,
+					$sb-active-background,
+					$sb-active-border-color) {
+	display: inline-block;
+	margin: 0;
+	padding: 7px $standard-spacing;
+	border: 1px solid $sb-border-color;
+	@include border-radius($button-radius);
+	background: $sb-background;
+	font-family: $font-family;
+	font-size: 1em;
+	line-height: 18px;
+	color: $sb-text-color;
+	text-decoration: none;
+	cursor: pointer;
+	@include appearance(none);
+	// box-shadow: 0 1px 0 rgba(255,255,255,0.15) inset;
+
+	&:before { // icon
+		color: $sb-text-color;
+	}
+
+	&:focus {
+		outline: $sakai-focus-outline;
+		outline-offset: $focus-outline-offset;
+	}
+
+	&:hover, &:focus {
+		color: $sb-hover-text-color;
+		text-decoration: none;
+		background: $sb-hover-background;
+		border-color: $sb-hover-border-color;
+		box-shadow: 0 1px 1px $button-active-shadow-color;
+		&:before { // icon
+			color: $sb-hover-text-color;
+		}
+	}
+
+	&:active {
+		outline: 0;		// no focus outline on click
+		color: $sb-active-text-color;
+		text-decoration: none;
+		background: $sb-active-background;
+		border-color: $sb-active-border-color;
+		
+		&:before { // icon
+			color: $sb-active-text-color;
+		}
+	}
+
+	&[disabled="disabled"], &[disabled], &[disabled="true"], &[class="disabled"] {
+		&, &:hover, &:active, &:focus {
+			color: $button-disabled-text-color;
+			text-decoration: none;
+			background: $button-disabled-background;
+			border-color: $button-disabled-border-color;
+			box-shadow: $button-disabled-shadow;
+			cursor: not-allowed;
+		}
+	}
+}
