@@ -1,0 +1,31 @@
+<div class="container-motd">
+<div class="col-md-4">
+<div class="panel panel-default">
+<h3 class="panel-title">We&#39;ve launched a new Sakai experience</h3>
+<img alt="Fireworks" class="responsive-img" height="427" src="https://dukedev.longsight.com/access/content/group/!admin/daniel-mayovskiy-303666-unsplash.jpg" width="640" />
+<p class="panel-body">We&#39;re excited to share what we&#39;ve been working on with you.</p>
+
+<p class="panel-action"><a class="label label-primary" href="https://learninginnovation.duke.edu/" rel="noopener" target="_blank">See new features</a></p>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="panel panel-default">
+<h3 class="panel-title">Updated help docs ready for when you need them</h3>
+<img alt="Updated documentation ready for that rainy day" class="responsive-img" height="427" src="https://dukedev.longsight.com/access/content/group/!admin/j-w-675142-unsplash-cropped.jpg" width="640" />
+<p class="panel-body">Duke Sakai help has been updated and is available by clicking the help button.</p>
+
+<p class="panel-action"><a class="label label-primary" href="https://duke-sakai.screenstepslive.com" rel="noopener" target="_blank">View documentation</a></p>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="panel panel-default">
+<h3 class="panel-title">Join the Kits Beta today</h3>
+<img alt="Join the Duke Kits beta" class="responsive-img" height="1280" src="https://dukedev.longsight.com/access/content/group/!admin/kits-screely.png" width="1920" />
+<p class="panel-body">A new platform to connect the people and apps across all your learning.</p>
+
+<p class="panel-action"><a class="label label-primary" href="https://kits.duke.edu" rel="noopener" target="_blank">Visit Kits</a></p>
+</div>
+</div>
+</div>

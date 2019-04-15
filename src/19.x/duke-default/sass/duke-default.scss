@@ -145,8 +145,10 @@
     padding:0;
     height: calc(100% - 52px);
 }
-.#{$namespace}pagebody {
-    margin-left:200px;
+@media #{$nonPhone}{
+    .#{$namespace}pagebody {
+        margin-left:200px;
+    }
 }
 body.#{$namespace}toolMenu-collapsed{
     
@@ -368,7 +370,7 @@ body>.portletBody {
     // margin-right:-$standard-spacing;
     .panel {
         border-radius: $button-radius;
-        width:30%;
+        // width:30%;
         border:none;
         margin:0;
         box-shadow: $card-shadow;
