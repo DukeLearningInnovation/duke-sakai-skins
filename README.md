@@ -22,6 +22,7 @@
 ### Quick Start
 
 1. Open a terminal to `cd` to the duke-sakai-skins directory on your machine
+1. Run `npm install`
 1. Run `npm run watch` this script auto-updates and deploys everything when you save a file
 1. Open Chrome and navigate to dukedev.longsight.com
 1. Open Devtools and go to the Sources Tab then the Overrides sub-tab (in the left pane)
