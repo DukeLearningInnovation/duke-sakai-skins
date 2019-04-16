@@ -131,12 +131,144 @@
         }
     }
 }
+@media #{$phone}{
+    .Mrphs-topHeader>* {
+        display:flex;
+        flex-wrap:wrap;
+        justify-content: space-between;
+    }
+    .Mrphs-mainHeader .Mrphs-headerLogo,
+    #mastLogin,
+    .Mrphs-skipNav__menu,
+    .Mrphs-skipNav__menu.moving {
+        width:auto;
+        position:fixed;
+    }
+    #mastLogin #loginLinks {
+        padding:0;
+    }
+    .Mrphs-mainHeader .Mrphs-headerLogo {
+        width:100%;
+        
+        padding:0;
+        .Mrphs-headerLogo--institution {
+            // margin-left:0;
+            margin-left: calc(50% - #{$logo-width}/2);
+        }
+    }
+    .Mrphs-skipNav__menu,
+    .Mrphs-skipNav__menu.moving {
+        display:flex;
+        justify-content: space-between;
+        width: calc(100% - 52px - calc(#{$standard-spacing / 2}));
+        position: fixed;
+        top:0;
+        left: 0;
+        z-index: 21;
+        box-shadow: none;
+        height:52px;
+        li {
+            display: flex;
+        }
+        li.Mrphs-skipNav__menuitem.Mrphs-skipNav__menuitem--worksite,
+        li.Mrphs-skipNav__menuitem.Mrphs-skipNav__menuitem--tools {
+            background: transparent;
+            box-shadow: none;
+            float:none;
+            
+            a {
+                color: $topNav-text-color;
+                padding:0;
+                &:before,
+                &:after {
+                    border:none;
+                }
+            }
+        }
+        li.Mrphs-skipNav__menuitem.Mrphs-skipNav__menuitem--tools {
+            order:1;
+            justify-content: space-between;
+            a {
+                display: flex;
+                
+                float:none;
+            }
+            a.js-toggle-tools-nav {
+                text-overflow: clip;
+                width:52px;
+                min-height:52px;
+                font-size:24px;
+                background:$tool-menu-collapse-background-color;
+                
+            }
+            .tools-icon {
+                padding: calc(#{$standard-spacing} * .88) $standard-spacing calc(#{$standard-spacing / 2}) ;
+            }
+            
+            a.Mrphs-skipNav--toolName{
+                color:$topNav-text-color;
+                height:52px;
+                line-height:52px;
+                text-overflow: ellipsis;
+                span {
+                    margin-left: calc(#{$standard-spacing} / 4);
+                }
+            }
+            .Mrphs-breadcrumb--icon {
+                display: flex;
+                line-height: 52px;
+            }
+        }
+        
+        li.Mrphs-skipNav__menuitem.Mrphs-skipNav__menuitem--worksite {
+            width:52px;
+            order:3;
+            a {
+                background:none;
+                text-overflow: clip;
+                float:none;
+                border:none;
+            }
+            .all-sites-icon {
+                width:52px;
+                min-height:52px;
+
+                padding: $standard-spacing $standard-spacing calc(#{$standard-spacing / 2});
+                font-size:24px !important;
+                
+            }
+        }
+        li.Mrphs-skipNav__menuitem--content, 
+        li.Mrphs-skipNav__menuitem--accessibility {
+            display:none;
+        }
+        
+    }
+    .portal-bullhorns-buttons {
+        display: none;
+    }
+    #mastLogin {
+        right:$standard-spacing;
+    }
+    .Mrphs-mainHeader.is-fixed {
+        
+        .Mrphs-headerLogo{
+            // width:auto;
+        }
+    } 
+    body.active-more-sites #selectSiteModal {
+        top:0 !important;
+    }
+}
 ///////////////////////////////////
 // Left hand Tool Menu 
 //////////////////////////////////
-.#{$namespace}mainHeader .#{$namespace}headerLogo .#{$namespace}headerLogo--institution {
-    margin-left: 36px;
+@media #{$nonPhone}{
+    .#{$namespace}mainHeader .#{$namespace}headerLogo .#{$namespace}headerLogo--institution {
+        margin-left: 36px;
+    }
 }
+
 #toolMenuWrap {
     border-right:none;
     // margin-top: -70px;
@@ -277,19 +409,22 @@ body.workspace {
             width: 50%;
         }
     }
+
     .#{$namespace}multipleTools {
         .#{$namespace}pageColumns--single{
             display:flex;
             flex-wrap:wrap;
-            justify-content: flex-start;
+            justify-content: space-between;
+            padding:0 calc(#{$standard-spacing}*2);
             .#{$namespace}container {
-                width: 45%;
+                width: 48%;
+                margin:0;
                 background: $white;
-                margin: 0 0 calc(#{$standard-spacing}*2) calc(#{$standard-spacing}*2);
+                margin-bottom: calc(#{$standard-spacing}*2);
                 border-radius: $button-radius;
             }
             .#{$namespace}sakai-motd {
-                width:95%;
+                width:100%;
                 background: transparent;
                 .#{$namespace}toolTitleNav {
                     display:none;
@@ -309,25 +444,15 @@ body.workspace {
         }
     }
 }
-
-// MOTD Message of the Day
-.#{$namespace}toolBody--sakai-motd .portletMainIframe {
-    padding:0;
-    .textPanel {
-        padding: $standard-spacing;
-    }
-}
-.motd-content {
-    padding:0 $standard-spacing;
-    .row {
-        margin-left:-$standard-spacing;
-        margin-right:-$standard-spacing;
-    }
-    h1 {
-        color: $castiron;
-        font-weight: 500;
-        font-size: 1.25em;
-        margin:1em 0;
+@media #{$phone}{
+    body.workspace {
+        .#{$namespace}multipleTools {
+            .#{$namespace}pageColumns--single{
+                .#{$namespace}container {
+                    width:100%;
+                }
+            }
+        }
     }
 }
 
@@ -339,14 +464,36 @@ body.workspace {
         .#{$namespace}pageColumns--single .#{$namespace}container{
             &.#{$namespace}sakai-motd{
                 box-shadow: none;
-                margin: 0 $standard-spacing;
+                margin-bottom: 0;
             }
+            
         }
     }
 }
 .#{$namespace}toolBody--sakai-motd {
     background:none;
-    margin:0 0 0 $standard-spacing;
+    margin:0;
+    .portletMainIframe {
+        padding:0;
+    }
+}
+@media #{$nonPhone}{
+    body>.portletBody &>.synopticList  {
+        display:flex;
+        flex-wrap:wrap;
+        justify-content: space-between;
+
+        li {
+            width:30%;
+            
+        }
+       .textPanel {
+            h3 {
+                min-height:84px;
+            }
+       } 
+
+    }
 }
 body>.portletBody {
     background:none;
@@ -355,60 +502,54 @@ body>.portletBody {
         padding:0;
         margin:0;
         li {
-            margin:0;
-            .textPanel {
-                // margin:0;
+            
+            .textPanel{
+                border-radius: $button-radius;
+                background: $tool-background-color;
+                border:none;
+                margin:0;
+                
+                box-shadow: $card-shadow;
+                h1, h2, h3, h4 {
+                    background:$tool-background-color;
+                    color: $castiron;
+                    font-weight: 500;
+                    font-size: 1.25em;
+                    margin:0;
+                    border:none;
+                    line-height: 1.5em;
+                    padding:$standard-spacing;
+                }
+                p {
+                    letter-spacing: .0178571429em;
+                    color: rgba(0,0,0,.54);
+                    padding:$standard-spacing;
+                }
+
+                .img-responsive {
+                    margin: 0 -$standard-spacing;
+                    max-width:calc(100% + (2*#{$standard-spacing}));
+                }
+                .btn-link {
+                    padding: calc(#{$standard-spacing}/2) $standard-spacing;
+                    margin-left: calc(-#{$standard-spacing}/2);
+                    text-decoration: none;
+                    box-shadow: none;
+                    background:none;
+                    text-transform: uppercase;
+                    font-weight: 500;
+                }
+                .btn-link {
+                    &:hover,
+                    &:active {
+                        background:$royal-light;
+                        text-decoration: none;
+                        color:$royal;
+                    }
+                }
             }
         }
     } 
-}
-.container-motd{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content: space-between;
-    // margin-left:-$standard-spacing;
-    // margin-right:-$standard-spacing;
-    .panel {
-        border-radius: $button-radius;
-        // width:30%;
-        border:none;
-        margin:0;
-        box-shadow: $card-shadow;
-    }
-    .panel-title {
-        background:$white;
-        color: $castiron;
-        font-weight: 500;
-        font-size: 1.25em;
-        margin:.5em $standard-spacing 0;
-        border:none;
-        line-height: 1.5em;
-        min-height:60px;
-        
-    }
-
-    .panel-body {
-        letter-spacing: .0178571429em;
-        color: rgba(0,0,0,.54);
-    }
-    .panel-body,
-    .panel-action {
-        padding: calc(#{$standard-spacing}/2) $standard-spacing;
-    }
-    .label {
-        margin-left:-.6em;
-        text-decoration: none;
-
-        
-    }
-    .label-primary {
-        &:hover,
-        &:active {
-            background:$royal-light;
-            text-decoration: none;
-            color:$royal;
-        }
-    }
 }
 
 // Calendar Portlet
