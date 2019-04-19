@@ -1,9 +1,10 @@
-/* Global namespace
+/* Global namespace */
 /* Typography*/
 //Google family Fonts URL
 $font-family-url: "https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700" !default;
 @import url(#{$font-family-url});
 $font-family: "Roboto",sans-serif;
+
 $default-font-size: 14px !default;
 $default-font-weight: 400 !default;
 $header-font-family: $font-family;
@@ -212,7 +213,6 @@ $tool-menu-collapse-min-hover-text-color:                  $tool-menu-collapse-h
 $tool-menu-collapse-min-hover-background-color:            $tool-menu-collapse-hover-background-color !default;
 $tool-menu-collapse-min-hover-border-top:                  $tool-menu-collapse-border-top !default;
 $tool-menu-collapse-min-hover-shadow:                      $tool-menu-collapse-shadow !default;
-
 
 
 /* The standards for items in Sakai */

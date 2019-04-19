@@ -1,18 +1,14 @@
 #!/usr/bin/env bash
-FILEEXTENSION=${3##*.}
+MORPHEUS='19.x/morpheus-master'
+FONTAWESOME='font-awesome-sass-4.7.0/assets/fonts/font-awesome'
+BOOTSTRAP='bootstrap-sass-3.3.7/assets/fonts/bootstrap'
 
-if [ $FILEEXTENSION = "png" ] || [ $FILEEXTENSION = "{{changed}}" ]; then
-    SAK_V_CUR='12.x'
-    SAK_V_NEW='19.x'
-    FONTAWESOME='font-awesome-sass-4.7.0/assets/fonts/font-awesome'
-    BOOTSTRAP='bootstrap-sass-3.3.7/assets/fonts/bootstrap'
-    echo "bin/build-fonts.sh $1 start"
+echo "bin/build-fonts.sh $1 start"
 
-    mkdir -p dist/$SAK_V_NEW/$1/fonts/font-awesome
-    cp -R src/$SAK_V_NEW/$1/$FONTAWESOME/ dist/$SAK_V_NEW/$1/fonts/font-awesome
+mkdir -p dist/$1/fonts/font-awesome
+cp -R src/$MORPHEUS/$FONTAWESOME/ dist/$1/fonts/font-awesome
 
-    mkdir -p dist/$SAK_V_NEW/$1/fonts/bootstrap
-    cp -R src/$SAK_V_NEW/$1/$BOOTSTRAP/ dist/$SAK_V_NEW/$1/fonts/bootstrap
+mkdir -p dist/$1/fonts/bootstrap
+cp -R src/$MORPHEUS/$BOOTSTRAP/ dist/$1/fonts/bootstrap
 
-    echo "bin/build-fonts.sh $1 end"
-fi
+echo "bin/build-fonts.sh $1 end"

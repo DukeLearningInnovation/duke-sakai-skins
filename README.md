@@ -79,14 +79,21 @@ Example use `npm run autoprefixer`
 
 This script does not currently use any arguments. It runs autoprefixer for all skins in the dist directory.
 
+### build.sh
+
+Example use `npm run build 19.x/duke-default`
+
+This script accepts 1 argument
+
+1. The version/skin-name you want to build
+
 ### create-skin.sh
 
-Exmple use `npm run create-skin morpheus-master new-skin`
+Exmple use `npm run create-skin new-skin`
 
-This script accepts 2 arguments
+This script accepts 1 argument
 
-1. the skin you want to base the new skin on
-1. the name of the new skin. The example will create a skin called new-skin based off of src/morpheus-master.
+1. The name of the new skin which will be based off of src/19x/morpheus-master.
 
 ### fetch-src.sh
 

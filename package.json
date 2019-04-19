@@ -1,33 +1,20 @@
 {
   "name": "duke-sakai-skins",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "`src` contains the source files for the skins. Final edits are placed here and compiled for deployment",
   "main": "index.js",
   "scripts": {
-    "watch": "onchange \"src/19.x/**/*\" -- run-s \"watch:** duke-default dev {{changed}}\"",
-    "watch:css": "npm run scss",
-    "watch:fonts": "npm run fonts",
-    "watch:images": "npm run imagemin",
-    "watch:js": "npm run uglify",
-    "watch:serve": "npm run serve",
-    "build": "run-s \"build:* duke-default dev {{changed}}\" \"build:* duke-default dev {{changed}}\"",
-    "build:step1": "npm run lint-scss",
-    "build:step2": "npm run scss",
-    "build:step3": "npm run autoprefixer",
-    "build:step4": "npm run fonts",
-    "build:step5": "npm run lint-js",
-    "build:step6": "npm run uglify",
-    "build:step7": "npm run imagemin",
-    "build:step8": "npm run sub-skins",
-    "autoprefixer": "bash bin/autoprefixer.sh",
+    "watch": "chokidar \"src/**\" -c \"bin/build.sh {event} {path} dukedev.longsight.com\"",
+    "build": "bash bin/build.sh build",
+      "!build:step8": "npm run sub-skins",
+    "autoprefixer": "postcss -u autoprefixer -r",
     "clean": "rimraf dist/19.x/*",
     "fetch-src": "bash bin/fetch-src.sh",
     "fonts": "bash bin/fonts.sh",
     "create-skin": "bash bin/create-skin.sh",
     "!icons": "svgo -f src/images/icons -o dist/images/icons && svg-sprite-generate -d dist/images/icons -o dist/images/icons/sprite.svg",
     "imagemin": "bash bin/imagemin.sh",
-    "lint-scss": "stylelint src/19.x/**/*.scss --syntax scss || true",
-    "lint-js": "eslint src/19.x/**/js || true",
+    "lint": "bash bin/lint.sh",
     "scss": "bash bin/scss.sh",
     "serve": "bash bin/serve.sh",
     "sub-skins": "bash bin/sub-skins.sh",
@@ -65,5 +52,8 @@
     "svg-sprite-generator": "0.0.7",
     "svgo": "^0.6.6",
     "uglify-js": "^2.6.2"
+  },
+  "dependencies": {
+    "chokidar-cli": "^1.2.2"
   }
 }
