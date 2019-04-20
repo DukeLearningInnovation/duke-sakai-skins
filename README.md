@@ -15,15 +15,17 @@
    * npm 6.7.0
 
 1. Run `git clone https://github.com/DukeLearningInnovation/duke-sakai-skins.git`
+1. Run `cd duke-sakai-skins`
 1. Run `npm install`
 
 ## Stage 2: Development
 
-### Quick Start
+## Editing an already created skin
 
-1. Open a terminal to `cd` to the duke-sakai-skins directory on your machine
-1. Run `npm install`
-1. Run `npm run watch` this script auto-updates and deploys everything when you save a file
+1. Run `npm run watch`
+
+   This script watches the src directory for changes. When you save a file, it rebuilds the skin and deploys it to `dist/dukedev.longsight.com`.
+
 1. Open Chrome and navigate to dukedev.longsight.com
 1. Open Devtools and go to the Sources Tab then the Overrides sub-tab (in the left pane)
 1. Enable local overrides and select the `dev` folder in your duke-sakai-skins directory. Chrome will find the correct subfolder based on the domain name of the server.
@@ -31,11 +33,7 @@
 
 ### More options
 
-1. Change the arguments on on `package.json scripts:watch` to the skin and environment you are developing for. The defaults are duke-default and dev. Environment options are:
-    1. dev =        dukedev.longsight.com
-    1. test =       sakai-test.duke.edu
-    1. prod =       sakai.duke.edu
-    1. nightly =    qa19-mysql.nightly.sakaiproject.org
+1. Change the argument on on `package.json scripts:watch` to the server you are developing against.
 1. If you are developing against any of the Sakai Community Nightly servers, you'll need to change the version number in `bin/serve.sh` to match the current build which changes daily.
    1. Open Chrome Devtools and visit the environment you wish to develop against.
    1. Open the Network tab and find a CSS or JS file.
@@ -47,48 +45,71 @@
 1. Enable local overrides and select the `dev` folder. Chrome will find the correct subfolder based on the domain name of the server.
 1. Edit SCSS or JS in `src` and save. Upon save, watch will auto-compile and about 10-15s later, Chrome will auto-update with your edited code.
 
-Use `js/src/{{SKIN}}.js` to add javascript.
+Use `{{SKIN}}/js/src/_customization.js` to add javascript.
 
-Use `sass/_customization.scss` to edit the variables inherited from morpheus-master.  
-Use `sass/{{SKIN}}.scss` to override anything else. This saves us from having to merge individual edits across the rest of the skin as Sakai updates.
+Use `{{SKIN}}sass/_customization.scss` to edit the variables inherited from morpheus-master.  
 
-You can do a full compile at any time build running `npm run build`.
+Use `{{SKIN}}sass/_overrides.scss` to override anything else. This saves us from having to merge individual edits across the rest of the skin as core Sakai updates.
 
-**Look at the scripts section of package.json** Some scripts have default arguments in them. Change them and save the file to change the skin or environment you want to dev against.
+### Rebuild a skin without having to make file changes
 
-## Stage 3: Deployment
+1. Run `npm run build 19.x/{{SKIN}}`
+1. Run `npm run serve 19.x/{{SKIN}} {{SERVER.COM`}}
 
-The github repo currently uses Travis-CI to watch the `master` branch for commits/pull requests and will automatically send the changed `dist/19.x` files
+## Stage 3: Continuous Deployment
+
+The github repo currently uses Travis-CI to watch the `master` branch for commits/pull requests and will automatically send the changed `dist/19.x` files to the [`dukedev`](https://github.com/DukeLearningInnovation/duke-sakai-skins/tree/dukedev) branch. 
+
+Longsight scrapes the `dukedev` branch every hour and updates the skins on dukedev.longsight.com automatically. `CMD` + `SHIFT` + `R` to force refresh if you're not seeing the changes.
 
 ## Organization
+
+### Main Directories
 
 * `bin` contains bash scripts used in package.json
 * `dev` contains compiled versions of `src` that have been modified to match different servers for testing and development
 * `dist` contains compiled versions of `src` ready for sending to Longsight
 * `src` contains the source files for the skins. Edit here.
 
-All skins except `duke-extend` are currently based off the `duke-default` skin which is why there are only two folders in `src`.
+### Individual Skins
+
+All duke skins first look to inherit styles from duke-default and then from morpheus-master. This allows you to primarily focus on editing the duke-default skin and only change things in the individual skins that need to be different from duke-default.
+
+`js/src/_customization.js` will be the last JavaScript file compiled into `morpheus.scripts.min.js`
+
+`sass/_customization.scss` contains any morpheus variables you want to change. Review `src/19.x/morpheus-master/sass/_defaults.scss` for reference of what you can change and `src/19.x/duke-default/sass/_customization.scss` for the changes inherited from the duke-default skin.
+
+`sass/_overrides.scss` contains any overrides that cannot be made in `sass/_customization.scss`. Refer to `src/19.x/duke-default/sass/_overrides.scss` for the changes inherited from the duke-default skin.
+
+`sass/tool.scss` contains all the `@import` statements used to generate the `tool.css` file for the skin. The first and last lines are changed from `src/19.x/morpheus-master/sass/tool.scss`
+
+All other files are inherited from `src/19.x/morpheus-master/`.
 
 ## Scripts
 
-Most of the tools in the npm ecosystem don't build Sakai compatible skins out of the box. That's why you'll see several scripts in `bin`.
+### package.json:watch and bin/watch.sh
 
-### autoprefixer.sh
+Example use `npm run watch`
+
+This script watches the entire `src` directory for changes and runs the appropriate scripts depending on the file type changed.
+
+The script will then rebuild the skin and deploy it to the `dev/dukedev.longsight.com` directory for use with Chrome DevTools.
+
+The script includes a server domain variable which is set to `dukedev.longsight.com`. Change the variable to whatever server you want to dev against.
+
+### package.json:build
+
+Example use `npm run build 19.x/duke-default`
+
+Manually build a specific skin.
+
+### package.json:autoprefixer
 
 Example use `npm run autoprefixer`
 
 This script does not currently use any arguments. It runs autoprefixer for all skins in the dist directory.
 
-### create-skin.sh
-
-Exmple use `npm run create-skin morpheus-master new-skin`
-
-This script accepts 2 arguments
-
-1. the skin you want to base the new skin on
-1. the name of the new skin. The example will create a skin called new-skin based off of src/morpheus-master.
-
-### fetch-src.sh
+### package.json:fetch-src and bin/fetch-src.sh
 
 Example use `npm run fetch-src branches/19.x`.
 
@@ -99,72 +120,43 @@ This script accepts 1 argument which determines where to grab morpheus-master fr
 * Use `branches/RELEASE.x` to grab the latest code.
 * Use `tags/19.2` to grab the specific dot release you are looking for.
 
-### fonts.sh
+### package.json:fonts and bin/fonts.sh
 
-Example use `npm run fonts duke-default nightly /src/{{SKIN}}/sass/images/{{FILE}}.png`
+Example use `npm run fonts 19.x/duke-default`
 
-This script accepts 3 arguments
+This script copys the fontawesome and bootstrap fonts from `morpheus-master` to the `dist/{{skin}}` of your choosing. It accepts 1 argument
 
-1. skin name which determines what folder to grab font files from to copy
-1. this script does not use this variable but it's required for other scripts and my bash-foo needs work
-1. a path to file
+1. skin name which determines where to put the font files
 
-This script only runs if the third argument is a png file or the string `{{changed}}` so that is works with the watch and build scripts.
+### package.json:create-skin and bin/create-skin.sh
 
-### imagemin.sh
+Example usage `npm run create-skin {{skin}}`
 
-Example use `npm run imagemin duke-default nightly /src/{{SKIN}}/sass/images/{{FILE}}.png`
+This skin will create a brand new skin with the necessary files to start developing. The newly created skin will be generated in `src/19.x/` with whatever you used for `{{skin}}`.
 
-This script accepts 3 arguments
+### package.json:imagemin and bin/imagemin.sh
 
-1. skin name which determines what folder to grab image files from to minimize
-1. this script does not use this variable but it's required for other scripts and my bash-foo needs work
-1. a path to file
+### package.json:lint and bin/lint.sh
 
-This script only runs if the third argument is a png file or the string `{{changed}}` so that is works with the watch and build scripts. If you upload a new image to `{{SKIN}}/images` it will minimize it for you in the build and watch scripts.
+### package.json:scss and bin/scss.sh
 
-### scss.sh
+Example usage `npm run scss 19.x/{{skin}}`
 
-Example use `npm run scss duke-default nightly /src/{{SKIN}}/sass/_customization.scss`
+This script will compile all of the SCSS files into CSS. It accepts 1 argument
 
-This script accepts 3 arguments
+1. skin name which determines where to put the font files
 
-1. skin name which determines what folder to grab scss files from for compiling
-1. this script does not use this variable but it's required for other scripts and my bash-foo needs work
-1. a path to file
+### package.json:serve and bin/serve.sh
 
-This script only runs if the third argument is a scss file or the string `{{changed}}` so that is works with the watch and build scripts. If you edit a scss to `{{SKIN}}/sass` it will compile it for you in the build and watch scripts.
+Example use `npm run serve 19.x/{{skin}} dukedev.longsight.com`
 
-### serve.sh
+This script copies the `dist/19.x/{{skin}}` to `dev/dukedev.longsight.com/{{skin}}` and appends the appropriate server version numbers to the files for use with Chrome DevTools.
 
-Example use `npm run serve duke-default nightly /src/{{SKIN}}/sass/_customization.scss`
+### package.json:uglify and bin/uglify.sh
 
-This script accepts 2 arguments
+Example use `npm run uglify 19.x/{{skin}}`
 
-1. skin name whic determines the src and dev locations
-1. an environment that you want to develop against. Pass in one of the following or list a domain name of your choice
-    1. dev =        dukedev.longsight.com
-    1. test =       sakai-test.duke.edu
-    1. prod =       sakai.duke.edu
-    1. nightly =    qa19-mysql.nightly.sakaiproject.org
-
-### sub-skins.sh
-
-Example use `npm run sub-skins duke-default`. 
-
-This script accepts 1 arguement and only runs if = `duke-default` because we have no "sub-skins" built off another base skin. This also prevents skins being created incorrectly when using the build, watch, or serve commands.
-
-### uglify.sh
-
-Example use `npm run uglify duke-default nightly /src/{{SKIN}}/js/src/{{SKIN}}.js`
-
-This script accepts 3 arguments
-
-1. skin name which determines what folder to grab js files from for compiling
-1. this script does not use this variable but it's required for other scripts and my bash-foo needs work
-1. a path to javascript file for compiling
-
-This script only runs if the third argument is a js file or the string `{{changed}}` so that is works with the watch and build scripts. If you edit a js in `{{SKIN}}/js/src` it will compile it for you in the build and watch scripts.
+This script compiles the JavaScript files from `19.x/{{skin}}/js` and `19.x/morpheus-master/js` into `dist/19.x/{{skin}}/js/morpheus.scripts.min.js`.
 
 ## To report a bug
 

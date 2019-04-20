@@ -1,23 +1,43 @@
-#change this to the version of sakai you want to checkout from github
-echo "bin/create-skin.sh from $1 named $2 start"
-SAK_V_CUR='12.x'
-SAK_V_NEW='19.x'
+#!/usr/bin/env bash
+# Creates a new skin based off morpheus-master
+# If you want to create a skin based off duke-default, use sub-skins
 
+# Parameters
+# $1 = name of the new skin
+echo "bin/create-skin.sh start: creating skin $1"
+SAK_V='19.x'
+MORPHEUS='19.x/morpheus-master'
 
-echo "Importing from $SAK_V_NEW/$1..."
-rm -rf src/$SAK_V_NEW/$2
-cp -R src/$SAK_V_NEW/$1 src/$SAK_V_NEW/$2
-printf "\n\n@import \"$2\";" >> src/$SAK_V_NEW/$2/sass/tool.scss
+### Check if a directory does not exist ###
+if [ -d "src/$SAK_V/$1" ] 
+then
+    echo "Directory src/$SAK_V/$1 already exists. Please delete and try again." 
+    exit 9999 # die with error code 9999
+fi
 
-cp src/$SAK_V_NEW/$1/sass/_customization.scss src/$SAK_V_NEW/$2/sass/_customization.scss
-cp src/$SAK_V_NEW/$1/sass/$1.scss src/$SAK_V_NEW/$2/sass/$2.scss
-cp src/$SAK_V_NEW/$1/js/src/$1.js src/$SAK_V_NEW/$2/js/src/$2.js
-cp src/$SAK_V_NEW/duke-default/images/logo-*.png src/$SAK_V_NEW/$2/images
-cp src/$SAK_V_NEW/duke-default/images/playposit.png src/$SAK_V_NEW/$2/images/playposit.png
+echo "Importing from $MORPHEUS..."
 
-rm -rf src/$SAK_V_NEW/$2/sass/examples
-rm src/$SAK_V_NEW/$2/.gitignore
-rm src/$SAK_V_NEW/$2/*.md
-rm src/$SAK_V_NEW/$2/sass/morpheus-master.scss
+#scss
+mkdir -p src/$SAK_V/$1/sass
+# cp src/$MORPHEUS/sass/_defaults.scss src/$SAK_V/$1/sass/_defaults.scss
+cp src/$MORPHEUS/sass/_customization.scss src/$SAK_V/$1/sass/_customization.scss
+cp src/$MORPHEUS/sass/tool.scss src/$SAK_V/$1/sass/tool.scss
+printf "\n\n@import \"overrides\";\n" >> src/$SAK_V/$1/sass/tool.scss
+sed -i '' -e 's/@import "defaults";/@import "customization";/' src/$SAK_V/$1/sass/tool.scss 
+touch src/$SAK_V/$1/sass/_overrides.scss
+if ! [ $1 = "duke-default" ]; then
+    printf "@import \"../../duke-default/sass/defaults\";\n" >> src/$SAK_V/$1/sass/_customization.scss
+    printf "@import \"../../duke-default/sass/defaults\";\n" >> src/$SAK_V/$1/sass/_overrides.scss
+    printf "@import \"../../duke-default/sass/overrides\";\n" >> src/$SAK_V/$1/sass/_overrides.scss
+fi
 
-echo "bin/create-skin.sh done creating $2 from $1"
+#javascript
+mkdir -p src/$SAK_V/$1/js/src
+touch src/$SAK_V/$1/js/src/_customization.js
+printf "(function ($) {\n\tconsole.log('$1/_customization.js loaded');\n}) (\$PBJQ);" >> src/$SAK_V/$1/js/src/_customization.js
+#images
+mkdir -p src/$SAK_V/$1/images
+cp -R src/$MORPHEUS/images/ src/$SAK_V/$1/images
+
+## wrapup
+echo "bin/create-skin.sh done creating $1"

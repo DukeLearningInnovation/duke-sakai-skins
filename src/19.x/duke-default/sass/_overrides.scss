@@ -1,0 +1,632 @@
+@import "defaults";
+///////////////////////////////////
+// bootstrap components
+//////////////////////////////////
+@mixin sakai_label {
+    height: 2em;
+    display:inline-flex;
+    justify-content: center;
+    text-transform: uppercase;
+    letter-spacing: 1.25px;
+    padding: 0 calc(#{$standard-spacing}/2);
+    text-align: center;
+    vertical-align: middle;
+    font-weight:500;
+    background:none;
+    font-size:1em;
+    text-decoration: none;
+    align-items: center;
+    line-height: inherit;
+    color:$navy;
+    border:none;
+    &:hover,
+    &:active {
+        background: $royal-light;
+        color: $royal;
+        border-color:transparent;
+    }
+}
+.label {
+    @include sakai_label();
+}
+
+///////////////////////////////////
+// topHeader 
+//////////////////////////////////
+.portal-bullhorns-buttons,
+.is-maximized #loginLinks {
+    border:none;
+}
+.#{$namespace}topHeader #mastLogin {
+    #loginUser.has-avatar,
+    #loginUser.no-avatar {
+        border:2px solid $royal-light;
+        border-right-color: $royal-light;
+        border-bottom-color: $graphite;
+        border-left-color:$copper;
+        border-radius: 50%;
+        background:$white;
+        .#{$namespace}userNav__submenuitem--username,
+        .#{$namespace}userNav__submenuitem--userid {
+            padding:2px;
+            span.textlink {
+                display:none;
+            }
+        }
+        .#{$namespace}userNav__submenuitem--profilepicture {
+            margin:0;
+            &:hover, &:active {
+                text-shadow: none;
+                margin-left:0;
+                box-shadow: none;
+            }
+        }
+        &:active, &:hover {
+            border-color:$royal-light;
+            .#{$namespace}userNav__submenuitem--profilepicture {
+                box-shadow: none;
+            }
+        }
+    }
+}
+
+.all-sites-label {
+    display: none;
+}
+.all-sites-icon {
+    padding:0;
+}
+.view-all-sites-btn a{
+    display: inline-block;
+}
+
+.portal-bullhorns-buttons,
+##{$namespace}social-bullhorn,
+.view-all-sites-btn,
+.#{$namespace}userNav {
+    padding:0;
+    margin-left:$standard-spacing;
+}
+##{$namespace}social-bullhorn {
+    margin-left:14px;
+}
+.icon-sakai--academic-bullhorn {
+    padding-right:0;
+}
+##{$namespace}academic-bullhorn,
+##{$namespace}social-bullhorn {
+    padding: 4px 10px;
+    &:hover, &:active {
+        background: $topNav-hover-background;
+        color:$topNav-hover-text-color;
+        border-radius: 50%;
+        text-shadow: none;
+        i {
+            text-shadow: none;
+        }
+    }
+}
+##{$namespace}academic-bullhorn,
+##{$namespace}social-bullhorn,
+.view-all-sites-btn {
+    margin-top:-4px;
+    a {
+        padding: 4px 10px;
+        &:hover, &:active {
+            background: $topNav-hover-background;
+            border-radius: 50%;
+            text-shadow: none;
+            
+            i {
+                text-shadow: none;
+            }
+        }
+    }
+}
+.view-all-sites-btn {
+    margin-top:-7px;
+    a {
+        &:active,
+        &:hover {
+            color: $topNav-hover-text-color;
+        }
+    }
+}
+@media #{$phone}{
+    .Mrphs-topHeader>* {
+        display:flex;
+        flex-wrap:wrap;
+        justify-content: space-between;
+    }
+    .Mrphs-mainHeader .Mrphs-headerLogo,
+    #mastLogin,
+    .Mrphs-skipNav__menu,
+    .Mrphs-skipNav__menu.moving {
+        width:auto;
+        position:fixed;
+    }
+    #mastLogin #loginLinks {
+        padding:0;
+    }
+    .Mrphs-mainHeader .Mrphs-headerLogo {
+        width:100%;
+        
+        padding:0;
+        .Mrphs-headerLogo--institution {
+            // margin-left:0;
+            margin-left: calc(50% - #{$logo-width}/2);
+        }
+    }
+    .Mrphs-skipNav__menu,
+    .Mrphs-skipNav__menu.moving {
+        display:flex;
+        justify-content: space-between;
+        width: calc(100% - 52px - calc(#{$standard-spacing / 2}));
+        position: fixed;
+        top:0;
+        left: 0;
+        z-index: 21;
+        box-shadow: none;
+        height:52px;
+        li {
+            display: flex;
+        }
+        li.Mrphs-skipNav__menuitem.Mrphs-skipNav__menuitem--worksite,
+        li.Mrphs-skipNav__menuitem.Mrphs-skipNav__menuitem--tools {
+            background: transparent;
+            box-shadow: none;
+            float:none;
+            
+            a {
+                color: $topNav-text-color;
+                padding:0;
+                &:before,
+                &:after {
+                    border:none;
+                }
+            }
+        }
+        li.Mrphs-skipNav__menuitem.Mrphs-skipNav__menuitem--tools {
+            order:1;
+            justify-content: space-between;
+            a {
+                display: flex;
+                
+                float:none;
+            }
+            a.js-toggle-tools-nav {
+                text-overflow: clip;
+                width:52px;
+                min-height:52px;
+                font-size:24px;
+                background:$tool-menu-collapse-background-color;
+                
+            }
+            .tools-icon {
+                padding: calc(#{$standard-spacing} * .88) $standard-spacing calc(#{$standard-spacing / 2}) ;
+            }
+            
+            a.Mrphs-skipNav--toolName{
+                color:$topNav-text-color;
+                height:52px;
+                line-height:52px;
+                text-overflow: ellipsis;
+                span {
+                    margin-left: calc(#{$standard-spacing} / 4);
+                }
+            }
+            .Mrphs-breadcrumb--icon {
+                display: flex;
+                line-height: 52px;
+            }
+        }
+        
+        li.Mrphs-skipNav__menuitem.Mrphs-skipNav__menuitem--worksite {
+            width:52px;
+            order:3;
+            a {
+                background:none;
+                text-overflow: clip;
+                float:none;
+                border:none;
+            }
+            .all-sites-icon {
+                width:52px;
+                min-height:52px;
+
+                padding: $standard-spacing $standard-spacing calc(#{$standard-spacing / 2});
+                font-size:24px !important;
+                
+            }
+        }
+        li.Mrphs-skipNav__menuitem--content, 
+        li.Mrphs-skipNav__menuitem--accessibility {
+            display:none;
+        }
+        
+    }
+    .portal-bullhorns-buttons {
+        display: none;
+    }
+    #mastLogin {
+        right:$standard-spacing;
+    }
+    .Mrphs-mainHeader.is-fixed {
+        
+        .Mrphs-headerLogo{
+            // width:auto;
+        }
+    } 
+    body.active-more-sites #selectSiteModal {
+        top:0 !important;
+    }
+}
+///////////////////////////////////
+// Left hand Tool Menu 
+//////////////////////////////////
+@media #{$nonPhone}{
+    .#{$namespace}mainHeader .#{$namespace}headerLogo .#{$namespace}headerLogo--institution {
+        margin-left: 36px;
+    }
+}
+
+#toolMenuWrap {
+    border-right:none;
+    // margin-top: -70px;
+    position: absolute;
+    top:52px;
+    padding:0;
+    height: calc(100% - 52px);
+}
+@media #{$nonPhone}{
+    .#{$namespace}pagebody {
+        margin-left:200px;
+    }
+}
+body.#{$namespace}toolMenu-collapsed{
+    
+    .#{$namespace}pagebody,
+    #topnav_container {
+        margin-left:#{$tool-menu-width-collapsed};
+    }
+}
+
+#topnav_container {
+    margin-left: $tool-menu-width;
+    .#{$namespace}toolMenu-collapsed & {
+        margin-left:0;
+    }
+}
+#toolMenu,
+#subSites {
+    ul {
+        li:first-of-type a {
+            border-top:none;
+        }
+        li.is-current{
+            margin-right:0;
+            .#{$namespace}toolsNav__menuitem--link .#{$namespace}toolsNav__menuitem--title {
+                font-weight:400;
+            }
+        }
+        li.Mrphs-collapseTools,
+        li.Mrphs-collapseTools {
+            top:0;
+            left:0;
+            bottom:auto;
+            box-shadow:none;
+            width: 52px;
+            height: 52px;
+            z-index:1001;
+            &:active,
+            &:hover {
+                button span.fa-angle-double-left {
+                    color: $tool-menu-collapse-hover-text-color;
+                }
+                
+            }
+            &.min {
+                display: flex;
+                width:52px;
+                box-shadow: none;
+                
+            }
+            button:hover,
+            button:active {
+                    box-shadow: none;
+                }
+            button:active{
+
+            }
+            button.js-toggle-nav {
+                width:52px;
+                height:52px;
+                span.fa-angle-double-left {
+                    &:before {
+                        content: "\f0c9"
+                    }
+                    
+                }
+            }
+        }
+    }
+} 
+
+
+
+#linkNav ul
+.#{$namespace}siteHierarchy{
+    background: $background-color;
+    display:none;
+}
+.#{$namespace}mainHeader{
+    box-shadow:none;
+}
+
+.#{$namespace}mainContent {
+    background: $white;
+    &.#{$namespace}multipleTools {
+        background: $alabaster;
+    }
+}
+
+/////////////////////////////////////////
+// Favorite Sites
+//////////////////////////////////////////
+#linkNav {
+    ul {
+        li {
+            &.Mrphs-sitesNav__menuitem{
+
+                &>a.link-container {
+                    border-radius: $button-radius 0 0 $button-radius;
+                }
+                .Mrphs-sitesNav__drop,
+                .Mrphs-sitesNav__dropdown{
+                    border-radius: 0 $button-radius $button-radius 0;
+                }
+            }
+        }
+    }
+}
+
+
+/////////////////////////////////////////
+// HOME Styles
+//////////////////////////////////////////
+body.workspace {
+    #topnav_container {
+        padding: 0 calc(#{$standard-spacing*2});
+    }
+    #linkNav ul {
+        margin:calc(#{$standard-spacing*2}) 0 $standard-spacing;
+    }
+    .#{$namespace}siteHierarchy {
+        display:none;
+    }
+    .#{$namespace}sakai-siteinfo,
+    .#{$namespace}sakai-sitesetup {
+        #siteTypeList {
+            width: 50%;
+        }
+    }
+
+    .#{$namespace}multipleTools {
+        .#{$namespace}pageColumns--single{
+            display:flex;
+            flex-wrap:wrap;
+            justify-content: space-between;
+            padding:0 calc(#{$standard-spacing}*2);
+            .#{$namespace}container {
+                width: 48%;
+                margin:0;
+                background: $white;
+                margin-bottom: calc(#{$standard-spacing}*2);
+                border-radius: $button-radius;
+            }
+            .#{$namespace}sakai-motd {
+                width:100%;
+                background: transparent;
+                .#{$namespace}toolTitleNav {
+                    display:none;
+                }
+            }
+        } 
+        .#{$namespace}toolTitleNav__button_container.home{
+            display:none;
+        }
+        .#{$namespace}toolTitleNav{
+            padding-bottom:0;
+            .#{$namespace}toolTitleNav__title {
+                color: $castiron;
+                font-weight: 500;
+                font-size: 1.25em;
+            }
+        }
+    }
+}
+@media #{$phone}{
+    body.workspace {
+        .#{$namespace}multipleTools {
+            .#{$namespace}pageColumns--single{
+                .#{$namespace}container {
+                    width:100%;
+                }
+            }
+        }
+    }
+}
+
+//////////////////////////////////
+// 3 column MOTD
+/////////////////////////////////
+body.workspace {
+    .#{$namespace}multipleTools{
+        .#{$namespace}pageColumns--single .#{$namespace}container{
+            &.#{$namespace}sakai-motd{
+                box-shadow: none;
+                margin-bottom: 0;
+            }
+            
+        }
+    }
+}
+.#{$namespace}toolBody--sakai-motd {
+    background:none;
+    margin:0;
+    .portletMainIframe {
+        padding:0;
+    }
+}
+@media #{$nonPhone}{
+    body>.portletBody &>.synopticList  {
+        display:flex;
+        flex-wrap:wrap;
+        justify-content: space-between;
+
+        li {
+            width:30%;
+            
+        }
+       .textPanel {
+            h3 {
+                min-height:84px;
+            }
+       } 
+
+    }
+}
+body>.portletBody {
+    background:none;
+    &>.synopticList{
+        list-style: none;
+        padding:0;
+        margin:0;
+        li {
+            
+            .textPanel{
+                border-radius: $button-radius;
+                background: $tool-background-color;
+                border:none;
+                margin:0;
+                min-height:456px;
+                box-shadow: $card-shadow;
+                h1, h2, h3, h4 {
+                    background:$tool-background-color;
+                    color: $castiron;
+                    font-weight: 500;
+                    font-size: 1.25em;
+                    margin:0;
+                    border:none;
+                    line-height: 1.5em;
+                    padding:$standard-spacing;
+                }
+                p {
+                    letter-spacing: .0178571429em;
+                    color: rgba(0,0,0,.54);
+                    padding:$standard-spacing;
+                }
+
+                .img-responsive {
+                    margin: 0 -$standard-spacing;
+                    max-width:calc(100% + (2*#{$standard-spacing}));
+                }
+                .btn-link {
+                    padding: calc(#{$standard-spacing}/2) $standard-spacing;
+                    margin-left: calc(-#{$standard-spacing}/2);
+                    text-decoration: none;
+                    box-shadow: none;
+                    background:none;
+                    text-transform: uppercase;
+                    font-weight: 500;
+                    border:none;
+
+                    &:hover,
+                    &:active {
+                        background:$royal-light;
+                        text-decoration: none;
+                        color:$royal;
+                    }
+                }
+            }
+        }
+    } 
+}
+
+// Calendar Portlet
+.#{$namespace}calendarSynoptic {
+
+    .calRight {
+        input[value=" < "],
+        input[value=" > "] {
+            @include sakai_label();
+            border-radius: 50%;
+            font-size:1.25em;
+            padding: 0 6px;
+
+            &:hover,
+            &:active {
+                // background: $gallery;
+                border-color:transparent;
+            }
+        }
+        input[value="Today"] {
+            @include sakai_label();
+            margin:0 calc(#{$standard-spacing}/2);
+        }
+    }
+}
+
+// RSS Portlets
+body.workspace .#{$namespace}multipleTools{
+    .#{$namespace}toolBody--sakai-simple-rss {
+        .news-source {
+            display:none;
+        }
+        .news-items {
+            ul {
+                padding-left:$standard-spacing;
+            }
+            h3 {
+                font-size: 14px;
+                font-weight:500;
+            }
+        }
+    }
+    .#{$namespace}toolTitleNav__title {
+        margin-bottom: $standard-spacing;
+    }
+    .#{$namespace}toolTitleNav__link--inline {
+        text-decoration: none;
+        color:$castiron;
+        
+        &:hover,
+        &:active {
+            cursor: default;
+            color:$castiron;
+            text-decoration: none;
+        }
+    }
+}
+
+/////////////////////
+// BECOME USER
+////////////////////
+body.become-user {
+    .#{$namespace}mainHeader .#{$namespace}headerLogo {
+        background: $ironweed;
+    }
+}
+////////////////////////////////////////////
+// distinguish different servers visually
+////////////////////////////////////////
+// body.dukedev-longsight-com {
+//     .#{$namespace}mainHeader .#{$namespace}headerLogo {
+//         background: $dandelion;
+//     }
+// }
+// body.sakai-test-duke-edu {
+//     .#{$namespace}mainHeader .#{$namespace}headerLogo {
+//         background: $piedmont;
+//     }
+// }

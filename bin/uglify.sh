@@ -1,23 +1,22 @@
 #!/usr/bin/env bash
-FILEEXTENSION=${3##*.}
 
-if [ $FILEEXTENSION = "js" ] || [ $FILEEXTENSION = "{{changed}}" ]; then
-    echo "bin/uglify.sh $1 start"
-    SAK_V_CUR='12.x'
-    SAK_V_NEW='19.x'
-    DATE=`date +%Y-%m-%d_%H-%M-%S`
+echo "bin/uglify.sh $1 start"
 
-    rm -rf dist/$SAK_V_NEW/$1/js
-    mkdir dist/$SAK_V_NEW/$1/js
-    uglifyjs src/$SAK_V_NEW/$1/js/src/*.js -o dist/$SAK_V_NEW/$1/js/morpheus.scripts.js && \
-    uglifyjs src/$SAK_V_NEW/$1/js/src/*.js -m -c -o dist/$SAK_V_NEW/$1/js/morpheus.scripts.min.js
-    printf "\n/* Compiled on $DATE */\n" >> dist/$SAK_V_NEW/$1/js/morpheus.scripts.min.js
+MORPHEUS='19.x/morpheus-master'
+DATE=`date +%Y-%m-%d_%H-%M-%S`
 
-    mkdir dist/$SAK_V_NEW/$1/js/lib
-    cp -R src/$SAK_V_NEW/$1/js/lib/ dist/$SAK_V_NEW/$1/js/lib
+rm -rf dist/$1/js
+mkdir dist/$1/js
+uglifyjs src/$MORPHEUS/js/src/*.js src/$1/js/src/*.js -o dist/$1/js/morpheus.scripts.js
+uglifyjs dist/$1/js/morpheus.scripts.js -m -c -o dist/$1/js/morpheus.scripts.min.js
+# uglifyjs src/$1/js/src/*.js -o dist/$1/js/morpheus.scripts.js && \
+# uglifyjs src/$1/js/src/*.js -m -c -o dist/$1/js/morpheus.scripts.min.js
+printf "\n/* Compiled on $DATE */\n" >> dist/$1/js/morpheus.scripts.min.js
 
-    mkdir dist/$SAK_V_NEW/$1/js/ie
-    cp -R src/$SAK_V_NEW/$1/js/ie/ dist/$SAK_V_NEW/$1/js/ie
+mkdir dist/$1/js/lib
+cp -R src/$MORPHEUS/js/lib/ dist/$1/js/lib
 
-    echo "bin/uglify.sh $1 done"
-fi
+mkdir dist/$1/js/ie
+cp -R src/$MORPHEUS/js/ie/ dist/$1/js/ie
+
+echo "bin/uglify.sh $1 done"
