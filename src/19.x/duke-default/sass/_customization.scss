@@ -1,14 +1,12 @@
 /* Global namespace */
 /* Typography*/
 //Google family Fonts URL
-$font-family-url: "https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700" !default;
-@import url(#{$font-family-url});
+$font-family-url: "https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700";
 $font-family: "Roboto",sans-serif;
-
-$default-font-size: 14px !default;
-$default-font-weight: 400 !default;
+$default-font-size: 14px;
+$default-font-weight: 400;
 $header-font-family: $font-family;
-$header-font-weight: 700 !default;
+$header-font-weight: 700;
 
 /* Color palette */
 $navy: #012169;

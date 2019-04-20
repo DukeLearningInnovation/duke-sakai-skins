@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 echo "bin/lint.sh $1 start"
-stylelint src/$1/*.scss --syntax scss || true;
+stylelint src/$1/sass/*.scss --syntax scss || true;
 eslint src/$1/js || true;
 
-echo "bin/lint.sh $1 start"
+echo "bin/lint.sh $1 end"

@@ -1,6 +1,6 @@
 (function ($) {
     console.log('duke-default/_customization.js loaded');
-
+    
     ///////////////////////////////////////
     // GOOGLE ANALYTICS EVENT TRACKING
     ///////////////////////////////////////
