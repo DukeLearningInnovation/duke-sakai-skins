@@ -41,7 +41,9 @@ if [ $1 == "change" ]; then
     npm run serve $SKIN $3;
 elif [ $1 = "build" ]; then
     SKIN=$2;
-    npm run lint -- $SKIN;
+    rm -rf dist/$2
+    mkdir -p dev/$2
+    
     build_scss
     build_js
     build_images
