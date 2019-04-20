@@ -2,6 +2,7 @@
 
 echo "bin/scss.sh $1 start: Compiling SCSS to CSS"
 MORPHEUS='19.x/morpheus-master'
+DUKE_DEFAULT='19.x/duke-default'
 DATE=`date +%Y-%m-%d_%H-%M-%S`
 
 node-sass -r src/$1 \
@@ -9,6 +10,7 @@ node-sass -r src/$1 \
 --include-path src/$MORPHEUS/sass/ \
 --include-path src/$MORPHEUS/bootstrap-sass-3.3.7/assets/stylesheets/ \
 --include-path src/$MORPHEUS/font-awesome-sass-4.7.0/assets/stylesheets/ \
+--include-path src/$DUKE_DEFAULT/sass/ \
 --include-path src/$1/sass/ \
 --output-style compressed \
 --output-file "tool.css" \

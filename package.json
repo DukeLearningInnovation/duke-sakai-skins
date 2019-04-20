@@ -6,9 +6,7 @@
   "scripts": {
     "watch": "chokidar \"src/**\" -c \"bin/build.sh {event} {path} dukedev.longsight.com\"",
     "build": "bash bin/build.sh build",
-      "!build:step8": "npm run sub-skins",
     "autoprefixer": "postcss -u autoprefixer -r",
-    "clean": "rimraf dist/19.x/*",
     "fetch-src": "bash bin/fetch-src.sh",
     "fonts": "bash bin/fonts.sh",
     "create-skin": "bash bin/create-skin.sh",
@@ -17,7 +15,6 @@
     "lint": "bash bin/lint.sh",
     "scss": "bash bin/scss.sh",
     "serve": "bash bin/serve.sh",
-    "sub-skins": "bash bin/sub-skins.sh",
     "uglify": "bash bin/uglify.sh"
   },
   "repository": {
