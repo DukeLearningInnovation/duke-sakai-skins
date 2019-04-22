@@ -15,7 +15,7 @@ $royal: #005199;
 $dodger: #0E99F0;
 $royal-light: #cce7fe;
 $bay:   #243a82;
-$copper: #C84E00;
+$copper: #c64c00;
 $persimmon: #E89923;
 $dandelion: #FFD960;
 $piedmont: #A1B70D;
@@ -85,11 +85,11 @@ $button-disabled-font-weight:   300 !default;
 // Primary action button design:
 $button-primary-text-color:                 #fff !default;
 $button-primary-background:                 $primary-color !default;
-$button-primary-border-color:               $navy;
+$button-primary-border-color:               darken($button-primary-background, 10%);
 // hover and focus states for primary action button:
 $button-primary-hover-text-color:           $button-primary-text-color !default;
-$button-primary-hover-background:           $navy;
-$button-primary-hover-border-color:         darken($navy, 10%);
+$button-primary-hover-background:           darken($button-primary-background, 10%);
+$button-primary-hover-border-color:         darken($button-primary-background, 20%);
 // active state for primary action button:
 $button-primary-active-text-color:          $button-primary-text-color !default;
 $button-primary-active-background:          $button-primary-hover-background !default;
@@ -237,6 +237,8 @@ $logo-width: 81px;
 
 
 /* Footer */
+$footer-background-color: $tool-background-color;
+$footer-border-color: $whisper;
 
 /* From NYU 11 Skin */
 $overview-portlet-title-background-color: $background-color-secondary;

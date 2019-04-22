@@ -1,15 +1,156 @@
 @import "../../duke-default/sass/defaults";
 @import "../../duke-default/sass/overrides";
 
-//Hide favorite sites
-#topnav_container {
-    display: none;
-}
-
 .#{$namespace}mainHeader .#{$namespace}headerLogo .#{$namespace}headerLogo--institution {
     margin-left:52px;
 }
 .#{$namespace}topHeader {
     box-shadow: none;
     border-bottom: 1px solid $whisper;
+}
+#toolMenuWrap {
+    border-right: 1px solid $whisper;
+    top:53px;
+}
+  
+//Hide favorite sites
+#topnav_container {
+    display: none;
+}
+
+//Breadcrumbs & site name in header
+.Mrphs-siteHierarchy {
+    padding:0;
+}
+.Mrphs-pageColumns--single {
+    margin-top:52px;
+}
+.Mrphs-siteHierarchy .Mrphs-hierarchy--siteName{
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: calc(52px + #{$logo-width} + #{$standard-spacing});
+    height:52px;
+    line-height: 52px;
+    z-index: 1001;
+}
+.Mrphs-siteHierarchy .Mrphs-hierarchy--siteNameSeparator,
+.Mrphs-siteHierarchy a.Mrphs-hierarchy--toolName {
+    display: none;
+    
+}
+
+//////////////////////////////////
+// LESSONS
+/////////////////////////////////
+.Mrphs-pageColumns--single .Mrphs-sakai-lessonbuildertool{
+    margin-top: calc(-52px + #{$standard-spacing});
+    //Move lessons menu to footer
+    .Mrphs-toolTitleNav {
+        position: inherit;
+
+    }
+    .Mrphs-toolTitleNav__button_container {
+        position: absolute;
+        bottom: $standard-spacing;
+    }
+    // Fix the Expand all button
+    .topaction {
+        position: relative;
+    }
+
+    // button styles {
+    .link-div .usebutton,
+    .Mrphs-toolTitleNav .Mrphs-toolTitleNav__link {
+        @include sakai_label();
+        color: $accent-color;
+        background: lighten($accent-color, 50%);
+        font-family: $font-family;
+        font-weight: 500; 
+        }
+    .ui-button .ui-button-text {
+        font-weight: 500 !important;//overriding use of !important in default simpletools
+    }
+    .Mrphs-toolTitleNav .Mrphs-toolTitleNav__link{
+        &:before{
+            color:$accent-color;
+        }
+        
+        &:hover {
+            &:before{
+                color:$primary-color;
+            }
+        }
+
+       }
+    // change element hover effect
+    .mainList div:hover.canEdit {
+        background:transparent;
+    }
+
+    // change columns with colors
+    .colblue {
+        background: $royal-light;
+    }
+    .colgray {
+        background:$wildsand;
+    }
+    .colgreen {
+        background: lighten($piedmont, 55%);
+    }
+
+    //change blue background elements
+    .column .commentDiv,
+    .column .studentContentTable,
+    .column .questionDiv .contentCol,
+    .column .checklistDiv,
+    .column .forumSummaryHeaderDiv,
+    .column .announcementsHeaderDiv,
+    .column .fc-toolbar {
+        background: $accent-color;
+        color:$white;
+        border-radius: $button-radius;
+    }
+    .checklist-checkbox-label {
+        padding:.5em;
+    }
+    .checklist-checkbox ~ span.checklist-checkbox-label{
+        background-image:none;
+        &:before {
+            font-size: 16px;
+            font-weight: normal;
+            font-family: FontAwesome;
+            content: "\f096";
+            margin-right: .5em;
+            width:1em;
+        }
+    }
+    label.checklistLabel:hover .checklist-checkbox ~ span.checklist-checkbox-label,
+    label.checklistLabel:hover .checklist-checkbox:checked ~ span.checklist-checkbox,
+    label.checklistLabel:hover .checklist-checkbox:checked ~ span.checklist-checkbox-label,
+    .checklist-checkbox:checked ~ span.checklist-checkbox-label {
+        background-image:none;
+        &:before {
+            font-size: 16px;
+            font-weight: normal;
+            font-family: FontAwesome;
+            content: "\f046";
+            margin-right: .5em;
+            width:1em;
+        }
+    }
+    .saveChecklistSuccess {
+        background: $ok-background-color;
+        color: $ok-color;
+        &:before {
+            font-size: 16px;
+            font-weight: normal;
+            font-family: FontAwesome;
+            content: "\f058";
+            margin-right: .5em;
+        }
+    }
+    .checklistSaveMessage {
+        padding: 4px;
+    }
 }
