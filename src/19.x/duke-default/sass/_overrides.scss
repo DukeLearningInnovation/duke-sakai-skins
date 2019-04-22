@@ -280,7 +280,7 @@
 }
 @media #{$nonPhone}{
     .#{$namespace}pagebody {
-        margin-left:200px;
+        margin-left:$tool-menu-width;
     }
 }
 body.#{$namespace}toolMenu-collapsed{
@@ -300,58 +300,68 @@ body.#{$namespace}toolMenu-collapsed{
 #toolMenu,
 #subSites {
     ul {
-        li:first-of-type a {
-            border-top:none;
-        }
-        li.is-current{
-            margin-right:0;
-            .#{$namespace}toolsNav__menuitem--link .#{$namespace}toolsNav__menuitem--title {
-                font-weight:400;
-            }
-        }
-        li.Mrphs-collapseTools,
-        li.Mrphs-collapseTools {
-            top:0;
-            left:0;
-            bottom:auto;
-            box-shadow:none;
-            width: 52px;
-            height: 52px;
-            z-index:1001;
-            &:active,
-            &:hover {
-                button span.fa-angle-double-left {
-                    color: $tool-menu-collapse-hover-text-color;
+        li {
+            .#{$namespace}toolsNav__menuitem--link {
+                .#{$namespace}toolsNav__menuitem--title {
+                    width:100%;
                 }
-                
-            }
-            &.min {
-                display: flex;
-                width:52px;
-                box-shadow: none;
-                
-            }
-            button:hover,
-            button:active {
-                    box-shadow: none;
+                &.is-invisible{
+                    &:after {
+                        margin-right:0;
+                    }
                 }
-            button:active{
-
             }
-            button.js-toggle-nav {
-                width:52px;
-                height:52px;
-                span.fa-angle-double-left {
-                    &:before {
-                        content: "\f0c9"
+            &:first-of-type a {
+                border-top:none;
+            }
+            &.is-current{
+                margin-right:0;
+                .#{$namespace}toolsNav__menuitem--link .#{$namespace}toolsNav__menuitem--title {
+                    font-weight:400;
+                }
+            }
+            &.Mrphs-collapseTools {
+                top:0;
+                left:0;
+                bottom:auto;
+                box-shadow:none;
+                width: 52px;
+                height: 52px;
+                z-index:1001;
+                &:active,
+                &:hover {
+                    button span.fa-angle-double-left {
+                        color: $tool-menu-collapse-hover-text-color;
                     }
                     
+                }
+                &.min {
+                    display: flex;
+                    width:52px;
+                    box-shadow: none;
+                    
+                }
+                button:hover,
+                button:active {
+                        box-shadow: none;
+                    }
+                button:active{
+    
+                }
+                button.js-toggle-nav {
+                    width:52px;
+                    height:52px;
+                    span.fa-angle-double-left {
+                        &:before {
+                            content: "\f0c9"
+                        }
+                        
+                    }
                 }
             }
         }
     }
-} 
-
+}
 
 
 #linkNav ul
@@ -630,3 +640,46 @@ body.become-user {
 //         background: $piedmont;
 //     }
 // }
+
+////////////////////////////////////////////
+// Lessons styles
+////////////////////////////////////////
+.column {
+    border-color:transparent;
+    border-radius:0;
+}
+.sectionCollapsedIcon {
+    display:none !important; //JS somewhere applying inline display styles...
+}
+.collapsibleSectionHeader .collapseIcon {
+    float:left;
+    margin-right: $standard-spacing;
+    font-size:24px;
+    margin-top:-3px;
+    &.fa-toggle-down:before {
+        content: "\f0da";
+    }
+    &.fa-toggle-up:before {
+        content: "\f0d7";
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////
+// Footer styles
+////////////////////////////////////////
+.#{$namespace}footer--project {
+    display:none;
+}

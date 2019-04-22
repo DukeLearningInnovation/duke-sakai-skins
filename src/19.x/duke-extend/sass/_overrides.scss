@@ -1,2 +1,15 @@
 @import "../../duke-default/sass/defaults";
 @import "../../duke-default/sass/overrides";
+
+//Hide favorite sites
+#topnav_container {
+    display: none;
+}
+
+.#{$namespace}mainHeader .#{$namespace}headerLogo .#{$namespace}headerLogo--institution {
+    margin-left:52px;
+}
+.#{$namespace}topHeader {
+    box-shadow: none;
+    border-bottom: 1px solid $whisper;
+}
