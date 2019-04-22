@@ -1,6 +1,17 @@
 @import "../../duke-default/sass/defaults";
 
 $logo: 'images/logo-duke-u@2x-blue.png';
+$background-color: $white;
 $top-header-background: $white;
+$tool-menu-background-color:$white;
 $topNav-text-color: $navy;
 $tool-menu-width: 250px;
+
+$accent-color: $copper;
+$button-primary-background: $accent-color;
+$button-primary-border-color:               darken($button-primary-background, 10%);
+
+$tool-menu-item-separator-color: $white;
+$tool-menu-item-background-color:$white;
+$tool-menu-item-hidden-background-color: $white;
+$tool-menu-item-selected-background-color: $royal-light;
