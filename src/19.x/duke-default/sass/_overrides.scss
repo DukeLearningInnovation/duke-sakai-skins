@@ -187,6 +187,7 @@
             }
         }
         li.Mrphs-skipNav__menuitem.Mrphs-skipNav__menuitem--tools {
+            
             order:1;
             justify-content: space-between;
             a {
@@ -207,6 +208,7 @@
             }
             
             a.Mrphs-skipNav--toolName{
+                display: none;
                 color:$topNav-text-color;
                 height:52px;
                 line-height:52px;
@@ -218,6 +220,10 @@
             .Mrphs-breadcrumb--icon {
                 display: flex;
                 line-height: 52px;
+            }
+            
+            a.manage-overview-link-mobile {
+                color: $white;
             }
         }
         
@@ -279,15 +285,36 @@
     // height: calc(100% - 52px);
 }
 @media #{$nonPhone}{
-    .#{$namespace}pagebody {
+    #pageBody>.#{$namespace}pagebody {
         margin-left:$tool-menu-width;
+        width: calc(100% - #{$tool-menu-width} - #{$standard-spacing});
+        
+    }
+    #content #col1of2,
+    #content #col2of2 {
+        display: flex;
+        margin:0;
+        align-content: space-between;
+        flex: 0 1 auto;
+        width:50%;
+        flex-direction:column;
+        .#{$namespace}container {
+            margin-left: $standard-spacing;
+        }
+    }
+}
+@media #{$tablet}{
+    #content #col1of2,
+    #content #col2of2 {
+        width:100%;
     }
 }
 body.#{$namespace}toolMenu-collapsed{
     
-    .#{$namespace}pagebody,
+    #pageBody>.#{$namespace}pagebody,
     #topnav_container {
         margin-left:#{$tool-menu-width-collapsed};
+        width: calc(100% - #{$tool-menu-width-collapsed} - #{$standard-spacing});
     }
 }
 
@@ -368,6 +395,9 @@ body.#{$namespace}toolMenu-collapsed{
 .#{$namespace}siteHierarchy{
     background: $background-color;
     display:none;
+}
+.#{$namespace}siteHierarchy{
+    background: $body-background-color;
 }
 .#{$namespace}mainHeader{
     box-shadow:none;
