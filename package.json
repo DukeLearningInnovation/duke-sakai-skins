@@ -6,6 +6,7 @@
   "scripts": {
     "watch": "chokidar \"src/**\" -c \"bin/build.sh {event} {path} dukedev.longsight.com\"",
     "build": "bash bin/build.sh build",
+    "build-all": "bash bin/build-all.sh",
     "autoprefixer": "postcss -u autoprefixer -r",
     "fetch-src": "bash bin/fetch-src.sh",
     "fonts": "bash bin/fonts.sh",
