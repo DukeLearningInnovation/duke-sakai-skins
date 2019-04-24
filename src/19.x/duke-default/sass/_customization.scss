@@ -54,8 +54,36 @@ $portal-background-color:$alabaster;
 /* Tool tabs */
 $tool-menu-background-color: $wildsand;
 $tool-background-color: $white;
+
+$tool-menu-color: 			 lighten($castiron, 20%);
+$tool-border-color:			 $limestone;
+
+$tool-tab-height:                                         32px !default;
+$tool-tab-text-color:                                     $tool-menu-color !default;
+$tool-tab-text-size:                                      1em;
+$tool-tab-text-weight:                                    normal !default;
+$tool-tab-text-transform:                                 uppercase;
+$tool-tab-text-letter-spacing:                            normal !default;
+$tool-tab-background-color:                               $body-background-color;
+$tool-tab-border-color:                                   transparent;
+$tool-tab-hover-text-color:                               $tool-menu-color;
+$tool-tab-hover-background-color:                         $royal-light;
+$tool-tab-hover-highlight-color:                          transparent;
+$tool-tab-active-text-color:                              $primary-color !default;
+$tool-tab-active-text-size:                               $tool-tab-text-size;
+$tool-tab-active-background-color:                        $tool-tab-background-color;
+$tool-tab-active-highlight-color:                         $primary-color !default;
+
+$tool-nav-link-color: #666 !default;
+
+$main-content-background: $background-color !default;
 $top-header-background: $navy;
 $sites-nav-background: $background-color;
+
+$breadcrumbs-color:			$text-color !default;
+$breadcrumbs-tool-color:	$primary-color !default;
+$breadcrumbs-hover-color:	$primary-color !default;
+
 
 /* Link colors */
 
@@ -64,17 +92,18 @@ $button-radius: 4px;
 
 // Default (non-primary) button design:
 $button-text-color:             $castiron;
-$button-background:             $gallery;
+$button-background:             $limestone;
 $button-border-color:           transparent;
 // hover and focus states:
 $button-hover-text-color:       $button-text-color;
-$button-hover-background:       $alto;
-$button-hover-border-color:     $limestone;
+$button-hover-background:       $royal-light;
+$button-hover-border-color:     $dodger;
 // active state:
-$button-active-text-color:      $button-text-color !default;
-$button-active-background:      $royal-light;	//note: inverse order from above
-$button-active-border-color:    $dodger;;
-$button-active-shadow-color:    rgba(0, 0, 0, 0.1);
+$button-active-text-color:      $button-text-color;
+$button-active-background:      darken($button-hover-background, 20%);	//note: inverse order from above
+$button-active-border-color:    darken($button-active-background, 20%);
+$button-active-shadow-color:	rgba(0,0,0,.1);
+$button-active-shadow:    		inset 0 0 0 1px rgba(255, 255, 255, 0.8), 0 1px 2px rgba(0,0,0,.1); //this is different from morpheus
 // disabled state:
 $button-disabled-text-color:    #717171 !default;
 $button-disabled-background:    #f6f6f6 !default;
@@ -105,21 +134,21 @@ $topNav-hover-text-color: $royal;
 $topNav-hover-background: $royal-light;
 /* Favorites */
 
-$sites-nav-menu-item-border-thickness:		0;
+$sites-nav-menu-item-border-thickness:		1px;
 /* Favorites - item */
 $sites-nav-menu-item-background:            $gallery;
 $sites-nav-menu-item-color:                 $castiron;
 $sites-nav-menu-item-icon-color:            $sites-nav-menu-item-color;
-$sites-nav-menu-item-border-color:          $sites-nav-menu-item-color;
+$sites-nav-menu-item-border-color:          $sites-nav-menu-item-background;
 $sites-nav-menu-item-border-top:            $sites-nav-menu-item-border-thickness solid $sites-nav-menu-item-border-color !default;
 $sites-nav-menu-item-border-right:          $sites-nav-menu-item-border-top !default;
 $sites-nav-menu-item-border-bottom:         $sites-nav-menu-item-border-top !default;
 $sites-nav-menu-item-border-left:           $sites-nav-menu-item-border-top !default;
 /* Favorites - item hovered */
 $sites-nav-menu-item-hover-background:      $royal-light;
-$sites-nav-menu-item-hover-color:           $royal;
+$sites-nav-menu-item-hover-color:           $sites-nav-menu-item-color;
 $sites-nav-menu-item-hover-icon-color:      $sites-nav-menu-item-icon-color;
-$sites-nav-menu-item-hover-border-color:    $sites-nav-menu-item-border-color;
+$sites-nav-menu-item-hover-border-color:    $button-hover-border-color;
 $sites-nav-menu-item-hover-border-top:      $sites-nav-menu-item-border-thickness solid $sites-nav-menu-item-hover-border-color !default;
 $sites-nav-menu-item-hover-border-right:    $sites-nav-menu-item-hover-border-top !default;
 $sites-nav-menu-item-hover-border-bottom:   $sites-nav-menu-item-hover-border-top !default;
@@ -128,7 +157,7 @@ $sites-nav-menu-item-hover-border-left:     $sites-nav-menu-item-hover-border-to
 $sites-nav-menu-item-selected-background:   $sites-nav-menu-item-hover-background;
 $sites-nav-menu-item-selected-color:        $sites-nav-menu-item-hover-color;
 $sites-nav-menu-item-selected-icon-color:   $sites-nav-menu-item-hover-icon-color;
-$sites-nav-menu-item-selected-border-color: $sites-nav-menu-item-hover-border-color;
+$sites-nav-menu-item-selected-border-color: $sites-nav-menu-item-selected-background;
 $sites-nav-menu-item-selected-border-top:   $sites-nav-menu-item-border-thickness solid $sites-nav-menu-item-selected-border-color !default;
 $sites-nav-menu-item-selected-border-right: $sites-nav-menu-item-selected-border-top !default;
 $sites-nav-menu-item-selected-border-bottom:$sites-nav-menu-item-selected-border-top !default;
@@ -137,7 +166,7 @@ $sites-nav-menu-item-selected-border-left:  $sites-nav-menu-item-selected-border
 $sites-nav-menu-item-selected-hover-background:   darken($sites-nav-menu-item-selected-background, 5%);
 $sites-nav-menu-item-selected-hover-color:        $sites-nav-menu-item-selected-color;
 $sites-nav-menu-item-selected-hover-icon-color:   $sites-nav-menu-item-selected-icon-color;
-$sites-nav-menu-item-selected-hover-border-color: $sites-nav-menu-item-selected-border-color;
+$sites-nav-menu-item-selected-hover-border-color: $sites-nav-menu-item-hover-border-color;
 $sites-nav-menu-item-selected-hover-border-top:   $sites-nav-menu-item-border-thickness solid $sites-nav-menu-item-selected-hover-border-color !default;
 $sites-nav-menu-item-selected-hover-border-right: $sites-nav-menu-item-selected-hover-border-top !default;
 $sites-nav-menu-item-selected-hover-border-bottom:$sites-nav-menu-item-selected-hover-border-top !default;
@@ -233,7 +262,18 @@ $logo-width: 81px;
 /* Site Deletion Banner */
 
 /* Icon Overrides */
-//$sakai-custom-icons : ( sakai-message-bundle-manager : ( extend : fa-edit ) );
+$sakai-custom-icons : ( 
+	sakai-blogwow : ( extend: fa-keyboard-o ),
+	sakai-help : ( extend: fa-info-circle ),
+	sakai-piazza : (extend : fa-comments-o),
+	sakai-playposit : (extend : fa-lightbulb-o),
+	sakai-qna : (extend : fa-question-circle-o),
+	sakai-simple-rss : (extend : fa-rss),
+	sakai-voicethread : (extend : fa-microphone),
+	sakai-warpwire : (extend : fa-play-circle),
+	sakai-attendance : (extend : fa-id-card-o),
+	sakai-zoom : (extend : fa-video-camera)
+ );
 
 
 /* Footer */
@@ -243,7 +283,13 @@ $footer-border-color: $whisper;
 /* From NYU 11 Skin */
 $overview-portlet-title-background-color: $background-color-secondary;
 $overview-portlet-border-color: transparent;
+
 /* focus styles for all control elements (e.g. buttons, form controls, links, etc) */
+$focus-outline-width: 0;
+$focus-outline-style: solid;
+$focus-outline-color: $white;
+$sakai-focus-outline: $focus-outline-width $focus-outline-style $focus-outline-color;
+$focus-outline-offset: 0;
 
 
 @mixin sakai_button($sb-text-color,
@@ -257,7 +303,7 @@ $overview-portlet-border-color: transparent;
 					$sb-active-border-color) {
 	display: inline-block;
 	margin: 0;
-	padding: 7px $standard-spacing;
+	padding: calc(#{$standard-spacing/2}) $standard-spacing;
 	border: 1px solid $sb-border-color;
 	@include border-radius($button-radius);
 	background: $sb-background;
@@ -269,22 +315,16 @@ $overview-portlet-border-color: transparent;
 	cursor: pointer;
 	@include appearance(none);
 	// box-shadow: 0 1px 0 rgba(255,255,255,0.15) inset;
-
+	box-shadow: none;
 	&:before { // icon
 		color: $sb-text-color;
 	}
-
-	&:focus {
-		outline: $sakai-focus-outline;
-		outline-offset: $focus-outline-offset;
-	}
-
 	&:hover, &:focus {
 		color: $sb-hover-text-color;
 		text-decoration: none;
 		background: $sb-hover-background;
 		border-color: $sb-hover-border-color;
-		box-shadow: 0 1px 1px $button-active-shadow-color;
+		box-shadow: $button-active-shadow;
 		&:before { // icon
 			color: $sb-hover-text-color;
 		}
@@ -296,7 +336,7 @@ $overview-portlet-border-color: transparent;
 		text-decoration: none;
 		background: $sb-active-background;
 		border-color: $sb-active-border-color;
-		
+		box-shadow: $button-active-shadow;
 		&:before { // icon
 			color: $sb-active-text-color;
 		}

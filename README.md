@@ -30,6 +30,9 @@
 1. Open Devtools and go to the Sources Tab then the Overrides sub-tab (in the left pane)
 1. Enable local overrides and select the `dev` folder in your duke-sakai-skins directory. Chrome will find the correct subfolder based on the domain name of the server.
 1. Edit SCSS or JS in `src` and save. Upon save, watch will auto-compile and about 10-15s later, Chrome will auto-update with your edited code.
+1. When you're done, `Control + C` to stop the `npm run watch` script
+1. Run `npm run build-all` to build all skins so they pick up the changes you made.
+1. Move onto Stage 3 below
 
 ### More options
 
