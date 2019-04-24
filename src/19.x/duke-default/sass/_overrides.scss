@@ -417,10 +417,13 @@ body.#{$namespace}toolMenu-collapsed{
 }
 .#{$namespace}siteHierarchy{
     background: $body-background-color;
-    @media #{$nonPhone}{
+    @media #{$nonPhone} {
+        padding:0 $standard-spacing $standard-spacing;
         a.#{$namespace}hierarchy--toolName {
+            font-weight: 400;
+            text-transform: none;
             border: 1px solid $body-background-color;
-            padding: calc(#{$standard-spacing}/2);
+            padding: calc(#{$standard-spacing} / 4); 
             padding-left:0;
             border-radius: $button-radius;
             &:hover, &:active, &:focus {
@@ -434,10 +437,10 @@ body.#{$namespace}toolMenu-collapsed{
                     }
                 }
             }
-            
         }
     }
 }
+
 
 .#{$namespace}mainHeader{
     box-shadow:none;
@@ -465,12 +468,57 @@ body.#{$namespace}toolMenu-collapsed{
                 .Mrphs-sitesNav__dropdown{
                     border-radius: 0 $button-radius $button-radius 0;
                 }
+                ul {
+                    top:0;
+                }
             }
         }
     }
 }
+/////////////////////////////////////////
+// .toolTitleNav Styles
+//////////////////////////////////////////
+@media #{$nonPhone}{
+    .Mrphs-pageColumns--single .Mrphs-toolTitleNav__button_container {
+        margin-top:calc(#{$standard-spacing * -4.5});
+    }
+}
+/////////////////////////////////////////
+// .navIntraTool Styles
+//////////////////////////////////////////
+@media #{$nonPhone}{
+    .navIntraTool {
+    // border-bottom:0;
+    margin:0 -#{$standard-spacing};
+    padding: 0 $standard-spacing;
+    background: $body-background-color;
+    // padding-bottom:calc(#{$standard-spacing/2});
+    li {
+        // margin-bottom: calc(#{$standard-spacing/2});
+        span {
+            
+                &.current {
+                    text-transform: uppercase;
+                    font-weight: 500;
+                    letter-spacing: .0178571429em;
+                    &:hover {
+                        background:$tool-tab-hover-background-color;
+                    }
+                    &:before {
+                        border-top:0;
+                    }
+                    &:after{
+                        border-bottom: 2px solid $tool-tab-active-highlight-color;
 
-
+                    }
+                }
+            a {
+                font-weight: 500;
+            }
+        }
+    }
+}
+}
 /////////////////////////////////////////
 // HOME Styles
 //////////////////////////////////////////
