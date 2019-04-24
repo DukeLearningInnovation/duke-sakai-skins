@@ -29,7 +29,27 @@
 .label {
     @include sakai_label();
 }
-
+// a[href],
+button,
+.select,
+input[type="checkbox"],
+input[type="radio"],
+.#{$namespace}toolTitleNav__link,
+.#{$namespace}siteHierarchy a.#{$namespace}hierarchy--toolName {
+    &:hover,
+    &:focus {
+        box-shadow: $button-active-shadow;
+        outline: 0 none;
+        outline-offset: 0;
+        border: 1px solid $dodger;
+        
+    }
+}
+##{$namespace}footer--details__close {
+    &:link, &:visited, &:focus, &:hover, &:active {
+        outline: 0 none;
+    }
+}
 ///////////////////////////////////
 // topHeader 
 //////////////////////////////////
@@ -153,7 +173,7 @@
         
         padding:0;
         .Mrphs-headerLogo--institution {
-            // margin-left:0;
+            // margin-left:0; 
             margin-left: calc(50% - #{$logo-width}/2);
         }
     }
@@ -272,7 +292,7 @@
 //////////////////////////////////
 @media #{$nonPhone}{
     .#{$namespace}mainHeader .#{$namespace}headerLogo .#{$namespace}headerLogo--institution {
-        margin-left: 36px;
+        margin-left: 52px;
     }
 }
 
@@ -391,14 +411,34 @@ body.#{$namespace}toolMenu-collapsed{
 }
 
 
-#linkNav ul
-.#{$namespace}siteHierarchy{
+#linkNav ul .#{$namespace}siteHierarchy{
     background: $background-color;
     display:none;
 }
 .#{$namespace}siteHierarchy{
     background: $body-background-color;
+    @media #{$nonPhone}{
+        a.#{$namespace}hierarchy--toolName {
+            border: 1px solid $body-background-color;
+            padding: calc(#{$standard-spacing}/2);
+            padding-left:0;
+            border-radius: $button-radius;
+            &:hover, &:active, &:focus {
+                background:$royal-light;
+                text-decoration: none;
+                
+                .Mrphs-breadcrumb--toolNameText {
+                    text-decoration: none;
+                    &:hover, &:active, &:focus {
+                        text-decoration: none;
+                    }
+                }
+            }
+            
+        }
+    }
 }
+
 .#{$namespace}mainHeader{
     box-shadow:none;
 }

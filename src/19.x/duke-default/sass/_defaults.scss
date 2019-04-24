@@ -96,7 +96,7 @@ $button-text-transform:         none !default;
 // Default (non-primary) button design:
 $button-text-color:             #333 !default;
 $button-background:             linear-gradient(#fff, #f9f9f9) !default;
-$button-border-color:           #ccc;
+$button-border-color:           #ccc !default;
 // hover and focus states:
 $button-hover-text-color:       $button-text-color !default;
 $button-hover-background:       $button-background !default;
