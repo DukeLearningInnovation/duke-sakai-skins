@@ -103,13 +103,40 @@
 		}
 	}
 }
+// // the primary button is the primary action task at hand (as opposed to secondary actions that are less utilized)
+// @mixin sakai_primary_button() {
+// 	@include sakai_button(	$button-primary-text-color,
+// 							$button-primary-background,
+// 							$button-primary-border-color,
+// 							$button-primary-hover-text-color,
+// 							$button-primary-hover-background,
+// 							$button-primary-hover-border-color,
+// 							$button-primary-active-text-color,
+// 							$button-primary-active-background,
+// 							$button-primary-active-border-color);
+// }
+
+// // the standard button design for non-primary action buttons (opposite of sakai_primary_button above)
+// @mixin sakai_secondary_button() {
+// 	@include sakai_button(	$button-text-color,
+// 							$button-background,
+// 							$button-border-color,
+// 							$button-hover-text-color,
+// 							$button-hover-background,
+// 							$button-hover-border-color,
+// 							$button-active-text-color,
+// 							$button-active-background,
+// 							$button-active-border-color);
+// }
 //remake buttons using new mixin
-button.btn-primary, .act .active {
+button.btn-primary, .act .active, .button_color {
     @include sakai_primary_button();
     margin-right: $standard-spacing;
 }
 
-.button_color, button, .button, a[href].button, button.ui-state-default, .btn-group .btn, .btn.btn-default, .button.link, a.btn-link, button.btn-link {
+button, .button, a[href].button, button.ui-state-default,
+.btn-group .btn, .btn.btn-default, .button.link, a.btn-link,
+button.btn-link, input[value="Clear"], input[value="Cancel"] {
 	@include sakai_secondary_button();
 }
 
@@ -599,6 +626,7 @@ body.#{$namespace}toolMenu-collapsed{
             padding:4px;
 
         }
+
     }
     //home overview only
     body.workspace &.#{$namespace}multipleTools{
@@ -650,13 +678,16 @@ body.#{$namespace}toolMenu-collapsed{
     .#{$namespace}pageColumns {
         &.#{$namespace}pageColumns--single {
             .#{$namespace}toolTitleNav__button_container {
-                margin-top:calc(#{$standard-spacing * -6.5});
+                margin-top:calc(#{$standard-spacing * -7});
             }
         }
         .#{$namespace}toolTitleNav__title {
             color: $castiron;
             font-weight: 500;
             font-size: 1.25em;
+        }
+        .#{$namespace}toolTitleNav__link {
+            text-transform:uppercase;
         }
     }
     .#{$namespace}container--toolTitleNav {
@@ -870,46 +901,111 @@ body.become-user {
 ////////////////////////////////////////////
 // distinguish different servers visually
 ////////////////////////////////////////
-// body.dukedev-longsight-com {
-//     .#{$namespace}mainHeader .#{$namespace}headerLogo {
-//         background: $dandelion;
-//     }
-// }
-// body.sakai-test-duke-edu {
-//     .#{$namespace}mainHeader .#{$namespace}headerLogo {
-//         background: $piedmont;
-//     }
-// }
-
+body.dukedev-longsight-com {
+    .#{$namespace}mainHeader .#{$namespace}headerLogo--institution {
+        &:after {
+            content: "DEV SERVER";
+            background: $dandelion;
+            padding: 4px;
+            font-weight: 700;
+            color: $castiron;
+            font-size:.8em;
+        }
+        
+    }
+}
+body.sakai-test-duke-edu {
+    .#{$namespace}mainHeader .#{$namespace}headerLogo--institution {
+        &:after {
+            content: "TEST SERVER";
+            background: $piedmont;
+            padding: 4px;
+            font-weight: 700;
+            color: $castiron;
+            font-size:.8em;
+        }
+        
+    }
+}
+////////////////////////////////////////////
+// Resources styles
+////////////////////////////////////////
+.#{$namespace}sakai-resources {
+    .breadcrumb {
+        padding:$standard-spacing;
+    }
+}
 ////////////////////////////////////////////
 // Lessons styles
 ////////////////////////////////////////
-.column {
-    border-color:transparent;
-    border-radius:0;
-}
-.sectionCollapsedIcon {
-    display:none !important; //JS somewhere applying inline display styles...
-}
-.collapsibleSectionHeader .collapseIcon {
-    float:left;
-    margin-right: $standard-spacing;
-    font-size:24px;
-    margin-top:-3px;
-    &.fa-toggle-down:before {
-        content: "\f0da";
+.#{$namespace}sakai-lessonbuildertool {
+    .mainList div:hover.canEdit {
+        background:$body-background-color;
+        box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
     }
-    &.fa-toggle-up:before {
-        content: "\f0d7";
+    .navIntraTool {
+        border-bottom:1px solid $limestone;
+        #toolbar {
+            margin:0;
+        }
+        li span a {
+            border-bottom:none;
+
+        }
+    }
+    .column {
+        border-color:transparent;
+        border-radius:0;
+    }
+    .sectionCollapsedIcon {
+        display:none !important; //JS somewhere applying inline display styles...
+    }
+    .collapsibleSectionHeader .collapseIcon {
+        float:left;
+        margin-right: $standard-spacing;
+        font-size:24px;
+        margin-top:-3px;
+        &.fa-toggle-down:before {
+            content: "\f0da";
+        }
+        &.fa-toggle-up:before {
+            content: "\f0d7";
+        }
     }
 }
 
+
+////////////////////////////////////////////
+// Gradebook styles
+////////////////////////////////////////
+.#{$namespace}sakai-gradebookng {
+    
+    #gradebookGradesToolbar {
+        background:$body-background-color;
+    }
+    .gradeTableOuterWrapper {
+        overflow:hidden;
+    }
+    #gradeTableWrapper {
+        background:$body-background-color;
+        .gb-title {
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+    }
+}
+.gb-add-gradebook-item-button,
+.gb-create-or-save {
+    margin-right:0;
+}
 ////////////////////////////////////////////
 // Footer styles
 ////////////////////////////////////////
-.#{$namespace}footer{
-    padding:$standard-spacing calc(#{$standard-spacing}*2);
-}
-.#{$namespace}footer--project {
-    display:none;
+.#{$namespace}container--footer{
+    .#{$namespace}footer{
+        padding:$standard-spacing calc(#{$standard-spacing}*2);
+    }
+    .#{$namespace}footer--project {
+        display:none;
+    }
 }
