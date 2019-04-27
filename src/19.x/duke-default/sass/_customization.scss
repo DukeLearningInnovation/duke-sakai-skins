@@ -93,16 +93,16 @@ $button-radius: 4px;
 $button-text-transform:         uppercase;
 
 // Default (non-primary) button design:
-$button-text-color:             $royal;
+$button-text-color:             $bay;
 $button-background:             $white;
 $button-border-color:           $white;
 // hover and focus states:
 $button-hover-text-color:       $royal;
 $button-hover-background:       $royal-light;
-$button-hover-border-color:     $royal;
+$button-hover-border-color:     $royal-light;
 // active state:
 $button-active-text-color:      $button-hover-text-color;
-$button-active-background:      darken($button-hover-background, 20%);	//note: inverse order from above
+$button-active-background:      $dodger;	//note: inverse order from above
 $button-active-border-color:    $dodger;
 $button-active-shadow-color:	rgba(0,0,0,.1);
 $button-active-shadow:    		inset 0 0 0 1px rgba(255, 255, 255, 0.8), 0 1px 2px rgba(0,0,0,.1); //this is different from morpheus
@@ -111,7 +111,7 @@ $button-disabled-text-color:    #717171 !default;
 $button-disabled-background:    #f6f6f6 !default;
 $button-disabled-border-color:  #dbdbdb !default;
 $button-disabled-shadow:        none !default;
-$button-disabled-font-weight:   300 !default;
+$button-disabled-font-weight:   500;
 
 // Primary action button design:
 $button-primary-text-color:                 $white;

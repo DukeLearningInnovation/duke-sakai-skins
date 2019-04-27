@@ -29,16 +29,6 @@
 .label {
     @include sakai_label();
 }
-// a[href],
-button,
-.select,
-input[type="checkbox"],
-input[type="radio"],
-.#{$namespace}toolTitleNav__link,
-.#{$namespace}siteHierarchy a.#{$namespace}hierarchy--toolName {
-    // &:hover,
-    
-}
 ##{$namespace}footer--details__close {
     &:link, &:visited, &:focus, &:hover, &:active {
         outline: 0 none;
@@ -113,7 +103,7 @@ input[type="radio"],
 		}
 	}
 }
-
+//remake buttons using new mixin
 button.btn-primary, .act .active {
     @include sakai_primary_button();
     margin-right: $standard-spacing;
@@ -122,135 +112,164 @@ button.btn-primary, .act .active {
 .button_color, button, .button, a[href].button, button.ui-state-default, .btn-group .btn, .btn.btn-default, .button.link, a.btn-link, button.btn-link {
 	@include sakai_secondary_button();
 }
+
+select,
+.select {
+    border-color:$granite;
+}
 ///////////////////////////////////
-// topHeader 
+// mainheader 
 //////////////////////////////////
-.portal-bullhorns-buttons,
-.is-maximized #loginLinks {
-    border:none;
-}
-.#{$namespace}topHeader #mastLogin {
-    #loginUser.has-avatar,
-    #loginUser.no-avatar {
-        border:2px solid $royal-light;
-        border-right-color: $royal-light;
-        border-bottom-color: $graphite;
-        border-left-color:$copper;
-        border-radius: 50%;
-        background:$white;
-        .#{$namespace}userNav__submenuitem--username,
-        .#{$namespace}userNav__submenuitem--userid {
-            padding:2px;
-            span.textlink {
-                display:none;
-            }
+.#{$namespace}mainHeader{
+    box-shadow:none;
+    @media #{$phone}{
+        &>* {
+            display:flex;
+            flex-wrap:wrap;
+            justify-content: space-between;
         }
-        .#{$namespace}userNav__submenuitem--profilepicture {
-            margin:0;
-            &:hover, &:active {
-                text-shadow: none;
-                margin-left:0;
-                box-shadow: none;
-            }
+        .#{$namespace}headerLogo,
+        #mastLogin,
+        .#{$namespace}skipNav__menu,
+        .#{$namespace}skipNav__menu.moving {
+            width:auto;
+            position:fixed;
         }
-        &:active, &:hover {
-            border-color:$royal-light;
-            .#{$namespace}userNav__submenuitem--profilepicture {
-                box-shadow: none;
+    }
+
+    .#{$namespace}headerLogo {
+        @media #{$phone}{
+            width:100%;
+            padding:0;
+        }
+        .#{$namespace}headerLogo--institution {
+            margin-left: 52px;
+            @media #{$phone}{
+                margin-left: calc(50% - #{$logo-width}/2);
             }
         }
     }
-}
-
-.all-sites-label {
-    display: none;
-}
-.all-sites-icon {
-    padding:0;
-}
-.view-all-sites-btn a{
-    display: inline-block;
-}
-
-.portal-bullhorns-buttons,
-##{$namespace}social-bullhorn,
-.view-all-sites-btn,
-.#{$namespace}userNav {
-    padding:0;
-    margin-left:$standard-spacing;
-}
-##{$namespace}social-bullhorn {
-    margin-left:14px;
-}
-.icon-sakai--academic-bullhorn {
-    padding-right:0;
-}
-##{$namespace}academic-bullhorn,
-##{$namespace}social-bullhorn {
-    padding: 4px 10px;
-    &:hover, &:active {
-        background: $topNav-hover-background;
-        color:$topNav-hover-text-color;
-        border-radius: 50%;
-        text-shadow: none;
-        i {
-            text-shadow: none;
+    .#{$namespace}topHeader #mastLogin {
+        @media #{$phone}{
+            right:$standard-spacing;
         }
-    }
-}
-##{$namespace}academic-bullhorn,
-##{$namespace}social-bullhorn,
-.view-all-sites-btn {
-    margin-top:-4px;
-    a {
-        padding: 4px 10px;
-        &:hover, &:active {
-            background: $topNav-hover-background;
+        .#{$namespace}userNav {
+            padding:0;
+            margin-left:$standard-spacing;
+        }
+        #loginUser.has-avatar,
+        #loginUser.no-avatar {
+            border:2px solid $royal-light;
+            border-right-color: $royal-light;
+            border-bottom-color: $graphite;
+            border-left-color:$copper;
             border-radius: 50%;
-            text-shadow: none;
-            
-            i {
-                text-shadow: none;
+            background:$white;
+            .#{$namespace}userNav__submenuitem--username,
+            .#{$namespace}userNav__submenuitem--userid {
+                padding:2px;
+                span.textlink {
+                    display:none;
+                }
+            }
+            .#{$namespace}userNav__submenuitem--profilepicture {
+                margin:0;
+                &:hover, &:active {
+                    text-shadow: none;
+                    margin-left:0;
+                    box-shadow: none;
+                }
+            }
+            &:active, &:hover {
+                border-color:$royal-light;
+                .#{$namespace}userNav__submenuitem--profilepicture {
+                    box-shadow: none;
+                }
+            }
+        }
+        #loginLinks {
+            border:none;
+            @media #{$phone}{
+                padding:0;
+            }
+        }
+        .portal-bullhorns-buttons{
+            border:none;
+            @media #{$phone}{
+                display: none;
+            }
+
+            ##{$namespace}social-bullhorn,
+            ##{$namespace}academic-bullhorn{
+                padding:0;
+                margin-left:$standard-spacing;
+
+                &:hover, &:active {
+                    background: $topNav-hover-background;
+                    color:$topNav-hover-text-color;
+                    border-radius: 50%;
+                    text-shadow: none;
+                    i {
+                        text-shadow: none;
+                    }
+                }
+            }
+        }
+        ##{$namespace}social-bullhorn {
+            margin-top:-4px;
+            a {
+                padding: 4px 10px;
+                &:hover, &:active {
+                    background: $topNav-hover-background;
+                    border-radius: 50%;
+                    text-shadow: none;
+                    i {
+                        text-shadow: none;
+                    }
+                }
+            }
+        }
+        ##{$namespace}academic-bullhorn {
+            .icon-sakai--academic-bullhorn {
+                padding-right:0;
+            }
+        }
+        .view-all-sites-btn {
+            margin-top:-7px;
+            padding:0;
+            margin-left:$standard-spacing;
+    
+            a {
+                display: inline-block;
+                padding: 4px 10px;
+                &:active,
+                &:hover {
+                    color: $topNav-hover-text-color;
+                    background: $topNav-hover-background;
+                    border-radius: 50%;
+                    text-shadow: none;
+                    i {
+                        text-shadow: none;
+                    }
+                }
+            }
+            .all-sites-label {
+                display: none;
+            }
+            .all-sites-icon {
+                padding:0;
             }
         }
     }
 }
-.view-all-sites-btn {
-    margin-top:-7px;
-    a {
-        &:active,
-        &:hover {
-            color: $topNav-hover-text-color;
-        }
-    }
-}
-@media #{$phone}{
-    .Mrphs-topHeader>* {
-        display:flex;
-        flex-wrap:wrap;
-        justify-content: space-between;
-    }
-    .Mrphs-mainHeader .Mrphs-headerLogo,
-    #mastLogin,
-    .Mrphs-skipNav__menu,
-    .Mrphs-skipNav__menu.moving {
-        width:auto;
-        position:fixed;
-    }
-    #mastLogin #loginLinks {
-        padding:0;
-    }
-    .Mrphs-mainHeader .Mrphs-headerLogo {
-        width:100%;
-        
-        padding:0;
-        .Mrphs-headerLogo--institution {
-            // margin-left:0; 
-            margin-left: calc(50% - #{$logo-width}/2);
-        }
-    }
-    .Mrphs-skipNav__menu,
-    .Mrphs-skipNav__menu.moving {
+
+///////////////////////////////////
+// Left hand Tool Menu 
+//////////////////////////////////
+
+.#{$namespace}skipNav__menu,
+.#{$namespace}skipNav__menu.moving {
+    @media #{$phone}{
         display:flex;
         justify-content: space-between;
         width: calc(100% - 52px - calc(#{$standard-spacing / 2}));
@@ -260,191 +279,195 @@ button.btn-primary, .act .active {
         z-index: 21;
         box-shadow: none;
         height:52px;
+
         li {
             display: flex;
-        }
-        li.Mrphs-skipNav__menuitem.Mrphs-skipNav__menuitem--worksite,
-        li.Mrphs-skipNav__menuitem.Mrphs-skipNav__menuitem--tools {
-            background: transparent;
-            box-shadow: none;
-            float:none;
-            
-            a {
-                color: $topNav-text-color;
-                padding:0;
-                &:before,
-                &:after {
+
+            &.#{$namespace}skipNav__menuitem.#{$namespace}skipNav__menuitem--worksite,
+            &.#{$namespace}skipNav__menuitem.#{$namespace}skipNav__menuitem--tools {
+                background: transparent;
+                box-shadow: none;
+                float:none;
+
+                a {
+                    color: $topNav-text-color;
+                    padding:0;
+                    
+                    &:before,
+                    &:after {
+                        border:none;
+                    }
+                    &.manage-overview-link-mobile {
+                        margin-left: $standard-spacing;
+                        width:75px;
+                        overflow: ellipses;
+                        display:inline-block;
+                    }
+                }
+            }
+            &.#{$namespace}skipNav__menuitem.#{$namespace}skipNav__menuitem--tools {
+                order:1;
+                justify-content: space-between;
+                a {
+                    display: flex;
+                    float:none;
+
+                    &.js-toggle-tools-nav {
+                        text-overflow: clip;
+                        width:52px;
+                        min-height:52px;
+                        font-size:24px;
+                        background:$tool-menu-collapse-background-color;
+                        
+                    }
+                    &.#{$namespace}skipNav--toolName{
+                        display: none;
+                        color:$topNav-text-color;
+                        height:52px;
+                        line-height:52px;
+                        text-overflow: ellipsis;
+                        span {
+                            margin-left: calc(#{$standard-spacing} / 4);
+                        }
+                    }
+                    &.manage-overview-link-mobile {
+                        color: $white;
+                    }
+                }
+
+                .tools-icon {
+                    padding: calc(#{$standard-spacing} * .88) $standard-spacing calc(#{$standard-spacing / 2}) ;
+                }
+
+                .#{$namespace}breadcrumb--icon {
+                    display: flex;
+                    line-height: 52px;
+                }
+            }
+            &.#{$namespace}skipNav__menuitem.#{$namespace}skipNav__menuitem--worksite {
+                width:52px;
+                order:3;
+                a {
+                    background:none;
+                    text-overflow: clip;
+                    float:none;
                     border:none;
                 }
-            }
-        }
-        li.Mrphs-skipNav__menuitem.Mrphs-skipNav__menuitem--tools {
-            
-            order:1;
-            justify-content: space-between;
-            a {
-                display: flex;
-                
-                float:none;
-            }
-            a.js-toggle-tools-nav {
-                text-overflow: clip;
-                width:52px;
-                min-height:52px;
-                font-size:24px;
-                background:$tool-menu-collapse-background-color;
-                
-            }
-            .tools-icon {
-                padding: calc(#{$standard-spacing} * .88) $standard-spacing calc(#{$standard-spacing / 2}) ;
-            }
-            
-            a.Mrphs-skipNav--toolName{
-                display: none;
-                color:$topNav-text-color;
-                height:52px;
-                line-height:52px;
-                text-overflow: ellipsis;
-                span {
-                    margin-left: calc(#{$standard-spacing} / 4);
+                .all-sites-icon {
+                    width:52px;
+                    min-height:52px;
+        
+                    padding: $standard-spacing $standard-spacing calc(#{$standard-spacing / 2});
+                    font-size:24px !important;
+                    
                 }
             }
-            .Mrphs-breadcrumb--icon {
-                display: flex;
-                line-height: 52px;
-            }
-            
-            a.manage-overview-link-mobile {
-                color: $white;
+            &.Mrphs-skipNav__menuitem--content,
+            &.Mrphs-skipNav__menuitem--accessibility {
+                display:none;
             }
         }
-        
-        li.Mrphs-skipNav__menuitem.Mrphs-skipNav__menuitem--worksite {
-            width:52px;
-            order:3;
-            a {
-                background:none;
-                text-overflow: clip;
-                float:none;
-                border:none;
-            }
-            .all-sites-icon {
-                width:52px;
-                min-height:52px;
-
-                padding: $standard-spacing $standard-spacing calc(#{$standard-spacing / 2});
-                font-size:24px !important;
-                
-            }
-        }
-        li.Mrphs-skipNav__menuitem--content, 
-        li.Mrphs-skipNav__menuitem--accessibility {
-            display:none;
-        }
-        
-    }
-    .portal-bullhorns-buttons {
-        display: none;
-    }
-    #mastLogin {
-        right:$standard-spacing;
-    }
-    .Mrphs-mainHeader.is-fixed {
-        
-        .Mrphs-headerLogo{
-            // width:auto;
-        }
-    } 
-    body.active-more-sites #selectSiteModal {
-        top:0 !important;
     }
 }
-///////////////////////////////////
-// Left hand Tool Menu 
-//////////////////////////////////
-@media #{$nonPhone}{
-    .#{$namespace}mainHeader .#{$namespace}headerLogo .#{$namespace}headerLogo--institution {
-        margin-left: 52px;
-    }
-    #toolMenuWrap {
+
+#toolMenuWrap {
+    @media #{$nonPhone}{
         border-right:none;
-        // margin-top: -70px;
         position: absolute;
         top:calc(52px);
         padding:calc(#{$standard-spacing}) 0 0;
-        // height: calc(100% - 52px);
-        background:$white;
-    }
-    #toolMenu,
-    #subSites {
-        ul {
-            li {
-                border:none;
-                
-                .Mrphs-toolsNav__menuitem--link {
-                    padding:calc(#{$standard-spacing}/2) $standard-spacing;
-                    margin: 0 calc(#{$standard-spacing}) 0 0;
-                    
-                    border-radius: 0 20px 20px 0;
+        background:$tool-menu-item-background-color;
+
+        #toolMenu,
+        #subSites {
+            ul {
+                li {
+                    border:none;
+                    &:first-of-type a {
+                        border-top:none;
+                    }
+                    &.is-current{
+                        margin-right:0;
+                        .#{$namespace}toolsNav__menuitem--link .#{$namespace}toolsNav__menuitem--title {
+                            font-weight:400;
+                        }
+                    }
+                    .#{$namespace}toolsNav__menuitem--link {
+                        padding:calc(#{$standard-spacing}/2) $standard-spacing;
+                        margin: 0 calc(#{$standard-spacing}) 0 0;
+                        border-radius: 0 20px 20px 0;
+
+                        .#{$namespace}toolsNav__menuitem--title {
+                            width:100%;
+                        }
+                        &.is-invisible{
+                            &:after {
+                                margin-right:0;
+                            }
+                        }
+                    }
+                    &.#{$namespace}collapseTools {
+                        top:0;
+                        left:0;
+                        bottom:auto;
+                        box-shadow:none;
+                        width: 52px;
+                        height: 52px;
+                        z-index:1001;
+                        &:active,
+                        &:hover {
+                            button span.fa-angle-double-left {
+                                color: $tool-menu-collapse-hover-text-color;
+                            }
+                            
+                        }
+                        &.min {
+                            display: flex;
+                            width:52px;
+                            box-shadow: none;
+                            
+                        }
+                        button:hover,
+                        button:active {
+                                box-shadow: none;
+                            }
+                        button:active{
+            
+                        }
+                        button.js-toggle-nav {
+                            width:52px;
+                            height:52px;
+                            span.fa-angle-double-left {
+                                &:before {
+                                    content: "\f0c9"
+                                }
+                                
+                            }
+                        }
+                    }
                 }
             }
         }
     }
 }
 
-///////////////////////////////////
-// Favorites Menu
-//////////////////////////////////
-@media #{$nonPhone}{
-    #pageBody>.#{$namespace}pagebody {
-        margin-left:#{$tool-menu-width};
-        border-left:1px solid $limestone;
-        width: calc(100% - #{$tool-menu-width});
-        
-    }
-    .Mrphs-mainContent.Mrphs-multipleTools .Mrphs-pageColumns  {
-        display: flex;
-        
-        align-content: space-between;
-        flex: 0 1 auto;
-        
-        flex-direction:column;
-        .#{$namespace}container {
-            margin-left: $standard-spacing;
-        }
-    }
-    #content #col1of2,
-    #content #col2of2 {
-        margin:0;
-        width:50%;
-    }
-}
-@media #{$tablet}{
-    #content #col1of2,
-    #content #col2of2 {
-        width:100%;
-    }
-}
 body.#{$namespace}toolMenu-collapsed{
-    
     #pageBody>.#{$namespace}pagebody,
     #topnav_container {
-        
         margin-left:#{$tool-menu-width-collapsed};
         width: calc(100% - #{$tool-menu-width-collapsed} - #{$standard-spacing});
     }
-
     #toolMenu,
     #subSites:not(.floating) {
         ul {
             li {
-                .Mrphs-toolsNav__menuitem--link {
+                .#{$namespace}toolsNav__menuitem--link {
                     margin:0;
                     padding:calc(#{$standard-spacing}/2) $standard-spacing;
                     border-radius: 0;
                     &:hover,
                     &:focus {
-                        .Mrphs-toolsNav__menuitem--title {
+                        .#{$namespace}toolsNav__menuitem--title {
                             left: 42px;
                         }
                     }
@@ -454,73 +477,40 @@ body.#{$namespace}toolMenu-collapsed{
     }
 }
 
-#topnav_container {
-    border-left:1px solid $limestone;
-    margin-left: calc(#{$tool-menu-width});
-    padding: 0 calc(#{$standard-spacing}*2);
-    .#{$namespace}toolMenu-collapsed & {
-        margin-left:0;
-    }
-}
-#toolMenu,
-#subSites {
-    ul {
-        li {
-            .#{$namespace}toolsNav__menuitem--link {
-                .#{$namespace}toolsNav__menuitem--title {
-                    width:100%;
-                }
-                &.is-invisible{
-                    &:after {
-                        margin-right:0;
+///////////////////////////////////
+// Favorite Sites
+//////////////////////////////////
+#linkNav{
+    #topnav_container{
+        padding:0;
+        ul {
+            border-bottom:1px solid $limestone;
+            border-left:1px solid $limestone;
+            margin:0 0 0 calc(#{$tool-menu-width});
+            padding: calc(#{$standard-spacing}*2) calc(#{$standard-spacing}*2) $standard-spacing;
+
+            .#{$namespace}toolMenu-collapsed & {
+                margin-left:0;
+            }
+            li {
+                &.#{$namespace}sitesNav__menuitem{
+                    background:$sites-nav-menu-item-background;
+                    border-radius:16px;
+                    &.is-selected{
+                        background:$sites-nav-menu-item-selected-background;
                     }
-                }
-            }
-            &:first-of-type a {
-                border-top:none;
-            }
-            &.is-current{
-                margin-right:0;
-                .#{$namespace}toolsNav__menuitem--link .#{$namespace}toolsNav__menuitem--title {
-                    font-weight:400;
-                }
-            }
-            &.Mrphs-collapseTools {
-                top:0;
-                left:0;
-                bottom:auto;
-                box-shadow:none;
-                width: 52px;
-                height: 52px;
-                z-index:1001;
-                &:active,
-                &:hover {
-                    button span.fa-angle-double-left {
-                        color: $tool-menu-collapse-hover-text-color;
+                    &>a.link-container {
+                        border-radius: 16px;
                     }
+                    .#{$namespace}sitesNav__drop,
+                    .#{$namespace}sitesNav__dropdown{
+                        border-radius: 16px;
                     
-                }
-                &.min {
-                    display: flex;
-                    width:52px;
-                    box-shadow: none;
-                    
-                }
-                button:hover,
-                button:active {
-                        box-shadow: none;
                     }
-                button:active{
-    
-                }
-                button.js-toggle-nav {
-                    width:52px;
-                    height:52px;
-                    span.fa-angle-double-left {
-                        &:before {
-                            content: "\f0c9"
-                        }
-                        
+                    ul {
+                        top:32px;
+                        padding:0;
+                        margin:0;
                     }
                 }
             }
@@ -528,257 +518,246 @@ body.#{$namespace}toolMenu-collapsed{
     }
 }
 
-
-#linkNav ul .#{$namespace}siteHierarchy{
-    background: $background-color;
-    display:none;
-}
+/////////////////////////////////////////
+// Breadcrumbs Styles
+//////////////////////////////////////////
 .#{$namespace}siteHierarchy{
     background: $body-background-color;
-    @media #{$nonPhone} {
-        padding:$standard-spacing calc(#{$standard-spacing}*2);
-        border-bottom:1px solid $limestone;
-        a.#{$namespace}hierarchy--toolName {
-            font-weight: 400;
-            text-transform: none;
-            border: 1px solid $body-background-color;
-
-            padding: calc(#{$standard-spacing} / 4); 
-            padding-left:0;
-            border-radius: $button-radius;
-            &:hover, &:active, &:focus {
-                background:$royal-light;
+    padding:$standard-spacing calc(#{$standard-spacing}*2);
+    border-bottom:1px solid $limestone;
+    a.#{$namespace}hierarchy--toolName {
+        font-weight: 400;
+        text-transform: none;
+        border: 1px solid $body-background-color;
+        padding: calc(#{$standard-spacing} / 4); 
+        padding-left:0;
+        border-radius: $button-radius;
+        &:hover, &:active, &:focus {
+            background:$royal-light;
+            text-decoration: none;
+            
+            .#{$namespace}breadcrumb--toolNameText {
                 text-decoration: none;
-                
-                .Mrphs-breadcrumb--toolNameText {
+                &:hover, &:active, &:focus {
                     text-decoration: none;
-                    &:hover, &:active, &:focus {
-                        text-decoration: none;
-                    }
                 }
             }
         }
     }
+    @media #{$phone} {
+        border:none;
+        padding: $standard-spacing;
+    }
+    .manage-overview-link {
+        margin-top:0;
+    }
 }
+/////////////////////////////////////////
+// pagebody Styles
+//////////////////////////////////////////
+#content {
+    .#{$namespace}pageColumns {
+        display: flex;
+        align-content: space-between;
+        flex: 0 1 auto;
+        flex-direction:column;
+        justify-content: space-between;
 
+        &#col1{
+            
+            .#{$namespace}container {
+                margin: $standard-spacing calc(#{$standard-spacing}*2);
 
-.#{$namespace}mainHeader{
-    box-shadow:none;
-}
-
-.#{$namespace}mainContent {
-    background: $body-background-color;
-    &.#{$namespace}multipleTools{
-        .Mrphs-pageColumns--single {
-            background: $body-background-color;//$alabaster;
+            }
+        }
+        
+        &#col1of2,
+        &#col2of2 {
+            margin:0;
+            width:50%;
+            @media #{$tablet}{
+                width:100%;
+            }
             
         }
+        &#col1of2 {
+            .#{$namespace}container {
+                margin: calc(#{$standard-spacing}*2);
+                margin-right:$standard-spacing;
+            }
+        }
+        &#col2of2 {
+            .#{$namespace}container {
+                margin: calc(#{$standard-spacing}*2);
+                margin-left:$standard-spacing;
+            }
+        }
         .#{$namespace}container {
+            
             border:none;
             border-radius:$button-radius;
             padding:4px;
+
         }
     }
-    .#{$namespace}pageColumns--single{
-        .#{$namespace}container{
-            margin: $standard-spacing calc(#{$standard-spacing}*2);
+    //home overview only
+    body.workspace &.#{$namespace}multipleTools{
+        margin-top: calc(-1*(#{$standard-spacing} + 70px));
+        @media #{$phone}{
+            margin-top: 0;
         }
+        #col1 {
+            flex-wrap:wrap;
+            flex-direction:row;
+            padding:calc(#{$standard-spacing}*2);
+            @media #{$phone}{
+                padding:$standard-spacing;
+            }
+            .#{$namespace}container {
+                margin:$standard-spacing -4px;
+                width:48%;
+                @media #{$phone}{
+                    width:100%;
+                }
+            }
+            .#{$namespace}sakai-motd {
+                width:100%;
+                box-shadow: none;
+                margin-bottom: 0;
+            }
+        }
+        
+        
+        
+        
     }
 }
 
-/////////////////////////////////////////
-// Favorite Sites
-//////////////////////////////////////////
-#linkNav {
-    #topnav_container {
-        border-bottom:1px solid $limestone;
-    }
-    
-    ul {
-        
-        li {
-            &.Mrphs-sitesNav__menuitem{
-                background:$sites-nav-menu-item-background;
-                border-radius:16px;
-                &.is-selected{
-                    background:$sites-nav-menu-item-selected-background;
-                }
-                &>a.link-container {
-                    border-radius: 16px;
-                }
-                .Mrphs-sitesNav__drop,
-                .Mrphs-sitesNav__dropdown{
-                    border-radius: 16px;
-                
-                }
-                ul {
-                    top:0;
-                }
-            }
-        }
+#pageBody>.#{$namespace}pagebody {
+    margin-left:#{$tool-menu-width};
+    border-left:1px solid $limestone;
+    width: calc(100% - #{$tool-menu-width});
+    @media #{$phone}{
+        margin:0;
+        width:100%;
     }
 }
+
 /////////////////////////////////////////
 // .toolTitleNav Styles
 //////////////////////////////////////////
-@media #{$nonPhone}{
-    .Mrphs-pageColumns--single .Mrphs-toolTitleNav__button_container {
-        margin-top:calc(#{$standard-spacing * -6.5});
-        // margin-right:$standard-spacing;
+#content {
+    .#{$namespace}pageColumns {
+        &.#{$namespace}pageColumns--single {
+            .#{$namespace}toolTitleNav__button_container {
+                margin-top:calc(#{$standard-spacing * -6.5});
+            }
+        }
+        .#{$namespace}toolTitleNav__title {
+            color: $castiron;
+            font-weight: 500;
+            font-size: 1.25em;
+        }
+    }
+    .#{$namespace}container--toolTitleNav {
+        margin:0;
     }
 }
+
+// hide on Home Overview only
+body.workspace{
+    .#{$namespace}multipleTools #col1{
+        .#{$namespace}sakai-motd {
+            .#{$namespace}toolTitleNav {
+                display:none;
+            }
+        }
+        .#{$namespace}toolTitleNav{
+            padding-bottom:0;
+            
+        }
+        .#{$namespace}toolTitleNav__button_container.home{
+        display:none;
+        }
+        .#{$namespace}toolTitleNav__title {
+            margin-bottom: $standard-spacing;
+        }
+        .#{$namespace}toolTitleNav__link--inline {
+            text-decoration: none;
+            color:$castiron;
+            
+            &:hover,
+            &:active {
+                cursor: default;
+                color:$castiron;
+                text-decoration: none;
+            }
+        }
+    }
+
+}
+
 /////////////////////////////////////////
 // .navIntraTool Styles
 //////////////////////////////////////////
-@media #{$nonPhone}{
-    .navIntraTool {
-    // border-bottom:0;
-    //margin:0 -#{$standard-spacing};
-    // padding: 0 $standard-spacing;
+.navIntraTool {
     background: $body-background-color;
-    // padding-bottom:calc(#{$standard-spacing/2});
+
     li {
-        
         span {
             margin-bottom: calc(#{$standard-spacing});
-                &.current {
-                    text-transform: uppercase;
-                    font-weight: 500;
-                    letter-spacing: .0178571429em;
-                    &:hover {
-                        background:$tool-tab-hover-background-color;
-                    }
-                    &:before {
-                        border-top:0;
-                    }
-                    &:after{
-                        border-bottom: 2px solid $tool-tab-active-highlight-color;
-
-                    }
+            &.current {
+                text-transform: uppercase;
+                font-weight: 500;
+                letter-spacing: .0178571429em;
+                &:hover {
+                    background:$tool-tab-hover-background-color;
                 }
+                &:before {
+                    border-top:0;
+                }
+                &:after{
+                    border-bottom: 2px solid $tool-tab-active-highlight-color;
+
+                }
+            }
             a {
                 font-weight: 500;
             }
         }
     }
 }
-}
-/////////////////////////////////////////
-// HOME / My Workspace Styles
-//////////////////////////////////////////
-body.workspace {
-    #topnav_container {
-        padding: 0 calc(#{$standard-spacing*2});
-    }
-    #linkNav ul {
-        margin:calc(#{$standard-spacing*2}) 0 $standard-spacing;
-    }
-    .#{$namespace}siteHierarchy {
-        display:none;
-    }
-    .#{$namespace}sakai-siteinfo,
-    .#{$namespace}sakai-sitesetup {
-        #siteTypeList {
-            width: 50%;
-        }
-    }
-
-    .#{$namespace}multipleTools {
-        
-        .#{$namespace}pageColumns--single{
-            display:flex;
-            flex-wrap:wrap;
-            justify-content: space-between;
-            padding:0 calc(#{$standard-spacing}*2);
-            .#{$namespace}container {
-                width: 48%;
-                margin:0;
-                background: $white;
-                margin-bottom: calc(#{$standard-spacing}*2);
-                border-radius: $button-radius;
-            }
-            .#{$namespace}sakai-motd {
-                width:100%;
-                background: transparent;
-
-                .#{$namespace}toolTitleNav {
-                    display:none;
-                }
-            }
-        } 
-        .#{$namespace}toolTitleNav__button_container.home{
-            display:none;
-        }
-        .#{$namespace}toolTitleNav{
-            padding-bottom:0;
-            .#{$namespace}toolTitleNav__title {
-                color: $castiron;
-                font-weight: 500;
-                font-size: 1.25em;
-            }
-        }
-    }
-}
-@media #{$phone}{
-    body.workspace {
-        .#{$namespace}multipleTools {
-            .#{$namespace}pageColumns--single{
-                .#{$namespace}container {
-                    width:100%;
-                }
-            }
-        }
-    }
-}
 
 //////////////////////////////////
-// 3 column MOTD
+// Home Overview Portlets
 /////////////////////////////////
-body.workspace {
-    .#{$namespace}multipleTools{
-        .#{$namespace}pageColumns--single .#{$namespace}container{
-            &.#{$namespace}sakai-motd{
-                box-shadow: none;
-                margin-bottom: 0;
-            }
-            
-        }
-    }
-}
+// MOTD
 .#{$namespace}toolBody--sakai-motd {
-    background:none;
     margin:0 0 calc(#{$standard-spacing*-2});
+
     .portletMainIframe {
         padding:0;
     }
+    
 }
-@media #{$nonPhone}{
-    body>.portletBody &>.synopticList  {
-        display:flex;
-        flex-wrap:wrap;
-        justify-content: space-between;
 
-        li {
-            width:30%;
-            
-        }
-       .textPanel {
-            h3 {
-                min-height:52px;
-            }
-       } 
-
-    }
-}
 body>.portletBody {
     background:none;
+    
     &>.synopticList{
         list-style: none;
         padding:0;
         margin:0;
+        display:flex;
+        flex-wrap:wrap;
+        justify-content: space-between;
+        
         li {
-            // padding:.25em;
             margin:0;
+            width:30%;
+            @media #{$phone}{
+                width:100%;
+            }
             .textPanel{
                 border-radius: $button-radius;
                 background: $tool-background-color;
@@ -796,6 +775,7 @@ body>.portletBody {
                     border:none;
                     line-height: 1.5em;
                     padding:0 $standard-spacing;
+                    min-height:52px;
                 }
                 p {
                     letter-spacing: .0178571429em;
@@ -833,7 +813,6 @@ body>.portletBody {
 
 // Calendar Portlet
 .#{$namespace}calendarSynoptic {
-
     .calRight {
         input[value=" < "],
         input[value=" > "] {
@@ -854,8 +833,15 @@ body>.portletBody {
         }
     }
 }
-
-// RSS Portlets
+// Announcement Portlet
+body.workspace .#{$namespace}multipleTools{
+    .#{$namespace}toolBody--sakai-synoptic-announcement {
+        .portletMainIframe {
+            padding-top:0;
+        }
+    }
+}
+// RSS Portlet
 body.workspace .#{$namespace}multipleTools{
     .#{$namespace}toolBody--sakai-simple-rss {
         .news-source {
@@ -869,20 +855,6 @@ body.workspace .#{$namespace}multipleTools{
                 font-size: 14px;
                 font-weight:500;
             }
-        }
-    }
-    .#{$namespace}toolTitleNav__title {
-        margin-bottom: $standard-spacing;
-    }
-    .#{$namespace}toolTitleNav__link--inline {
-        text-decoration: none;
-        color:$castiron;
-        
-        &:hover,
-        &:active {
-            cursor: default;
-            color:$castiron;
-            text-decoration: none;
         }
     }
 }
@@ -931,19 +903,6 @@ body.become-user {
         content: "\f0d7";
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ////////////////////////////////////////////
 // Footer styles
