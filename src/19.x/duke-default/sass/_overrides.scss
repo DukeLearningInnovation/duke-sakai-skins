@@ -36,7 +36,53 @@ input[type="checkbox"],
 input[type="radio"],
 .#{$namespace}toolTitleNav__link,
 .#{$namespace}siteHierarchy a.#{$namespace}hierarchy--toolName {
-    &:hover,
+    // &:hover,
+    
+}
+##{$namespace}footer--details__close {
+    &:link, &:visited, &:focus, &:hover, &:active {
+        outline: 0 none;
+    }
+}
+@mixin sakai_button($sb-text-color,
+					$sb-background,
+					$sb-border-color,
+					$sb-hover-text-color,
+					$sb-hover-background,
+					$sb-hover-border-color,
+					$sb-active-text-color,
+					$sb-active-background,
+					$sb-active-border-color) {
+	display: inline-block;
+	margin: 0;
+	padding: calc(#{$standard-spacing/2}) $standard-spacing;
+	border: 1px solid $sb-border-color;
+	@include border-radius($button-radius);
+	background: $sb-background;
+	font-family: $font-family;
+    font-size: 1em;
+    font-weight:500;
+    letter-spacing: .0178571429em;
+	line-height: 18px;
+	color: $sb-text-color;
+	text-decoration: none;
+	text-transform: $button-text-transform;
+	cursor: pointer;
+	@include appearance(none);
+	box-shadow: none;
+	&:before { // icon
+		color: $sb-text-color;
+	}
+	&:hover, &:focus {
+		color: $sb-hover-text-color;
+		text-decoration: none;
+		background: $sb-hover-background;
+		border-color: $sb-hover-border-color;
+		box-shadow: none;
+		&:before { // icon
+			color: $sb-hover-text-color;
+		}
+	}
     &:focus {
         box-shadow: $button-active-shadow;
         outline: 0 none;
@@ -44,11 +90,37 @@ input[type="radio"],
         border: 1px solid $dodger;
         
     }
+	&:active {
+		outline: 0;		// no focus outline on click
+		color: $sb-active-text-color;
+		text-decoration: none;
+		background: $sb-active-background;
+		border-color: $sb-active-border-color;
+		box-shadow: $button-active-shadow;
+		&:before { // icon
+			color: $sb-active-text-color;
+		}
+	}
+
+	&[disabled="disabled"], &[disabled], &[disabled="true"], &[class="disabled"] {
+		&, &:hover, &:active, &:focus {
+			color: $button-disabled-text-color;
+			text-decoration: none;
+			background: $button-disabled-background;
+			border-color: $button-disabled-border-color;
+			box-shadow: $button-disabled-shadow;
+			cursor: not-allowed;
+		}
+	}
 }
-##{$namespace}footer--details__close {
-    &:link, &:visited, &:focus, &:hover, &:active {
-        outline: 0 none;
-    }
+
+button.btn-primary, .act .active {
+    @include sakai_primary_button();
+    margin-right: $standard-spacing;
+}
+
+.button_color, button, .button, a[href].button, button.ui-state-default, .btn-group .btn, .btn.btn-default, .button.link, a.btn-link, button.btn-link {
+	@include sakai_secondary_button();
 }
 ///////////////////////////////////
 // topHeader 
@@ -294,33 +366,57 @@ input[type="radio"],
     .#{$namespace}mainHeader .#{$namespace}headerLogo .#{$namespace}headerLogo--institution {
         margin-left: 52px;
     }
+    #toolMenuWrap {
+        border-right:none;
+        // margin-top: -70px;
+        position: absolute;
+        top:calc(52px);
+        padding:calc(#{$standard-spacing}) 0 0;
+        // height: calc(100% - 52px);
+        background:$white;
+    }
+    #toolMenu,
+    #subSites {
+        ul {
+            li {
+                border:none;
+                
+                .Mrphs-toolsNav__menuitem--link {
+                    padding:calc(#{$standard-spacing}/2) $standard-spacing;
+                    margin: 0 calc(#{$standard-spacing}) 0 0;
+                    
+                    border-radius: 0 20px 20px 0;
+                }
+            }
+        }
+    }
 }
 
-#toolMenuWrap {
-    border-right:none;
-    // margin-top: -70px;
-    position: absolute;
-    top:52px;
-    padding:0;
-    // height: calc(100% - 52px);
-}
+///////////////////////////////////
+// Favorites Menu
+//////////////////////////////////
 @media #{$nonPhone}{
     #pageBody>.#{$namespace}pagebody {
-        margin-left:$tool-menu-width;
-        width: calc(100% - #{$tool-menu-width} - #{$standard-spacing});
+        margin-left:#{$tool-menu-width};
+        border-left:1px solid $limestone;
+        width: calc(100% - #{$tool-menu-width});
         
     }
-    #content #col1of2,
-    #content #col2of2 {
+    .Mrphs-mainContent.Mrphs-multipleTools .Mrphs-pageColumns  {
         display: flex;
-        margin:0;
+        
         align-content: space-between;
         flex: 0 1 auto;
-        width:50%;
+        
         flex-direction:column;
         .#{$namespace}container {
             margin-left: $standard-spacing;
         }
+    }
+    #content #col1of2,
+    #content #col2of2 {
+        margin:0;
+        width:50%;
     }
 }
 @media #{$tablet}{
@@ -333,13 +429,35 @@ body.#{$namespace}toolMenu-collapsed{
     
     #pageBody>.#{$namespace}pagebody,
     #topnav_container {
+        
         margin-left:#{$tool-menu-width-collapsed};
         width: calc(100% - #{$tool-menu-width-collapsed} - #{$standard-spacing});
+    }
+
+    #toolMenu,
+    #subSites:not(.floating) {
+        ul {
+            li {
+                .Mrphs-toolsNav__menuitem--link {
+                    margin:0;
+                    padding:calc(#{$standard-spacing}/2) $standard-spacing;
+                    border-radius: 0;
+                    &:hover,
+                    &:focus {
+                        .Mrphs-toolsNav__menuitem--title {
+                            left: 42px;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
 #topnav_container {
-    margin-left: $tool-menu-width;
+    border-left:1px solid $limestone;
+    margin-left: calc(#{$tool-menu-width});
+    padding: 0 calc(#{$standard-spacing}*2);
     .#{$namespace}toolMenu-collapsed & {
         margin-left:0;
     }
@@ -418,11 +536,13 @@ body.#{$namespace}toolMenu-collapsed{
 .#{$namespace}siteHierarchy{
     background: $body-background-color;
     @media #{$nonPhone} {
-        padding:0 $standard-spacing $standard-spacing;
+        padding:$standard-spacing calc(#{$standard-spacing}*2);
+        border-bottom:1px solid $limestone;
         a.#{$namespace}hierarchy--toolName {
             font-weight: 400;
             text-transform: none;
             border: 1px solid $body-background-color;
+
             padding: calc(#{$standard-spacing} / 4); 
             padding-left:0;
             border-radius: $button-radius;
@@ -447,9 +567,22 @@ body.#{$namespace}toolMenu-collapsed{
 }
 
 .#{$namespace}mainContent {
-    background: $white;
-    &.#{$namespace}multipleTools {
-        background: $alabaster;
+    background: $body-background-color;
+    &.#{$namespace}multipleTools{
+        .Mrphs-pageColumns--single {
+            background: $body-background-color;//$alabaster;
+            
+        }
+        .#{$namespace}container {
+            border:none;
+            border-radius:$button-radius;
+            padding:4px;
+        }
+    }
+    .#{$namespace}pageColumns--single{
+        .#{$namespace}container{
+            margin: $standard-spacing calc(#{$standard-spacing}*2);
+        }
     }
 }
 
@@ -457,16 +590,26 @@ body.#{$namespace}toolMenu-collapsed{
 // Favorite Sites
 //////////////////////////////////////////
 #linkNav {
+    #topnav_container {
+        border-bottom:1px solid $limestone;
+    }
+    
     ul {
+        
         li {
             &.Mrphs-sitesNav__menuitem{
-
+                background:$sites-nav-menu-item-background;
+                border-radius:16px;
+                &.is-selected{
+                    background:$sites-nav-menu-item-selected-background;
+                }
                 &>a.link-container {
-                    border-radius: $button-radius 0 0 $button-radius;
+                    border-radius: 16px;
                 }
                 .Mrphs-sitesNav__drop,
                 .Mrphs-sitesNav__dropdown{
-                    border-radius: 0 $button-radius $button-radius 0;
+                    border-radius: 16px;
+                
                 }
                 ul {
                     top:0;
@@ -480,7 +623,8 @@ body.#{$namespace}toolMenu-collapsed{
 //////////////////////////////////////////
 @media #{$nonPhone}{
     .Mrphs-pageColumns--single .Mrphs-toolTitleNav__button_container {
-        margin-top:calc(#{$standard-spacing * -4.5});
+        margin-top:calc(#{$standard-spacing * -6.5});
+        // margin-right:$standard-spacing;
     }
 }
 /////////////////////////////////////////
@@ -489,14 +633,14 @@ body.#{$namespace}toolMenu-collapsed{
 @media #{$nonPhone}{
     .navIntraTool {
     // border-bottom:0;
-    margin:0 -#{$standard-spacing};
-    padding: 0 $standard-spacing;
+    //margin:0 -#{$standard-spacing};
+    // padding: 0 $standard-spacing;
     background: $body-background-color;
     // padding-bottom:calc(#{$standard-spacing/2});
     li {
-        // margin-bottom: calc(#{$standard-spacing/2});
+        
         span {
-            
+            margin-bottom: calc(#{$standard-spacing});
                 &.current {
                     text-transform: uppercase;
                     font-weight: 500;
@@ -520,7 +664,7 @@ body.#{$namespace}toolMenu-collapsed{
 }
 }
 /////////////////////////////////////////
-// HOME Styles
+// HOME / My Workspace Styles
 //////////////////////////////////////////
 body.workspace {
     #topnav_container {
@@ -540,6 +684,7 @@ body.workspace {
     }
 
     .#{$namespace}multipleTools {
+        
         .#{$namespace}pageColumns--single{
             display:flex;
             flex-wrap:wrap;
@@ -555,6 +700,7 @@ body.workspace {
             .#{$namespace}sakai-motd {
                 width:100%;
                 background: transparent;
+
                 .#{$namespace}toolTitleNav {
                     display:none;
                 }
@@ -601,7 +747,7 @@ body.workspace {
 }
 .#{$namespace}toolBody--sakai-motd {
     background:none;
-    margin:0;
+    margin:0 0 calc(#{$standard-spacing*-2});
     .portletMainIframe {
         padding:0;
     }
@@ -618,7 +764,7 @@ body.workspace {
         }
        .textPanel {
             h3 {
-                min-height:84px;
+                min-height:52px;
             }
        } 
 
@@ -631,33 +777,37 @@ body>.portletBody {
         padding:0;
         margin:0;
         li {
-            
+            // padding:.25em;
+            margin:0;
             .textPanel{
                 border-radius: $button-radius;
                 background: $tool-background-color;
                 border:none;
                 margin:0;
-                min-height:456px;
+                min-height:394px;
                 box-shadow: $card-shadow;
+
                 h1, h2, h3, h4 {
                     background:$tool-background-color;
                     color: $castiron;
                     font-weight: 500;
                     font-size: 1.25em;
-                    margin:0;
+                    margin:0 0 $standard-spacing;
                     border:none;
                     line-height: 1.5em;
-                    padding:$standard-spacing;
+                    padding:0 $standard-spacing;
                 }
                 p {
                     letter-spacing: .0178571429em;
                     color: rgba(0,0,0,.54);
-                    padding:$standard-spacing;
+                    padding:0 $standard-spacing;
+                    margin:0 0 $standard-spacing;
                 }
 
                 .img-responsive {
-                    margin: 0 -$standard-spacing;
+                    margin: 0 -#{$standard-spacing};
                     max-width:calc(100% + (2*#{$standard-spacing}));
+                    border-radius: $button-radius $button-radius 0 0;
                 }
                 .btn-link {
                     padding: calc(#{$standard-spacing}/2) $standard-spacing;
@@ -798,6 +948,9 @@ body.become-user {
 ////////////////////////////////////////////
 // Footer styles
 ////////////////////////////////////////
+.#{$namespace}footer{
+    padding:$standard-spacing calc(#{$standard-spacing}*2);
+}
 .#{$namespace}footer--project {
     display:none;
 }
