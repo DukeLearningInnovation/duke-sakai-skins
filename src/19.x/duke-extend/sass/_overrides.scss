@@ -99,58 +99,5 @@
         background: lighten($piedmont, 55%);
     }
 
-    //change blue background elements
-    .column .commentDiv,
-    .column .studentContentTable,
-    .column .questionDiv .contentCol,
-    .column .checklistDiv,
-    .column .forumSummaryHeaderDiv,
-    .column .announcementsHeaderDiv,
-    .column .fc-toolbar {
-        background: $accent-color;
-        color:$white;
-        border-radius: $button-radius;
-    }
-    .checklist-checkbox-label {
-        padding:.5em;
-    }
-    .checklist-checkbox ~ span.checklist-checkbox-label{
-        background-image:none;
-        &:before {
-            font-size: 16px;
-            font-weight: normal;
-            font-family: FontAwesome;
-            content: "\f096";
-            margin-right: .5em;
-            width:1em;
-        }
-    }
-    label.checklistLabel:hover .checklist-checkbox ~ span.checklist-checkbox-label,
-    label.checklistLabel:hover .checklist-checkbox:checked ~ span.checklist-checkbox,
-    label.checklistLabel:hover .checklist-checkbox:checked ~ span.checklist-checkbox-label,
-    .checklist-checkbox:checked ~ span.checklist-checkbox-label {
-        background-image:none;
-        &:before {
-            font-size: 16px;
-            font-weight: normal;
-            font-family: FontAwesome;
-            content: "\f046";
-            margin-right: .5em;
-            width:1em;
-        }
-    }
-    .saveChecklistSuccess {
-        background: $ok-background-color;
-        color: $ok-color;
-        &:before {
-            font-size: 16px;
-            font-weight: normal;
-            font-family: FontAwesome;
-            content: "\f058";
-            margin-right: .5em;
-        }
-    }
-    .checklistSaveMessage {
-        padding: 4px;
-    }
+    
 }
