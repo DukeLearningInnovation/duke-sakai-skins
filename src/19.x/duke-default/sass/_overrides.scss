@@ -1,149 +1,5 @@
 @import "defaults";
-///////////////////////////////////
-// bootstrap components
-//////////////////////////////////
-@mixin sakai_label {
-    height: 2em;
-    display:inline-flex;
-    justify-content: center;
-    text-transform: uppercase;
-    letter-spacing: 1.25px;
-    padding: 0 calc(#{$standard-spacing}/2);
-    text-align: center;
-    vertical-align: middle;
-    font-weight:500;
-    background:none;
-    font-size:1em;
-    text-decoration: none;
-    align-items: center;
-    line-height: inherit;
-    color:$navy;
-    border:none;
-    &:hover,
-    &:active {
-        background: $royal-light;
-        color: $royal;
-        border-color:transparent;
-    }
-}
-.label {
-    @include sakai_label();
-}
-##{$namespace}footer--details__close {
-    &:link, &:visited, &:focus, &:hover, &:active {
-        outline: 0 none;
-    }
-}
-@mixin sakai_button($sb-text-color,
-					$sb-background,
-					$sb-border-color,
-					$sb-hover-text-color,
-					$sb-hover-background,
-					$sb-hover-border-color,
-					$sb-active-text-color,
-					$sb-active-background,
-					$sb-active-border-color) {
-	display: inline-block;
-	margin: 0;
-	padding: calc(#{$standard-spacing/2}) $standard-spacing;
-	border: 1px solid $sb-border-color;
-	@include border-radius($button-radius);
-	background: $sb-background;
-	font-family: $font-family;
-    font-size: 1em;
-    font-weight:500;
-    letter-spacing: .0178571429em;
-	line-height: 18px;
-	color: $sb-text-color;
-	text-decoration: none;
-	text-transform: $button-text-transform;
-	cursor: pointer;
-	@include appearance(none);
-	box-shadow: none;
-	&:before { // icon
-		color: $sb-text-color;
-	}
-	&:hover, &:focus {
-		color: $sb-hover-text-color;
-		text-decoration: none;
-		background: $sb-hover-background;
-		border-color: $sb-hover-border-color;
-		box-shadow: none;
-		&:before { // icon
-			color: $sb-hover-text-color;
-		}
-	}
-    &:focus {
-        box-shadow: $button-active-shadow;
-        outline: 0 none;
-        outline-offset: 0;
-        border: 1px solid $dodger;
-        
-    }
-	&:active {
-		outline: 0;		// no focus outline on click
-		color: $sb-active-text-color;
-		text-decoration: none;
-		background: $sb-active-background;
-		border-color: $sb-active-border-color;
-		box-shadow: $button-active-shadow;
-		&:before { // icon
-			color: $sb-active-text-color;
-		}
-	}
-
-	&[disabled="disabled"], &[disabled], &[disabled="true"], &[class="disabled"] {
-		&, &:hover, &:active, &:focus {
-			color: $button-disabled-text-color;
-			text-decoration: none;
-			background: $button-disabled-background;
-			border-color: $button-disabled-border-color;
-			box-shadow: $button-disabled-shadow;
-			cursor: not-allowed;
-		}
-	}
-}
-// // the primary button is the primary action task at hand (as opposed to secondary actions that are less utilized)
-// @mixin sakai_primary_button() {
-// 	@include sakai_button(	$button-primary-text-color,
-// 							$button-primary-background,
-// 							$button-primary-border-color,
-// 							$button-primary-hover-text-color,
-// 							$button-primary-hover-background,
-// 							$button-primary-hover-border-color,
-// 							$button-primary-active-text-color,
-// 							$button-primary-active-background,
-// 							$button-primary-active-border-color);
-// }
-
-// // the standard button design for non-primary action buttons (opposite of sakai_primary_button above)
-// @mixin sakai_secondary_button() {
-// 	@include sakai_button(	$button-text-color,
-// 							$button-background,
-// 							$button-border-color,
-// 							$button-hover-text-color,
-// 							$button-hover-background,
-// 							$button-hover-border-color,
-// 							$button-active-text-color,
-// 							$button-active-background,
-// 							$button-active-border-color);
-// }
-//remake buttons using new mixin
-button.btn-primary, .act .active, .button_color {
-    @include sakai_primary_button();
-    margin-right: $standard-spacing;
-}
-
-button, .button, a[href].button, button.ui-state-default,
-.btn-group .btn, .btn.btn-default, .button.link, a.btn-link,
-button.btn-link, input[value="Clear"], input[value="Cancel"] {
-	@include sakai_secondary_button();
-}
-
-select,
-.select {
-    border-color:$granite;
-}
+@import "extendables";
 ///////////////////////////////////
 // mainheader 
 //////////////////////////////////
@@ -222,13 +78,15 @@ select,
         }
         .portal-bullhorns-buttons{
             border:none;
+            top:-4px;
+            padding:0;
             @media #{$phone}{
                 display: none;
             }
 
             ##{$namespace}social-bullhorn,
             ##{$namespace}academic-bullhorn{
-                padding:0;
+                padding:4px 10px;
                 margin-left:$standard-spacing;
 
                 &:hover, &:active {
@@ -396,7 +254,6 @@ select,
         }
     }
 }
-
 #toolMenuWrap {
     @media #{$nonPhone}{
         border-right:none;
@@ -419,17 +276,25 @@ select,
                             font-weight:400;
                         }
                     }
-                    .#{$namespace}toolsNav__menuitem--link {
-                        padding:calc(#{$standard-spacing}/2) $standard-spacing;
-                        margin: 0 calc(#{$standard-spacing}) 0 0;
-                        border-radius: 0 20px 20px 0;
-
-                        .#{$namespace}toolsNav__menuitem--title {
-                            width:100%;
+                    body &.has-lessons-sub-pages {
+                        .lessons-top-level-placeholder {
+                            .lessons-goto-top-page {
+                                padding:0;
+                            }
+                            .lessons-expand-collapse-icon {
+                                padding:0;
+                                width:18px;
+                            }
                         }
-                        &.is-invisible{
-                            &:after {
-                                margin-right:0;
+                        ul {
+                            li {
+                                padding:0;
+                                background:transparent;
+                                a {
+                                    padding: calc(#{$standard-spacing}/2);
+                                    padding-left: calc(#{$standard-spacing}*4);
+
+                                }
                             }
                         }
                     }
@@ -472,30 +337,57 @@ select,
                             }
                         }
                     }
+                    .#{$namespace}toolsNav__menuitem--link {
+                        padding:calc(#{$standard-spacing}/2) $standard-spacing;
+                        margin: 0 calc(#{$standard-spacing}*2) 0 0;
+                        border-radius: 0 20px 20px 0;
+
+                        .#{$namespace}toolsNav__menuitem--title {
+                            width:100%;
+                        }
+                        &.is-invisible{
+                            &:after {
+                                margin-right:0;
+                            }
+                        }
+                        
+                    }
+                    .lessons-sub-page-menu {
+                        li {
+                            border-radius: 0 20px 20px 0;
+                        }
+                    }
                 }
             }
         }
     }
 }
 
-body.#{$namespace}toolMenu-collapsed{
+body.#{$namespace}toolMenu-collapsed {
     #pageBody>.#{$namespace}pagebody,
     #topnav_container {
         margin-left:#{$tool-menu-width-collapsed};
         width: calc(100% - #{$tool-menu-width-collapsed} - #{$standard-spacing});
     }
-    #toolMenu,
-    #subSites:not(.floating) {
-        ul {
-            li {
-                .#{$namespace}toolsNav__menuitem--link {
-                    margin:0;
-                    padding:calc(#{$standard-spacing}/2) $standard-spacing;
-                    border-radius: 0;
-                    &:hover,
-                    &:focus {
-                        .#{$namespace}toolsNav__menuitem--title {
-                            left: 42px;
+    #toolMenuWrap {
+        @media #{$nonPhone}{
+            #toolMenu,
+            #subSites:not(.floating) {
+                ul {
+                    li {
+                        .#{$namespace}toolsNav__menuitem--link {
+                            margin:0;
+                            padding:calc(#{$standard-spacing}/2) $standard-spacing;
+                            border-radius: 0;
+                            &:hover,
+                            &:focus {
+                                .#{$namespace}toolsNav__menuitem--title {
+                                    left: 42px;
+                                    min-width: 140px;
+                                    border-radius: 0 20px 20px 0;
+                                    text-align: left;
+                                }
+                            }
                         }
                     }
                 }
@@ -511,10 +403,9 @@ body.#{$namespace}toolMenu-collapsed{
     #topnav_container{
         padding:0;
         ul {
-            border-bottom:1px solid $limestone;
             border-left:1px solid $limestone;
             margin:0 0 0 calc(#{$tool-menu-width});
-            padding: calc(#{$standard-spacing}*2) calc(#{$standard-spacing}*2) $standard-spacing;
+            padding: calc(#{$standard-spacing}) calc(#{$standard-spacing}*2) 0;
 
             .#{$namespace}toolMenu-collapsed & {
                 margin-left:0;
@@ -582,6 +473,9 @@ body.#{$namespace}toolMenu-collapsed{
 /////////////////////////////////////////
 // pagebody Styles
 //////////////////////////////////////////
+#pageBody {
+    border-top:1px solid $limestone;
+}
 #content {
     .#{$namespace}pageColumns {
         display: flex;
@@ -630,19 +524,19 @@ body.#{$namespace}toolMenu-collapsed{
     }
     //home overview only
     body.workspace &.#{$namespace}multipleTools{
-        margin-top: calc(-1*(#{$standard-spacing} + 70px));
+        margin-top: -56px;
         @media #{$phone}{
             margin-top: 0;
         }
         #col1 {
             flex-wrap:wrap;
             flex-direction:row;
-            padding:calc(#{$standard-spacing}*2);
+            padding:0 calc(#{$standard-spacing}*2) calc(#{$standard-spacing}*2);
             @media #{$phone}{
                 padding:$standard-spacing;
             }
             .#{$namespace}container {
-                margin:$standard-spacing -4px;
+                margin:$standard-spacing 0;
                 width:48%;
                 @media #{$phone}{
                     width:100%;
@@ -651,7 +545,8 @@ body.#{$namespace}toolMenu-collapsed{
             .#{$namespace}sakai-motd {
                 width:100%;
                 box-shadow: none;
-                margin-bottom: 0;
+                padding:0;
+                margin:0 -4px calc(#{$standard-spacing*-4});
             }
         }
         
@@ -678,7 +573,7 @@ body.#{$namespace}toolMenu-collapsed{
     .#{$namespace}pageColumns {
         &.#{$namespace}pageColumns--single {
             .#{$namespace}toolTitleNav__button_container {
-                margin-top:calc(#{$standard-spacing * -7});
+                margin-top:-106px;
             }
         }
         .#{$namespace}toolTitleNav__title {
@@ -763,8 +658,7 @@ body.workspace{
 // Home Overview Portlets
 /////////////////////////////////
 // MOTD
-.#{$namespace}toolBody--sakai-motd {
-    margin:0 0 calc(#{$standard-spacing*-2});
+.#{$namespace}sakai-motd {
 
     .portletMainIframe {
         padding:0;
@@ -777,15 +671,15 @@ body>.portletBody {
     
     &>.synopticList{
         list-style: none;
-        padding:0;
-        margin:0;
+        padding:4px;
+        margin:-4px 0;
         display:flex;
         flex-wrap:wrap;
         justify-content: space-between;
         
         li {
             margin:0;
-            width:30%;
+            width:31%;
             @media #{$phone}{
                 width:100%;
             }
@@ -794,7 +688,7 @@ body>.portletBody {
                 background: $tool-background-color;
                 border:none;
                 margin:0;
-                min-height:394px;
+                min-height:380px;
                 box-shadow: $card-shadow;
 
                 h1, h2, h3, h4 {
@@ -939,9 +833,12 @@ body.sakai-test-duke-edu {
 // Lessons styles
 ////////////////////////////////////////
 .#{$namespace}sakai-lessonbuildertool {
+    #content .#{$namespace}pageColumns &{
+        padding:0;
+    }
     .mainList div:hover.canEdit {
         background:$body-background-color;
-        box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
+        box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
     }
     .navIntraTool {
         border-bottom:1px solid $limestone;
@@ -956,6 +853,7 @@ body.sakai-test-duke-edu {
     .column {
         border-color:transparent;
         border-radius:0;
+        padding-top:0;
     }
     .sectionCollapsedIcon {
         display:none !important; //JS somewhere applying inline display styles...
@@ -972,6 +870,89 @@ body.sakai-test-duke-edu {
             content: "\f0d7";
         }
     }
+    .subpage-breadcrumb-div {
+        margin:-114px 0 calc(114px - #{$standard-spacing} - 21px - #{$standard-spacing});
+        padding: calc(#{$standard-spacing}) 0;
+        background:$white;
+        position: relative;
+        display: flex;
+        max-width: calc(100% - 586px - #{$standard-spacing}); //account for the width of toolTitleNav
+    }
+    .startupHelp {
+        margin-top:0;
+    }
+    //change blue background elements
+    .column .commentDiv,
+    .column .studentContentTable,
+    .column .questionDiv .contentCol,
+    .column .checklistDiv,
+    .column .forumSummaryHeaderDiv,
+    .column .announcementsHeaderDiv,
+    .column .fc-toolbar {
+        background: $royal-light;
+        color:$castiron;
+        border-radius: $button-radius;
+    }
+    .checklist-checkbox-label {
+        padding:.5em;
+    }
+    .checklist-checkbox ~ span.checklist-checkbox-label{
+        background-image:none;
+        &:before {
+            font-size: 16px;
+            font-weight: normal;
+            font-family: FontAwesome;
+            content: "\f096";
+            margin-right: .5em;
+            width:1em;
+        }
+    }
+    label.checklistLabel:hover .checklist-checkbox ~ span.checklist-checkbox-label,
+    label.checklistLabel:hover .checklist-checkbox:checked ~ span.checklist-checkbox,
+    label.checklistLabel:hover .checklist-checkbox:checked ~ span.checklist-checkbox-label,
+    .checklist-checkbox:checked ~ span.checklist-checkbox-label {
+        background-image:none;
+        &:before {
+            font-size: 16px;
+            font-weight: normal;
+            font-family: FontAwesome;
+            content: "\f046";
+            margin-right: .5em;
+            width:1em;
+        }
+    }
+    .saveChecklistSuccess {
+        background: $ok-background-color;
+        color: $ok-color;
+        &:before {
+            font-size: 16px;
+            font-weight: normal;
+            font-family: FontAwesome;
+            content: "\f058";
+            margin-right: .5em;
+        }
+    }
+    .checklistSaveMessage {
+        padding: 4px;
+    }
+    input[type="submit"].question-submit.showPollGraph {
+        &:hover {
+            background: rgba(0,0,0,.1);
+        }
+    }
+    .edit-col {
+        a.ui-button:link,
+        .add-link{
+            border:none;
+            background:#eee;
+            padding: calc(#{$standard-spacing}/2);
+            margin:0 calc(#{$standard-spacing}/4);
+            &:hover {
+                border:none;
+                background: rgba(0,0,0,.1);
+            }
+        }
+    } 
 }
 
 
@@ -997,6 +978,87 @@ body.sakai-test-duke-edu {
 .gb-add-gradebook-item-button,
 .gb-create-or-save {
     margin-right:0;
+}
+////////////////////////////////////////////
+// Forums styles
+////////////////////////////////////////
+.#{$namespace}sakai-forums {
+    .topicBlocLone {
+        border:none;
+        background:$tool-background-color;
+        color:$castiron;
+        padding:0;
+        margin:0 0 $standard-spacing;
+    }
+    .portletBody {
+        background:none;
+    }
+    #msgForum {
+        //breadcrumbs on forum, conversation, and thread pages
+        div.specialLink,
+        .navPanel {
+            margin:-114px 0 calc(114px - 48px);
+            padding: 0;
+            background:$white;
+            position: relative;
+            display: flex;
+            
+            @media #{$phone}{
+                margin:0;
+            }
+            h1 {
+                margin:0;
+                padding: $standard-spacing 0;
+            }
+        }
+        .itemNav {
+            
+            top:-86px;
+            right:170px;
+            
+            @media #{$tablet}{
+                top:-86px;
+                right:98px;
+            }
+            
+            .button {
+                padding:.6em;
+                &.formButtonDisabled{
+                    color: $button-disabled-text-color;
+			        background: $button-disabled-background;
+			        border-color: $button-disabled-border-color;
+			        box-shadow: $button-disabled-shadow;
+                } 
+            }
+        }
+        @media #{$phone} {
+            .itemNav{
+                display:none;
+            }
+            .specialLink .itemNav {
+                display:table;
+            }
+            
+        }
+        //breadcrumbs on message page
+        .navPanel {
+            margin:-80px -15px calc(80px - 54px);
+            max-width: 70%;
+            h3 {
+                display: flex;
+                align-items: flex-start;
+                display: inline-block;
+                    flex: 1;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    max-width: 100%;
+                    white-space:nowrap;
+                a{
+                    
+                }
+            }
+        }
+    }
 }
 ////////////////////////////////////////////
 // Footer styles
