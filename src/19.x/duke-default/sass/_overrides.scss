@@ -443,6 +443,11 @@ body.#{$namespace}toolMenu-collapsed {
     background: $body-background-color;
     padding:$standard-spacing calc(#{$standard-spacing}*2);
     border-bottom:1px solid $limestone;
+    @media #{$phone}{
+        padding:calc(#{$standard-spacing}/2) 0;
+        height:auto;
+        line-height:inherit;
+    }
     a.#{$namespace}hierarchy--toolName {
         font-weight: 400;
         text-transform: none;
@@ -477,6 +482,9 @@ body.#{$namespace}toolMenu-collapsed {
     border-top:1px solid $limestone;
 }
 #content {
+    @media #{$phone}{
+        padding:0;
+    }
     .#{$namespace}pageColumns {
         display: flex;
         align-content: space-between;
@@ -488,7 +496,14 @@ body.#{$namespace}toolMenu-collapsed {
             
             .#{$namespace}container {
                 margin: $standard-spacing calc(#{$standard-spacing}*2);
-
+                @media #{$phone}{
+                    margin:0;
+                }
+            }
+            .portletBody {
+                @media #{$phone}{
+                    margin:$standard-spacing 0;
+                }
             }
         }
         
@@ -574,6 +589,9 @@ body.#{$namespace}toolMenu-collapsed {
         &.#{$namespace}pageColumns--single {
             .#{$namespace}toolTitleNav__button_container {
                 margin-top:-106px;
+                @media #{$phone}{
+                    margin:0 $standard-spacing 0 0;
+                }
             }
         }
         .#{$namespace}toolTitleNav__title {
