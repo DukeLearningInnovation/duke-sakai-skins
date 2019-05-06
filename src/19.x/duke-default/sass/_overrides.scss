@@ -1,5 +1,7 @@
-@import "defaults";
+// @import "customization";
 @import "extendables";
+
+
 ///////////////////////////////////
 // mainheader 
 //////////////////////////////////
@@ -42,8 +44,8 @@
         }
         #loginUser.has-avatar,
         #loginUser.no-avatar {
-            border:2px solid $royal-light;
-            border-right-color: $royal-light;
+            border:2px solid $primary-color-light;
+            border-right-color: $primary-color-light;
             border-bottom-color: $graphite;
             border-left-color:$copper;
             border-radius: 50%;
@@ -64,7 +66,7 @@
                 }
             }
             &:active, &:hover {
-                border-color:$royal-light;
+                border-color:$primary-color-light;
                 .#{$namespace}userNav__submenuitem--profilepicture {
                     box-shadow: none;
                 }
@@ -456,7 +458,7 @@ body.#{$namespace}toolMenu-collapsed {
         padding-left:0;
         border-radius: $button-radius;
         &:hover, &:active, &:focus {
-            background:$royal-light;
+            background:$primary-color-light;
             text-decoration: none;
             
             .#{$namespace}breadcrumb--toolNameText {
@@ -744,9 +746,9 @@ body>.portletBody {
 
                     &:hover,
                     &:active {
-                        background:$royal-light;
+                        background:$primary-color-light;
                         text-decoration: none;
-                        color:$royal;
+                        color:$secondary-color;
                     }
                 }
             }
@@ -872,6 +874,41 @@ body.sakai-test-duke-edu {
         border-color:transparent;
         border-radius:0;
         padding-top:0;
+        a {
+            color: $text-color;
+            &:hover{  // This means a:hover
+                color: $text-color;
+                text-decoration: none;
+            }
+            &[href]{  // This means a[href]
+                color: $link-color;
+                &:focus{
+                    outline: $sakai-focus-outline;
+                    outline-offset: $focus-outline-offset;
+                }
+                &:hover{
+                    color: $link-hover-color;
+                    background-color: $link-hover-background-color;
+                    text-decoration:underline;
+                }
+                &:active{
+                    color: $link-active-color;
+                    background-color: $link-active-background-color;
+                    outline: 0;		// no focus outline on click
+                }
+                &.btn{
+                    text-decoration: none;
+                }
+                &.btn-primary{
+                    @include sakai_primary_button();
+                }
+                text-decoration:underline;
+            }
+        }
+    }
+    .action .button:last-of-type,
+    .bottomButtons .button:last-of-type {
+        @include sakai_primary_button();
     }
     .sectionCollapsedIcon {
         display:none !important; //JS somewhere applying inline display styles...
@@ -907,7 +944,7 @@ body.sakai-test-duke-edu {
     .column .forumSummaryHeaderDiv,
     .column .announcementsHeaderDiv,
     .column .fc-toolbar {
-        background: $royal-light;
+        background: $primary-color-light;
         color:$castiron;
         border-radius: $button-radius;
     }
@@ -970,7 +1007,17 @@ body.sakai-test-duke-edu {
                 background: rgba(0,0,0,.1);
             }
         }
-    } 
+    }
+    // change columns with colors
+    .colblue {
+        background: $primary-color-light;
+    }
+    .colgray {
+        background:$wildsand;
+    }
+    .colgreen {
+        background: lighten($piedmont, 55%);
+    }
 }
 
 

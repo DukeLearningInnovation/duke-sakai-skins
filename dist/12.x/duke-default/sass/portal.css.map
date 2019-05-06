@@ -1,0 +1,10 @@
+{
+	"version": 3,
+	"sourceRoot": "https://sakai.duke.edu",
+	"file": "portal.css",
+	"sources": [
+		"../../../../src/12.x/duke-default/sass/portal.scss"
+	],
+	"mappings": "",
+	"names": []
+}
