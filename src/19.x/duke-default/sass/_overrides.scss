@@ -590,7 +590,8 @@ body.#{$namespace}toolMenu-collapsed {
     .#{$namespace}pageColumns {
         &.#{$namespace}pageColumns--single {
             .#{$namespace}toolTitleNav__button_container {
-                margin-top:-106px;
+                margin-top:-72px;
+                margin-bottom:72px;
                 @media #{$phone}{
                     margin:0 $standard-spacing 0 0;
                 }
@@ -860,7 +861,7 @@ body.sakai-test-duke-edu {
         background:$body-background-color;
         box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
     }
-    .navIntraTool {
+    .instructor & .navIntraTool {
         border-bottom:1px solid $limestone;
         #toolbar {
             margin:0;
@@ -882,6 +883,7 @@ body.sakai-test-duke-edu {
             }
             &[href]{  // This means a[href]
                 color: $link-color;
+                text-decoration:underline;
                 &:focus{
                     outline: $sakai-focus-outline;
                     outline-offset: $focus-outline-offset;
@@ -896,13 +898,16 @@ body.sakai-test-duke-edu {
                     background-color: $link-active-background-color;
                     outline: 0;		// no focus outline on click
                 }
-                &.btn{
+                &.btn,
+                &.btn-default{
                     text-decoration: none;
+                    @include sakai_secondary_button();
                 }
-                &.btn-primary{
+                &.btn-primary,
+                &.ui-button{
                     @include sakai_primary_button();
                 }
-                text-decoration:underline;
+                
             }
         }
     }
@@ -996,10 +1001,10 @@ body.sakai-test-duke-edu {
         }
     }
     .edit-col {
-        a.ui-button:link,
+        a.ui-button[role="button"],
         .add-link{
             border:none;
-            background:#eee;
+            background:transparent;
             padding: calc(#{$standard-spacing}/2);
             margin:0 calc(#{$standard-spacing}/4);
             &:hover {

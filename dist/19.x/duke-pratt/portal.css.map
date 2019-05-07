@@ -1,6 +1,6 @@
 {
 	"version": 3,
-	"sourceRoot": "../",
+	"sourceRoot": "/",
 	"file": "portal.css",
 	"sources": [
 		"../../../../src/19.x/duke-pratt/sass/portal.scss"
