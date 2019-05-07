@@ -1,18 +1,4 @@
-@import "../../duke-default/sass/defaults";
-@import "../../duke-default/sass/overrides";
 
-.#{$namespace}mainHeader .#{$namespace}headerLogo .#{$namespace}headerLogo--institution {
-    margin-left:52px;
-}
-.#{$namespace}topHeader {
-    box-shadow: none;
-    border-bottom: 1px solid $whisper;
-}
-#toolMenuWrap {
-    border-right: 1px solid $whisper;
-    top:53px;
-}
-  
 //Hide favorite sites
 #topnav_container {
     display: none;
@@ -33,6 +19,10 @@
     height:52px;
     line-height: 52px;
     z-index: 1001;
+    .#{$namespace}hierarchy--siteName-label {
+        color:$white;
+        font-weight: 500;
+    }
 }
 .Mrphs-siteHierarchy .Mrphs-hierarchy--siteNameSeparator,
 .Mrphs-siteHierarchy a.Mrphs-hierarchy--toolName {
@@ -40,64 +30,70 @@
     
 }
 
+// remove box shadow from static header
+.#{$namespace}topHeader {
+    box-shadow: none;
+}
+
+// .#{$namespace}mainHeader .#{$namespace}headerLogo .#{$namespace}headerLogo--institution {
+//     margin-left:52px;
+// }
+
+// #toolMenuWrap {
+//     border-right: 1px solid $whisper;
+//     top:53px;
+// }
+
 //////////////////////////////////
 // LESSONS
 /////////////////////////////////
-.Mrphs-pageColumns--single .Mrphs-sakai-lessonbuildertool{
+#content .Mrphs-pageColumns#col1 .Mrphs-sakai-lessonbuildertool{
     margin-top: calc(-52px + #{$standard-spacing});
     //Move lessons menu to footer
     .Mrphs-toolTitleNav {
         position: inherit;
-
     }
     .Mrphs-toolTitleNav__button_container {
         position: absolute;
         bottom: $standard-spacing;
     }
-    // Fix the Expand all button
+//     // Fix the Expand all button
     .topaction {
         position: relative;
     }
-
-    // button styles {
-    .link-div .usebutton,
-    .Mrphs-toolTitleNav .Mrphs-toolTitleNav__link {
-        @include sakai_label();
-        color: $accent-color;
-        background: lighten($accent-color, 50%);
-        font-family: $font-family;
-        font-weight: 500; 
-        }
-    .ui-button .ui-button-text {
-        font-weight: 500 !important;//overriding use of !important in default simpletools
-    }
-    .Mrphs-toolTitleNav .Mrphs-toolTitleNav__link{
-        &:before{
-            color:$accent-color;
-        }
+    .subpage-breadcrumb-div {
+        display:none;
+    } 
+//     // button styles {
+//     .link-div .usebutton,
+//     .Mrphs-toolTitleNav .Mrphs-toolTitleNav__link {
+//         @include sakai_label();
+//         color: $accent-color;
+//         background: lighten($accent-color, 50%);
+//         font-family: $font-family;
+//         font-weight: 500; 
+//         }
+//     .ui-button .ui-button-text {
+//         font-weight: 500 !important;//overriding use of !important in default simpletools
+//     }
+//     .Mrphs-toolTitleNav .Mrphs-toolTitleNav__link{
+//         &:before{
+//             color:$accent-color;
+//         }
         
-        &:hover {
-            &:before{
-                color:$primary-color;
-            }
-        }
+//         &:hover {
+//             &:before{
+//                 color:$primary-color;
+//             }
+//         }
 
-       }
-    // change element hover effect
-    .mainList div:hover.canEdit {
-        background:transparent;
-    }
+//        }
+//     // change element hover effect
+//     .mainList div:hover.canEdit {
+//         background:transparent;
+//     }
 
-    // change columns with colors
-    .colblue {
-        background: $royal-light;
-    }
-    .colgray {
-        background:$wildsand;
-    }
-    .colgreen {
-        background: lighten($piedmont, 55%);
-    }
+
 
     
 }
