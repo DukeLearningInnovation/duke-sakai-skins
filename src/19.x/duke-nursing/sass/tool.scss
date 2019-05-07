@@ -2,6 +2,7 @@
 
 @import "base/bootstrap-defaults";
 @import "base/extendables";
+@import "../../duke-default/sass/extendables";
 @import "base/defaults";
 @import "base/responsive";
 @import "base/icons";
@@ -67,4 +68,5 @@
 @import "modules/joinpage/base";
 @import "modules/editor/base";
 
+@import "../../duke-default/sass/overrides";
 @import "overrides";
