@@ -17,7 +17,7 @@ node-sass -r src/$1 \
 --include-path src/$1/sass/ \
 --output-style compressed \
 --output-file "tool.css" \
---source-map-root "../" \
+--source-map-root "/" \
 --source-map true
 
 mv -v dist/$1/sass/* dist/$1/

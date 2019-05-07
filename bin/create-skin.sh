@@ -35,6 +35,7 @@ fi
 mkdir -p src/$SAK_V/$1/js/src
 touch src/$SAK_V/$1/js/src/_customization.js
 printf "(function ($) {\n\tconsole.log('$1/_customization.js loaded');\n}) (\$PBJQ);" >> src/$SAK_V/$1/js/src/_customization.js
+
 #images
 mkdir -p src/$SAK_V/$1/images
 cp -R src/$MORPHEUS/images/ src/$SAK_V/$1/images

@@ -7,7 +7,13 @@ DATE=`date +%Y-%m-%d_%H-%M-%S`
 
 rm -rf dist/$1/js
 mkdir dist/$1/js
-uglifyjs src/$MORPHEUS/js/src/*.js src/$1/js/src/*.js -o dist/$1/js/morpheus.scripts.js
+
+if [ $1 == "19.x/duke-default" ]; then
+    uglifyjs src/$MORPHEUS/js/src/*.js src/$1/js/src/*.js -o dist/$1/js/morpheus.scripts.js
+else
+    uglifyjs src/$MORPHEUS/js/src/*.js src/19.x/duke-default/js/src/*.js src/$1/js/src/*.js -o dist/$1/js/morpheus.scripts.js
+fi
+
 uglifyjs dist/$1/js/morpheus.scripts.js -m -c -o dist/$1/js/morpheus.scripts.min.js
 # uglifyjs src/$1/js/src/*.js -o dist/$1/js/morpheus.scripts.js && \
 # uglifyjs src/$1/js/src/*.js -m -c -o dist/$1/js/morpheus.scripts.min.js

@@ -3,7 +3,9 @@
 #topnav_container {
     display: none;
 }
-
+.Mrphs-toolTitleNav__button_container {
+    height:52px;
+}
 //Breadcrumbs & site name in header
 .Mrphs-siteHierarchy {
     padding:0;
@@ -29,7 +31,26 @@
     display: none;
     
 }
+#content {
+    .#{$namespace}pageColumns {
+        &.#{$namespace}pageColumns--single {
+            margin-top:0;
+            .#{$namespace}toolTitleNav {
 
+                .#{$namespace}toolTitleNav__button_container {
+                    margin:0;
+                    z-index:9;
+                    @media #{$phone}{
+                        margin:0 $standard-spacing 0 0;
+                    }
+                }
+            }
+            .portletBody {
+                margin: calc(#{$standard-spacing}*-2) 0 calc(#{$standard-spacing}*-2);
+            }
+        }
+    }
+}
 // remove box shadow from static header
 .#{$namespace}topHeader {
     box-shadow: none;
@@ -45,10 +66,10 @@
 // }
 
 //////////////////////////////////
-// LESSONS
+// LESSONS    
 /////////////////////////////////
 #content .Mrphs-pageColumns#col1 .Mrphs-sakai-lessonbuildertool{
-    margin-top: calc(-52px + #{$standard-spacing});
+    margin-top: 0;
     //Move lessons menu to footer
     .Mrphs-toolTitleNav {
         position: inherit;
@@ -64,6 +85,7 @@
     .subpage-breadcrumb-div {
         display:none;
     } 
+
 //     // button styles {
 //     .link-div .usebutton,
 //     .Mrphs-toolTitleNav .Mrphs-toolTitleNav__link {
@@ -88,10 +110,7 @@
 //         }
 
 //        }
-//     // change element hover effect
-//     .mainList div:hover.canEdit {
-//         background:transparent;
-//     }
+
 
 
 

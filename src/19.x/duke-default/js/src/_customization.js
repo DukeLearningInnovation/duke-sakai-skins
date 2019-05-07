@@ -153,4 +153,10 @@
     var currentUrl = new URL(window.location.href);
     var serverClass = currentUrl.hostname.replace(/\./g, '-');
     $('body').addClass(serverClass);
+
+
+    /////////////////////////////////////////////////
+    // Add role to body as class
+    ////////////////////////////////////////////////
+    $('body').addClass(portal.user.siteRole.toLowerCase());
 }) ($PBJQ);
