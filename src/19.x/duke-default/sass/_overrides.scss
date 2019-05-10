@@ -261,8 +261,13 @@
         border-right:none;
         position: absolute;
         top:calc(52px);
+        left:0;
         padding:calc(#{$standard-spacing}) 0 0;
         background:$tool-menu-item-background-color;
+        [dir=rtl] & {
+            left: auto;
+            right:0;
+        }
 
         #toolMenu,
         #subSites {
@@ -308,6 +313,10 @@
                         width: 52px;
                         height: 52px;
                         z-index:1001;
+                        [dir=rtl] & {
+                            left:auto;
+                            right:0;
+                        }
                         &:active,
                         &:hover {
                             button span.fa-angle-double-left {
@@ -370,6 +379,10 @@ body.#{$namespace}toolMenu-collapsed {
     #topnav_container {
         margin-left:#{$tool-menu-width-collapsed};
         width: calc(100% - #{$tool-menu-width-collapsed} - #{$standard-spacing});
+        [dir=rtl] & {
+            margin-left: 0;
+            margin-right:#{$tool-menu-width-collapsed};
+        }
     }
     #toolMenuWrap {
         @media #{$nonPhone}{
@@ -408,9 +421,14 @@ body.#{$namespace}toolMenu-collapsed {
             border-left:1px solid $limestone;
             margin:0 0 0 calc(#{$tool-menu-width});
             padding: calc(#{$standard-spacing}) calc(#{$standard-spacing}*2) 0;
-
+            [dir=rtl] & {
+                margin: 0 #{$tool-menu-width} 0 0;
+            }
             .#{$namespace}toolMenu-collapsed & {
                 margin-left:0;
+                [dir=rtl] & {
+                    margin-right:0;
+                }
             }
             li {
                 &.#{$namespace}sitesNav__menuitem{
@@ -577,6 +595,10 @@ body.#{$namespace}toolMenu-collapsed {
     margin-left:#{$tool-menu-width};
     border-left:1px solid $limestone;
     width: calc(100% - #{$tool-menu-width});
+    [dir=rtl] & {
+        margin-left:0;
+        margin-right:#{$tool-menu-width};
+    }
     @media #{$phone}{
         margin:0;
         width:100%;
@@ -931,7 +953,7 @@ body.sakai-test-duke-edu {
         }
     }
     .subpage-breadcrumb-div {
-        margin:-114px 0 calc(114px - #{$standard-spacing} - 21px - #{$standard-spacing});
+        margin:-150px 0 calc(150px - #{$standard-spacing} - 21px - #{$standard-spacing});
         padding: calc(#{$standard-spacing}) 0;
         background:$white;
         position: relative;
@@ -1012,6 +1034,9 @@ body.sakai-test-duke-edu {
                 background: rgba(0,0,0,.1);
             }
         }
+    }
+    .sectionedit.addbottom {
+        bottom: calc(#{$standard-spacing}*-1);
     }
     // change columns with colors
     .colblue {
