@@ -612,8 +612,8 @@ body.#{$namespace}toolMenu-collapsed {
     .#{$namespace}pageColumns {
         &.#{$namespace}pageColumns--single {
             .#{$namespace}toolTitleNav__button_container {
-                margin-top:-72px;
-                margin-bottom:72px;
+                margin-top:-110px;
+                // margin-bottom:calc(72px + 36px);
                 @media #{$phone}{
                     margin:0 $standard-spacing 0 0;
                 }
@@ -674,24 +674,40 @@ body.workspace{
 
     li {
         span {
-            margin-bottom: calc(#{$standard-spacing});
+            margin-bottom: 0;
+            padding: 0;
+            
+            &:before,
+            &:after {
+                border:none;
+            }
             &.current {
                 text-transform: uppercase;
                 font-weight: 500;
                 letter-spacing: .0178571429em;
+                border:none;
+                border-bottom: 2px solid $tool-tab-active-highlight-color;
+                margin-bottom:-2px;
+                padding: 0 $standard-spacing;
+                a {
+                    padding: 0 $standard-spacing;
+                }
                 &:hover {
                     background:$tool-tab-hover-background-color;
-                }
-                &:before {
-                    border-top:0;
-                }
-                &:after{
                     border-bottom: 2px solid $tool-tab-active-highlight-color;
-
+                    margin-bottom:-2px;
+                }
+                &:before,
+                &:after {
+                    border: none;
+                    position: initial;
                 }
             }
             a {
                 font-weight: 500;
+                padding: 0 $standard-spacing;
+                border:none;
+
             }
         }
     }
@@ -788,7 +804,7 @@ body>.portletBody {
             border-radius: 50%;
             font-size:1.25em;
             padding: 0 6px;
-
+            margin:0;
             &:hover,
             &:active {
                 // background: $gallery;
@@ -873,6 +889,16 @@ body.sakai-test-duke-edu {
     }
 }
 ////////////////////////////////////////////
+// Calendar styles
+////////////////////////////////////////
+.#{$namespace}sakai-schedule {
+    input[value="Next Week >"],
+    input[value="< Previous Week"],
+    input[value="Today"] {
+        margin:0;
+    }
+}
+////////////////////////////////////////////
 // Lessons styles
 ////////////////////////////////////////
 .#{$namespace}sakai-lessonbuildertool {
@@ -953,7 +979,7 @@ body.sakai-test-duke-edu {
         }
     }
     .subpage-breadcrumb-div {
-        margin:-150px 0 calc(150px - #{$standard-spacing} - 21px - #{$standard-spacing});
+        margin:-114px 0 calc(114px - #{$standard-spacing} - 21px - #{$standard-spacing});
         padding: calc(#{$standard-spacing}) 0;
         background:$white;
         position: relative;
@@ -1155,6 +1181,18 @@ body.sakai-test-duke-edu {
         }
     }
 }
+////////////////////////////////////////////
+// Worksite setup styles
+////////////////////////////////////////
+.Mrphs-sakai-siteinfo,
+.Mrphs-sakai-sitesetup {
+    #siteTypeList {
+        background:$primary-color-light;
+        margin:0 0 $standard-spacing;
+        padding: $standard-spacing;
+    }
+} 
+
 ////////////////////////////////////////////
 // Footer styles
 ////////////////////////////////////////
