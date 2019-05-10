@@ -123,22 +123,44 @@
 							$button-active-background,
 							$button-active-border-color);
 }
+@mixin sakai_tertiary_button() {
+	@include sakai_button(	$button-tertiary-text-color,
+							$button-tertiary-background,
+							$button-tertiary-border-color,
+							$button-tertiary-hover-text-color,
+							$button-tertiary-hover-background,
+							$button-tertiary-hover-border-color,
+							$button-tertiary-active-text-color,
+							$button-tertiary-active-background,
+							$button-tertiary-active-border-color);
+}
 //remake buttons using new mixin
 button.btn-primary, .act .active, .button_color,
 input[type="submit"].question-submit:not(.showPollGraph), .linkCell .addStudentContent,
 input[type="submit"].setStudentZero,
-.#{$namespace}sakai-lessonbuildertool a.ui-button:link {
+.#{$namespace}sakai-lessonbuildertool a.ui-button:link,
+form.takeAttendanceNowForm input, button#settingsSave {
     @include sakai_primary_button();
     margin-right: $standard-spacing;
 }
 
-button, .button, a[href].button, button.ui-state-default,
-.btn-group .btn, .btn.btn-default, .button.link, a.btn-link,
-button.btn-link, input[value="Clear"], input[value="Cancel"],
-input[type="submit"].question-submit.showPollGraph {
+
+.button.link, a.btn-link, button.btn-link, 
+input[type="submit"].question-submit.showPollGraph,
+input[value="Next Week >"],input[value="< Previous Week"],
+input[value="Clear"], input[value="Cancel"] {
 	@include sakai_secondary_button();
 }
 
+button, .button, a[href].button, button.ui-state-default,
+.btn-group .btn, .btn.btn-default,
+input[value="Back"], input[value="Undo changes"], .button[type="reset"],
+input[value="Add Attachments"], input[value="Add attachments"], input[value="Add / Remove Attachments"],
+input[value="Today"], input[value="Frequency"], .chat-block input[value="Submit"],
+input[value="Save Settings & Add Topic"], input[value="Save Draft"],input[value="Preview"] {
+	@include sakai_tertiary_button();
+	margin-right:$standard-spacing;
+}
 select,
 .select {
     border-color:$granite;
