@@ -23,7 +23,7 @@ $more-sites-single-column: "only screen and (max-width : #{$break-more-sites-sin
 
 //Google family Fonts URL
 $font-family-url: "https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700";
-
+@import url(#{$font-family-url});
 
 //Typography variables
 $font-family: "Roboto",sans-serif;
