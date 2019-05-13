@@ -163,25 +163,75 @@
 
     /////////////////////////////////////////////////
     // Adjust hamburger menu when system alerts are active
-    // STATE: working on load but not on alert dissmissal
-    //        the move to use portalWrapper makes me wonder
-    //        if I can go back to mutationobserver????
     ////////////////////////////////////////////////
     var pasystemTimeout;
-    waitForPasystem();
-    $('.pasystem-banner-alert-toggle, .pasystem-banner-alert-close').on('click', waitForPasystem);
-    
-    function waitForPasystem(){
-        pasystemTimeout = window.setTimeout(function(){
-            var toolMenuCollapseAdjustedTop = document.getElementsByClassName('Mrphs-portalWrapper')[0].offsetTop;
-            $('#toolsNav-toggle-li').css({'top': toolMenuCollapseAdjustedTop});
-        }, 1000);
-        clearTimeout(pasystemTimeout);
+    var collapseToolsAdjustedTop = 0;
+
+
+    adjustForPasystemLoad();
+    function pasystemLoaded() {
+        $(".pasystem-banner-alert-toggle, .pasystem-banner-alert-close").on('click', adjustForPasystemDismiss);
     }
     
-    function isAlertVisible(){
-        var toolMenuCollapseAdjustedTop = document.getElementsByClassName('pasystem-banner-alerts')[0].scrollHeight;
-        $('#toolsNav-toggle-li').css({'top': toolMenuCollapseAdjustedTop});
+    
+
+    function adjustForPasystemLoad(){
+        // Select the node that will be observed for mutations
+        var targetNode = document.getElementsByClassName('Mrphs-portalBody')[0];
+
+        // Options for the observer (which mutations to observe)
+        var config = { childList: true };
+
+        // Callback function to execute when mutations are observed
+        var portalMutationCallback = function(mutationsList, observer) {
+
+                mutationsList.forEach(function(mutation) {
+
+                    if (mutation.type == 'childList') {
+                       
+                        var mutationTarget = mutation.target.childNodes[0];
+                        
+                        if (mutationTarget.className == 'pasystem-banner-alerts'){
+                            
+                            collapseToolsAdjustedTop = mutationTarget.offsetHeight;
+                            $('#toolsNav-toggle-li').css({'top': collapseToolsAdjustedTop});
+                            pasystemLoaded();
+                            // observer.disconnect();
+
+                            // return false;
+                        }
+                    }
+                });
+            };
+
+        // Create an observer instance linked to the callback function
+        var observer = new MutationObserver(portalMutationCallback);
+
+        // Start observing the target node for configured mutations
+        observer.observe(targetNode, config);
     }
+
+    function adjustForPasystemDismiss(){
+        var timeoutID = window.setTimeout(function() {
+            console.log(document.getElementsByClassName('pasystem-banner-alerts'));
+            collapseToolsAdjustedTop = document.getElementsByClassName('pasystem-banner-alerts')[0].clientHeight;
+            $('#toolsNav-toggle-li').css({'top': collapseToolsAdjustedTop});
+            console.log(collapseToolsAdjustedTop);
+        }, 500);
+    
+    }
+    
+    //Adjust the toolCollapse on window scroll
+    $(window).scroll(function(){
+
+		if($(window).scrollTop() > 0) {
+			
+				$('#toolsNav-toggle-li').css({'top': 0});
+		  
+		} else {
+            $('#toolsNav-toggle-li').css({'top': collapseToolsAdjustedTop});
+
+		}
+  });
     
 }) ($PBJQ);
