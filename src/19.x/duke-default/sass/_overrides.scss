@@ -287,6 +287,9 @@
                         .lessons-top-level-placeholder {
                             .lessons-goto-top-page {
                                 padding:0;
+                                .#{$namespace}toolsNav__menuitem--title {
+                                    width: 75%;
+                                }
                             }
                             .lessons-expand-collapse-icon {
                                 padding:0;
@@ -958,6 +961,66 @@ body.sakai-test-duke-edu {
                 
             }
         }
+        .col {
+            padding:0;
+            display: flex;
+                justify-items: center;
+                justify-content: center;
+            a {
+                
+                text-align: center;
+                margin: 0 $standard-spacing;
+            }
+        } 
+        .col-md-10-9 {
+            width:9.259%;
+            float: left;
+        }	
+        .col-md-10-8 {
+            width:10.416%;
+            float: left;
+        }
+        .col-md-10-7 {
+            width:11.904%;
+            float: left;
+        }
+        .col-md-10-6 {
+            width:13.888%;
+            float: left;
+        }
+        .col-md-10-4 {
+            width:20.833%;
+            float:left;
+        }
+        .col-md-10-3 {
+            width:27.777%;
+            float: left;
+        }
+        .prev {
+            .fa {
+                margin-right:.5em
+            }
+        }
+        .next {
+            .fa {
+                margin-left:.5em;
+            }
+            a {
+                color:$white;
+                &:hover {
+                    background:$primary-color;
+                }
+            }
+        }
+        .current {
+            a {
+                background:$primary-color;
+                // border-right:none;
+                &:hover {
+                    background:$primary-color-light;
+                }
+            }
+        }
     }
     .action .button:last-of-type,
     .bottomButtons .button:last-of-type {
@@ -1192,7 +1255,10 @@ body.sakai-test-duke-edu {
         padding: $standard-spacing;
     }
 } 
-
+.#{$namespace}siteStatus.is-unpublished button.#{$namespace}button--active{
+	@include sakai_primary_button();
+	margin-left: $standard-spacing;
+}
 ////////////////////////////////////////////
 // Footer styles
 ////////////////////////////////////////

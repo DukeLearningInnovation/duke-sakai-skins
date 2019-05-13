@@ -1,10 +1,10 @@
 {
 	"version": 3,
+	"sourceRoot": "/",
 	"file": "portal.css",
 	"sources": [
-		"../../../duke-extend/sass/portal.scss",
-		"../../../duke-extend/sass/portal.scss/JSASS_CUSTOM.scss"
+		"../../../../src/19.x/duke-extend/sass/portal.scss"
 	],
-	"names": [],
-	"mappings": ""
+	"mappings": "",
+	"names": []
 }

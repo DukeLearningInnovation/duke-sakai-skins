@@ -4,7 +4,7 @@
   "description": "`src` contains the source files for the skins. Final edits are placed here and compiled for deployment",
   "main": "index.js",
   "scripts": {
-    "watch": "chokidar \"src/**\" -c \"bin/build.sh {event} {path} dukedev.longsight.com\"",
+    "watch": "chokidar \"src/**\" -c \"bin/build.sh {event} {path} sakai.duke.edu\"",
     "build": "bash bin/build.sh build",
     "build-all": "bash bin/build-all.sh",
     "autoprefixer": "postcss -u autoprefixer -r",
@@ -16,6 +16,7 @@
     "lint": "bash bin/lint.sh",
     "scss": "bash bin/scss.sh",
     "serve": "bash bin/serve.sh",
+    "serve-all": "bash bin/serve-all.sh",
     "uglify": "bash bin/uglify.sh"
   },
   "repository": {

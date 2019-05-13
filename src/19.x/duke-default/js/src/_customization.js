@@ -159,4 +159,29 @@
     // Add role to body as class
     ////////////////////////////////////////////////
     $('body').addClass(portal.user.siteRole.toLowerCase());
+
+
+    /////////////////////////////////////////////////
+    // Adjust hamburger menu when system alerts are active
+    // STATE: working on load but not on alert dissmissal
+    //        the move to use portalWrapper makes me wonder
+    //        if I can go back to mutationobserver????
+    ////////////////////////////////////////////////
+    var pasystemTimeout;
+    waitForPasystem();
+    $('.pasystem-banner-alert-toggle, .pasystem-banner-alert-close').on('click', waitForPasystem);
+    
+    function waitForPasystem(){
+        pasystemTimeout = window.setTimeout(function(){
+            var toolMenuCollapseAdjustedTop = document.getElementsByClassName('Mrphs-portalWrapper')[0].offsetTop;
+            $('#toolsNav-toggle-li').css({'top': toolMenuCollapseAdjustedTop});
+        }, 1000);
+        clearTimeout(pasystemTimeout);
+    }
+    
+    function isAlertVisible(){
+        var toolMenuCollapseAdjustedTop = document.getElementsByClassName('pasystem-banner-alerts')[0].scrollHeight;
+        $('#toolsNav-toggle-li').css({'top': toolMenuCollapseAdjustedTop});
+    }
+    
 }) ($PBJQ);
