@@ -9,6 +9,7 @@ case $2 in
         ;;
     sakai.duke.edu)
         SVR_SKIN=$(expr $1 : ".*\(duke-[a-zA-Z]*\).*")
+        SERVER_V='ag'
         ;;
     *)
         SVR_SKIN='morpheus-default'

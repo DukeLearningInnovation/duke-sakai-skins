@@ -70,7 +70,7 @@ $background-color:$white;
 $background-color-secondary: $white;
 
 $primary-color: $copper;
-/*DUKE*/$primary-color-light: lighten($primary-color, 45%);
+/*DUKE*/$primary-color-light: lighten($primary-color, 50%);
 $primary-color-highContrast: darken( $primary-color, 4% ) !default;	// for use of primary on non-white light backgrounds, such as greys
 $primary-color-shadow:			 adjust-hue( $primary-color, 5 ) !default;	// To give primary a darker shadow
 $secondary-color:  			 darken($primary-color, 25%);

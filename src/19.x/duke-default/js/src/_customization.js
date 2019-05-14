@@ -159,4 +159,79 @@
     // Add role to body as class
     ////////////////////////////////////////////////
     $('body').addClass(portal.user.siteRole.toLowerCase());
+
+
+    /////////////////////////////////////////////////
+    // Adjust hamburger menu when system alerts are active
+    ////////////////////////////////////////////////
+    var pasystemTimeout;
+    var collapseToolsAdjustedTop = 0;
+
+
+    adjustForPasystemLoad();
+    function pasystemLoaded() {
+        $(".pasystem-banner-alert-toggle, .pasystem-banner-alert-close").on('click', adjustForPasystemDismiss);
+    }
+    
+    
+
+    function adjustForPasystemLoad(){
+        // Select the node that will be observed for mutations
+        var targetNode = document.getElementsByClassName('Mrphs-portalBody')[0];
+
+        // Options for the observer (which mutations to observe)
+        var config = { childList: true };
+
+        // Callback function to execute when mutations are observed
+        var portalMutationCallback = function(mutationsList, observer) {
+
+                mutationsList.forEach(function(mutation) {
+
+                    if (mutation.type == 'childList') {
+                       
+                        var mutationTarget = mutation.target.childNodes[0];
+                        
+                        if (mutationTarget.className == 'pasystem-banner-alerts'){
+                            
+                            collapseToolsAdjustedTop = mutationTarget.offsetHeight;
+                            $('#toolsNav-toggle-li').css({'top': collapseToolsAdjustedTop});
+                            pasystemLoaded();
+                            // observer.disconnect();
+
+                            // return false;
+                        }
+                    }
+                });
+            };
+
+        // Create an observer instance linked to the callback function
+        var observer = new MutationObserver(portalMutationCallback);
+
+        // Start observing the target node for configured mutations
+        observer.observe(targetNode, config);
+    }
+
+    function adjustForPasystemDismiss(){
+        var timeoutID = window.setTimeout(function() {
+            console.log(document.getElementsByClassName('pasystem-banner-alerts'));
+            collapseToolsAdjustedTop = document.getElementsByClassName('pasystem-banner-alerts')[0].clientHeight;
+            $('#toolsNav-toggle-li').css({'top': collapseToolsAdjustedTop});
+            console.log(collapseToolsAdjustedTop);
+        }, 500);
+    
+    }
+    
+    //Adjust the toolCollapse on window scroll
+    $(window).scroll(function(){
+
+		if($(window).scrollTop() > 0) {
+			
+				$('#toolsNav-toggle-li').css({'top': 0});
+		  
+		} else {
+            $('#toolsNav-toggle-li').css({'top': collapseToolsAdjustedTop});
+
+		}
+  });
+    
 }) ($PBJQ);

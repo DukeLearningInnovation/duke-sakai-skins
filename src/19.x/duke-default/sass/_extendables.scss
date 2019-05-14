@@ -144,11 +144,10 @@ form.takeAttendanceNowForm input, button#settingsSave {
     margin-right: $standard-spacing;
 }
 
-
 .button.link, a.btn-link, button.btn-link, 
 input[type="submit"].question-submit.showPollGraph,
 input[value="Next Week >"],input[value="< Previous Week"],
-input[value="Clear"], input[value="Cancel"] {
+input[value="Clear"], input[value="Cancel"], input[value="Cancel Changes"] {
 	@include sakai_secondary_button();
 }
 
