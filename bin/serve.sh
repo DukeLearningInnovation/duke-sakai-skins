@@ -30,3 +30,4 @@ find dev/$2/library/skin/$SVR_SKIN -type f -name '*.css' -exec mv {} {}%3fversio
 find dev/$2/library/skin/$SVR_SKIN -type f -name '*.js' -exec mv {} {}%3fversion=$SERVER_V \;
 
 echo "bin/serve.sh done"
+echo "////////////////////////////////////////////////////////////////////"
