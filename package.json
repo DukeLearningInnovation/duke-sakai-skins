@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "watch": "chokidar \"src/**\" -c \"bin/build.sh {event} {path} dukedev.longsight.com\"",
-    "closure": "bash bin/closure.sh",
     "build": "bash bin/build.sh build",
     "build-all": "bash bin/build-all.sh",
     "autoprefixer": "postcss -u autoprefixer -r",
@@ -32,9 +31,6 @@
   },
   "homepage": "https://github.com/dukelearninginnovation/duke-sakai-skins#readme",
   "devDependencies": {
-    "@babel/cli": "^7.4.4",
-    "@babel/core": "^7.4.4",
-    "@babel/preset-env": "^7.4.4",
     "autoprefixer": "^6.3.6",
     "browser-sync": "^2.12.8",
     "eslint": "^2.10.2",
@@ -56,7 +52,6 @@
     "svgo": "^0.6.6"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.4.4",
     "chokidar-cli": "^1.2.2",
     "google-closure-compiler": "^20190415.0.0",
     "terser": "^3.17.0",
