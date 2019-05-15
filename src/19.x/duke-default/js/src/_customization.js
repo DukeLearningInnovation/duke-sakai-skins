@@ -118,31 +118,6 @@
         ga('send', gaEventData);
     });
 
-    /////////////////////////////////////////////////////
-    // ADJUST TOOLMENUWRAP BASED ON FAV SITES HEIGHT
-    // Currently using CSS absolute positioning for this
-    ////////////////////////////////////////////////////
-    
-    // var favHeight = $('#topnav').height();
-    // var newFavHeight = favHeight;
-    // var resizeTimeout;
-    // console.log(favHeight);
-    // var toolWrapMargin = (favHeight + 54) * -1;
-    // $('#toolMenuWrap').css('margin-top', toolWrapMargin );
-    
-    // $( window ).resize(function() {
-    //     if (resizeTimeout) {
-    //         clearTimeout(resizeTimeout);
-    //     }
-    //     resizeTimeout = setTimeout(function() {
-    //         newFavHeight = $('#topnav').height();
-    //         toolWrapMargin = (newFavHeight + 54) * -1;
-    //         $('#toolMenuWrap').css('margin-top', toolWrapMargin );
-    //         console.log(toolWrapMargin);
-    //     }, 100);
-        
-    // });
-
     /////////////////////////////////////////////////
     // Add styles when impersonating another user
     ////////////////////////////////////////////////
@@ -164,13 +139,14 @@
     /////////////////////////////////////////////////
     // Adjust hamburger menu when system alerts are active
     ////////////////////////////////////////////////
-    var pasystemTimeout;
-    var isPasystemLoaded = false;
+
     var collapseToolsAdjustedTop = 0;
 
+    // Call the observer to watch Mrphs-portalBody for
+    // dynamic loading of the pasystem
     watchForPasystemLoad();
 
-    function watchForPasystemLoad(){
+    var watchForPasystemLoad = function(){
         // Select the node that will be observed for mutations
         var targetNode = document.getElementsByClassName('Mrphs-portalBody')[0];
 
@@ -178,90 +154,94 @@
         var config = { childList: true };
 
         // Callback function to execute when mutations are observed
-        var portalMutationCallback = function(mutationsList, observer) {
-            for (var i = 0; i < mutationsList.length; i++) {
+        var portalMutationCallback = function(mutationsList, portalObserver) {
 
-                var mutation = mutationsList[i];
+            for(var mutation of mutationsList) {
+
                 if (mutation.type == 'childList') {
-                    
+
                     var mutationTarget = mutation.target.childNodes[0];
 
                     if (mutationTarget.className == 'pasystem-banner-alerts'){
                         
-                        if (!isPasystemLoaded){
-                            isPasystemLoaded = true;
-                            watchForPasystemChange();
-                        }
+                        // Adjust hamburger for initial load of pasystem
+                        collapseToolsAdjustedTop = document.getElementsByClassName('pasystem-banner-alerts')[0].clientHeight;
+                        $('#toolsNav-toggle-li').css({'top': collapseToolsAdjustedTop});
+                        
+                        // Start observing events that change the pasystem
+                        watchForPasystemChange();
 
                         // disconnect the portalBody observer, it is no longer needed
                         // once the pasystem is loaded into the DOM
-                        observer.disconnect();
+                        portalObserver.disconnect();
                     }
                 }
             }
         };
 
         // Create an observer instance linked to the callback function
-        var observer = new MutationObserver(portalMutationCallback);
+        var portalObserver = new MutationObserver(portalMutationCallback);
 
         // Start observing the target node for configured mutations
-        observer.observe(targetNode, config);
-        
-    }
+        portalObserver.observe(targetNode, config);
 
-    function watchForPasystemChange(){
+    };
+
+    var watchForPasystemChange = function(){
+
         // Select the node that will be observed for mutations
         var pasystemNode = document.getElementsByClassName('pasystem-banner-alerts')[0];
         var pasystemToggleNode = document.getElementsByClassName('pasystem-banner-alert-toggle')[0];
 
         // Options for the observer (which mutations to observe)
-        var config = { 
+        var config = {
+            childList: true,
             attributes: true,
             subtree:true,
             attributeOldValue: true
         };
 
         // Callback function to execute when mutations are observed
-        var pasystemMutationCallback = function(mutationsList, observer) {
-            for (var i = 0; i < mutationsList.length; i++) {
+        var pasystemMutationCallback = function(mutationsList, pasystemObserver) {
 
-                var mutation = mutationsList[i];
-                console.log(mutation);
-
-                // Possibly not necessary with current config, but type checking
-                // useful if other mutations are also observed later
-                if (mutation.type == 'attributes' &&
-                    mutation.target.className.includes('pasystem-banner-alert')) {
+            for(var mutation of mutationsList) {
+   
+                if (mutation.type == 'childList') {
                         collapseToolsAdjustedTop = pasystemNode.clientHeight;
                         $('#toolsNav-toggle-li').css({'top': collapseToolsAdjustedTop});
-                        
+                }
+               
+                if (mutation.type == 'attributes' && mutation.target.className.includes('pasystem-banner-alert')) {
+                        collapseToolsAdjustedTop = pasystemNode.clientHeight;
+                        $('#toolsNav-toggle-li').css({'top': collapseToolsAdjustedTop});
                 }
             }
         };
-
+ 
         // Create an observer instance linked to the callback function
-        var observer = new MutationObserver(pasystemMutationCallback);
-
+        var pasystemObserver = new MutationObserver(pasystemMutationCallback);
+        var pasystemToggleObserver = new MutationObserver(pasystemMutationCallback);
+        
         // Start observing the target node for configured mutations
-        observer.observe(pasystemNode, config);
-
+        pasystemObserver.observe(pasystemNode, config);
+        
         // The toggleNode is in a separate part of the DOM
         // so it needs its own observer
-        observer.observe(pasystemToggleNode, config);
+        pasystemToggleObserver.observe(pasystemToggleNode, config);
 
-    }
+    };
 
     //Adjust the toolCollapse on window scroll
     $(window).scroll(function(){
 
-		if($(window).scrollTop() > 0) {
-			
-				$('#toolsNav-toggle-li').css({'top': 0});
-		  
-		} else {
+        if($(window).scrollTop() > 0) {
+            
+            $('#toolsNav-toggle-li').css({'top': 0});
+          
+        } else {
             $('#toolsNav-toggle-li').css({'top': collapseToolsAdjustedTop});
 
-		}
-  });
-    
+        }
+    });
+
 }) ($PBJQ);

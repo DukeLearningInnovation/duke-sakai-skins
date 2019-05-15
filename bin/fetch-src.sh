@@ -14,7 +14,4 @@ touch src/$SAK_V/morpheus-master/js/src/morpheus-master.js
 touch src/$SAK_V/morpheus-master/sass/morpheus-master.scss
 touch src/$SAK_V/morpheus-master/sass/_customization.scss
 
-#this fixes a bug in morpheus. @profmikegreene to put a PR in to fix
-sed -i '' -e 's/#{$nonPhone}/@media #{$nonPhone}/g; s/#{$phone}/@media #{$phone}/g' src/$SAK_V/morpheus-master/sass/modules/tool/mycalendar/_mycalendar.scss 
-rm src/$SAK_V/morpheus-master/sass/modules/tool/mycalendar/_mycalendar.scss-e
 echo "bin/fetch-src.sh done"
