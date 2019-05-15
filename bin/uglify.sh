@@ -9,14 +9,18 @@ rm -rf dist/$1/js
 mkdir dist/$1/js
 
 if [ $1 == "19.x/duke-default" ]; then
-    uglifyjs src/$MORPHEUS/js/src/*.js src/$1/js/src/*.js -o dist/$1/js/morpheus.scripts.js
+    terser src/$MORPHEUS/js/src/*.js src/$1/js/src/*.js  \
+           -o dist/$1/js/morpheus.scripts.min.js \
+           --verbose --warn --compress --mangle \
+           --beautify max_line_len=650,beautify=false
 else
-    uglifyjs src/$MORPHEUS/js/src/*.js src/19.x/duke-default/js/src/*.js src/$1/js/src/*.js -o dist/$1/js/morpheus.scripts.js
+    terser src/$MORPHEUS/js/src/*.js src/19.x/duke-default/js/src/*.js src/$1/js/src/*.js  \
+        -o dist/$1/js/morpheus.scripts.js \
+        --verbose --warn
 fi
 
-uglifyjs dist/$1/js/morpheus.scripts.js -m -c -o dist/$1/js/morpheus.scripts.min.js
-# uglifyjs src/$1/js/src/*.js -o dist/$1/js/morpheus.scripts.js && \
-# uglifyjs src/$1/js/src/*.js -m -c -o dist/$1/js/morpheus.scripts.min.js
+# terser dist/$1/js/morpheus.scripts.js -m -o dist/$1/js/morpheus.scripts.min.js -b max_line_len=650,beautify=false --verbose
+
 printf "\n/* Compiled on $DATE */\n" >> dist/$1/js/morpheus.scripts.min.js
 
 mkdir dist/$1/js/lib
