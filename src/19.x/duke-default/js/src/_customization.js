@@ -144,7 +144,7 @@
 
     // Call the observer to watch Mrphs-portalBody for
     // dynamic loading of the pasystem
-    watchForPasystemLoad();
+
 
     var watchForPasystemLoad = function(){
         // Select the node that will be observed for mutations
@@ -230,7 +230,8 @@
         pasystemToggleObserver.observe(pasystemToggleNode, config);
 
     };
-
+    watchForPasystemLoad();
+    
     //Adjust the toolCollapse on window scroll
     $(window).scroll(function(){
 
