@@ -1,10 +1,10 @@
 {
 	"version": 3,
-	"sourceRoot": "/",
 	"file": "portal.css",
+	"sourceRoot": "/",
 	"sources": [
 		"../../../../src/19.x/duke-dghi/sass/portal.scss"
 	],
-	"mappings": "",
-	"names": []
+	"names": [],
+	"mappings": ""
 }

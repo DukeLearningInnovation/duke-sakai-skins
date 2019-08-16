@@ -25,9 +25,9 @@ fi
 printf "\n/* Compiled on $DATE */\n" >> dist/$1/js/morpheus.scripts.min.js
 
 mkdir dist/$1/js/lib
-cp -R src/$MORPHEUS/js/lib/ dist/$1/js/lib
+cp -R src/$MORPHEUS/js/lib/* dist/$1/js/lib/
 
 mkdir dist/$1/js/ie
-cp -R src/$MORPHEUS/js/ie/ dist/$1/js/ie
+cp -R src/$MORPHEUS/js/ie/* dist/$1/js/ie/
 
 echo "bin/uglify.sh $1 done"

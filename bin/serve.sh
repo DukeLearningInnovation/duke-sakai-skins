@@ -24,7 +24,7 @@ printf "Copying skin from dist/$1 to dev/$2/$SVR_SKIN for browser development\n"
 
 rm -rf dev/$2/library/skin/$SVR_SKIN
 mkdir -p dev/$2/library/skin/$SVR_SKIN
-cp -R dist/$1/ dev/$2/library/skin/$SVR_SKIN
+cp -R dist/$1/* dev/$2/library/skin/$SVR_SKIN/
 
 find dev/$2/library/skin/$SVR_SKIN -type f -name '*.css' -exec mv {} {}%3fversion=$SERVER_V \;
 find dev/$2/library/skin/$SVR_SKIN -type f -name '*.js' -exec mv {} {}%3fversion=$SERVER_V \;

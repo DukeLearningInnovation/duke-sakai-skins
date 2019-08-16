@@ -123,6 +123,7 @@
     position: absolute;
     z-index: 10000;
     background: rgba(0,0,0,0.5);
+    overflow: scroll;
 
     sakai-rubric-criterion-preview {
         display: block;
@@ -203,17 +204,6 @@
                     cursor: grabbing;
                     cursor: -webkit-grabbing;
                     cursor: -moz-grabbing;
-                }
-            }
-            .criterion-ratings {
-                .rating-item {
-                    sakai-rubric-criterion-rating-edit {
-                        visibility: hidden;
-                    }
-
-                    &:hover sakai-rubric-criterion-rating-edit, &.active sakai-rubric-criterion-rating-edit {
-                        visibility: visible;
-                    }
                 }
             }
 
