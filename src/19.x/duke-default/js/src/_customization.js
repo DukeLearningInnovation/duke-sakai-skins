@@ -245,4 +245,24 @@
         }
     });
 
+    /////////////////////////////////////////////////
+    // Make all MOTD cards the same height
+    ////////////////////////////////////////////////
+    const setMOTDHeights = window.setTimeout(function(){
+        let toolBodyMOTD = document.getElementsByClassName('Mrphs-toolBody--sakai-motd')[0].getElementsByTagName('iframe')[0].contentWindow;
+        let motdCards = toolBodyMOTD.document.getElementsByClassName('textPanel');
+
+        let motdArr = [].slice.call(motdCards);
+        let tallestMOTD = Math.max.apply(Math, motdArr.map(function(card){return card.clientHeight}));
+
+        for (let i = 0; i < motdArr.length; i++) {
+            motdCards[i].style.height = `${tallestMOTD}px`;
+            motdCards[i].getElementsByTagName('a')[0].style.cssText = 'bottom: 16px';
+        }
+
+    },1000);
+    
+
+
 }) ($PBJQ);
+
