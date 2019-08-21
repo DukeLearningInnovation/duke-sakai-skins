@@ -471,9 +471,29 @@ body.#{$namespace}toolMenu-collapsed {
         height:auto;
         line-height:inherit;
     }
+    .hierarchyWrap {
+        display:flex;
+        
+            .#{$namespace}hierarchy--separator,
+            .crumb-link,
+            .lessons-siteHierarchy-title {
+                
+                font-weight: 400;
+                margin:0;
+                padding:calc(#{$standard-spacing}/2);
+            }
+            .crumb-link {
+                color:$primary-color;
+                text-transform: uppercase;
+                font-weight: 500;
+            }
+            
+
+    }
     a.#{$namespace}hierarchy--toolName {
-        font-weight: 400;
-        text-transform: none;
+        font-weight: 500;
+        // text-transform: none;
+        font-size: 1em;
         border: 1px solid $body-background-color;
         padding: calc(#{$standard-spacing} / 4); 
         padding-left:0;
@@ -916,9 +936,16 @@ body.sakai-test-duke-edu {
 ////////////////////////////////////////////
 // Lessons styles
 ////////////////////////////////////////
+
 .#{$namespace}sakai-lessonbuildertool {
-    #content .#{$namespace}pageColumns &{
-        padding:0;
+    
+    #content {
+        .#{$namespace}pageColumns &{
+            padding:0;
+            .#{$namespace}toolTitleNav__button_container {
+                margin-top:-100px;
+            }
+        }
     }
     .mainList div:hover.canEdit {
         background:$body-background-color;
@@ -933,6 +960,24 @@ body.sakai-test-duke-edu {
             border-bottom:none;
 
         }
+    }
+    .navIntraTool {
+        height:calc(#{$standard-spacing}*2);
+        margin-bottom:$standard-spacing;
+        border-bottom:1px solid $limestone;
+        ~ div.itemclass {
+        //    margin-top:calc(#{$standard-spacing}*3);
+        }
+    }
+    .portletBody {
+        margin-top:0;
+    }
+    .returnheader a.ui-button:link{
+        border:none;
+        text-decoration: none;
+        color:$primary-color;
+        font-weight: 500;
+        font-size: 1.25em;
     }
     .column {
         border-color:transparent;
@@ -1034,9 +1079,14 @@ body.sakai-test-duke-edu {
             }
         }
     }
-    .action .button:last-of-type,
-    .bottomButtons .button:last-of-type {
-        @include sakai_primary_button();
+    .action.topaction,
+    .bottomButtons {
+        margin-top:calc(-#{$standard-spacing}/2);
+        .button{
+            &:last-of-type{
+                @include sakai_primary_button();
+            }
+        }
     }
     .sectionCollapsedIcon {
         display:none !important; //JS somewhere applying inline display styles...
@@ -1054,7 +1104,7 @@ body.sakai-test-duke-edu {
         }
     }
     .subpage-breadcrumb-div {
-        margin:-114px 0 calc(114px - #{$standard-spacing} - 21px - #{$standard-spacing});
+        margin:-126px 0 calc(126px - #{$standard-spacing} - 21px - #{$standard-spacing});
         padding: calc(#{$standard-spacing}) 0;
         background:$white;
         position: relative;

@@ -139,7 +139,9 @@ button.btn-primary, .act .active, .button_color,
 input[type="submit"].question-submit:not(.showPollGraph), .linkCell .addStudentContent,
 input[type="submit"].setStudentZero,
 .#{$namespace}sakai-lessonbuildertool a.ui-button:link,
-form.takeAttendanceNowForm input, button#settingsSave {
+form.takeAttendanceNowForm input, button#settingsSave,
+.#{$namespace}sakai-samigo .dataTables_wrapper .dataTables_paginate span .btn-primary.paginate_button,
+.#{$namespace}sakai-samigo .btn-primary#authorIndexForm\:remove-selected {
     @include sakai_primary_button();
     margin-right: $standard-spacing;
 }
