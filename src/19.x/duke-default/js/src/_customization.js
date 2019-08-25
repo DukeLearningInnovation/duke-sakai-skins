@@ -33,6 +33,48 @@
         ga('send', gaEventData);
     });
 
+    // click event to lessons print view
+    $("#print-view").on("click", function(e) {
+        var label=$(this)[0].search;
+
+        var gaEventData = {
+            'hitType': 'event',
+            'eventCategory': 'toolTitleNav',
+            'eventAction': 'lessionsPrintView',
+            'eventLabel': document.title + " : " + label.substring(6, label.length)
+            };
+
+        ga('send', gaEventData);
+    });
+
+    // click event to lessons print all
+    $("#print-all").on("click", function(e) {
+        var label=$(this)[0].search;
+
+        var gaEventData = {
+            'hitType': 'event',
+            'eventCategory': 'toolTitleNav',
+            'eventAction': 'lessionsPrintAll',
+            'eventLabel': document.title + " : " + label.substring(6, label.length)
+            };
+
+        ga('send', gaEventData);
+    });
+
+    // click event to lessons Index of Pages
+    $("#show-pages").on("click", function(e) {
+        var label=$(this)[0].search;
+
+        var gaEventData = {
+            'hitType': 'event',
+            'eventCategory': 'toolTitleNav',
+            'eventAction': 'lessionsIndexOfPages',
+            'eventLabel': document.title + " : " + label.substring(6, label.length)
+            };
+
+        ga('send', gaEventData);
+    });
+
     // click event to show tool dropdown in favorite sites
     $(".Mrphs-sitesNav__dropdown").on("click", function(e) {
         var label=$(this).siblings('a.link-container')[0].title;
@@ -263,5 +305,12 @@
         },1000);
     }
 
+    ///////////////////////////////////////////////////
+    // Adjust lessons subpage breadcrumbs positioning
+    ///////////////////////////////////////////////////
+    if (document.getElementsByClassName('Mrphs-sakai-lessonbuildertool')[0]){
+        let toolNameWidth = document.getElementsByClassName('Mrphs-hierarchy-item Mrphs-hierarchy--toolName')[0].clientWidth;
+        document.getElementById('subpage-breadcrumb-div').style.cssText = `margin-left: ${toolNameWidth}px`;
+    }
 }) ($PBJQ);
 
