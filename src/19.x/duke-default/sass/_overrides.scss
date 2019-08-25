@@ -487,9 +487,10 @@ body.#{$namespace}toolMenu-collapsed {
                 text-transform: uppercase;
                 font-weight: 500;
             }
-            
+
 
     }
+    
     a.#{$namespace}hierarchy--toolName {
         font-weight: 500;
         // text-transform: none;
@@ -498,24 +499,35 @@ body.#{$namespace}toolMenu-collapsed {
         padding: calc(#{$standard-spacing} / 4); 
         padding-left:0;
         border-radius: $button-radius;
+        max-width: 75%;
+        @media #{$tablet}{
+            max-width: 40%;
+        }
         &:hover, &:active, &:focus {
             background:$primary-color-light;
             text-decoration: none;
-            
             .#{$namespace}breadcrumb--toolNameText {
                 text-decoration: none;
-                &:hover, &:active, &:focus {
-                    text-decoration: none;
-                }
             }
         }
-    }
-    @media #{$phone} {
-        border:none;
-        padding: $standard-spacing;
-    }
-    .manage-overview-link {
-        margin-top:0;
+        .#{$namespace}breadcrumb--toolNameText {
+            text-decoration: none;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            &:hover, &:active, &:focus {
+                text-decoration: none;
+            }
+            
+        }
+        
+        @media #{$phone} {
+            border:none;
+            padding: $standard-spacing;
+        }
+        .manage-overview-link {
+            margin-top:0;
+        }
     }
 }
 /////////////////////////////////////////
@@ -635,8 +647,9 @@ body.#{$namespace}toolMenu-collapsed {
     .#{$namespace}pageColumns {
         &.#{$namespace}pageColumns--single {
             .#{$namespace}toolTitleNav__button_container {
-                margin-top:-110px;
-                // margin-bottom:calc(72px + 36px);
+                margin-top:-78px;
+                height:calc(#{$standard-spacing}*3);
+                background:$white;
                 @media #{$phone}{
                     margin:0 $standard-spacing 0 0;
                 }
@@ -939,14 +952,16 @@ body.sakai-test-duke-edu {
 
 .#{$namespace}sakai-lessonbuildertool {
     
-    #content {
-        .#{$namespace}pageColumns &{
-            padding:0;
-            .#{$namespace}toolTitleNav__button_container {
-                margin-top:-100px;
-            }
+    @media #{$nonPhone}{
+        .Mrphs-toolTitleNav .Mrphs-toolTitleNav__link .Mrphs-itemTitle {
+            display: none;
         }
     }
+    
+    #lessonReset  {
+        display: none;
+    }
+    
     .mainList div:hover.canEdit {
         background:$body-background-color;
         box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
@@ -1104,7 +1119,7 @@ body.sakai-test-duke-edu {
         }
     }
     .subpage-breadcrumb-div {
-        margin:-126px 0 calc(126px - #{$standard-spacing} - 21px - #{$standard-spacing});
+        margin:-130px 0 calc(130px - #{$standard-spacing} - 21px - #{$standard-spacing});
         padding: calc(#{$standard-spacing}) 0;
         background:$white;
         position: relative;
