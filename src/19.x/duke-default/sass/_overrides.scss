@@ -1342,6 +1342,55 @@ body.sakai-test-duke-edu {
 	@include sakai_primary_button();
 	margin-left: $standard-spacing;
 }
+
+/////////////////////////////////////////
+// Samigo Tests & Quizzes styles
+/////////////////////////////////////////
+.#{$namespace}sakai-samigo{
+    #jqueryui-accordion .ui-accordion-content {
+        background:none;
+    }
+    .hasDatepicker {
+        // padding-left:calc(#{$standard-spacing}*1.5);
+        text-align: right;
+        &:hover {
+            cursor: pointer;
+        }
+        &:active, &:focus {
+            cursor: text;
+        }
+    }
+    .late-handling,
+    .feedback-delivery {
+        li {
+            position: relative;
+            &:last-child {
+                display: inline-block;
+            }
+        }
+        .ui-datepicker-trigger {
+            left: auto;
+            right:calc(200px -  #{$standard-spacing} );
+        }
+    }
+    .ui-datepicker-trigger {
+        margin:0;
+        border: none;
+        position: absolute;
+        left: calc(#{$standard-spacing}/2);
+        top:-6px;
+        
+        &:hover, &:active, &:focus {
+            background: none;
+            border:none;
+            box-shadow: none;
+        }
+        span.fa {
+            color:$button-tertiary-text-color;
+        }
+    }
+}
+
 ////////////////////////////////////////////
 // Footer styles
 ////////////////////////////////////////
