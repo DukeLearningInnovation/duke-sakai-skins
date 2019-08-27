@@ -896,6 +896,42 @@ body.workspace .#{$namespace}multipleTools{
         }
     }
 }
+///////////////////////////
+// VIEW SITE AS
+/////////////////////////// 
+
+.#{$namespace}portalWrapper{
+    .#{$namespace}topHeader {
+        .#{$namespace}loginNav {
+            #roleSwitch {
+                border:none;
+                margin:0;
+                padding:0;
+            }
+        }
+    }
+    &.swapped-view{
+        .#{$namespace}topHeader,
+        .#{$namespace}headerLogo{
+            background: $swapped-view-primary;
+        }
+        .#{$namespace}topHeader {
+            .#{$namespace}loginNav {
+                #roleSwitch {
+                    #roleSwitchAnchor {
+                        @include sakai_primary_button();
+                        &:hover span,
+                        &:focus span,
+                        &:active span{
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 
 /////////////////////
 // BECOME USER
