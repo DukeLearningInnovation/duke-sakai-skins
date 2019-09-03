@@ -68,12 +68,12 @@ $alto: #dcdcdc;
 $background-color:$white;
 $background-color-secondary: $white;
 
-$primary-color: $copper;
-/*DUKE*/$primary-color-light: lighten($primary-color, 40%);
+$primary-color: $bay;
+/*DUKE*/$primary-color-light: #cce7fe;
 $primary-color-highContrast: darken( $primary-color, 4% ) !default;	// for use of primary on non-white light backgrounds, such as greys
 $primary-color-shadow:			 adjust-hue( $primary-color, 5 ) !default;	// To give primary a darker shadow
-$secondary-color:  			 darken($primary-color, 25%);
-$alt-colour: $copper;
+$secondary-color:  			 $royal;
+$alt-colour: $persimmon;
 
 $text-color: $castiron;
 $text-color-disabled: $graphite;
