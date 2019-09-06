@@ -343,9 +343,6 @@ pre {
                         button:active {
                                 box-shadow: none;
                             }
-                        button:active{
-            
-                        }
                         button.js-toggle-nav {
                             width:52px;
                             height:52px;
@@ -1298,34 +1295,33 @@ body.sakai-test-duke-edu {
     }
     #msgForum {
         //breadcrumbs on forum, conversation, and thread pages
-        div.specialLink,
-        .navPanel {
+        .specialLink div.specialLink {
             margin:-114px 0 calc(114px - 48px);
             padding: 0;
             background:$white;
             position: relative;
             display: flex;
-            
+            max-width: calc(100% - 172px - #{$standard-spacing});
+
             @media #{$phone}{
                 margin:0;
             }
-            h1 {
+            h1,h2,h3,h4,h5,h6 {
                 margin:0;
-                padding: $standard-spacing 0;
+                padding:0;
             }
         }
         .itemNav {
-            
-            top:-86px;
-            right:170px;
+            right:-16px;
+            margin:0;
             
             @media #{$tablet}{
-                top:-86px;
-                right:98px;
+                // top:-86px;
+                // right:98px;
             }
             
             .button {
-                padding:.6em;
+                padding:calc(#{$standard-spacing}/2);
                 &.formButtonDisabled{
                     color: $button-disabled-text-color;
 			        background: $button-disabled-background;
