@@ -1,4 +1,4 @@
-SERVER_V='ae'
+SERVER_V='ah'
 # this exists for when Longsight changes the version on their deployment
 case $2 in
     dukedev.longsight.com)
@@ -9,7 +9,7 @@ case $2 in
         ;;
     sakai.duke.edu)
         SVR_SKIN=$(expr $1 : ".*\(duke-[a-zA-Z]*\).*")
-        SERVER_V='ag'
+        SERVER_V='ah'
         ;;
     *)
         SVR_SKIN='morpheus-default'
@@ -20,7 +20,7 @@ if ! [ $SVR_SKIN ]; then
     SVR_SKIN=$SKIN
 fi
 
-printf "Copying skin from dist/$1 to dev/$2/$SVR_SKIN for browser development\n"
+printf "Copying skin from $HOSTNAME dist/$1 to dev/$2/$SVR_SKIN for browser development\n"
 
 rm -rf dev/$2/library/skin/$SVR_SKIN
 mkdir -p dev/$2/library/skin/$SVR_SKIN
