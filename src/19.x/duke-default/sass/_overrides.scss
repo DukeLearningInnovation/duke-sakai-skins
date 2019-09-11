@@ -1302,23 +1302,123 @@ body.sakai-test-duke-edu {
         background:none;
     }
     #msgForum {
-        //breadcrumbs on forum, conversation, and thread pages
-        .specialLink div.specialLink {
-            margin:-114px 0 calc(114px - 48px);
+        &[action$="dfForumDetail"] h3.specialLink,
+        &[action$="dfAllMessages"] table.specialLink div.specialLink,
+        &[action$="dfViewThread"] table.specialLink div.specialLink,
+        &[action$="dfViewMessage"] .navPanel h3 {
             padding: 0;
             background:$white;
-            position: relative;
-            display: flex;
             max-width: calc(100% - 172px - #{$standard-spacing});
-
-            @media #{$phone}{
-                margin:0;
-            }
-            h1,h2,h3,h4,h5,h6 {
+            max-height: 42px;
+            overflow: hidden;
+            position:relative;
+            line-height: 1.2em;
+            h1,h2,h3,h4,h5,h6,a {
                 margin:0;
                 padding:0;
+                line-height: 1.2em;
+            }
+            a{
+                display: inline-block;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                max-width:34%;
+                white-space:nowrap;
+                line-height: 1.2em;
+                vertical-align: text-bottom;
             }
         }
+        &[action$="dfForumDetail"] {
+            h3.specialLink {
+                &::before {
+                    position: absolute;
+                    content: "...";
+                    font-weight: 600;
+                    bottom: 0;
+                    right: 0;
+                  }
+                  &::after {
+                    content: "";
+                    position: absolute;
+                    right: 0;
+                    width: 1rem;
+                    height: 1rem;
+                    background: white;
+                }
+                a {
+                    max-width: 49%;
+                }
+            }
+        }
+        &[action$="dfAllMessages"] {
+            table.specialLink div.specialLink {
+
+                &::before {
+                    position: absolute;
+                    content: "...";
+                    font-weight: 600;
+                    bottom: -2px;
+                    right: 24px;
+                  }
+                  &::after {
+                    content: "";
+                    position: absolute;
+                    right: 0;
+                    width: 1rem;
+                    height: 1rem;
+                    background: white;
+                }
+                h1 {
+                    a {
+                        max-width: 33%;
+                    }
+                }
+            }
+        }
+        &[action$="dfViewThread"] {
+            table.specialLink div.specialLink {
+                max-width:calc(100% - 260px);
+                a {
+                    max-width: 24%;
+                }
+            }
+        }
+        &[action$="dfViewMessage"] {
+            .navPanel h3 {
+                a {
+                    max-width: 19%;
+                }
+            }
+        }
+        // //breadcrumbs on forum, conversation, and thread pages
+        // .specialLink div.specialLink {
+        //     margin:-114px 0 calc(114px - 48px);
+        //     padding: 0;
+        //     background:$white;
+        //     position: relative;
+        //     display: flex;
+        //     max-width: calc(100% - 172px - #{$standard-spacing});
+
+        //     @media #{$phone}{
+        //         margin:0;
+        //     }
+        //     h1,h2,h3,h4,h5,h6
+        //     ,a {
+        //         margin:0;
+        //         padding:0;
+        //         // a,
+        //         //  {
+        //             display: flex;
+        //             align-items: flex-start;
+        //             display: inline-block;
+        //             flex: 1;
+        //             text-overflow: ellipsis;
+        //             overflow: hidden;
+        //             max-width:34%;
+        //             white-space:nowrap;
+        //         // }
+        //     }
+        // }
         .itemNav {
             right:-16px;
             margin:0;
@@ -1348,23 +1448,23 @@ body.sakai-test-duke-edu {
             
         }
         //breadcrumbs on message page
-        .navPanel {
-            margin:-80px -15px calc(80px - 54px);
-            max-width: 70%;
-            h3 {
-                display: flex;
-                align-items: flex-start;
-                display: inline-block;
-                    flex: 1;
-                    text-overflow: ellipsis;
-                    overflow: hidden;
-                    max-width: 100%;
-                    white-space:nowrap;
-                a{
-                    
-                }
-            }
-        }
+        // .navPanel {
+        //     margin:-80px -15px calc(80px - 54px);
+        //     max-width: 70%;
+        //     h3 {
+        //         background: $white;
+        //             a{
+        //             display: flex;
+        //             align-items: flex-start;
+        //             display: inline-block;
+        //             flex: 1;
+        //             text-overflow: ellipsis;
+        //             overflow: hidden;
+        //             max-width: 100%;
+        //             white-space:nowrap;
+        //         }
+        //     }
+        // }
     }
 }
 ////////////////////////////////////////////

@@ -4,7 +4,7 @@
   "description": "`src` contains the source files for the skins. Final edits are placed here and compiled for deployment",
   "main": "index.js",
   "scripts": {
-    "watch": "chokidar \"src/**\" -c \"bin/build.sh {event} {path} sakai.duke.edu\"",
+    "watch": "chokidar \"src/**\" -c \"bin/build.sh {event} {path} sakai-test.duke.edu\"",
     "build": "bash bin/build.sh build",
     "build-all": "bash bin/build-all.sh",
     "autoprefixer": "postcss -u autoprefixer -r",
