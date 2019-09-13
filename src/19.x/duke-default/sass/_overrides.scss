@@ -498,8 +498,6 @@ body.#{$namespace}toolMenu-collapsed {
                 text-transform: uppercase;
                 font-weight: 500;
             }
-
-
     }
     
     a.#{$namespace}hierarchy--toolName {
@@ -510,7 +508,7 @@ body.#{$namespace}toolMenu-collapsed {
         padding: calc(#{$standard-spacing} / 4); 
         padding-left:0;
         border-radius: $button-radius;
-        max-width: 75%;
+        // max-width: calc(100% - 268px);
         @media #{$tablet}{
             max-width: 40%;
         }
@@ -526,6 +524,7 @@ body.#{$namespace}toolMenu-collapsed {
             text-overflow: ellipsis;
             white-space: nowrap;
             overflow: hidden;
+            max-width: 100%;
             &:hover, &:active, &:focus {
                 text-decoration: none;
             }
@@ -1006,7 +1005,7 @@ body.sakai-test-duke-edu {
     }
     
     #lessonReset  {
-        display: none;
+        // display: none;
     }
     
     .mainList div:hover.canEdit {
@@ -1019,7 +1018,7 @@ body.sakai-test-duke-edu {
             margin:0;
         }
         li span a {
-            border-bottom:none;
+            // border-bottom:none;
 
         }
     }
@@ -1030,6 +1029,9 @@ body.sakai-test-duke-edu {
         ~ div.itemclass {
         //    margin-top:calc(#{$standard-spacing}*3);
         }
+    }
+    .instruction.error-spacingabove.error-nospacebelow {
+        margin:#{$standard-spacing} 0 0;
     }
     .portletBody {
         margin-top:0;
@@ -1166,12 +1168,13 @@ body.sakai-test-duke-edu {
         }
     }
     .subpage-breadcrumb-div {
-        margin:-130px 0 calc(130px - #{$standard-spacing} - 21px - #{$standard-spacing});
-        padding: calc(#{$standard-spacing}) 0;
-        background:$white;
-        position: relative;
-        display: flex;
-        max-width: calc(100% - 586px - #{$standard-spacing}); //account for the width of toolTitleNav
+        margin:0;
+        // margin:-130px 0 calc(130px - #{$standard-spacing} - 21px - #{$standard-spacing});
+        // padding: calc(#{$standard-spacing}) 0;
+        // background:$white;
+        // position: relative;
+        // display: flex;
+        // max-width: calc(100% - 586px - #{$standard-spacing}); //account for the width of toolTitleNav
     }
     .startupHelp {
         margin-top:0;

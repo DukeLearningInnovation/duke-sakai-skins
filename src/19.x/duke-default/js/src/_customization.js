@@ -306,12 +306,28 @@
     }
 
     ///////////////////////////////////////////////////
-    // Adjust lessons subpage breadcrumbs positioning
+    // Removed for #150 Adjust lessons subpage breadcrumbs positioning
     ///////////////////////////////////////////////////
-    if (document.getElementsByClassName('Mrphs-sakai-lessonbuildertool')[0]){
-        let toolNameWidth = document.getElementsByClassName('Mrphs-hierarchy-item Mrphs-hierarchy--toolName')[0].clientWidth;
-        document.getElementById('subpage-breadcrumb-div').style.cssText = `margin-left: ${toolNameWidth}px`;
-    }
+    // if (document.getElementsByClassName('Mrphs-sakai-lessonbuildertool')[0]){
+    //     let toolNameWidth = document.getElementsByClassName('Mrphs-hierarchy-item Mrphs-hierarchy--toolName')[0].clientWidth;
+        
+
+    //     //get all children of portletbody preceeding #subpage-breadcrumb-div
+    //     let portletBodyChildren = Array.from(document.getElementsByClassName('portletBody')[0].children);
+        
+    //     let subpageBreadcrumbIndex = portletBodyChildren.findIndex(function(i){
+    //         return i.className === 'subpage-breadcrumb-div';
+    //     });
+        
+    //     //add up all their heights
+    //     let subpageBreadcrumbMargin = 99;
+    //     for (let i = 0; i < subpageBreadcrumbIndex; i++) {
+    //         subpageBreadcrumbMargin += portletBodyChildren[i].clientHeight;
+    //     }
+    //     //set new #subpage-breadcrumb-div margin
+    //     //margin:-130px 0 calc(130px - #{$standard-spacing} - 21px - #{$standard-spacing});
+    //     document.getElementById('subpage-breadcrumb-div').style.cssText = `margin:-${subpageBreadcrumbMargin}px 0 calc(${subpageBreadcrumbMargin}px - 53px) ${toolNameWidth}px`;
+    // }
 
     ///////////////////////////////////////////////////
     // Adjust forums nex/prev topic positioning

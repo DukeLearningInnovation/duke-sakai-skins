@@ -12,8 +12,8 @@ if [ $1 == "19.x/duke-default" ]; then
     terser src/$MORPHEUS/js/src/*.js src/$1/js/src/*.js  \
            -o dist/$1/js/morpheus.scripts.min.js \
            --verbose --warn \
-        #    --compress --mangle --beautify \
-        # max_line_len=650,beautify=false
+           --compress --mangle --beautify \
+        max_line_len=650,beautify=false
 else
     terser src/$MORPHEUS/js/src/*.js src/19.x/duke-default/js/src/*.js src/$1/js/src/*.js  \
         -o dist/$1/js/morpheus.scripts.min.js \
