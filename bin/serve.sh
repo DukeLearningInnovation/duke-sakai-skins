@@ -6,6 +6,7 @@ case $2 in
         ;;
     sakai-test.duke.edu)
         SVR_SKIN=$(expr $1 : ".*\(duke-[a-zA-Z]*\).*")
+        SERVER_V='ae'
         ;;
     sakai.duke.edu)
         SVR_SKIN=$(expr $1 : ".*\(duke-[a-zA-Z]*\).*")

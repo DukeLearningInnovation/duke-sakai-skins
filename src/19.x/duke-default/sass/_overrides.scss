@@ -1302,23 +1302,185 @@ body.sakai-test-duke-edu {
         background:none;
     }
     #msgForum {
-        //breadcrumbs on forum, conversation, and thread pages
-        .specialLink div.specialLink {
-            margin:-114px 0 calc(114px - 48px);
+    @media #{$desktop}{
+        &[action$="dfForumDetail"] h3.specialLink,
+        &[action$="dfAllMessages"] > table:first-of-type,
+        &[action$="dfViewThread"] table.specialLink div.specialLink,
+        &[action$="dfViewMessage"] .navPanel {
             padding: 0;
             background:$white;
-            position: relative;
-            display: flex;
             max-width: calc(100% - 172px - #{$standard-spacing});
-
-            @media #{$phone}{
-                margin:0;
-            }
-            h1,h2,h3,h4,h5,h6 {
+            max-height: 42px;
+            overflow: hidden;
+            position:relative;
+            line-height: 1.5em;
+            line-height: 1.5em;
+            font-size: 1em;
+            font-weight: 400;
+            h1,h2,h3,h4,h5,h6,a {
                 margin:0;
                 padding:0;
+                line-height: 1.5em;
+                font-size: 1em;
+                font-weight: 400;
+            }
+            a{
+                display: inline-block;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                max-width:34%;
+                white-space:nowrap;
+                line-height: 1.5em;
+                vertical-align: bottom;
             }
         }
+        &[action$="dfForumDetail"] {
+            .forumHeader.specialLink {
+                margin-top:48px;
+            }
+            h3.specialLink {
+                margin:-74px 0 0;
+                &::before {
+                    position: absolute;
+                    content: "";
+                    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 50%);
+                    bottom: 0;
+                    right: 0;
+                    width:2em;
+                    height:1.5em;
+                  }
+                  &::after {
+                    content: "";
+                    position: absolute;
+                    right: 0;
+                    width: 1rem;
+                    height: 1rem;
+                    background: white;
+                }
+                a {
+                    max-width: 49%;
+                }
+            }
+        }
+        &[action$="dfAllMessages"] > table:first-of-type {
+            display: block;
+            height: 42px;
+            position: relative;
+            z-index: 1;
+            margin:-108px 0 68px;
+            tbody, tr, td {
+                display: block;
+                height:42px;
+                width: 100%;
+            }
+            .specialLink {
+                width: 100%;
+                max-width: 100%;
+            }
+            h1 {
+                margin:0; 
+                width:100%;
+                &::before {
+                    position: absolute;
+                    content: "";
+                    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 50%);
+                    bottom: 0;
+                    right: 0;
+                    width:2em;
+                    height:1.5em;
+                    }
+                    &::after {
+                    content: "";
+                    position: absolute;
+                    right: 0;
+                    width: 1rem;
+                    height: 1rem;
+                    background: white;
+                }
+                a {
+                    max-width: 33%;
+                    &:last-of-type {
+                        position: absolute;
+                        right: 0;
+                        bottom: -6px;
+                        margin: 0;
+                    }
+                }
+            }
+        }
+        &[action$="dfViewThread"] > table:first-of-type {
+            display: block;
+            height: 42px;
+            position: relative;
+            z-index: 1;
+            margin:-108px 0 68px;
+            tbody, tr, td {
+                display: block;
+                height:42px;
+                width: 100%;
+            }
+            .specialLink {
+                width: 100%;
+                max-width: 100%;
+            }
+            h3 {
+                margin:0; 
+                width:100%;
+                &::before {
+                    position: absolute;
+                    content: "";
+                    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 50%);
+                    bottom: 0;
+                    right: 0;
+                    width:2em;
+                    height:1.5em;
+                    }
+                    &::after {
+                    content: "";
+                    position: absolute;
+                    right: 0;
+                    width: 1rem;
+                    height: 1rem;
+                    background: white;
+                }
+                a {
+                    max-width: 24%;
+                    
+                }
+            }
+            .itemNav {
+                bottom:-4em;
+            }
+        }
+        &[action$="dfViewMessage"] {
+            .navPanel {
+                margin:-72px 0 32px;
+                h3 {
+                    &::before {
+                        position: absolute;
+                        content: "";
+                        background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 50%);
+                        bottom: 0;
+                        right: 0;
+                        width:2em;
+                        height:1.5em;
+                        }
+                        &::after {
+                        content: "";
+                        position: absolute;
+                        right: 0;
+                        width: 1rem;
+                        height: 1rem;
+                        background: white;
+                    }
+                    a {
+                        max-width: 48%;
+                    }
+                }
+            }
+        }
+    }
+
         .itemNav {
             right:-16px;
             margin:0;
@@ -1347,24 +1509,7 @@ body.sakai-test-duke-edu {
             }
             
         }
-        //breadcrumbs on message page
-        .navPanel {
-            margin:-80px -15px calc(80px - 54px);
-            max-width: 70%;
-            h3 {
-                display: flex;
-                align-items: flex-start;
-                display: inline-block;
-                    flex: 1;
-                    text-overflow: ellipsis;
-                    overflow: hidden;
-                    max-width: 100%;
-                    white-space:nowrap;
-                a{
-                    
-                }
-            }
-        }
+
     }
 }
 ////////////////////////////////////////////

@@ -316,24 +316,14 @@
     ///////////////////////////////////////////////////
     // Adjust forums nex/prev topic positioning
     ///////////////////////////////////////////////////
-    if (document.querySelector('#msgForum .topicBloc .title')) {
+    if ((document.querySelector('#msgForum .itemNav .button[title=" < Previous Topic"]') ||
+        document.querySelector('#msgForum .itemNav .button[title=" Next Topic >"]') ) &&
+        document.getElementsByClassName('topicBloc topicBlocLone specialLink') && 
+        window.innerWidth > 1030) {
         let forumDescHeight = 16 + 33 + document.getElementsByClassName('topicBloc topicBlocLone specialLink')[0].clientHeight;
         let topicNav = document.querySelector('#msgForum .itemNav');
         topicNav.style.cssText = `top:${forumDescHeight}px`;
     }
-    ///////////////////////////////////////////////////
-    // Adjust forums breadcrumbs positioning
-    ///////////////////////////////////////////////////
-    if (document.getElementById('msgForum')) {
-        let forumBreadcrumb = document.querySelector('.Mrphs-sakai-forums #msgForum .specialLink div.specialLink');
-        if (forumBreadcrumb.clientHeight < 30) {
-            forumBreadcrumb.style.cssText = `margin:-98px 0 calc(98px - ${forumBreadcrumb.clientHeight}px)`;
-        } else if (forumBreadcrumb.clientHeight < 40) {
-            forumBreadcrumb.style.cssText = `margin:-106px 0 calc(106px - ${forumBreadcrumb.clientHeight}px)`;
-        } else if (forumBreadcrumb.clientHeight > 40) {
-            forumBreadcrumb.style.cssText = `margin-bottom:calc(114px - ${forumBreadcrumb.clientHeight}px)`;
-        }
-        
-    }
+
 }) ($PBJQ);
 
