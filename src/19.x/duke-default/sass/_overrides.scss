@@ -1273,7 +1273,7 @@ body.sakai-test-duke-edu {
         background:$body-background-color;
     }
     .gradeTableOuterWrapper {
-        overflow:hidden;
+        // overflow:scroll;
     }
     #gradeTableWrapper {
         background:$body-background-color;
