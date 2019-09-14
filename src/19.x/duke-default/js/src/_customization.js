@@ -341,5 +341,15 @@
         topicNav.style.cssText = `top:${forumDescHeight}px`;
     }
 
+    ///////////////////////////////////////////////////
+    // #157 Inject skin modified date into footer
+    ///////////////////////////////////////////////////
+    if ( document.getElementById('footer-links') !== 'null'){
+        //the build.sh script updates this on compile
+        let buildTime='2019-09-13T16:49:20.005Z';
+
+        let buildTimeHtml = `<dt>Skin Version:</dt><dd>${buildTime}</dd>`
+        document.querySelector('#Mrphs-footer--details__panel dl').insertAdjacentHTML('beforeend',buildTimeHtml);
+    }
 }) ($PBJQ);
 
