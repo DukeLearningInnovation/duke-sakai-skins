@@ -7,8 +7,15 @@
 pre {
     background:none;
 }
+.printTable pre {
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    background: none;
+}
 @media print {
-	pre {
+    pre,
+    .printTable pre {
 		overflow-x: auto;
 		white-space: pre-wrap;
 		word-wrap: break-word;
