@@ -7,8 +7,15 @@
 pre {
     background:none;
 }
+.printTable pre {
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    background: none;
+}
 @media print {
-	pre {
+    pre,
+    .printTable pre {
 		overflow-x: auto;
 		white-space: pre-wrap;
 		word-wrap: break-word;
@@ -1290,7 +1297,7 @@ body.sakai-test-duke-edu {
 .gb-create-or-save {
     margin-right:0;
 }
-////////////////////////////////////////////
+///////////////////////////////////////////
 // Forums styles
 ////////////////////////////////////////
 .#{$namespace}sakai-forums {
@@ -1313,7 +1320,7 @@ body.sakai-test-duke-edu {
             padding: 0;
             background:$white;
             max-width: calc(100% - 172px - #{$standard-spacing});
-            max-height: 42px;
+            height: 42px;           
             overflow: hidden;
             position:relative;
             line-height: 1.5em;
@@ -1548,29 +1555,16 @@ body.sakai-test-duke-edu {
             cursor: text;
         }
     }
-    .late-handling,
-    .feedback-delivery {
-        li {
-            position: relative;
-            &:last-child {
-                display: inline-block;
-            }
-        }
-        .ui-datepicker-trigger {
-            left: auto;
-            right:calc(200px -  #{$standard-spacing} );
-        }
-    }
     .ui-datepicker-trigger {
-        margin:0;
-        border: none;
-        position: absolute;
-        left: calc(#{$standard-spacing}/2);
-        top:-6px;
+        margin:0 0 0 -1px;
+        border-radius: 0;
+        padding:2px 6px;
+        border-color:rgb(210, 210, 210);
+
         
         &:hover, &:active, &:focus {
             background: none;
-            border:none;
+            border-color:rgb(210, 210, 210);
             box-shadow: none;
         }
         span.fa {
