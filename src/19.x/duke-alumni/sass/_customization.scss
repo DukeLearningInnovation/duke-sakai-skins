@@ -68,7 +68,7 @@ $alto: #dcdcdc;
 $background-color:$white;
 $background-color-secondary: $white;
 
-$primary-color: $piedmont;
+$primary-color: $copper;
 /*DUKE*/$primary-color-light: lighten($primary-color, 45%);
 $primary-color-highContrast: darken( $primary-color, 4% ) !default;	// for use of primary on non-white light backgrounds, such as greys
 $primary-color-shadow:			 adjust-hue( $primary-color, 5 ) !default;	// To give primary a darker shadow
