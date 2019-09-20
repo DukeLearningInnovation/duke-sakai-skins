@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 SAK_V='19.x';
 
+
 build_scss () {
     npm run scss -- $SKIN;
 }
@@ -21,6 +22,7 @@ if [ $1 == "change" ]; then
     DIRECTORY=${2%/*};
     FILEEXTENSION=${2##*.};
     SKIN=$(expr $2 : ".*\($SAK_V/duke-[a-zA-Z]*\).*");
+    
     case $FILEEXTENSION in
         scss)
             build_scss
@@ -50,3 +52,4 @@ elif [ $1 = "build" ]; then
     build_fonts
     npm run autoprefixer -- dist/$SKIN/*.css;
 fi;
+
