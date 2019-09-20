@@ -4,8 +4,7 @@ echo "bin/uglify.sh $1 start"
 
 MORPHEUS='19.x/morpheus-master'
 
-DATE=`date +%Y-%m-%dT%H:%M:%S.005Z`
-
+DATE=`date '+%a, %d %b %Y %H:%M:%S %Z'`
 
 rm -rf dist/$1/js
 mkdir dist/$1/js
@@ -22,9 +21,9 @@ fi
 
 # terser dist/$1/js/morpheus.scripts.js -m -o dist/$1/js/morpheus.scripts.min.js -b max_line_len=650,beautify=false --verbose
 
-# printf "\n/* Compiled on $DATE */\n" >> dist/$1/js/morpheus.scripts.min.js
-FIND="buildTime=\"[0-9TZ.:-]*\";" 
-REPLACE="buildTime=\"$DATE\";"
+FIND="<dd>TIME<\/dd>"  
+REPLACE="<dd>$DATE<\/dd>"
+
 sed -ir "s/${FIND}/${REPLACE}/g" dist/$1/js/morpheus.scripts.min.js
 rm dist/$1/js/morpheus.scripts.min.jsr
 
