@@ -7,8 +7,9 @@ DUKE_DEFAULT='19.x/duke-default'
 DATE=`date +%Y-%m-%d_%H-%M-%S`
 cp src/$MORPHEUS/sass/access.scss src/$1/sass/
 cp src/$MORPHEUS/sass/portal.scss src/$1/sass/
-cp src/$MORPHEUS/sass/print.scss src/$1/sass/
-
+if [ $1 != "19.x/duke-default" ]; then
+    cp src/$DUKE_DEFAULT/sass/print.scss src/$1/sass/
+fi
 node-sass -r src/$1 \
 -o dist/$1 \
 --include-path src/$MORPHEUS/sass/ \
@@ -28,6 +29,6 @@ printf "\n/* Compiled on $DATE */\n" >> dist/$1/tool.css
 
 rm src/$1/sass/access.scss
 rm src/$1/sass/portal.scss
-rm src/$1/sass/print.scss
+# rm src/$1/sass/print.scss
 
 echo "bin/scss.sh $1 done"
