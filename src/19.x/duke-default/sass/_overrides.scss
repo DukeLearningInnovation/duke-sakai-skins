@@ -12,16 +12,7 @@ pre {
     white-space: pre-wrap;
     word-wrap: break-word;
     background: none;
-}
-@media print {
-    pre,
-    .printTable pre {
-		overflow-x: auto;
-		white-space: pre-wrap;
-		word-wrap: break-word;
-		background: none;
-	}
-}
+} 
 
 ///////////////////////////////////
 // mainheader 
@@ -1301,6 +1292,13 @@ body.sakai-test-duke-edu {
 // Forums styles
 ////////////////////////////////////////
 .#{$namespace}sakai-forums {
+    //From SAK-41713
+    .messagesFlat,
+    .messagesThreaded {
+        margin: #{$standard-spacing} 0;
+        table-layout: fixed;
+    	width: 100%;
+    }
     .topicBlocLone {
         border:none;
         background:$tool-background-color;
