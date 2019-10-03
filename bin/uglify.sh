@@ -5,7 +5,7 @@ echo "bin/uglify.sh $1 start"
 MORPHEUS='19.x/morpheus-master'
 
 DATE=`date '+%a, %d %b %Y %H:%M:%S %Z'`
-
+URLDATE=${DATE// /%20}
 rm -rf dist/$1/js
 mkdir dist/$1/js
 
@@ -26,6 +26,11 @@ REPLACE="<dd>$DATE<\/dd>"
 
 sed -ir "s/${FIND}/${REPLACE}/g" dist/$1/js/morpheus.scripts.min.js
 rm dist/$1/js/morpheus.scripts.min.jsr
+
+FIND="built%20on-\(.*\)-blue"
+REPLACE="built%20on-$URLDATE-blue"
+sed -ir "s/${FIND}/${REPLACE}/g" README.md
+rm README.mdr
 
 mkdir dist/$1/js/lib
 cp -R src/$MORPHEUS/js/lib/* dist/$1/js/lib/
