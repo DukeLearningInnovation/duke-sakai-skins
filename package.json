@@ -4,7 +4,7 @@
   "description": "`src` contains the source files for the skins. Final edits are placed here and compiled for deployment",
   "main": "index.js",
   "scripts": {
-    "watch": "chokidar \"src/**\" -c \"bin/build.sh {event} {path} sakai.duke.edu\"",
+    "watch": "chokidar \"src/**\" -c \"bin/build.sh {event} {path}\"",
     "build": "bash bin/build.sh build",
     "build-all": "bash bin/build-all.sh",
     "autoprefixer": "postcss -u autoprefixer -r",
@@ -33,7 +33,7 @@
   "devDependencies": {
     "autoprefixer": "^6.3.6",
     "browser-sync": "^2.26.7",
-    "eslint": ">=4.18.2",
+    "eslint": "^6.6.0",
     "eslint-config-standard": "^5.3.1",
     "eslint-plugin-promise": "^1.3.0",
     "eslint-plugin-standard": "^1.3.2",
@@ -44,21 +44,21 @@
     "lodash": ">=4.17.13",
     "lodash.template": ">=4.5.0",
     "mkdirp": "^0.5.1",
-    "node-sass": "^4.12.0",
-    "nodemon": "^1.19.1",
+    "node-sass": "^4.13.0",
+    "nodemon": "^1.19.4",
     "npm-run-all": "^2.1.1",
-    "onchange": "^6.0.0",
+    "onchange": "^6.1.0",
     "postcss-cli": "^6.1.3",
-    "rimraf": "^2.5.4",
+    "rimraf": "^2.7.1",
     "stylelint": "^10.1.0",
     "stylelint-config-recommended": "^2.2.0",
     "stylelint-config-standard": "^18.3.0",
     "svg-sprite-generator": "0.0.7",
-    "svgo": "^1.3.0",
-    "tar": "^4.4.10"
+    "svgo": "^1.3.2",
+    "tar": "^4.4.13"
   },
   "dependencies": {
-    "chokidar-cli": ">1.2.3",
+    "chokidar-cli": "2.1.0",
     "google-closure-compiler": "^20190729.0.0",
     "terser": "3.14.1",
     "uglify-es": "^3.3.9"

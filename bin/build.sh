@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 SAK_V='19.x';
 
-
 build_scss () {
     npm run scss -- $SKIN;
 }
@@ -40,7 +39,12 @@ if [ $1 == "change" ]; then
         *)
             printf "Unsure what to do with changes to $1\n";
     esac
-    npm run serve $SKIN $3;
+    if ! [ -z "$3" ]; then 
+        npm run serve $SKIN $3; 
+    else 
+        npm run serve $SKIN;
+    fi
+    
 elif [ $1 = "build" ]; then
     SKIN=$2;
     rm -rf dist/$2
