@@ -160,23 +160,32 @@
         ga('send', gaEventData);
     });
 
-    /////////////////////////////////////////////////
-    // Add styles when impersonating another user
-    ////////////////////////////////////////////////
-    if ( $('#loginLink1').find('.Mrphs-login-Message').text().startsWith("Return") ){
-        $('body').addClass('become-user');
-    }
 
-    var currentUrl = new URL(window.location.href);
-    var serverClass = currentUrl.hostname.replace(/\./g, '-');
-    $('body').addClass(serverClass);
+    var addBodyClasses = function(){
+        var bodyClasses = [];
+        /////////////////////////////////////////////////
+        // Add server domain to body as class
+        ////////////////////////////////////////////////
+        var serverClass = new URL(window.location.href).hostname.replace(/\./g, "-");
+        bodyClasses.push(`duke-${serverClass}`);
 
+        /////////////////////////////////////////////////
+        // Add role to body as class
+        ////////////////////////////////////////////////
+        var userSiteRole = `duke-role-${portal.user.siteRole.toLowerCase()}`;
+        bodyClasses.push(userSiteRole);
 
-    /////////////////////////////////////////////////
-    // Add role to body as class
-    ////////////////////////////////////////////////
-    $('body').addClass(portal.user.siteRole.toLowerCase());
+        /////////////////////////////////////////////////
+        // Add become user to body as a class
+        ////////////////////////////////////////////////
+        if ( $('#loginLink1').find('.Mrphs-login-Message').text().startsWith("Return") ){
+            bodyClasses.push('duke-become-user');
+        }
 
+        document.getElementsByTagName("body")[0].classList.add(...bodyClasses);
+
+    }; 
+    addBodyClasses();
 
     /////////////////////////////////////////////////
     // Adjust hamburger menu when system alerts are active
