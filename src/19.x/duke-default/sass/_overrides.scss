@@ -938,7 +938,7 @@ body.workspace .#{$namespace}multipleTools{
 /////////////////////
 // BECOME USER
 ////////////////////
-body.become-user {
+body.duke-become-user {
     .#{$namespace}mainHeader .#{$namespace}headerLogo {
         background: $ironweed;
     }
@@ -946,23 +946,10 @@ body.become-user {
 ////////////////////////////////////////////
 // distinguish different servers visually
 ////////////////////////////////////////
-body.dukedev-longsight-com {
+body.duke-sakai-test-duke-edu {
     .#{$namespace}mainHeader .#{$namespace}headerLogo--institution {
         &:after {
             content: "DEV SERVER";
-            background: $dandelion;
-            padding: 4px;
-            font-weight: 700;
-            color: $castiron;
-            font-size:.8em;
-        }
-        
-    }
-}
-body.sakai-test-duke-edu {
-    .#{$namespace}mainHeader .#{$namespace}headerLogo--institution {
-        &:after {
-            content: "TEST SERVER";
             background: $piedmont;
             padding: 4px;
             font-weight: 700;
