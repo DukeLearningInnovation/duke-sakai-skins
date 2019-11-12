@@ -1,7 +1,7 @@
 # Duke Sakai Skins
 
 [![Build Status](https://travis-ci.org/DukeLearningInnovation/duke-sakai-skins.svg?branch=master)](https://travis-ci.org/DukeLearningInnovation/duke-sakai-skins)  
-![Build Date](https://img.shields.io/badge/built%20on-Tue,%2012%20Nov%202019%2008:54:10%20EST-blue)
+![Build Date](https://img.shields.io/badge/built%20on-Tue,%2012%20Nov%202019%2013:16:33%20EST-blue)
 
 ## Stage 1: Install and setup
 
@@ -152,9 +152,13 @@ This script will compile all of the SCSS files into CSS. It accepts 1 argument
 
 ### package.json:serve and bin/serve.sh
 
-Example use `npm run serve 19.x/{{skin}} dukedev.longsight.com`
+Example use `npm run serve 19.x/{{skin}} sakai.duke.edu`
 
-This script copies the `dist/19.x/{{skin}}` to `dev/dukedev.longsight.com/{{skin}}` and appends the appropriate server version numbers to the files for use with Chrome DevTools.
+This script copies the `dist/19.x/{{skin}}` to `dev/sakai.duke.edu/{{skin}}` and appends the appropriate server version numbers to the files for use with Chrome DevTools.
+
+If you don't declare a server, it will serve to both `sakai.duke.edu` and `sakai-test.duke.edu`
+
+Example use `npm run serve 19.x/{{skin}}`
 
 ### package.json:uglify and bin/uglify.sh
 
