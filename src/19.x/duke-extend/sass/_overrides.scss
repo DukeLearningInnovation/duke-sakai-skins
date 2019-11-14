@@ -1,3 +1,23 @@
+.#{$namespace}mainHeader{
+    .#{$namespace}headerLogo {
+        @media #{$phone}{
+
+        }
+        .#{$namespace}headerLogo--institution {
+            @media #{$phone}{
+                background-size: calc(#{$logo-width}*.75) calc(#{$logo-height}*.75)
+            }
+        }
+    }
+}
+.#{$namespace}siteHierarchy {
+    .#{$namespace}hierarchy--siteName {
+        @media #{$phone}{
+            vertical-align: bottom;
+        }
+    }
+}
+
 //Hide favorite sites
 #topnav_container {
     display: none;

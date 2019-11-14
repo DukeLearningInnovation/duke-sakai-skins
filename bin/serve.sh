@@ -8,7 +8,7 @@ SERVER_V='ah'
 case $2 in
     sakai-test.duke.edu)
         SVR_SKIN=$(expr $1 : ".*\(duke-[a-zA-Z]*\).*")
-        SERVER_V='ae'
+        SERVER_V='af'
         ;;
     sakai.duke.edu)
         SVR_SKIN=$(expr $1 : ".*\(duke-[a-zA-Z]*\).*")
@@ -51,7 +51,7 @@ else
     find dev/sakai.duke.edu/library/skin/$SVR_SKIN -type f -name '*.js' -exec mv {} {}%3fversion=$SERVER_V \;
 
     #set for sakai-test
-    SERVER_V='ae'
+    SERVER_V='af'
     printf "Copying skin from $HOSTNAME dist/$1 to dev/sakai-test.duke.edu/$SVR_SKIN for browser development\n"
 
     rm -rf dev/sakai-test.duke.edu/library/skin/$SVR_SKIN
