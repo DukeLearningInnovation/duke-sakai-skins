@@ -302,6 +302,7 @@
     if (document.title === 'Sakai : Home : Overview') {
         const setMOTDHeights = window.setTimeout(function(){
             let toolBodyMOTD = document.getElementsByClassName('Mrphs-toolBody--sakai-motd')[0].getElementsByTagName('iframe')[0].contentWindow;
+
             let motdCards = toolBodyMOTD.document.getElementsByClassName('textPanel');
 
             let motdArr = [].slice.call(motdCards);
@@ -309,7 +310,10 @@
 
             for (let i = 0; i < motdArr.length; i++) {
                 motdCards[i].style.height = `${tallestMOTD}px`;
-                motdCards[i].getElementsByTagName('a')[0].style.cssText = 'bottom: 16px';
+                if (typeof motdCards[i].getElementsByTagName('a')[0] !== 'undefined'){
+                    motdCards[i].getElementsByTagName('a')[0].style.cssText = 'bottom: 16px';
+                }
+                
             }
         },1000);
     }

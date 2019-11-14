@@ -624,7 +624,7 @@ body.#{$namespace}toolMenu-collapsed {
                 width:100%;
                 box-shadow: none;
                 padding:0;
-                margin:0 -4px calc(#{$standard-spacing*-4});
+                margin:calc(#{$standard-spacing}/2) -4px calc(#{$standard-spacing*-4});
             }
         }
         
