@@ -36,11 +36,11 @@
         font-weight: 500;
     }
     @media #{$phone}{
-        width:100%;
+        width:50%;
         height:14px;
         line-height: 14px;
         top:35px;
-        left:0;
+        left:25%;
         text-align: center;
         a {
             margin: 0;
