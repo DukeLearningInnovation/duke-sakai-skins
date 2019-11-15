@@ -1,10 +1,1 @@
-{
-	"version": 3,
-	"file": "portal.css",
-	"sourceRoot": "/",
-	"sources": [
-		"../../../../src/19.x/duke-law/sass/portal.scss"
-	],
-	"names": [],
-	"mappings": ""
-}
+{"version":3,"sources":[],"names":[],"mappings":"","file":"portal.css"}
