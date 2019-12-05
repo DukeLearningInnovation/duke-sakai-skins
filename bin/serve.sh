@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-SERVER_V='ah'
+SERVER_V='ai'
 
 
 
@@ -12,7 +12,7 @@ case $2 in
         ;;
     sakai.duke.edu)
         SVR_SKIN=$(expr $1 : ".*\(duke-[a-zA-Z]*\).*")
-        SERVER_V='ah'
+        SERVER_V='ai'
         ;;
     nightly)
         SVR_SKIN='morpheus-default'
@@ -20,7 +20,7 @@ case $2 in
         ;;
     *)
         SVR_SKIN=$(expr $1 : ".*\(duke-[a-zA-Z]*\).*")
-        SERVER_V='ah'
+        SERVER_V='ai'
 esac
 
 if ! [ $SVR_SKIN ]; then
