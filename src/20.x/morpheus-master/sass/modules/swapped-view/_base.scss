@@ -1,0 +1,9 @@
+@if $swapped-view-enabled {
+	.#{$namespace}portalWrapper{
+		&.swapped-view{
+			.#{$namespace}topHeader, .#{$namespace}headerLogo {
+				background: $swapped-view-primary;
+			}
+		}
+	}
+}

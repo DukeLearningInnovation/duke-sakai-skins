@@ -17,7 +17,7 @@ build_fonts () {
     npm run fonts -- $SKIN;
 }
 
-if [ $1 == "change" ]; then
+if [[ $1 == "change" ]] && [[ ! "$2" == *"morpheus"* ]]; then
     DIRECTORY=${2%/*};
     FILEEXTENSION=${2##*.};
     SKIN=$(expr $2 : ".*\($SAK_V/duke-[a-zA-Z]*\).*");
@@ -44,7 +44,33 @@ if [ $1 == "change" ]; then
     else 
         npm run serve $SKIN;
     fi
+elif [[ $1 == "change" ]] && [[ "$2" == *"morpheus"* ]]; then
     
+    DIRECTORY=${2%/*};
+    FILEEXTENSION=${2##*.};
+    SAK_V='20.x';
+    SKIN="$SAK_V/morpheus-";
+    
+    case $FILEEXTENSION in
+        scss)
+            build_scss
+            ;;
+        js)
+            build_js
+            ;;
+        png|jpg|jpeg|gif)
+            build_images
+            ;;
+        css|map|sh)
+            # do nothing
+            ;;
+        
+        *)
+            printf "Unsure what to do with changes to $1\n";
+    esac
+    
+    npm run serve $SKIN; 
+
 elif [ $1 = "build" ]; then
     SKIN=$2;
     rm -rf dist/$2
