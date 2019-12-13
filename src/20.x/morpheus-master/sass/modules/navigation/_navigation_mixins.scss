@@ -8,7 +8,9 @@
 	text-align: center;
 	text-decoration: none;
 	color: $sites-nav-menu-item-color;
-
+	@if $favorites-as-material {
+		border-radius: $standard-spacing;
+	}
 	&:hover, &:focus {
 		z-index: 1;		// to avoid missing borders from overlap when hovering
 		border-top: $sites-nav-menu-item-hover-border-top;

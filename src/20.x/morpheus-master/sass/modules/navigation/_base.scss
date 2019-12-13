@@ -791,7 +791,10 @@ body.is-logged-out{
 			position: relative;
 			margin: 0 $standard-spacing $standard-spacing 0;	// space the items apart, and space vertically if wrapped
 			padding: 0;
-
+			@if $favorites-as-material {
+				background: $sites-nav-menu-item-background;
+				border-radius: $standard-spacing;
+			}
 			.link-container{
 				@include display-flex;
 				@include align-items( center );
@@ -913,6 +916,9 @@ body.is-logged-out{
 			
 			// Current site is selected:
 			&.is-selected {
+				@if $favorites-as-material {
+					background: $sites-nav-menu-item-selected-background;
+				}
 				.link-container, .#{$namespace}sitesNav__dropdown, .#{$namespace}sitesNav__favbtn {
 					background: $sites-nav-menu-item-selected-background;
 					border-top: $sites-nav-menu-item-selected-border-top;

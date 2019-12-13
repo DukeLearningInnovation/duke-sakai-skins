@@ -790,7 +790,9 @@ body.is-logged-out{
 			margin: 0 $standard-spacing $standard-spacing 0;	// space the items apart, and space vertically if wrapped
 			padding: 0;
 			position: relative;
-
+			@if $favorites-as-material {
+				background: $sites-nav-menu-item-background;
+			}
 			> a.link-container{
 				@include display-flex;
 				@include align-items( center );

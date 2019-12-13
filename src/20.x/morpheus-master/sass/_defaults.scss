@@ -6,10 +6,11 @@ $namespace : "Mrphs-" !default;
 $skin-name : "morpheus-default" !default; // This is used for bootstrap font behaviour.
 
 /* SAK-42889 */
+$standard-spacing-large: true !default;
+$favorites-as-material: true !default;
+
 $tool-collapse-as-hamburger: false !default;
 $toolmenu-full-height: false !default; //Also requires $tool-collapse-as-hamburger = true.
-$favorites-as-material: false !default;
-$standard-spacing-large: false !default;
 $toolmenu-as-material: false !default;
 $profile-avatar-as-material: false !default;
 $navIntraTool-tabs-as-material: false !default;
@@ -200,31 +201,45 @@ $topNav-text-color:                         #fff !default; 		// used for links a
 $topNav-alt-color:                     		#9c9c9c !default;	// used for topNav spacers
 
 /* Favorites */
+
 $sites-nav-menu-item-border-thickness:		1px !default;
 /* Favorites - item */
 $sites-nav-menu-item-background:            #FFFFFF !default;
+@if $favorites-as-material {
+    $sites-nav-menu-item-background:            #e5e5e5;
+}
 $sites-nav-menu-item-color:                 #4C4C4C !default;
 $sites-nav-menu-item-border-color:          #E5E5E5 !default;
 $sites-nav-menu-item-border-top:            $sites-nav-menu-item-border-thickness solid $sites-nav-menu-item-border-color !default;
 $sites-nav-menu-item-border-right:          $sites-nav-menu-item-border-top !default;
 $sites-nav-menu-item-border-bottom:         $sites-nav-menu-item-border-top !default;
 $sites-nav-menu-item-border-left:           $sites-nav-menu-item-border-top !default;
+
 /* Favorites - item hovered */
 $sites-nav-menu-item-hover-background:      #FFFFFF !default;
 $sites-nav-menu-item-hover-color:           #191919 !default;
 $sites-nav-menu-item-hover-border-color:    #7F7F7F !default;
+@if $favorites-as-material {
+    $sites-nav-menu-item-background:            #e5e5e5;
+    $sites-nav-menu-item-hover-border-color:      #ffffff;
+}
 $sites-nav-menu-item-hover-border-top:      $sites-nav-menu-item-border-thickness solid $sites-nav-menu-item-hover-border-color !default;
 $sites-nav-menu-item-hover-border-right:    $sites-nav-menu-item-hover-border-top !default;
 $sites-nav-menu-item-hover-border-bottom:   $sites-nav-menu-item-hover-border-top !default;
 $sites-nav-menu-item-hover-border-left:     $sites-nav-menu-item-hover-border-top !default;
+
 /* Favorites - item selected */
 $sites-nav-menu-item-selected-background:   $primary-color !default;
 $sites-nav-menu-item-selected-color:        #FFFFFF !default;
 $sites-nav-menu-item-selected-border-color: #326B97 !default;
+@if $favorites-as-material {
+    $sites-nav-menu-item-selected-border-color: $primary-color;
+}
 $sites-nav-menu-item-selected-border-top:   $sites-nav-menu-item-border-thickness solid $sites-nav-menu-item-selected-border-color !default;
 $sites-nav-menu-item-selected-border-right: $sites-nav-menu-item-selected-border-top !default;
 $sites-nav-menu-item-selected-border-bottom:$sites-nav-menu-item-selected-border-top !default;
 $sites-nav-menu-item-selected-border-left:  $sites-nav-menu-item-selected-border-top !default;
+
 /* Favorites - item selected and hovered */
 $sites-nav-menu-item-selected-hover-background:   lighten($sites-nav-menu-item-selected-background, 5%) !default;
 $sites-nav-menu-item-selected-hover-color:        #FFFFFF !default;
@@ -252,6 +267,8 @@ $sites-nav-submenu-item-hover-background:   #ECECEC !default;
 $sites-nav-submenu-item-hover-color:        #191919 !default;
 $sites-nav-submenu-item-hover-icon-color:   #424242 !default;
 $sites-nav-submenu-item-hover-left-border-color: #7F7F7F !default;
+
+
 
 /* All Sites menu */
 $all-sites-background-color:                              #FFFFFF !default;
@@ -390,7 +407,12 @@ $hierarchy-size: 3.5em !default;
 $measure: 960px !default;
 
 /* The standard spacing for items in Sakai */
-$standard-spacing: 10px !default;
+    $standard-spacing: 10px !default;
+    @if $standard-spacing-large {
+        $standard-spacing: 16px;
+    }
+
+
 $standard-space: 4px !default; 		// the width of a keyboard space
 
 $banner-height: 52px !default;
