@@ -7,7 +7,7 @@ $skin-name : "morpheus-default" !default; // This is used for bootstrap font beh
 
 /* SAK-42889 */
 $standard-spacing-large: true !default;
-$favorites-as-material: true !default;
+$favorites-as-material: false !default;
 
 $tool-collapse-as-hamburger: false !default;
 $toolmenu-full-height: false !default; //Also requires $tool-collapse-as-hamburger = true.
@@ -31,6 +31,12 @@ $phone  :       "only screen and (max-width : #{$break-small-end})" !default;
 $tablet :       "only screen and (max-width : #{$break-medium-end})" !default;
 $desktop:       "only screen and (min-width : #{$break-medium-end + 1})" !default;
 $nonPhone:      "only screen and (min-width : #{$break-small-end + 1})" !default;
+
+/* The standard spacing for items in Sakai */
+$standard-spacing: 10px !default;
+@if $standard-spacing-large {
+    $standard-spacing: 16px;
+}
 
 // For the "More Sites" drawer, just use one column if there's not
 // enough room to show two side-by-side.
@@ -110,8 +116,9 @@ $link-active-background-color: transparent !default;
 $link-hover-background-color: transparent !default;
 
 /* General button design */
-$button-radius:                 3px;
-$button-text-transform:         none;
+$button-radius:                 3px !default;
+$button-radius-pill:            $standard-spacing !default;
+$button-text-transform:         none !default;
 
 // Default (non-primary) button design:
 $button-text-color:             #333;
@@ -254,6 +261,9 @@ $sites-nav-submenu-topleft-border-color:    $sites-nav-menu-item-hover-backgroun
 $sites-nav-submenu-border-color:            $sites-nav-menu-item-hover-border-color !default;
 /* Favorites - tool selected submenu */
 $sites-nav-selected-submenu-border-color: $sites-nav-menu-item-selected-hover-border-color !default;
+@if $favorites-as-material {   
+    $sites-nav-selected-submenu-border-color: #fff;
+}
 $sites-nav-selected-submenu-topleft-border-color: $sites-nav-menu-item-selected-hover-background !default;
 /* Favorites - tool submenu items */
 $sites-nav-submenu-item-text-size:          13px !default;
@@ -406,11 +416,7 @@ $hierarchy-size: 3.5em !default;
 /* Golden Ratio width for 16px font http://www.pearsonified.com/typography/ */
 $measure: 960px !default;
 
-/* The standard spacing for items in Sakai */
-    $standard-spacing: 10px !default;
-    @if $standard-spacing-large {
-        $standard-spacing: 16px;
-    }
+
 
 
 $standard-space: 4px !default; 		// the width of a keyboard space

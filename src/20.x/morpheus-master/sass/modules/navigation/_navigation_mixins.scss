@@ -9,7 +9,7 @@
 	text-decoration: none;
 	color: $sites-nav-menu-item-color;
 	@if $favorites-as-material {
-		border-radius: $standard-spacing;
+		border-radius: $button-radius-pill;
 	}
 	&:hover, &:focus {
 		z-index: 1;		// to avoid missing borders from overlap when hovering
