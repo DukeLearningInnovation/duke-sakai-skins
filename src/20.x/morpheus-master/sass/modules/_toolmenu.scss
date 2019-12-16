@@ -51,6 +51,10 @@ body.is-logged-out{
 					.Mrphs-toolsNav__menuitem--link{
 						min-height: 1.7em;
 						text-align: center;
+						@if $toolmenu-as-material {
+							border-radius: 0;
+							margin-right:0;
+						}
 						&:hover, &:focus {
 							position: relative;
 							.#{$namespace}toolsNav__menuitem--title{
@@ -62,11 +66,17 @@ body.is-logged-out{
 								z-index: 100;
 								width: auto;
 								border-radius: 0 5px 5px 0;
+								
 								line-height: 40px;
 								background: $tool-menu-item-hover-background-color;
 								border-top: 1px solid $tool-menu-item-separator-color;
 								border-right: 1px solid $tool-menu-item-separator-color;
 								border-bottom: 1px solid $tool-menu-item-separator-color;
+								@if $toolmenu-as-material {
+									border-radius: 0 $standard-spacing $standard-spacing 0;
+									border-left-color: $tool-menu-item-hover-background-color;
+									left: calc(#{$tool-menu-width-collapsed} - 1px);
+								}
 								padding: 0 10px;
 								margin: 0;
 							}
@@ -180,7 +190,12 @@ body.is-logged-out{
 	min-height: 100vh;											// alternative for browswers who cannot do calculations
 	min-height: calc(100vh - (#{$banner-height} * 2));	// viewport minus the two top banners
 	@include flex-basis( $tool-menu-width );
-	padding: 6px 0 0 0;
+	@if $toolmenu-as-material {
+		padding: calc(#{$standard-spacing} / 2) 0 0 0;
+	} @else {
+		padding: 6px 0 0 0;
+	}
+	
 	text-align: center;
 	border-right: 1px solid $tool-border-color;
 	@include transition( left 0.25s linear 0s );
@@ -401,7 +416,14 @@ nav#subSites{
 				
 				@if $tool-menu-icon-on-left {
 					text-align: left;
-					padding: $standard-spacing;
+					@if $toolmenu-as-material {
+						padding: calc(#{$standard-spacing} / 2) $standard-spacing;
+						border-radius: 0 calc(#{$button-radius-pill} * 1.5) calc(#{$button-radius-pill} * 1.5) 0;
+						margin-right: $standard-spacing;
+					} @else {
+						padding: $standard-spacing;
+					}
+					
 				} @else {
 					text-align: center;
 					padding: 0.5em 0.25em;
@@ -530,7 +552,12 @@ nav#subSites{
 			}
 			&.is-current{
 				position: relative;
-				margin-right: -1px;
+				@if $toolmenu-as-material == false {
+					margin-right: -1px;
+				} @else {
+					
+				}
+				
 
 				.Mrphs-toolsNav__menuitem--link{
 					color: $tool-menu-item-selected-text-color;
@@ -652,7 +679,11 @@ body {
 					padding: 0;		// move the padding from the span to the link below
 					
 					.lessons-expand-collapse-icon {
-						padding: $standard-spacing;
+						@if $toolmenu-as-material {
+							padding: calc(#{$standard-spacing} / 2) $standard-spacing;
+						} @else {
+							padding: $standard-spacing;
+						}
 						padding-right: 0;	// remove space from icon to text
 						text-decoration: none;	// remove underline from linked icon
 
@@ -663,7 +694,11 @@ body {
 
 					.lessons-goto-top-page {
 						@include flex-grow(1);	// to make sure the text takes up the needed space
-						padding: $standard-spacing;
+						@if $toolmenu-as-material {
+							padding: calc(#{$standard-spacing} / 2) $standard-spacing;
+						} @else {
+							padding: $standard-spacing;
+						}
 						padding-left: 0; 	// remove space from text to icon
 						
 						.Mrphs-toolsNav__menuitem--title {
@@ -702,10 +737,27 @@ body {
 			}
 
 			&.expanded {
-				background-color: $tool-menu-item-selected-background-color;
-
+				@if $toolmenu-as-material {
+					background-color:$tool-menu-item-background-color;
+				} @else {
+					background-color: $tool-menu-item-selected-background-color;
+				}
+				&.is-current {
+					> .Mrphs-toolsNav__menuitem--link {
+						@if $toolmenu-as-material {
+							background-color:$tool-menu-item-selected-background-color;
+						} @else {
+							background-color: $tool-menu-item-background-color;
+						}
+					}
+				}
 				&.is-parent-of-current {
 					> .Mrphs-toolsNav__menuitem--link {
+						@if $toolmenu-as-material {
+							background-color:$tool-menu-item-background-color;
+						} @else {
+							background-color: $tool-menu-item-selected-background-color;
+						}
 						.#{$namespace}toolsNav__menuitem--icon {
 							color: $tool-menu-item-icon-color !important;
 						}
@@ -727,10 +779,17 @@ body {
 				}
 
 				> .Mrphs-toolsNav__menuitem--link {
-					background-color: $tool-menu-item-selected-background-color;
-
+					@if $toolmenu-as-material {
+						background-color:$tool-menu-item-background-color;
+					} @else {
+						background-color: $tool-menu-item-selected-background-color;
+					}
 					&:hover {
-						background-color: $tool-menu-item-selected-hover-background-color !important;
+						@if $toolmenu-as-material {
+							background-color:$tool-menu-item-hover-background-color;
+						} @else {
+							background-color: $tool-menu-item-selected-hover-background-color !important;
+						}
 					}
 
 					.#{$namespace}toolsNav__menuitem--icon {
@@ -746,8 +805,9 @@ body {
 			}
 
 			&.sliding-down {
-					background-color: $tool-menu-item-selected-background-color !important;
-
+					@if $toolmenu-as-material == false {
+						background-color: $tool-menu-item-selected-background-color !important;
+					}
 					.Mrphs-toolsNav__menuitem--link {
 							.#{$namespace}toolsNav__menuitem--icon {
 									-webkit-transition-duration: 0.5s;
@@ -764,8 +824,9 @@ body {
 									-webkit-transform: rotate(90deg);
 									transform: rotate(90deg);
 							}
-							background-color: $tool-menu-item-selected-background-color !important;
-
+							@if $toolmenu-as-material == false {
+								background-color: $tool-menu-item-selected-background-color !important;
+							}
 							&:hover {
 									background-color: $tool-menu-item-selected-background-color !important;
 							}
@@ -815,6 +876,9 @@ body {
 						@if $tool-menu-icon-on-left {
 							padding: 3.5px 3.5px 3.5px 40px;
 							text-align: left;
+							@if $toolmenu-as-material {
+								border-radius: 0 $standard-spacing $standard-spacing 0;
+							}
 						}
 						@else {
 							@include justify-content(center);
@@ -889,7 +953,9 @@ body {
 							color: $tool-menu-item-selected-text-color !important;
 							border-left: $tool-menu-item-selected-border-left !important;
 							margin-right: 0;
-
+							@if $toolmenu-as-material {
+								background: $tool-menu-item-selected-background-color;
+							}
 							&:hover {
 								color: $tool-menu-item-selected-hover-text-color !important;
 								border-left: $tool-menu-item-selected-hover-border-left !important;
@@ -951,7 +1017,7 @@ body {
 						}
 					}
 					&.expanded:not(.is-current) .#{$namespace}toolsNav__menuitem--link {
-							background-color: $tool-menu-item-background-color;		// when tool menu is collapsed and Lessons isn't the current tool
+						background-color: $tool-menu-item-background-color;		// when tool menu is collapsed and Lessons isn't the current tool
 					}
 					&.is-parent-of-current, &.expanded.is-parent-of-current {
 						.#{$namespace}toolsNav__menuitem--link {

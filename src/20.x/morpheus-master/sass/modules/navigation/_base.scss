@@ -18,7 +18,12 @@ body.is-logged-out{
 }
 
 .#{$namespace}mainHeader{
-		box-shadow: $divider-shadow;
+		@if $favorites-as-material {
+			border-bottom: 1px solid $tool-border-color;
+		} @else {
+			box-shadow: $divider-shadow;
+		}
+		
 		position: relative;
 
 	.#{$namespace}headerLogo{

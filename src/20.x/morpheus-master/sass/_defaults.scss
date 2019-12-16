@@ -7,17 +7,18 @@ $skin-name : "morpheus-default" !default; // This is used for bootstrap font beh
 
 /* SAK-42889 */
 $standard-spacing-large: true !default;
-$favorites-as-material: false !default;
+$favorites-as-material: true !default;
+$toolmenu-as-material: true !default;
+$portal-as-material: true !default;
 
 $tool-collapse-as-hamburger: false !default;
 $toolmenu-full-height: false !default; //Also requires $tool-collapse-as-hamburger = true.
-$toolmenu-as-material: false !default;
-$profile-avatar-as-material: false !default;
-$navIntraTool-tabs-as-material: false !default;
+$topheader-as-material: false !default;
+$navintratool-tabs-as-material: false !default;
 $cards-as-material: false !default;
 $buttons-as-material: false !default;
 $tertiary-buttons: false !default;
-$toolTitleNav__link-as-tertiary-button: false !default; //Also requires $tertiary-buttons = true;
+$tooltitlenav__link-as-tertiary-button: false !default; //Also requires $tertiary-buttons = true;
 $lessons-remove-borders: false !default;
 $become-user-highlight: false !default;
 $view-site-as-highlight: false !default;
@@ -72,6 +73,9 @@ $text-color:				 #212121 !default;
 $text-color-disabled:		 #767676 !default;
 
 $body-background-color: #FAFAFA !default;
+@if $portal-as-material {
+    $body-background-color: #fff;
+}
 $portal-background-color: $background-color !default;
 $portal-mask-background:  rgba(0,0,0,0.5) !default;
 
@@ -117,7 +121,7 @@ $link-hover-background-color: transparent !default;
 
 /* General button design */
 $button-radius:                 3px !default;
-$button-radius-pill:            $standard-spacing !default;
+$button-radius-pill:            16px !default;
 $button-text-transform:         none !default;
 
 // Default (non-primary) button design:
@@ -343,6 +347,9 @@ $all-sites-close-action-hover-color:                      #4C4C4C !default;
 /* Wide tool menu, icons on left */
 $tool-menu-icon-on-left: true !default;
 $tool-menu-width: 200px !default;
+@if $toolmenu-as-material {
+    $tool-menu-width: 200px + $standard-spacing;
+}
 $tool-menu-width-collapsed: 42px !default;
 $tool-menu-collapseButton-height: $tool-menu-width-collapsed !default;
 
@@ -399,6 +406,16 @@ $tool-menu-collapse-min-hover-background-color:            $tool-menu-collapse-h
 $tool-menu-collapse-min-hover-border-top:                  $tool-menu-collapse-border-top !default;
 $tool-menu-collapse-min-hover-shadow:                      $tool-menu-collapse-shadow !default;
 
+@if $toolmenu-as-material {
+    $tool-menu-item-separator-color: #fff;
+    $tool-menu-item-background-color: #fff;
+    $tool-menu-item-border-left: none;
+    $tool-menu-item-hover-border-left: $tool-menu-item-border-left;
+    $tool-menu-item-selected-background-color: $tool-menu-item-hover-background-color;
+    $tool-menu-item-selected-border-left: $tool-menu-item-border-left;
+    $tool-menu-item-selected-hover-border-left: $tool-menu-item-border-left;
+    $tool-menu-item-selected-hover-background-color: darken($tool-menu-item-selected-background-color, 15%);
+}
 /* Tool sub menu */
 $tool-sub-menu-border-color: darken( $tool-menu-background-color, 10% ) !default;
 $tool-sub-menu-background-color: darken( $tool-menu-background-color, 10% ) !default;
