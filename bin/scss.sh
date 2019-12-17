@@ -17,8 +17,7 @@ if [[ $1 == *"morpheus"* ]]; then
     --include-path src/$1master/font-awesome-sass-4.7.0/assets/stylesheets/ \
     --output-style compressed \
     --output-file "tool.css" \
-    --source-map-root / \
-    --source-map-embed true
+    --source-map false
 
     mv -f tmp/dist/$1default/sass/* dist/$1default/
     rm -rf tmp/

@@ -63,6 +63,7 @@
   "dependencies": {
     "chokidar-cli": "2.1.0",
     "google-closure-compiler": "^20190729.0.0",
+    "node-sass": "^4.13.0",
     "terser": "3.14.1",
     "uglify-es": "^3.3.9"
   }

@@ -1,27 +1,8 @@
 /* Global namespace */
-
 @import "customization"; //it is copied from the user supplied file by maven
 
 $namespace : "Mrphs-" !default;
 $skin-name : "morpheus-default" !default; // This is used for bootstrap font behaviour.
-
-/* SAK-42889 */
-$standard-spacing-large: true !default;
-$favorites-as-material: true !default;
-$toolmenu-as-material: true !default;
-$portal-as-material: true !default;
-
-//for 21.x $tool-collapse-as-hamburger: false !default;
-//for 21.x $toolmenu-full-height: false !default; //Also requires $tool-collapse-as-hamburger = true
-$topheader-as-material: false !default;
-$navintratool-tabs-as-material: false !default;
-$cards-as-material: false !default;
-$buttons-as-material: false !default;
-$tertiary-buttons: false !default;
-$tooltitlenav__link-as-tertiary-button: false !default; //Also requires $tertiary-buttons = true
-$lessons-remove-borders: false !default;
-$become-user-highlight: false !default;
-$view-site-as-highlight: false !default;
 
 $break-tiny-end:	400px;
 $break-small-end: 	800px;
@@ -35,9 +16,7 @@ $nonPhone:      "only screen and (min-width : #{$break-small-end + 1})" !default
 
 /* The standard spacing for items in Sakai */
 $standard-spacing: 10px !default;
-@if $standard-spacing-large {
-    $standard-spacing: 16px;
-}
+$standard-space: 4px !default; 		// the width of a keyboard space
 
 // For the "More Sites" drawer, just use one column if there's not
 // enough room to show two side-by-side.
@@ -73,9 +52,7 @@ $text-color:				 #212121 !default;
 $text-color-disabled:		 #767676 !default;
 
 $body-background-color: #FAFAFA !default;
-@if $portal-as-material {
-    $body-background-color: #fff;
-}
+
 $portal-background-color: $background-color !default;
 $portal-mask-background:  rgba(0,0,0,0.5) !default;
 
@@ -214,11 +191,10 @@ $topNav-alt-color:                     		#9c9c9c !default;	// used for topNav sp
 /* Favorites */
 
 $sites-nav-menu-item-border-thickness:		1px !default;
+$sites-nav-menu-item-border-radius:         0px !default;
 /* Favorites - item */
 $sites-nav-menu-item-background:            #FFFFFF !default;
-@if $favorites-as-material {
-    $sites-nav-menu-item-background:            #e5e5e5;
-}
+
 $sites-nav-menu-item-color:                 #4C4C4C !default;
 $sites-nav-menu-item-border-color:          #E5E5E5 !default;
 $sites-nav-menu-item-border-top:            $sites-nav-menu-item-border-thickness solid $sites-nav-menu-item-border-color !default;
@@ -230,10 +206,7 @@ $sites-nav-menu-item-border-left:           $sites-nav-menu-item-border-top !def
 $sites-nav-menu-item-hover-background:      #FFFFFF !default;
 $sites-nav-menu-item-hover-color:           #191919 !default;
 $sites-nav-menu-item-hover-border-color:    #7F7F7F !default;
-@if $favorites-as-material {
-    $sites-nav-menu-item-background:            #e5e5e5;
-    $sites-nav-menu-item-hover-border-color:      #ffffff;
-}
+
 $sites-nav-menu-item-hover-border-top:      $sites-nav-menu-item-border-thickness solid $sites-nav-menu-item-hover-border-color !default;
 $sites-nav-menu-item-hover-border-right:    $sites-nav-menu-item-hover-border-top !default;
 $sites-nav-menu-item-hover-border-bottom:   $sites-nav-menu-item-hover-border-top !default;
@@ -243,9 +216,7 @@ $sites-nav-menu-item-hover-border-left:     $sites-nav-menu-item-hover-border-to
 $sites-nav-menu-item-selected-background:   $primary-color !default;
 $sites-nav-menu-item-selected-color:        #FFFFFF !default;
 $sites-nav-menu-item-selected-border-color: #326B97 !default;
-@if $favorites-as-material {
-    $sites-nav-menu-item-selected-border-color: $primary-color;
-}
+
 $sites-nav-menu-item-selected-border-top:   $sites-nav-menu-item-border-thickness solid $sites-nav-menu-item-selected-border-color !default;
 $sites-nav-menu-item-selected-border-right: $sites-nav-menu-item-selected-border-top !default;
 $sites-nav-menu-item-selected-border-bottom:$sites-nav-menu-item-selected-border-top !default;
@@ -263,11 +234,12 @@ $sites-nav-menu-item-selected-hover-border-left:  $sites-nav-menu-item-selected-
 $sites-nav-submenu-background:              $sites-nav-menu-item-hover-background !default;
 $sites-nav-submenu-topleft-border-color:    $sites-nav-menu-item-hover-background !default;
 $sites-nav-submenu-border-color:            $sites-nav-menu-item-hover-border-color !default;
+$sites-nav-submenu-top:                     calc( #{$default-font-size} + ( #{$standard-space} * 2) - #{$sites-nav-menu-item-border-thickness}) !default;
+$sites-nav-submenu-padding:                 0 !default;
+$sites-nav-submenu-shadow:                  0 3px 2px rgba( $text-color, 0.35) !default;
 /* Favorites - tool selected submenu */
 $sites-nav-selected-submenu-border-color: $sites-nav-menu-item-selected-hover-border-color !default;
-@if $favorites-as-material {   
-    $sites-nav-selected-submenu-border-color: #fff;
-}
+$sites-nav-selected-submenu-border:       $sites-nav-menu-item-border-thickness solid $sites-nav-submenu-topleft-border-color !default;
 $sites-nav-selected-submenu-topleft-border-color: $sites-nav-menu-item-selected-hover-background !default;
 /* Favorites - tool submenu items */
 $sites-nav-submenu-item-text-size:          13px !default;
@@ -276,6 +248,8 @@ $sites-nav-submenu-item-color:              #4C4C4C !default;
 $sites-nav-submenu-item-icon-color:         #666666 !default;
 $sites-nav-submenu-item-divider-color:      #E5E5E5 !default;
 $sites-nav-submenu-item-left-border-color:  transparent !default;
+$sites-nav-submenu-item-left-border:        4px solid $sites-nav-submenu-item-left-border-color !default;
+$sites-nav-submenu-item-padding:            $standard-spacing !default;
 /* Favorites - tool submenu items hovered */
 $sites-nav-submenu-item-hover-background:   #ECECEC !default;
 $sites-nav-submenu-item-hover-color:        #191919 !default;
@@ -347,9 +321,7 @@ $all-sites-close-action-hover-color:                      #4C4C4C !default;
 /* Wide tool menu, icons on left */
 $tool-menu-icon-on-left: true !default;
 $tool-menu-width: 200px !default;
-@if $toolmenu-as-material {
-    $tool-menu-width: 200px + $standard-spacing;
-}
+
 $tool-menu-width-collapsed: 42px !default;
 $tool-menu-collapseButton-height: $tool-menu-width-collapsed !default;
 
@@ -406,16 +378,7 @@ $tool-menu-collapse-min-hover-background-color:            $tool-menu-collapse-h
 $tool-menu-collapse-min-hover-border-top:                  $tool-menu-collapse-border-top !default;
 $tool-menu-collapse-min-hover-shadow:                      $tool-menu-collapse-shadow !default;
 
-@if $toolmenu-as-material {
-    $tool-menu-item-separator-color: #fff;
-    $tool-menu-item-background-color: #fff;
-    $tool-menu-item-border-left: none;
-    $tool-menu-item-hover-border-left: $tool-menu-item-border-left;
-    $tool-menu-item-selected-background-color: $tool-menu-item-hover-background-color;
-    $tool-menu-item-selected-border-left: $tool-menu-item-border-left;
-    $tool-menu-item-selected-hover-border-left: $tool-menu-item-border-left;
-    $tool-menu-item-selected-hover-background-color: darken($tool-menu-item-selected-background-color, 15%);
-}
+
 /* Tool sub menu */
 $tool-sub-menu-border-color: darken( $tool-menu-background-color, 10% ) !default;
 $tool-sub-menu-background-color: darken( $tool-menu-background-color, 10% ) !default;
@@ -436,7 +399,6 @@ $measure: 960px !default;
 
 
 
-$standard-space: 4px !default; 		// the width of a keyboard space
 
 $banner-height: 52px !default;
 
@@ -475,6 +437,7 @@ $col2of2-width: 48% !default;
 
 /* From NYU 11 Skin */
 $divider-shadow: 0 1px 5px rgba(0,0,0,.3) !default;
+$divider-shadow-fixed: $divider-shadow !default;
 $overview-portlet-border-color: $tool-border-color !default;
 $overview-portlet-shadow: 1px 1px 5px rgba(0,0,0,0.2) !default;
 $overview-portlet-title-background-color: $tool-tab-background-color !default;

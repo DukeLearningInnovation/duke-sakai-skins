@@ -1,0 +1,86 @@
+/* Notes
+- [ ] any selector that uses a attribute in English isn’t going to work for the community
+
+Do this strategy on a different branch and see if it is significantly more work
+@import sakai-material on line 2 and make everything in the original stylesheets variable based
+Create as many variables as I need
+
+See if this approach can get rid of the if statements
+*/
+/* SAK-42889 */
+$standard-spacing-large: true !default;
+$favorites-as-material: true !default;
+$toolmenu-as-material: true !default;
+$portal-as-material: true !default;
+
+$topheader-as-material: true !default;
+$navintratool-tabs-as-material: false !default;
+$cards-as-material: false !default;
+$buttons-as-material: false !default;
+$tertiary-buttons: false !default;
+$tooltitlenav__link-as-tertiary-button: false !default; //Also requires $tertiary-buttons = true
+$lessons-remove-borders: false !default;
+$become-user-highlight: false !default;
+$view-site-as-highlight: false !default;
+
+/*    Standard Spacing Large    */
+// Increases the standard spacing all over Sakai
+// to feel more open and modern.
+@if $standard-spacing-large {
+    $standard-spacing: 16px; 
+    $sites-nav-submenu-top: $standard-spacing;
+
+}
+
+//Built to be used for padding
+//https://material-components.github.io/material-components-web-catalog/#/component/menu
+$material-menu-padding: calc( #{$standard-spacing} / 2) 0 !default;
+$material-menu-item-padding: calc(#{$standard-spacing} / 2) $standard-spacing !default;
+
+//Built to be used for box-shadow
+//https://material-components.github.io/material-components-web-catalog/#/component/elevation
+$material-elevation-1dp: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12) !default;
+$material-elevation-2dp: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12) !default;
+$material-elevation-3dp: 0 3px 3px -2px rgba(0,0,0,.2), 0 3px 4px 0 rgba(0,0,0,.14), 0 1px 8px 0 rgba(0,0,0,.12) !default;
+$material-elevation-4dp: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12) !default;
+$material-elevation-5dp: 0 3px 5px -1px rgba(0,0,0,.2), 0 5px 8px 0 rgba(0,0,0,.14), 0 1px 14px 0 rgba(0,0,0,.12) !default;
+$material-elevation-6dp: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12) !default;
+$material-elevation-7dp: 0 4px 5px -2px rgba(0,0,0,.2), 0 7px 10px 1px rgba(0,0,0,.14), 0 2px 16px 1px rgba(0,0,0,.12) !default;
+$material-elevation-8dp: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12) !default;
+
+//for 21.x $tool-collapse-as-hamburger: false !default;
+//for 21.x $toolmenu-full-height: false !default; //Also requires $tool-collapse-as-hamburger = true
+
+
+
+
+@if $portal-as-material {
+    $body-background-color: #fff;
+}
+
+@if $favorites-as-material {
+    $sites-nav-submenu-top: -#{$standard-spacing}; //fallback to calc( #{$default-font-size} + #{$sites-nav-menu-item-border-thickness})
+    $divider-shadow-fixed: 0 1px 0 $tool-border-color;
+    $sites-nav-menu-item-background:            #e5e5e5;
+    $sites-nav-menu-item-background:            #e5e5e5;
+    $sites-nav-menu-item-hover-border-color:      #ffffff;
+    $sites-nav-menu-item-selected-border-color: $primary-color;  
+    $sites-nav-selected-submenu-border-color: #fff;
+    $sites-nav-menu-item-border-radius: $button-radius-pill;
+    $sites-nav-selected-submenu-border: none; 
+    $sites-nav-submenu-padding: $material-menu-padding;
+    $sites-nav-submenu-shadow: $material-elevation-4dp;
+    $sites-nav-submenu-item-padding: $material-menu-item-padding;
+    $sites-nav-submenu-item-left-border: none;
+}
+@if $toolmenu-as-material {
+    $tool-menu-width: 200px + $standard-spacing;
+    $tool-menu-item-separator-color: #fff;
+    $tool-menu-item-background-color: #fff;
+    $tool-menu-item-border-left: none;
+    $tool-menu-item-hover-border-left: $tool-menu-item-border-left;
+    $tool-menu-item-selected-background-color: $tool-menu-item-hover-background-color;
+    $tool-menu-item-selected-border-left: $tool-menu-item-border-left;
+    $tool-menu-item-selected-hover-border-left: $tool-menu-item-border-left;
+    $tool-menu-item-selected-hover-background-color: darken($tool-menu-item-selected-background-color, 15%);
+}

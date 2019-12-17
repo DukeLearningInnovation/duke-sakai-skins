@@ -74,11 +74,7 @@
 			&.#{$namespace}skipNav__menuitem.#{$namespace}skipNav__menuitem--tools {
 				@include display-flex;
 				background: $portal-background-color;
-				@if $favorites-as-material {
-					border-bottom: 1px solid $tool-border-color;
-				} @else {
-					box-shadow: $divider-shadow;
-				}
+				box-shadow: $divider-shadow-fixed;
 				
 
 				a {
