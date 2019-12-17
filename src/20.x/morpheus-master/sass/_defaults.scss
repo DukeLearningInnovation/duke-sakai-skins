@@ -11,14 +11,14 @@ $favorites-as-material: true !default;
 $toolmenu-as-material: true !default;
 $portal-as-material: true !default;
 
-$tool-collapse-as-hamburger: false !default;
-$toolmenu-full-height: false !default; //Also requires $tool-collapse-as-hamburger = true.
+//for 21.x $tool-collapse-as-hamburger: false !default;
+//for 21.x $toolmenu-full-height: false !default; //Also requires $tool-collapse-as-hamburger = true
 $topheader-as-material: false !default;
 $navintratool-tabs-as-material: false !default;
 $cards-as-material: false !default;
 $buttons-as-material: false !default;
 $tertiary-buttons: false !default;
-$tooltitlenav__link-as-tertiary-button: false !default; //Also requires $tertiary-buttons = true;
+$tooltitlenav__link-as-tertiary-button: false !default; //Also requires $tertiary-buttons = true
 $lessons-remove-borders: false !default;
 $become-user-highlight: false !default;
 $view-site-as-highlight: false !default;
