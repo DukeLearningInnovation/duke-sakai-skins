@@ -8,13 +8,15 @@ Create as many variables as I need
 See if this approach can get rid of the if statements
 */
 /* SAK-42889 */
-$standard-spacing-large: true !default;
-$favorites-as-material: true !default;
-$toolmenu-as-material: true !default;
+$standard-spacing-as-material: true !default;
+$sites-nav-as-material: true !default;
 $portal-as-material: true !default;
 
+$toolmenu-as-material: true !default;
+
+
 $topheader-as-material: true !default;
-$navintratool-tabs-as-material: false !default;
+$tool-tab-as-material: false !default;
 $cards-as-material: false !default;
 $buttons-as-material: false !default;
 $tertiary-buttons: false !default;
@@ -26,10 +28,10 @@ $view-site-as-highlight: false !default;
 /*    Standard Spacing Large    */
 // Increases the standard spacing all over Sakai
 // to feel more open and modern.
-@if $standard-spacing-large {
+@if $standard-spacing-as-material {
     $standard-spacing: 16px; 
     $sites-nav-submenu-top: $standard-spacing;
-
+    $tool-menu-padding: calc(#{$standard-spacing} / 2) 0 0 0;
 }
 
 //Built to be used for padding
@@ -56,22 +58,35 @@ $material-elevation-8dp: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,
 
 @if $portal-as-material {
     $body-background-color: #fff;
+    $tool-menu-background-color: $body-background-color;
+    $sites-nav-background: $body-background-color;
+    $footer-background-color: $body-background-color;
 }
 
-@if $favorites-as-material {
-    $sites-nav-submenu-top: -#{$standard-spacing}; //fallback to calc( #{$default-font-size} + #{$sites-nav-menu-item-border-thickness})
+@if $sites-nav-as-material {
     $divider-shadow-fixed: 0 1px 0 $tool-border-color;
     $sites-nav-menu-item-background:            #e5e5e5;
     $sites-nav-menu-item-background:            #e5e5e5;
-    $sites-nav-menu-item-hover-border-color:      #ffffff;
-    $sites-nav-menu-item-selected-border-color: $primary-color;  
-    $sites-nav-selected-submenu-border-color: #fff;
     $sites-nav-menu-item-border-radius: $button-radius-pill;
+    $sites-nav-menu-item-hover-border-color:      #ffffff;
+    $sites-nav-menu-item-hover-border-top:      $sites-nav-menu-item-border-thickness solid $sites-nav-menu-item-hover-border-color;
+    $sites-nav-menu-item-hover-border-right:    $sites-nav-menu-item-hover-border-top;
+    $sites-nav-menu-item-hover-border-bottom:   $sites-nav-menu-item-hover-border-top;
+    $sites-nav-menu-item-hover-border-left:     $sites-nav-menu-item-hover-border-top;
+    $sites-nav-menu-item-selected-border-color: $sites-nav-menu-item-selected-background;
+    $sites-nav-menu-item-selected-border-top:   $sites-nav-menu-item-border-thickness solid $sites-nav-menu-item-selected-border-color;
+    $sites-nav-menu-item-selected-border-bottom:$sites-nav-menu-item-selected-border-top;
+    $sites-nav-menu-item-selected-border-left:  $sites-nav-menu-item-selected-border-top;
+    $sites-nav-menu-item-selected-border-right: $sites-nav-menu-item-selected-border-top;
+    $sites-nav-selected-submenu-border-color: #fff;
+    $sites-nav-selected-submenu-border-color: transparent;
     $sites-nav-selected-submenu-border: none; 
-    $sites-nav-submenu-padding: $material-menu-padding;
-    $sites-nav-submenu-shadow: $material-elevation-4dp;
-    $sites-nav-submenu-item-padding: $material-menu-item-padding;
+    $sites-nav-submenu-border: none;
     $sites-nav-submenu-item-left-border: none;
+    $sites-nav-submenu-item-padding: $material-menu-item-padding;
+    $sites-nav-submenu-padding: $material-menu-padding;
+    $sites-nav-submenu-shadow: $material-elevation-8dp;
+    $sites-nav-submenu-top: -#{$standard-spacing}; //fallback to calc( #{$default-font-size} + #{$sites-nav-menu-item-border-thickness})
 }
 @if $toolmenu-as-material {
     $tool-menu-width: 200px + $standard-spacing;
@@ -83,4 +98,7 @@ $material-elevation-8dp: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,
     $tool-menu-item-selected-border-left: $tool-menu-item-border-left;
     $tool-menu-item-selected-hover-border-left: $tool-menu-item-border-left;
     $tool-menu-item-selected-hover-background-color: darken($tool-menu-item-selected-background-color, 15%);
+}
+@if $tool-tab-as-material {
+    $tool-tab-background-color: $body-background-color;
 }
