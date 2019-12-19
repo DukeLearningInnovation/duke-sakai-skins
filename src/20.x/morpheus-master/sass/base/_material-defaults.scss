@@ -11,7 +11,6 @@ See if this approach can get rid of the if statements
 $standard-spacing-as-material: true !default;
 $sites-nav-as-material: true !default;
 $portal-as-material: true !default;
-
 $toolmenu-as-material: true !default;
 
 
@@ -50,12 +49,6 @@ $material-elevation-6dp: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,
 $material-elevation-7dp: 0 4px 5px -2px rgba(0,0,0,.2), 0 7px 10px 1px rgba(0,0,0,.14), 0 2px 16px 1px rgba(0,0,0,.12) !default;
 $material-elevation-8dp: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12) !default;
 
-//for 21.x $tool-collapse-as-hamburger: false !default;
-//for 21.x $toolmenu-full-height: false !default; //Also requires $tool-collapse-as-hamburger = true
-
-
-
-
 @if $portal-as-material {
     $body-background-color: #fff;
     $tool-menu-background-color: $body-background-color;
@@ -90,14 +83,31 @@ $material-elevation-8dp: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,
 }
 @if $toolmenu-as-material {
     $tool-menu-width: 200px + $standard-spacing;
+    $tool-menu-width-collapsed: 52px;
     $tool-menu-item-separator-color: #fff;
     $tool-menu-item-background-color: #fff;
     $tool-menu-item-border-left: none;
+    $tool-menu-item-margin-right: calc( #{$standard-spacing} / 2);
     $tool-menu-item-hover-border-left: $tool-menu-item-border-left;
     $tool-menu-item-selected-background-color: $tool-menu-item-hover-background-color;
     $tool-menu-item-selected-border-left: $tool-menu-item-border-left;
     $tool-menu-item-selected-hover-border-left: $tool-menu-item-border-left;
     $tool-menu-item-selected-hover-background-color: darken($tool-menu-item-selected-background-color, 15%);
+    $tool-menu-item-border-radius: 0 calc(#{$button-radius-pill} * 1.5) calc(#{$button-radius-pill} * 1.5) 0;
+     
+    $tool-menu-item-padding: calc( #{$standard-spacing} / 2) 0 calc( #{$standard-spacing} / 2) $standard-spacing;
+    $tool-menu-item-collapsed-padding: $tool-menu-item-padding;
+    $tool-lessons-toplevel-menu-icon-padding: $material-menu-item-padding;
+    $tool-lessons-toplevel-menu-text-padding: $material-menu-item-padding;
+    $tool-lessons-toplevel-menu-selected-background-color: $tool-menu-item-background-color;
+    $tool-lessons-toplevel-menu-expanded-selected-background-color:$tool-menu-item-selected-background-color;
+    $tool-lessons-toplevel-menu-sliding-background-color: $tool-menu-item-background-color;
+
+    $tool-lessons-subpage-menu-text-padding: calc(#{$standard-spacing} / 2) $standard-spacing calc(#{$standard-spacing} / 2) calc(#{$standard-spacing} * 2);
+    $tool-lessons-subpage-menu-selected-background-color: $tool-menu-item-selected-background-color;
+    $tool-lessons-subpage-menu-selected-parent-background-color: $tool-menu-item-background-color;
+    $tool-lessons-subpage-menu-expanded-background-color: $tool-menu-item-background-color;
+    $tool-lessons-subpage-menu-border-radius: 0 $button-radius-pill $button-radius-pill 0;
 }
 @if $tool-tab-as-material {
     $tool-tab-background-color: $body-background-color;

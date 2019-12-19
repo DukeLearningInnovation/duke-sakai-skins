@@ -16,8 +16,7 @@ if [[ $1 == *"morpheus"* ]]; then
     --include-path src/$1master/bootstrap-sass-3.3.7/assets/stylesheets/ \
     --include-path src/$1master/font-awesome-sass-4.7.0/assets/stylesheets/ \
     --output-style compressed \
-    --output-file "tool.css" \
-    --source-map false
+    --output-file "tool.css"
 
     mv -f tmp/dist/$1default/sass/* dist/$1default/
     rm -rf tmp/

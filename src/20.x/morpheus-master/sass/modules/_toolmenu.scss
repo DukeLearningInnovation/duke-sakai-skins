@@ -51,10 +51,9 @@ body.is-logged-out{
 					.Mrphs-toolsNav__menuitem--link{
 						min-height: 1.7em;
 						text-align: center;
-						@if $toolmenu-as-material {
-							border-radius: 0;
-							margin-right:0;
-						}
+						border-radius: $tool-menu-item-collapsed-border-radius;
+						margin: $tool-menu-item-collapsed-margin; 
+						padding: $tool-menu-item-collapsed-padding;
 						&:hover, &:focus {
 							position: relative;
 							.#{$namespace}toolsNav__menuitem--title{
@@ -62,7 +61,7 @@ body.is-logged-out{
 								position: absolute;
 								top: -1px;
 								bottom: -1px;
-								left: $tool-menu-width-collapsed;
+								left: calc(#{$tool-menu-width-collapsed} - 1px);
 								z-index: 100;
 								width: auto;
 								border-radius: 0 5px 5px 0;
@@ -72,11 +71,8 @@ body.is-logged-out{
 								border-top: 1px solid $tool-menu-item-separator-color;
 								border-right: 1px solid $tool-menu-item-separator-color;
 								border-bottom: 1px solid $tool-menu-item-separator-color;
-								@if $toolmenu-as-material {
-									border-radius: 0 $standard-spacing $standard-spacing 0;
-									border-left-color: $tool-menu-item-hover-background-color;
-									left: calc(#{$tool-menu-width-collapsed} - 1px);
-								}
+								border-radius: $tool-menu-item-border-radius;
+								border-left-color: $tool-menu-item-hover-background-color;
 								padding: 0 10px;
 								margin: 0;
 							}
@@ -411,14 +407,9 @@ nav#subSites{
 				
 				@if $tool-menu-icon-on-left {
 					text-align: left;
-					@if $toolmenu-as-material {
-						padding: calc(#{$standard-spacing} / 2) $standard-spacing;
-						border-radius: 0 calc(#{$button-radius-pill} * 1.5) calc(#{$button-radius-pill} * 1.5) 0;
-						margin-right: $standard-spacing;
-					} @else {
-						padding: $standard-spacing;
-					}
-					
+					border-radius: $tool-menu-item-border-radius;
+					margin-right: $tool-menu-item-margin-right; 
+					padding: $tool-menu-item-padding;
 				} @else {
 					text-align: center;
 					padding: 0.5em 0.25em;
@@ -488,10 +479,9 @@ nav#subSites{
 				.#{$namespace}toolsNav__menuitem--title{
 					@if $tool-menu-icon-on-left {
 						display: inline-block;
-						width: 75%;
+						width: calc(#{$tool-menu-width} - #{$tool-menu-width-collapsed});
 						vertical-align: middle;
 						margin-left: $standard-spacing;
-						
 						@media #{$phone}{
 							width: 90%;
 						}
@@ -547,12 +537,7 @@ nav#subSites{
 			}
 			&.is-current{
 				position: relative;
-				@if $toolmenu-as-material == false {
-					margin-right: -1px;
-				} @else {
-					
-				}
-				
+				margin-right: -1px;
 
 				.Mrphs-toolsNav__menuitem--link{
 					color: $tool-menu-item-selected-text-color;
@@ -652,6 +637,7 @@ body {
 				.#{$namespace}toolsNav__menuitem--icon {
 					&:before {
 						content: '\f0da';
+						width:20px;
 					}
 				}
 			}
@@ -665,7 +651,7 @@ body {
 					}
 
 					&:hover {
-						background-color: $tool-menu-item-hover-background-color !important;
+						background-color: $tool-menu-item-hover-background-color;
 					}
 				}
 
@@ -674,28 +660,20 @@ body {
 					padding: 0;		// move the padding from the span to the link below
 					
 					.lessons-expand-collapse-icon {
-						@if $toolmenu-as-material {
-							padding: calc(#{$standard-spacing} / 2) $standard-spacing;
-						} @else {
-							padding: $standard-spacing;
-						}
+						padding: $tool-lessons-toplevel-menu-icon-padding;
 						padding-right: 0;	// remove space from icon to text
 						text-decoration: none;	// remove underline from linked icon
-
 						.Mrphs-toolsNav__menuitem--icon {
 							position: relative;
+							width:20px;
 						}
 					}
 
 					.lessons-goto-top-page {
 						@include flex-grow(1);	// to make sure the text takes up the needed space
-						@if $toolmenu-as-material {
-							padding: calc(#{$standard-spacing} / 2) $standard-spacing;
-						} @else {
-							padding: $standard-spacing;
-						}
+						padding: $tool-lessons-toplevel-menu-text-padding;
 						padding-left: 0; 	// remove space from text to icon
-						
+						width: calc(#{$tool-menu-width} - #{$tool-lessons-toplevel-menu-icon-padding} - #{$tool-lessons-toplevel-menu-text-padding} - #{$standard-spacing});
 						.Mrphs-toolsNav__menuitem--title {
 							color: $tool-menu-item-text-color;
 						}
@@ -708,11 +686,16 @@ body {
 
 					&:hover {
 						.lessons-goto-top-page {
+							
 							.Mrphs-toolsNav__menuitem--title {
+								text-overflow: clip;
+								width: calc(#{$tool-menu-width} - #{$tool-menu-width-collapsed} - (#{$standard-spacing} *1.5));
 								&:after {
 									font-family: 'FontAwesome';
 									content: '\f0a9';
 									padding-left: 4px;
+									position: absolute;
+									left: calc(#{$tool-menu-width} - (#{$standard-spacing} * 1.5))
 								}
 							}
 						}
@@ -732,27 +715,18 @@ body {
 			}
 
 			&.expanded {
-				@if $toolmenu-as-material {
-					background-color:$tool-menu-item-background-color;
-				} @else {
-					background-color: $tool-menu-item-selected-background-color;
-				}
+				background-color: $tool-lessons-toplevel-menu-expanded-background-color;
 				&.is-current {
 					> .Mrphs-toolsNav__menuitem--link {
-						@if $toolmenu-as-material {
-							background-color:$tool-menu-item-selected-background-color;
-						} @else {
-							background-color: $tool-menu-item-background-color;
+						background-color: $tool-lessons-toplevel-menu-expanded-selected-background-color;
+						&:hover {
+							background-color: $tool-menu-item-selected-hover-background-color;
 						}
 					}
 				}
 				&.is-parent-of-current {
 					> .Mrphs-toolsNav__menuitem--link {
-						@if $toolmenu-as-material {
-							background-color:$tool-menu-item-background-color;
-						} @else {
-							background-color: $tool-menu-item-selected-background-color;
-						}
+						background-color: $tool-lessons-subpage-menu-selected-parent-background-color;
 						.#{$namespace}toolsNav__menuitem--icon {
 							color: $tool-menu-item-icon-color !important;
 						}
@@ -774,17 +748,9 @@ body {
 				}
 
 				> .Mrphs-toolsNav__menuitem--link {
-					@if $toolmenu-as-material {
-						background-color:$tool-menu-item-background-color;
-					} @else {
-						background-color: $tool-menu-item-selected-background-color;
-					}
+					background-color: $tool-lessons-subpage-menu-expanded-background-color;
 					&:hover {
-						@if $toolmenu-as-material {
-							background-color:$tool-menu-item-hover-background-color;
-						} @else {
-							background-color: $tool-menu-item-selected-hover-background-color !important;
-						}
+						background-color: darken($tool-lessons-toplevel-menu-expanded-background-color, 10%);
 					}
 
 					.#{$namespace}toolsNav__menuitem--icon {
@@ -800,9 +766,7 @@ body {
 			}
 
 			&.sliding-down {
-					@if $toolmenu-as-material == false {
-						background-color: $tool-menu-item-selected-background-color !important;
-					}
+					background-color: $tool-lessons-toplevel-menu-sliding-background-color;
 					.Mrphs-toolsNav__menuitem--link {
 							.#{$namespace}toolsNav__menuitem--icon {
 									-webkit-transition-duration: 0.5s;
@@ -819,11 +783,9 @@ body {
 									-webkit-transform: rotate(90deg);
 									transform: rotate(90deg);
 							}
-							@if $toolmenu-as-material == false {
-								background-color: $tool-menu-item-selected-background-color !important;
-							}
+							background-color: $tool-lessons-toplevel-menu-sliding-background-color;
 							&:hover {
-									background-color: $tool-menu-item-selected-background-color !important;
+									background-color: $tool-lessons-toplevel-menu-sliding-background-color;
 							}
 					}
 			}
@@ -868,20 +830,21 @@ body {
 						max-height: 100px;
 						overflow:hidden;
 						border-left: $tool-menu-item-border-left !important;
+						line-height: 1.5;
 						@if $tool-menu-icon-on-left {
-							padding: 3.5px 3.5px 3.5px 40px;
+							padding: $tool-lessons-subpage-menu-text-padding;
 							text-align: left;
-							@if $toolmenu-as-material {
-								border-radius: 0 $standard-spacing $standard-spacing 0;
-							}
+							border-radius: $tool-lessons-subpage-menu-border-radius;
+							margin-right: $tool-menu-item-margin-right;
 						}
 						@else {
 							@include justify-content(center);
 							padding: 3.5px;
 							text-align: center;
 						}
-						font-size: 12px !important;
+						font-size: $tool-lessons-subpage-menu-fontsize;
 						text-overflow: ellipsis;
+						white-space: nowrap;
 						color: $tool-menu-item-text-color !important;
 						text-decoration: none;
 
@@ -941,16 +904,14 @@ body {
 						}
 					}
 					&.is-current {
-						margin-right: 0;
+						margin-right: $tool-menu-item-margin-right;
 
 						a {
 							font-weight: bold !important;
 							color: $tool-menu-item-selected-text-color !important;
 							border-left: $tool-menu-item-selected-border-left !important;
 							margin-right: 0;
-							@if $toolmenu-as-material {
-								background: $tool-menu-item-selected-background-color;
-							}
+							background: $tool-lessons-subpage-menu-selected-background-color;
 							&:hover {
 								color: $tool-menu-item-selected-hover-text-color !important;
 								border-left: $tool-menu-item-selected-hover-border-left !important;
@@ -962,6 +923,11 @@ body {
 			}
 
 			&.is-current {
+				> .Mrphs-toolsNav__menuitem--link {
+					&:hover {
+						background-color: $tool-menu-item-selected-hover-background-color;
+					}
+				}
 				.lessons-goto-top-page {
 					.Mrphs-toolsNav__menuitem--title {
 						color: $tool-menu-item-selected-text-color !important;
