@@ -468,7 +468,14 @@ body.is-logged-out{
 
 	.has-avatar, .no-avatar{
 		position: relative;
-
+		@if $top-header-hide-icon-labels {
+			border: $top-header-profile-border-thickness solid $top-header-profile-border-color-top;			
+			border-right-color: $top-header-profile-border-color-right;
+			border-bottom-color: $top-header-profile-border-color-bottom;
+			border-left-color: $top-header-profile-border-color-left;
+			border-radius: 50%;
+			background:#fff;
+		}
 		.#{$namespace}userNav__submenuitem--username, .#{$namespace}userNav__submenuitem--userid{
 			text-decoration: none;
 
@@ -479,6 +486,9 @@ body.is-logged-out{
 				position: relative;
 				text-overflow: ellipsis;
 				white-space: nowrap;
+				@if $top-header-hide-icon-labels {
+					display:none;
+				}
 			}
 		}
 	}
@@ -526,6 +536,9 @@ body.is-logged-out{
 			background-position: 50%;
 			border-radius:50%;
 			margin: 0 4px 0 0;
+			@if $top-header-hide-icon-labels {
+				margin:2px;
+			}
 			position: relative;
 
 			&:hover, &:active
