@@ -31,7 +31,7 @@
 if [[ $1 == *"20.x/morpheus-"* ]]; then 
     SVR='qa20-mysql.nightly.sakaiproject.org'
     SVR_SKIN='morpheus-default'
-    SERVER_V='ce262706'
+    SERVER_V='4ca0ab86'
     printf "Copying skin on $HOSTNAME from  dist/$1 to dev/$SVR/$SVR_SKIN for browser development\n"
 
     rm -rf dev/$SVR/library/skin/$SVR_SKIN

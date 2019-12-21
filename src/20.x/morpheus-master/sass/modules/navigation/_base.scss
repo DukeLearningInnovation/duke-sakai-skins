@@ -239,9 +239,9 @@ body.is-logged-out{
 		#roleSwitch {
 			@include display-flex;
 			@include align-items( center );
-			padding-right: $standard-spacing;
-			margin-right: $standard-spacing;
-			border-right: 1px solid $topNav-alt-color;
+			margin-left: $top-header-item-spacing;
+			padding-left: $top-header-item-spacing;
+			border-left: $top-header-separators-thickness solid $topNav-alt-color;
 			white-space: nowrap;
 
 				@media #{$phone} {
@@ -269,7 +269,12 @@ body.is-logged-out{
 				&:hover {
 					text-decoration: none;
 					color: #FFF;
-					text-shadow: 0 0 5px rgba(165, 165, 165, 0.95); /* same as profile picture hover */
+					@if $top-header-as-material {
+						background: rgba(0,0,0,.2);
+						border-radius:50%;
+					} @else {
+						text-shadow: 0 0 5px rgba(165, 165, 165, 0.95); /* same as profile picture hover */
+					}
 				}
 			}
 
@@ -450,8 +455,18 @@ body.is-logged-out{
 		&.has-avatar:hover .#{$namespace}userNav__submenuitem--profilepicture,
 			&.has-avatar:active .#{$namespace}userNav__submenuitem--profilepicture
 		{
-			box-shadow: 0px 0px 5px 1px rgba(165, 165, 165, 0.95);
+			@if $top-header-as-material {
+				box-shadow:inset 0 0 0 2px $top-header-profile-border-color-inner, 0 0 0 2px rgba(0,0,0,.2);
+			} @else {
+				box-shadow: 0px 0px 5px 1px rgba(165, 165, 165, 0.95);
+			}
 		}
+		@if $top-header-as-material {
+			&.has-avatar:active .#{$namespace}userNav__submenuitem--profilepicture {
+				box-shadow:inset 0 0 0 2px $top-header-profile-border-color-inner, 0 0 0 2px rgba(0,0,0,.6);
+			}
+		}
+		
 
 		&.has-avatar:hover .#{$namespace}userNav__submenuitem--username,
 			&.has-avatar:hover .has-avatar .#{$namespace}userNav__submenuitem--userid
@@ -468,27 +483,18 @@ body.is-logged-out{
 
 	.has-avatar, .no-avatar{
 		position: relative;
-		@if $top-header-hide-icon-labels {
-			border: $top-header-profile-border-thickness solid $top-header-profile-border-color-top;			
-			border-right-color: $top-header-profile-border-color-right;
-			border-bottom-color: $top-header-profile-border-color-bottom;
-			border-left-color: $top-header-profile-border-color-left;
-			border-radius: 50%;
-			background:#fff;
-		}
+		
+
 		.#{$namespace}userNav__submenuitem--username, .#{$namespace}userNav__submenuitem--userid{
 			text-decoration: none;
 
 			span.textlink {
-				display: inline-block;
+				display: $top-header-text-display;
 				max-width: 100px;
 				overflow: hidden;
 				position: relative;
 				text-overflow: ellipsis;
 				white-space: nowrap;
-				@if $top-header-hide-icon-labels {
-					display:none;
-				}
 			}
 		}
 	}
@@ -536,14 +542,26 @@ body.is-logged-out{
 			background-position: 50%;
 			border-radius:50%;
 			margin: 0 4px 0 0;
-			@if $top-header-hide-icon-labels {
-				margin:2px;
-			}
+			border: $top-header-profile-border-thickness solid $top-header-profile-border-color-top;			
+			border-right-color: $top-header-profile-border-color-right;
+			border-bottom-color: $top-header-profile-border-color-bottom;
+			border-left-color: $top-header-profile-border-color-left;
+			border-radius: 50%;
+			box-shadow:inset 0 0 0 2px $top-header-profile-border-color-inner;
 			position: relative;
 
 			&:hover, &:active
 			{
-				box-shadow: 0px 0px 5px 1px rgba(165, 165, 165, 0.95);
+				@if $top-header-as-material {
+					box-shadow:inset 0 0 0 2px $top-header-profile-border-color-inner, 0 0 0 2px rgba(0,0,0,.2);
+				} @else {
+					box-shadow: 0px 0px 5px 1px rgba(165, 165, 165, 0.95);
+				}
+			}
+			@if $top-header-as-material {
+				&:active {
+					background:inset 0 0 0 2px $top-header-profile-border-color-inner, 0 0 0 2px rgba(0,0,0,.4);
+				}
 			}
 			@media #{$phone}
 			{
@@ -604,9 +622,11 @@ body.is-logged-out{
 
 	#loginLinks{
 		font-family: $header-font-family;
-		margin: 0;
 		list-style: none;
-		padding: 0 0 0 $standard-spacing;
+		margin-left: $top-header-item-spacing;
+		padding: 0;
+		padding-left: $top-header-item-spacing;
+		border-left: $top-header-separators-thickness solid $topNav-alt-color;
 		@include display-flex;
 		@include align-items(center);
 
@@ -636,7 +656,11 @@ body.is-logged-out{
 			@extend .userNav__subnav;
 			&:after {
 				bottom: 100%;
-				left: 85%;
+				@if $top-header-text-display == "none" {
+					left: 90%;
+				} @else {
+					left: 85%;
+				}
 				border: solid transparent;
 				content: " ";
 				height: 0;
@@ -711,7 +735,7 @@ body.is-logged-out{
 /* because #loginLinks appears on the Gateway page when two log-in links are available (e.g. for CAS), the following applies only when you are logged in: */
 .is-maximized #loginLinks
 {
-	border-left: 1px solid $topNav-alt-color;
+	border-left: $top-header-separators-thickness solid $topNav-alt-color;
 }
 
 .#{$namespace}sitesNav__menu{
@@ -723,19 +747,34 @@ body.is-logged-out{
 .portal-bullhorns-buttons{
 	position: relative;
 	display: inline-block;
-	padding-left: $standard-spacing;
-	padding-right: $standard-spacing;
-	border-right: 1px solid $topNav-alt-color;
+	margin-left: $top-header-item-spacing;
+	padding-left: $top-header-item-spacing;
+	border-left: $top-header-separators-thickness solid $topNav-alt-color;
     white-space: nowrap;
 }
 
 ##{$namespace}bullhorn {
 	display: inline-block; /* Sakai 11.1 makes it flex, which is wrong */
-
+	width: $top-header-icon-size;
+	height: $top-header-icon-size;
+	.icon-sakai--academic-bullhorn {
+		padding:0;
+	}
 	&:hover {
 		text-decoration: none;
 		color: $topNav-text-color;
-		text-shadow: 0 0 5px rgba(165, 165, 165, 0.95); /* same as profile picture hover */
+		@if $top-header-as-material {
+			background: rgba(0,0,0,.2);
+			border-radius:50%;
+		} @else {
+			text-shadow: 0 0 5px rgba(165, 165, 165, 0.95); /* same as profile picture hover */
+		}
+	&:active {
+		@if $top-header-as-material {
+			background: rgba(0,0,0,.4);
+		}
+	}
+		
 	}
 }
 
@@ -743,7 +782,9 @@ body.is-logged-out{
 .view-all-sites-btn{
 	position: relative;
 	display: inline-block;
-	padding: 0 $standard-spacing;
+	margin-left: $top-header-item-spacing;
+	padding-left: $top-header-item-spacing;
+	border-left: $top-header-separators-thickness solid $topNav-alt-color;
 
 	@media #{$phone}{
 		display: none;
@@ -759,7 +800,12 @@ body.is-logged-out{
 
 		i
 		{
-			text-shadow: 0 0 5px rgba(165, 165, 165, 0.95); /* same as profile picture hover */
+			@if $top-header-as-material {
+				background: rgba(0,0,0,.2);
+				border-radius:50%;
+			} @else {
+				text-shadow: 0 0 5px rgba(165, 165, 165, 0.95); /* same as profile picture hover */
+			}
 		}
 
 		span.all-sites-label
@@ -767,20 +813,30 @@ body.is-logged-out{
 			text-decoration: underline; /* just underline the text */
 		}
 	}
+	@if $top-header-as-material {
+		&:active i {
+			background: rgba(0,0,0,.4);
+		}
+	}
 }
 
 .all-sites-icon, .all-sites-label{
-	display: inline-block;
 	vertical-align: middle;
 }
-
+.all-sites-label {
+	display: $top-header-text-display;
+	margin-left: $standard-space;
+}
 .all-sites-icon
 {
 	/* Using !important here because CKEditor pulls in its own
 		fontawesome.css which adjusts the size of our icon unless
 		we override it. */
 	font-size: 16pt !important;
-	padding-right: $standard-space;
+	padding-top: $top-header-sites-padding-top;
+	display: inline-block;
+	width: $top-header-icon-size;
+	height: $top-header-icon-size;
 }
 #topnav_container
 {

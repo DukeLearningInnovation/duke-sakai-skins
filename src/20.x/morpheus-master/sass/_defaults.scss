@@ -84,12 +84,16 @@ $main-content-background: $background-color !default;
 
 $top-header-background: $background-color-secondary !default;
 $top-header-separators-thickness: 1px !default;
-$top-header-hide-icon-labels: false !default;
+$top-header-item-spacing: $standard-spacing !default;
+$top-header-text-display: inline-block !default;
+$top-header-icon-size: auto !default;
+$top-header-sites-padding-top: 0px !default;
 $top-header-profile-border-thickness: 0px !default;
 $top-header-profile-border-color-top: $top-header-background !default;
 $top-header-profile-border-color-right: $top-header-background !default;
 $top-header-profile-border-color-bottom: $top-header-background !default;
 $top-header-profile-border-color-left: $top-header-background !default;
+$top-header-profile-border-color-inner: $top-header-background !default;
 
 $sites-nav-background: $tool-menu-background-color !default;
 

@@ -13,8 +13,8 @@ $sites-nav-as-material: true !default;
 $portal-as-material: true !default;
 $tool-menu-as-material: true !default;
 $buttons-as-material: true !default;
-
 $top-header-as-material: true !default;
+
 $tool-tab-as-material: false !default;
 $cards-as-material: false !default;
 
@@ -187,12 +187,16 @@ $material-elevation-8dp: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,
 
 @if $top-header-as-material {
     $top-header-separators-thickness: 0px;
-    $top-header-hide-icon-labels: true;
     $top-header-profile-border-thickness: 2px;
+    $top-header-item-spacing: calc(#{$standard-spacing} / 2);
+    $top-header-text-display: none;
+    $top-header-icon-size: calc(#{$standard-spacing} * 2);
+    $top-header-sites-padding-top: 6px;
     $top-header-profile-border-color-top: $secondary-color;
     $top-header-profile-border-color-right: $secondary-color;
     $top-header-profile-border-color-bottom: $alt-colour;
     $top-header-profile-border-color-left: $background-color-secondary;
+    $top-header-profile-border-color-inner: #fff;
 }
 
 @if $tool-tab-as-material {
