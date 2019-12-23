@@ -1,5 +1,5 @@
 dev/*
-!dev/qa20-mysql.nightly.sakaiproject.org/skin/*
+!dev/qa20-mysql.nightly.sakaiproject.org/library/skin/morpheus-default/*
 
 # Logs
 logs
