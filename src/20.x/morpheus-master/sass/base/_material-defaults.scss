@@ -14,15 +14,16 @@ $portal-as-material: true !default;
 $tool-menu-as-material: true !default;
 $buttons-as-material: true !default;
 $top-header-as-material: true !default;
+$cards-as-material: true !default;
 
-$tool-tab-as-material: false !default;
-$cards-as-material: false !default;
-
-$tertiary-buttons: false !default;
-$tooltitlenav__link-as-tertiary-button: false !default; //Also requires $tertiary-buttons = true
-$lessons-remove-borders: false !default;
+$lessons-as-material: true !default;
 $become-user-highlight: false !default;
 $view-site-as-highlight: false !default;
+
+// For 21.x
+$tool-tab-as-material: false !default;
+$tertiary-buttons: false !default;
+$tooltitlenav__link-as-tertiary-button: false !default; //Also requires $tertiary-buttons = true
 
 /*    Standard Spacing Large    */
 // Increases the standard spacing all over Sakai
@@ -50,13 +51,13 @@ $material-elevation-7dp: 0 4px 5px -2px rgba(0,0,0,.2), 0 7px 10px 1px rgba(0,0,
 $material-elevation-8dp: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12) !default;
 
 @if $portal-as-material {
-    $primary-color: #15597e;
-    $secondary-color: #42AAE0;
-    $body-background-color: #fff;
-    $top-header-background: $primary-color;
-    $tool-menu-background-color: $body-background-color;
-    $sites-nav-background: $body-background-color;
-    $footer-background-color: $body-background-color;
+        $primary-color: #15597e;
+        $secondary-color: #42AAE0;
+        $body-background-color: #fff;
+        $top-header-background: $primary-color;
+        $tool-menu-background-color: $body-background-color;
+        $sites-nav-background: $body-background-color;
+        $footer-background-color: $body-background-color;
 }
 
 @if $sites-nav-as-material {
@@ -201,4 +202,19 @@ $material-elevation-8dp: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,
 
 @if $tool-tab-as-material {
     $tool-tab-background-color: $body-background-color;
+}
+
+@if $cards-as-material {
+    $overview-portlet-border: none;
+    $overview-portlet-border-radius: $button-radius;
+    $overview-portlet-shadow: $material-elevation-1dp;
+}
+
+@if $lessons-as-material {
+    $lessons-column-border:none;
+    $lessons-item-border-top: 1px solid $sites-nav-menu-item-background;
+    $lessons-item-hover-background: #fff;
+    $lessons-item-hover-shadow: $material-elevation-4dp;
+    $lessons-item-edit-display: none;
+
 }

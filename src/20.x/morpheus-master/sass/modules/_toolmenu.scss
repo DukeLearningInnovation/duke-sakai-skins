@@ -479,7 +479,7 @@ nav#subSites{
 				.#{$namespace}toolsNav__menuitem--title{
 					@if $tool-menu-icon-on-left {
 						display: inline-block;
-						width: calc(#{$tool-menu-width} - #{$tool-menu-width-collapsed});
+						width: calc(#{$tool-menu-width} - #{$tool-menu-width-collapsed} - #{$standard-spacing});
 						vertical-align: middle;
 						margin-left: $standard-spacing;
 						@media #{$phone}{
@@ -673,7 +673,7 @@ body {
 						@include flex-grow(1);	// to make sure the text takes up the needed space
 						padding: $tool-lessons-toplevel-menu-text-padding;
 						padding-left: 0; 	// remove space from text to icon
-						width: calc(#{$tool-menu-width} - #{$tool-lessons-toplevel-menu-icon-padding} - #{$tool-lessons-toplevel-menu-text-padding} - #{$standard-spacing});
+						width: calc(#{$tool-menu-width} - calc(#{$standard-spacing} * 2));
 						.Mrphs-toolsNav__menuitem--title {
 							color: $tool-menu-item-text-color;
 						}
@@ -689,7 +689,7 @@ body {
 							
 							.Mrphs-toolsNav__menuitem--title {
 								text-overflow: clip;
-								width: calc(#{$tool-menu-width} - #{$tool-menu-width-collapsed} - (#{$standard-spacing} *1.5));
+								width: calc(#{$tool-menu-width} - #{$tool-menu-width-collapsed} - calc(#{$standard-spacing} * 1.5));
 								&:after {
 									font-family: 'FontAwesome';
 									content: '\f0a9';

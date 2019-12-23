@@ -433,9 +433,16 @@ $tool-lessons-subpage-menu-selected-background-color: $tool-menu-item-selected-b
 $tool-lessons-subpage-menu-selected-parent-background-color: $tool-menu-item-selected-background-color !default;
 $tool-lessons-subpage-menu-expanded-background-color: $tool-menu-item-selected-background-color !default;
 
-
-
-
+/* Lessons tool */
+$lessons-column-border: 1px solid #222 !default;
+$lessons-item-border-top: none !default;
+$lessons-item-border-right: none !default;
+$lessons-item-border-bottom: none !default;
+$lessons-item-border-left: none !default;
+$lessons-item-hover-background: #eee !default;
+$lessons-item-hover-shadow: none !default;
+$lessons-item-edit-display: inline-block !default;
+$lessons-item-edit-hover-display: inline-block !default;
 /* Navigation Hierarchy */
 $hierarchy-size: 3.5em !default;
 
@@ -484,7 +491,8 @@ $col2of2-width: 48% !default;
 /* From NYU 11 Skin */
 $divider-shadow: 0 1px 5px rgba(0,0,0,.3) !default;
 $divider-shadow-fixed: $divider-shadow !default;
-$overview-portlet-border-color: $tool-border-color !default;
+$overview-portlet-border: 1px solid $tool-border-color !default;
+$overview-portlet-border-radius: 0px !default;
 $overview-portlet-shadow: 1px 1px 5px rgba(0,0,0,0.2) !default;
 $overview-portlet-title-background-color: $tool-tab-background-color !default;
 
