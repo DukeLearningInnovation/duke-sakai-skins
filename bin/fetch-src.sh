@@ -11,8 +11,8 @@ rm -rf src/$SAK_V/morpheus-master
 svn export https://github.com/sakaiproject/sakai/$1/library/src/morpheus-master src/$SAK_V/morpheus-master
 
 # TODO move to create-skin
-touch src/$SAK_V/morpheus-master/js/src/morpheus-master.js
-touch src/$SAK_V/morpheus-master/sass/morpheus-master.scss
-touch src/$SAK_V/morpheus-master/sass/_customization.scss
+# touch src/$SAK_V/morpheus-master/js/src/morpheus-master.js
+# touch src/$SAK_V/morpheus-master/sass/morpheus-master.scss
+# touch src/$SAK_V/morpheus-master/sass/_customization.scss
 
 echo "bin/fetch-src.sh done"
