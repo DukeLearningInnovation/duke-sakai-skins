@@ -416,7 +416,7 @@ nav#subSites{
 					@include flex-direction(column);
 				}
 				background-color: $tool-menu-item-background-color;
-				font-size: 0.9em;
+				font-size: 1em;
 				line-height: 1.5;
 				font-weight: $tool-menu-item-text-weight;
 				text-decoration: none;
@@ -569,7 +569,7 @@ nav#subSites{
 					}
 
 					.#{$namespace}toolsNav__menuitem--title{
-						font-weight: 700;
+						font-weight: 600;
 					}
 
 					&:hover{
