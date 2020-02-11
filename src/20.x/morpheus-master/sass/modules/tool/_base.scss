@@ -130,7 +130,7 @@
 	}
 
 	.#{$namespace}toolTitleNav__link{
-		@include sakai_link_button();
+		@include sakai_secondary_button();
 		// override some button properties below:
 		@include display-flex;
 		@include align-items(center);
@@ -174,10 +174,8 @@
 	}
 
   sakai-maximise-button {
-	color: $tool-nav-link-color;
-	.#{$namespace}toolTitleNav__link {
-		line-height: 1;
-	}
+    color: $tool-nav-link-color;
+    font-size: 1.1em;
   }
 
 }
