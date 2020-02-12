@@ -130,7 +130,7 @@
 	}
 
 	.#{$namespace}toolTitleNav__link{
-		@include sakai_secondary_button();
+		@include sakai_link_button();
 		// override some button properties below:
 		@include display-flex;
 		@include align-items(center);
