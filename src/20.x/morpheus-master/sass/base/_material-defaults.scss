@@ -194,12 +194,6 @@ $material-elevation-8dp: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,
     $button-link-active-border-color: $button-link-hover-border-color;
     $button-link-active-shadow-color: rgba(0,0,0,0);
     $button-link-active-shadow: $material-elevation-6dp;
-    // disabled state:
-    $button-link-disabled-text-color: #717171;
-    $button-link-disabled-background: #f6f6f6;
-    $button-link-disabled-border-color: #dbdbdb;
-    $button-link-disabled-shadow: none;
-    $button-link-disabled-font-weight: 300;
 }
 
 @if $top-header-as-material {
