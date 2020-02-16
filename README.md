@@ -1,7 +1,7 @@
 # Duke Sakai Skins
 
 [![Build Status](https://travis-ci.org/DukeLearningInnovation/duke-sakai-skins.svg?branch=master)](https://travis-ci.org/DukeLearningInnovation/duke-sakai-skins)  
-![Build Date](https://img.shields.io/badge/built%20on-Wed,%2005%20Feb%202020%2009:01:24%20EST-blue)
+![Build Date](https://img.shields.io/badge/built%20on-Sat,%2015%20Feb%202020%2014:00:19%20EST-blue)
 
 ## Stage 1: Install and setup
 
