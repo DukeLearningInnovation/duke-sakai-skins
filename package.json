@@ -3,6 +3,9 @@
   "version": "1.1.0",
   "description": "`src` contains the source files for the skins. Final edits are placed here and compiled for deployment",
   "main": "index.js",
+  "config": {
+    "env": "duke"
+  },
   "scripts": {
     "watch": "chokidar \"src/**\" -c \"bin/build.sh {event} {path}\"",
     "build": "bash bin/build.sh build",
@@ -60,6 +63,7 @@
   "dependencies": {
     "chokidar-cli": "2.1.0",
     "google-closure-compiler": "^20190729.0.0",
+    "node-sass": "^4.13.0",
     "terser": "3.14.1",
     "uglify-es": "^3.3.9"
   }
