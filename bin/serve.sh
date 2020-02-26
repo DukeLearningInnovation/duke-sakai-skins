@@ -42,7 +42,7 @@ if [[ $1 == *"20.x/morpheus-"* ]]; then
     find dev/$SVR/library/skin/$SVR_SKIN -type f -name '*.js' -exec mv {} {}%3fversion=$SERVER_V \;
 else
 # if a server isn't specific, serve to sakai and sakai-test
-    SERVER_V='ai'
+    SERVER_V='aj'
     SVR_SKIN=$(expr $1 : ".*\(duke-[a-zA-Z]*\).*")
     #serve to sakai
     printf "Copying skin from $HOSTNAME dist/$1 to dev/sakai.duke.edu/$SVR_SKIN for browser development\n"
