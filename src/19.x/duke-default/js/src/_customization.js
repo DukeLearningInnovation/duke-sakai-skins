@@ -1,13 +1,15 @@
-(function ($) {
-    console.log('duke-default/_customization.js loaded');
-    
+// Removed anonymous wrapper function to enable watchForPasystemLoad
+// to be called from duke-extend based skins.
+// (function ($) {
+    // console.log('duke-default/_customization.js loaded');
+
     ///////////////////////////////////////
     // GOOGLE ANALYTICS EVENT TRACKING
     ///////////////////////////////////////
 
     // click event to show directurl
-    $(".Mrphs-toolTitleNav__link--directurl").on("click", function(e) {
-        var label=$(this).siblings('.Mrphs-toolTitleNav__link--help-popup')[0].search;
+    $PBJQ(".Mrphs-toolTitleNav__link--directurl").on("click", function(e) {
+        var label=$PBJQ(this).siblings('.Mrphs-toolTitleNav__link--help-popup')[0].search;
 
         var gaEventData = {
             'hitType': 'event',
@@ -20,8 +22,8 @@
     });
 
     // click event to show help
-    $(".Mrphs-toolTitleNav__link--help-popup").on("click", function(e) {
-        var label=$(this)[0].search;
+    $PBJQ(".Mrphs-toolTitleNav__link--help-popup").on("click", function(e) {
+        var label=$PBJQ(this)[0].search;
 
         var gaEventData = {
             'hitType': 'event',
@@ -34,8 +36,8 @@
     });
 
     // click event to lessons print view
-    $("#print-view").on("click", function(e) {
-        var label=$(this)[0].search;
+    $PBJQ("#print-view").on("click", function(e) {
+        var label=$PBJQ(this)[0].search;
 
         var gaEventData = {
             'hitType': 'event',
@@ -48,8 +50,8 @@
     });
 
     // click event to lessons print all
-    $("#print-all").on("click", function(e) {
-        var label=$(this)[0].search;
+    $PBJQ("#print-all").on("click", function(e) {
+        var label=$PBJQ(this)[0].search;
 
         var gaEventData = {
             'hitType': 'event',
@@ -62,8 +64,8 @@
     });
 
     // click event to lessons Index of Pages
-    $("#show-pages").on("click", function(e) {
-        var label=$(this)[0].search;
+    $PBJQ("#show-pages").on("click", function(e) {
+        var label=$PBJQ(this)[0].search;
 
         var gaEventData = {
             'hitType': 'event',
@@ -76,8 +78,8 @@
     });
 
     // click event to show tool dropdown in favorite sites
-    $(".Mrphs-sitesNav__dropdown").on("click", function(e) {
-        var label=$(this).siblings('a.link-container')[0].title;
+    $PBJQ(".Mrphs-sitesNav__dropdown").on("click", function(e) {
+        var label=$PBJQ(this).siblings('a.link-container')[0].title;
 
         var gaEventData = {
             'hitType': 'event',
@@ -90,7 +92,7 @@
     });
 
     // click event to refresh a tool
-    $(".Mrphs-hierarchy--toolName").on("click", function(e) {
+    $PBJQ(".Mrphs-hierarchy--toolName").on("click", function(e) {
 
         var gaEventData = {
             'hitType': 'event',
@@ -103,7 +105,7 @@
     });
 
     // click event to open sites waffle
-    $(".view-all-sites-btn").on("click", function(e) {
+    $PBJQ(".view-all-sites-btn").on("click", function(e) {
 
         var gaEventData = {
             'hitType': 'event',
@@ -116,12 +118,12 @@
     });
 
     // click event to collapse left sidebar
-    $("#toolsNav-toggle-li").on("click", function(e) {
+    $PBJQ("#toolsNav-toggle-li").on("click", function(e) {
         var toggleState = 'undefined';
         
-        if ($(this).hasClass('min')) {
+        if ($PBJQ(this).hasClass('min')) {
             toggleState = 'collapseTools';
-        } else if ($(this).hasClass('max')) {
+        } else if ($PBJQ(this).hasClass('max')) {
             toggleState = 'maximizeTools';
         }
 
@@ -136,7 +138,7 @@
     });
 
     // click event to show lessons print view
-    $("#print-view").on("click", function(e) {
+    $PBJQ("#print-view").on("click", function(e) {
 
         var gaEventData = {
             'hitType': 'event',
@@ -148,7 +150,7 @@
         ga('send', gaEventData);
     });
     // click event to show lessons view all pages
-    $("#show-pages").on("click", function(e) {
+    $PBJQ("#show-pages").on("click", function(e) {
 
         var gaEventData = {
             'hitType': 'event',
@@ -160,8 +162,7 @@
         ga('send', gaEventData);
     });
 
-
-    var addBodyClasses = function(){
+    var dukeAddBodyClasses = function(){
         var bodyClasses = [];
         /////////////////////////////////////////////////
         // Add server domain to body as class
@@ -178,26 +179,32 @@
         /////////////////////////////////////////////////
         // Add become user to body as a class
         ////////////////////////////////////////////////
-        if ( $('#loginLink1').find('.Mrphs-login-Message').text().startsWith("Return") ){
+        if ( $PBJQ('#loginLink1').find('.Mrphs-login-Message').text().startsWith("Return") ){
             bodyClasses.push('duke-become-user');
         }
 
         document.getElementsByTagName("body")[0].classList.add(...bodyClasses);
 
     }; 
-    addBodyClasses();
+    dukeAddBodyClasses();
 
     /////////////////////////////////////////////////
     // Adjust hamburger menu when system alerts are active
     ////////////////////////////////////////////////
 
-    var collapseToolsAdjustedTop = 0;
+    var dukeCollapseToolsAdjustedTop = 0;
 
     // Call the observer to watch Mrphs-portalBody for
     // dynamic loading of the pasystem
+    var dukeAdjustNodesForPASystem = function(nodes,top) {
+        document.querySelectorAll(nodes).forEach(el => el.style.top = `${top}px`); 
+
+    };
 
 
-    var watchForPasystemLoad = function(){
+
+
+    var dukeWatchForPasystemLoad = function(nodesToMove){
         // Select the node that will be observed for mutations
         var targetNode = document.getElementsByClassName('Mrphs-portalBody')[0];
 
@@ -216,11 +223,11 @@
                     if (mutationTarget.className == 'pasystem-banner-alerts'){
                         
                         // Adjust hamburger for initial load of pasystem
-                        collapseToolsAdjustedTop = document.getElementsByClassName('pasystem-banner-alerts')[0].clientHeight;
-                        $('#toolsNav-toggle-li').css({'top': collapseToolsAdjustedTop});
-                        
+                        dukeCollapseToolsAdjustedTop = document.getElementsByClassName('pasystem-banner-alerts')[0].clientHeight;
+                        dukeAdjustNodesForPASystem(nodesToMove, dukeCollapseToolsAdjustedTop);
+                        // document.querySelectorAll(nodesToMove).forEach(el => el.style.top = `${dukeCollapseToolsAdjustedTop}px`); 
                         // Start observing events that change the pasystem
-                        watchForPasystemChange();
+                        dukeWatchForPasystemChange(nodesToMove);
 
                         // disconnect the portalBody observer, it is no longer needed
                         // once the pasystem is loaded into the DOM
@@ -238,7 +245,7 @@
 
     };
 
-    var watchForPasystemChange = function(){
+    var dukeWatchForPasystemChange = function(nodesToMove){
 
         // Select the node that will be observed for mutations
         var pasystemNode = document.getElementsByClassName('pasystem-banner-alerts')[0];
@@ -258,13 +265,17 @@
             for(var mutation of mutationsList) {
    
                 if (mutation.type == 'childList') {
-                        collapseToolsAdjustedTop = pasystemNode.clientHeight;
-                        $('#toolsNav-toggle-li').css({'top': collapseToolsAdjustedTop});
+                        dukeCollapseToolsAdjustedTop = pasystemNode.clientHeight;
+                        // $PBJQ('#toolsNav-toggle-li').css({'top': dukeCollapseToolsAdjustedTop});
+                        // $PBJQ('.Mrphs-siteHierarchy .Mrphs-hierarchy--siteName').css({'top': dukeCollapseToolsAdjustedTop});
+                        dukeAdjustNodesForPASystem(nodesToMove, dukeCollapseToolsAdjustedTop);
                 }
                
                 if (mutation.type == 'attributes' && mutation.target.className.includes('pasystem-banner-alert')) {
-                        collapseToolsAdjustedTop = pasystemNode.clientHeight;
-                        $('#toolsNav-toggle-li').css({'top': collapseToolsAdjustedTop});
+                        dukeCollapseToolsAdjustedTop = pasystemNode.clientHeight;
+                        // $PBJQ('#toolsNav-toggle-li').css({'top': dukeCollapseToolsAdjustedTop});
+                        // $PBJQ('.Mrphs-siteHierarchy .Mrphs-hierarchy--siteName').css({'top': dukeCollapseToolsAdjustedTop});
+                        dukeAdjustNodesForPASystem(nodesToMove, dukeCollapseToolsAdjustedTop);
                 }
             }
         };
@@ -281,21 +292,23 @@
         pasystemToggleObserver.observe(pasystemToggleNode, config);
 
     };
-    watchForPasystemLoad();
+    
+    
     
     //Adjust the toolCollapse on window scroll
-    $(window).scroll(function(){
+    var dukeWatchForPASystemOnScroll = function(nodes){
+        window.addEventListener('scroll', event => {
+            if (window.scrollY > 0) {
+                dukeAdjustNodesForPASystem(nodes, 0);
+            } else {
+                dukeAdjustNodesForPASystem(nodes, dukeCollapseToolsAdjustedTop);
+            }
+        });    
+    };
 
-        if($(window).scrollTop() > 0) {
-            
-            $('#toolsNav-toggle-li').css({'top': 0});
-          
-        } else {
-            $('#toolsNav-toggle-li').css({'top': collapseToolsAdjustedTop});
-
-        }
-    });
-
+    dukeWatchForPasystemLoad("#toolsNav-toggle-li");
+    dukeWatchForPASystemOnScroll("#toolsNav-toggle-li");
+    
     /////////////////////////////////////////////////
     // Make all MOTD cards the same height
     ////////////////////////////////////////////////
@@ -363,5 +376,5 @@
 
         document.querySelector('#Mrphs-footer--details__panel dl').insertAdjacentHTML('beforeend',buildTimeHtml);
     }
-}) ($PBJQ);
+// }) ($PBJQ); 
 
