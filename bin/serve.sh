@@ -55,7 +55,7 @@ else
     find dev/sakai.duke.edu/library/skin/$SVR_SKIN -type f -name '*.js' -exec mv {} {}%3fversion=$SERVER_V \;
 
     #set for sakai-test
-    SERVER_V='af'
+    SERVER_V='aj'
     printf "Copying skin from $HOSTNAME dist/$1 to dev/sakai-test.duke.edu/$SVR_SKIN for browser development\n"
 
     rm -rf dev/sakai-test.duke.edu/library/skin/$SVR_SKIN
