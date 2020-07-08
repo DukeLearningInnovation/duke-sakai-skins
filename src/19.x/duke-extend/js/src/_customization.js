@@ -1,3 +1,2 @@
-(function ($) {
-	console.log('duke-extend/_customization.js loaded');  
-}) ($PBJQ);
+dukeWatchForPasystemLoad(".Mrphs-siteHierarchy .Mrphs-hierarchy--siteName"); 
+dukeWatchForPASystemOnScroll(".Mrphs-siteHierarchy .Mrphs-hierarchy--siteName");
