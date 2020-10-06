@@ -13,7 +13,7 @@ deploy:
   github_token: "$GITHUB_TOKEN"
   keep_history: true
   target_branch: dukedev
-  local_dir: dist/19.x
+  local_dir: dist/20.x
   on:
     branch: master
 notifications:
