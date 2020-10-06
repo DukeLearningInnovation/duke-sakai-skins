@@ -1,6 +1,6 @@
 version: "3"
 services:
-  node:
+  duke-sakai-skins:
     build: .
     container_name: duke-sakai-skins
     # user: "node"
@@ -11,5 +11,7 @@ services:
       # - SHELL=/bin/bash
     volumes:
       - ./:/home/node/app
+      - ../sakai_docker_19x/dev/sakai/deploy/webapps/library/skin:/home/node/app/dist/19.x
+      - ../sakai_docker_20x/dev/sakai/deploy/webapps/library/skin:/home/node/app/dist/20.x
     ports:
-      - 6006:6006
+      - 6008:6006

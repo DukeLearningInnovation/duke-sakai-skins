@@ -1,7 +1,7 @@
 # Duke Sakai Skins
 
 [![Build Status](https://travis-ci.org/DukeLearningInnovation/duke-sakai-skins.svg?branch=master)](https://travis-ci.org/DukeLearningInnovation/duke-sakai-skins)  
-![Build Date](https://img.shields.io/badge/built%20on-Thu,%2009%20Jul%202020%2000:00:42%20UTC-blue)
+![Build Date](https://img.shields.io/badge/built%20on-Mon,%2028%20Sep%202020%2014:50:08%20UTC-blue)
 
 
 OLD - just use Docker instead :)
