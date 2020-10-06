@@ -2,7 +2,7 @@
 
 echo "bin/uglify.sh $1 start"
 
-MORPHEUS='19.x/morpheus-master'
+MORPHEUS='20.x/morpheus-master'
 
 DATE=`date '+%a, %d %b %Y %H:%M:%S %Z'`
 URLDATE=${DATE// /%20}
@@ -11,12 +11,12 @@ URLDATE=${DATE// /%20}
 if [[ $1 == *"duke-"* ]]; then
     rm -rf dist/$1/js
     mkdir dist/$1/js
-    if [ $1 == "19.x/duke-default" ]; then
+    if [ $1 == "20.x/duke-default" ]; then
         terser src/$MORPHEUS/js/src/*.js src/$1/js/src/*.js \
            -o dist/$1/js/morpheus.scripts.min.js -c \
            -b max_line_len=650,beautify=false
     elif [[ $1 == *"duke-"* ]]; then
-        terser src/$MORPHEUS/js/src/*.js src/19.x/duke-default/js/src/*.js src/$1/js/src/*.js \
+        terser src/$MORPHEUS/js/src/*.js src/20.x/duke-default/js/src/*.js src/$1/js/src/*.js \
             -o dist/$1/js/morpheus.scripts.min.js -c \
             -b max_line_len=650,beautify=false
     fi

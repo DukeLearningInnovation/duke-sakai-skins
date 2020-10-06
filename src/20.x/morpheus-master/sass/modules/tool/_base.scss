@@ -130,7 +130,7 @@
 	}
 
 	.#{$namespace}toolTitleNav__link{
-		@include sakai_link_button();
+		@include sakai_secondary_button();
 		// override some button properties below:
 		@include display-flex;
 		@include align-items(center);
@@ -211,7 +211,7 @@
 
 		h1, h2, h3
 		{
-			margin: $standard-spacing 0 0 0; // vertical margins will collapse into one
+			margin: 0;
 			padding: 0;
 			line-height: 1;
 		}
