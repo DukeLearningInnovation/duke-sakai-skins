@@ -21,8 +21,8 @@ if [[ $1 == *"morpheus"* ]]; then
     mv -f tmp/dist/$1default/sass/* dist/$1default/
     rm -rf tmp/
 else
-    MORPHEUS='19.x/morpheus-master'
-    DUKE_DEFAULT='19.x/duke-default'
+    MORPHEUS='20.x/morpheus-master'
+    DUKE_DEFAULT='20.x/duke-default'
     DATE=`date +%Y-%m-%d_%H-%M-%S`
 
     mkdir -p tmp/src/$1/sass tmp/dist/$1 dist/$1
@@ -31,7 +31,7 @@ else
     cp src/$MORPHEUS/sass/access.scss tmp/src/$1/sass/
     cp src/$MORPHEUS/sass/portal.scss tmp/src/$1/sass/
 
-    if [ $1 != "19.x/duke-default" ]; then
+    if [ $1 != "20.x/duke-default" ]; then
         cp src/$DUKE_DEFAULT/sass/print.scss tmp/src/$1/sass/
     fi
         node-sass -r tmp/src/$1 \

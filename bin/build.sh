@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-SAK_V='19.x';
+SAK_V='20.x';
 
 build_scss () {
     npm run scss -- $SKIN;
