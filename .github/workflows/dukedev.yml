@@ -20,12 +20,12 @@ jobs:
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - uses: actions/checkout@v2
       - name: Get short SHA
         id: slug
         run: echo "::set-output name=sha8::$(echo ${GITHUB_SHA} | cut -c1-8)"
       - name: Update dukedev branch
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-#         - uses: actions/checkout@v2
         id: update
         run: |
           git config user.name github-actions
