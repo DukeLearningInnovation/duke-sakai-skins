@@ -24,15 +24,20 @@ jobs:
       - name: Get short SHA
         id: slug
         run: echo "::set-output name=sha8::$(echo ${GITHUB_SHA} | cut -c1-8)"
-      - name: Update dukedev branch
+      - name: Checkout dukedev branch
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-        id: update
+        id: checkout
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com 
           git subtree split --prefix dist/20.x -b dukedev # create a local dukedev branch containing the splitted output folder
           git checkout dukedev
-          find . -type f -wholename '*morpheus.scripts.min.js' | xargs sed -i "s/DUKEGITHUBSHA/${{ steps.slug.outputs.sha8 }}/g"
-          git push -f origin dukedev:dukedev # force the push of the gh-pages branch to the remote gh-pages branch at origin
+      - name: Update JS files with SHA
+        id: update
+        run: |
+          find . -type f -wholename '*morpheus.scripts*.js' | xargs sed -i "s/DUKEGITHUBSHA/${{ steps.slug.outputs.sha8 }}/g"
+      - name: Push to dukedev
+        id: push
+        run: git push -f origin dukedev:dukedev
           
 
