@@ -24,10 +24,10 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - run: |
-          find . -type f -wholename '*20.x/*morpheus.scripts.min.js' | xargs sed -i 's/DUKEGITHUBSHA/$GITHUB_SHA/g'
           git config user.name github-actions
           git config user.email github-actions@github.com 
           git subtree split --prefix dist/20.x -b dukedev # create a local dukedev branch containing the splitted output folder
+          find . -type f -wholename '*morpheus.scripts.min.js' | xargs sed -i 's/DUKEGITHUBSHA/$GITHUB_SHA/g'
           git push -f origin dukedev:dukedev # force the push of the gh-pages branch to the remote gh-pages branch at origin
           git branch -D dukedev # delete the local branch because you will need it: ref
 
