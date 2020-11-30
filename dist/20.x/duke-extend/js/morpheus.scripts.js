@@ -327,7 +327,7 @@ if (document.title === 'Sakai : Home : Overview') {
 ///////////////////////////////////////////////////
 if ( document.getElementById('Mrphs-footer--details__info') !== 'null'){
     //the bin/uglify.sh script updates this on compile
-    let buildTimeHtml = '<dt>Skin Version:</dt><dd>TIME</dd>';
+    let buildTimeHtml = "<dt>Skin Version:</dt><dd>DUKEGITHUBSHA</dd>";
 
     document.getElementById('serverTime').insertAdjacentHTML('afterend',buildTimeHtml);
 }(function ($) {
