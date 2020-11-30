@@ -38,6 +38,8 @@ jobs:
         run: |
           find . -type f -wholename '*morpheus.scripts*.js' | xargs sed -i "s/DUKEGITHUBSHA/${{ steps.slug.outputs.sha8 }}/g"
           git status
+          git commit --amend -C HEAD
+          git status
       - name: Push to dukedev
         id: push
         run:  |
