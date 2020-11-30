@@ -34,5 +34,5 @@ jobs:
           git checkout dukedev
           find . -type f -wholename '*morpheus.scripts.min.js' | xargs sed -i "s/DUKEGITHUBSHA/${{ steps.slug.outputs.sha8 }}/g"
           git push -f origin dukedev:dukedev # force the push of the gh-pages branch to the remote gh-pages branch at origin
-          git branch -D dukedev # delete the local branch because you will need it: ref
+          
 
