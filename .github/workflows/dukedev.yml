@@ -32,12 +32,16 @@ jobs:
           git config user.email github-actions@github.com 
           git subtree split --prefix dist/20.x -b dukedev # create a local dukedev branch containing the splitted output folder
           git checkout dukedev
+          git status
       - name: Update JS files with SHA
         id: update
         run: |
           find . -type f -wholename '*morpheus.scripts*.js' | xargs sed -i "s/DUKEGITHUBSHA/${{ steps.slug.outputs.sha8 }}/g"
+          git status
       - name: Push to dukedev
         id: push
-        run: git push -f origin dukedev:dukedev
+        run:  |
+          git push -f origin dukedev:dukedev
+          git status
           
 
