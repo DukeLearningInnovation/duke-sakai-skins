@@ -320,6 +320,16 @@ if (document.title === 'Sakai : Home : Overview') {
             motdCards[i].style.height = `${tallestMOTD}px`;
         }
     },1000);
+}
+
+///////////////////////////////////////////////////
+// #157 Inject skin modified date into footer 
+///////////////////////////////////////////////////
+if ( document.getElementById('Mrphs-footer--details__info') !== 'null'){
+    //the bin/uglify.sh script updates this on compile
+    let buildTimeHtml = '<dt>Skin Version:</dt><dd>TIME</dd>';
+
+    document.getElementById('serverTime').insertAdjacentHTML('afterend',buildTimeHtml);
 }(function ($) {
 
   $(function () {
