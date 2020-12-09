@@ -23,7 +23,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Get short SHA
         id: slug
-        run: echo "::set-output name=sha8::$(echo ${GITHUB_SHA} | cut -c1-8)"
+        run: echo "::set-output name=sha8::$(echo ${GITHUB_SHA} | cut -c1-7)"
       - name: Checkout dukedev branch
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
         id: checkout
