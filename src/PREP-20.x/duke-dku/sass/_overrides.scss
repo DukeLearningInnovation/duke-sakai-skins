@@ -1,0 +1,23 @@
+
+// Issue 193
+// Hide asn honor code so JS can display it after text update
+$jumbotron-heading-font-size: 42px;
+.Mrphs-sakai-assignment-grades {
+    #honor-pledge-agreement {
+        display: none;
+        margin-bottom: $standard-spacing
+    }
+    input[name="eventSubmit_doCancel_assignment_honor_pledge"] {
+        @include sakai_secondary_button();
+    }
+}
+
+.Mrphs-sakai-samigo {
+    #honor-pledge-agreement {
+        h4 {
+            font-size: $jumbotron-heading-font-size;
+            margin: 0 0 0.5em 0;
+        }
+        margin-bottom: $standard-spacing;
+    }
+}

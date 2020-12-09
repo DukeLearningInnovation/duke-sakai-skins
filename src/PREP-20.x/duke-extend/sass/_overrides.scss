@@ -1,0 +1,101 @@
+.#{$namespace}mainHeader{
+    .#{$namespace}headerLogo {
+        .#{$namespace}headerLogo--institution {
+            @media #{$phone}{
+                background-size: calc(#{$logo-width}*.75) calc(#{$logo-height}*.75);
+                background-position-y: 5px;
+            }
+        }
+    }
+}
+
+//Hide favorite sites
+#topnav_container {
+    display: none;
+}
+.Mrphs-toolTitleNav__button_container {
+    height:52px;
+}
+//Breadcrumbs & site name in header
+.Mrphs-siteHierarchy {
+    padding:0;
+}
+.Mrphs-pageColumns--single {
+    margin-top:52px;
+}
+.Mrphs-siteHierarchy .Mrphs-hierarchy--siteName{
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: calc(52px + #{$logo-width} + #{$standard-spacing});
+    height:52px;
+    line-height: 52px;
+    z-index: 1001;
+    .#{$namespace}hierarchy--siteName-label {
+        color:$white;
+        font-weight: 500;
+    }
+    @media #{$phone}{
+        width:50%;
+        height:14px;
+        line-height: 14px;
+        top:35px;
+        left:25%;
+        text-align: center;
+        a {
+            margin: 0;
+            width:100%;
+        }
+    }
+}
+.Mrphs-siteHierarchy .Mrphs-hierarchy--siteNameSeparator,
+.Mrphs-siteHierarchy a.Mrphs-hierarchy--toolName {
+    display: none;
+    
+}
+#content {
+    .#{$namespace}pageColumns {
+        &.#{$namespace}pageColumns--single {
+            margin-top:0;
+            .#{$namespace}toolTitleNav {
+
+                .#{$namespace}toolTitleNav__button_container {
+                    margin:0;
+                    z-index:9;
+                    @media #{$phone}{
+                        margin:0 $standard-spacing 0 0;
+                    }
+                }
+            }
+            .portletBody {
+                // margin: calc(#{$standard-spacing}*-2) 0 calc(#{$standard-spacing}*-2);
+            }
+        }
+    }
+}
+// remove box shadow from static header
+.#{$namespace}topHeader {
+    box-shadow: none;
+}
+
+//////////////////////////////////
+// LESSONS    
+/////////////////////////////////
+#content .Mrphs-pageColumns#col1 .Mrphs-sakai-lessonbuildertool{
+    margin-top: 0;
+    //Move lessons menu to footer
+    .Mrphs-toolTitleNav {
+        position: inherit;
+    }
+    .Mrphs-toolTitleNav__button_container {
+        position: absolute;
+        bottom: 0;
+    }
+// Fix the Expand all button
+    .topaction {
+        position: relative;
+    }
+    .subpage-breadcrumb-div {
+        display:none;
+    }
+}
