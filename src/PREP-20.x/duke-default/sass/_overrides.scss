@@ -1,0 +1,886 @@
+
+///////////////////////////////////
+// mainheader 
+//////////////////////////////////
+.#{$namespace}mainHeader{
+    // box-shadow:none;
+
+    // not maintaing these mobile customizations in 20
+    // @media #{$phone}{
+    //     &>* {
+    //         display:flex;
+    //         flex-wrap:wrap;
+    //         justify-content: space-between;
+    //     }
+    //     .#{$namespace}headerLogo,
+    //     #mastLogin,
+    //     .#{$namespace}skipNav__menu,
+    //     .#{$namespace}skipNav__menu.moving {
+    //         width:auto;
+    //         position:fixed;
+    //     }
+    // }
+
+    .#{$namespace}headerLogo {
+        // not maintaing these mobile customizations in 20
+        // @media #{$phone}{
+        //     width:100%;
+        //     padding:0;
+        // }
+        .#{$namespace}headerLogo--institution {
+            // not maintaing these mobile customizations in 20
+            // @media #{$phone}{
+            //     margin-left: calc(50% - #{$logo-width}/2);
+            // }
+        }
+    }
+    .#{$namespace}topHeader #mastLogin {
+        // not maintaing these mobile customizations in 20
+        // @media #{$phone}{
+        //     right:$standard-spacing;
+        // }
+    }
+}
+
+///////////////////////////////////
+// Left hand Tool Menu 
+//////////////////////////////////
+
+//not maintaining these mobile customizations in 20
+// .#{$namespace}skipNav__menu,
+// .#{$namespace}skipNav__menu.moving {
+//     // @media #{$phone}{
+//     //     display:flex;
+//     //     justify-content: space-between;
+//     //     width: calc(100% - 52px - calc(#{$standard-spacing / 2}));
+//     //     position: fixed;
+//     //     top:0;
+//     //     left: 0;
+//     //     z-index: 21;
+//     //     box-shadow: none;
+//     //     height:52px;
+
+//     //     li {
+//     //         display: flex;
+
+//     //         &.#{$namespace}skipNav__menuitem.#{$namespace}skipNav__menuitem--worksite,
+//     //         &.#{$namespace}skipNav__menuitem.#{$namespace}skipNav__menuitem--tools {
+//     //             background: transparent;
+//     //             box-shadow: none;
+//     //             float:none;
+
+//     //             a {
+//     //                 color: $topNav-text-color;
+//     //                 padding:0;
+                    
+//     //                 &:before,
+//     //                 &:after {
+//     //                     border:none;
+//     //                 }
+//     //                 &.manage-overview-link-mobile {
+//     //                     margin-left: $standard-spacing;
+//     //                     width:75px;
+//     //                     overflow: ellipses;
+//     //                     display:inline-block;
+//     //                 }
+//     //             }
+//     //         }
+//     //         &.#{$namespace}skipNav__menuitem.#{$namespace}skipNav__menuitem--tools {
+//     //             order:1;
+//     //             justify-content: space-between;
+//     //             a {
+//     //                 display: flex;
+//     //                 float:none;
+
+//     //                 &.js-toggle-tools-nav {
+//     //                     text-overflow: clip;
+//     //                     width:52px;
+//     //                     min-height:52px;
+//     //                     font-size:24px;
+//     //                     background:$tool-menu-collapse-background-color;
+                        
+//     //                 }
+//     //                 &.#{$namespace}skipNav--toolName{
+//     //                     display: none;
+//     //                     color:$topNav-text-color;
+//     //                     height:52px;
+//     //                     line-height:52px;
+//     //                     text-overflow: ellipsis;
+//     //                     span {
+//     //                         margin-left: calc(#{$standard-spacing} / 4);
+//     //                     }
+//     //                 }
+//     //                 &.manage-overview-link-mobile {
+//     //                     color: $white;
+//     //                 }
+//     //             }
+
+//     //             .tools-icon {
+//     //                 padding: calc(#{$standard-spacing} * .88) $standard-spacing calc(#{$standard-spacing / 2}) ;
+//     //             }
+
+//     //             .#{$namespace}breadcrumb--icon {
+//     //                 display: flex;
+//     //                 line-height: 52px;
+//     //             }
+//     //         }
+//     //         &.#{$namespace}skipNav__menuitem.#{$namespace}skipNav__menuitem--worksite {
+//     //             width:52px;
+//     //             order:3;
+//     //             a {
+//     //                 background:none;
+//     //                 text-overflow: clip;
+//     //                 float:none;
+//     //                 border:none;
+//     //             }
+//     //             .all-sites-icon {
+//     //                 width:52px;
+//     //                 min-height:52px;
+        
+//     //                 padding: $standard-spacing $standard-spacing calc(#{$standard-spacing / 2});
+//     //                 font-size:24px !important;
+                    
+//     //             }
+//     //         }
+//     //         &.Mrphs-skipNav__menuitem--content,
+//     //         &.Mrphs-skipNav__menuitem--accessibility {
+//     //             display:none;
+//     //         }
+//     //     }
+//     // }
+// }
+
+
+/////////////////////////////////////////
+// Breadcrumbs Styles
+//////////////////////////////////////////
+//not maintaining these customizations
+// .#{$namespace}siteHierarchy{
+    // background: $body-background-color;
+    // padding:$standard-spacing calc(#{$standard-spacing}*2);
+    // border-bottom:1px solid $limestone;
+    // @media #{$phone}{
+    //     padding:calc(#{$standard-spacing}/2) 0;
+    //     height:auto;
+    //     line-height:inherit;
+    // }
+    // .hierarchyWrap {
+    //     display:flex;
+        
+    //         .#{$namespace}hierarchy--separator,
+    //         .crumb-link,
+    //         .lessons-siteHierarchy-title {
+                
+    //             font-weight: 400;
+    //             margin:0;
+    //             padding:calc(#{$standard-spacing}/2);
+    //         }
+    //         .crumb-link {
+    //             color:$primary-color;
+    //             text-transform: uppercase;
+    //             font-weight: 500;
+    //         }
+    // }
+    
+//     a.#{$namespace}hierarchy--toolName {
+//         font-weight: 500;
+//         // text-transform: none;
+//         font-size: 1em;
+//         border: 1px solid $body-background-color;
+//         padding: calc(#{$standard-spacing} / 4); 
+//         padding-left:0;
+//         border-radius: $button-radius;
+//         // max-width: calc(100% - 268px);
+//         @media #{$tablet}{
+//             max-width: 40%;
+//         }
+//         &:hover, &:active, &:focus {
+//             background:$primary-color-light;
+//             text-decoration: none;
+//             .#{$namespace}breadcrumb--toolNameText {
+//                 text-decoration: none;
+//             }
+//         }
+//         .#{$namespace}breadcrumb--toolNameText {
+//             text-decoration: none;
+//             text-overflow: ellipsis;
+//             white-space: nowrap;
+//             overflow: hidden;
+//             max-width: 100%;
+//             &:hover, &:active, &:focus {
+//                 text-decoration: none;
+//             }
+            
+//         }
+        
+//         @media #{$phone} {
+//             border:none;
+//             padding: $standard-spacing;
+//         }
+//         .manage-overview-link {
+//             margin-top:0;
+//         }
+//     }
+// }
+
+// not maintaining these customizations in 20
+/////////////////////////////////////////
+// pagebody Styles
+//////////////////////////////////////////
+// #pageBody {
+//     border-top:1px solid $limestone;
+// }
+// #content {
+//     @media #{$phone}{
+//         padding:0;
+//     }
+//     .#{$namespace}pageColumns {
+//         display: flex;
+//         align-content: space-between;
+//         flex: 0 1 auto;
+//         flex-direction:column;
+//         justify-content: space-between;
+
+//         &#col1{
+            
+//             .#{$namespace}container {
+//                 margin: $standard-spacing calc(#{$standard-spacing}*2);
+//                 @media #{$phone}{
+//                     margin:0;
+//                 }
+//             }
+//             .portletBody {
+//                 @media #{$phone}{
+//                     margin:$standard-spacing 0;
+//                 }
+//             }
+//         }
+        
+//         &#col1of2,
+//         &#col2of2 {
+//             margin:0;
+//             width:50%;
+//             @media #{$tablet}{
+//                 width:100%;
+//             }
+            
+//         }
+//         &#col1of2 {
+//             .#{$namespace}container {
+//                 margin: calc(#{$standard-spacing}*2);
+//                 margin-right:$standard-spacing;
+//             }
+//         }
+//         &#col2of2 {
+//             .#{$namespace}container {
+//                 margin: calc(#{$standard-spacing}*2);
+//                 margin-left:$standard-spacing;
+//             }
+//         }
+//         .#{$namespace}container {
+            
+//             border:none;
+//             border-radius:$button-radius;
+//             padding:4px;
+
+//         }
+
+//     }
+
+// }
+
+// #pageBody>.#{$namespace}pagebody {
+
+//     @media #{$phone}{
+//         margin:0;
+//         width:100%;
+//     }
+// }
+
+/////////////////////////////////////////
+// .toolTitleNav Styles
+//////////////////////////////////////////
+// not maintaining these customizations
+// #content {
+//     .#{$namespace}pageColumns {
+//         &.#{$namespace}pageColumns--single {
+//             .#{$namespace}toolTitleNav__button_container {
+//                 margin-top:-78px;
+//                 height:calc(#{$standard-spacing}*3);
+//                 background:$white;
+//                 @media #{$phone}{
+//                     margin:0 $standard-spacing 0 0;
+//                 }
+//             }
+//         }
+//         .#{$namespace}toolTitleNav__title {
+//             color: $castiron;
+//             font-weight: 500;
+//             font-size: 1.25em;
+//         }
+//         .#{$namespace}toolTitleNav__link {
+//             text-transform:uppercase;
+//         }
+//     }
+//     .#{$namespace}container--toolTitleNav {
+//         margin:0;
+//     }
+// }
+
+
+
+// not maintaining these customizations
+/////////////////////////////////////////
+// .navIntraTool Styles
+//////////////////////////////////////////
+// .navIntraTool {
+//     background: $body-background-color;
+
+//     li {
+//         span {
+//             margin-bottom: 0;
+//             padding: 0;
+            
+//             &:before,
+//             &:after {
+//                 border:none;
+//             }
+//             &.current {
+//                 text-transform: uppercase;
+//                 font-weight: 500;
+//                 letter-spacing: .0178571429em;
+//                 border:none;
+//                 border-bottom: 2px solid $tool-tab-active-highlight-color;
+//                 margin-bottom:-2px;
+//                 padding: 0 $standard-spacing;
+//                 a {
+//                     padding: 0 $standard-spacing;
+//                 }
+//                 &:hover {
+//                     background:$tool-tab-hover-background-color;
+//                     border-bottom: 2px solid $tool-tab-active-highlight-color;
+//                     margin-bottom:-2px;
+//                 }
+//                 &:before,
+//                 &:after {
+//                     border: none;
+//                     position: initial;
+//                 }
+//             }
+//             a {
+//                 font-weight: 500;
+//                 padding: 0 $standard-spacing;
+//                 border:none;
+
+//             }
+//         }
+//     }
+// }
+
+//////////////////////////////////
+// Home Overview Portlets
+/////////////////////////////////
+
+
+// Calendar Portlet
+// .#{$namespace}calendarSynoptic {
+//     .calRight {
+//         input[value=" < "],
+//         input[value=" > "] {
+//             @include sakai_label();
+//             border-radius: 50%;
+//             font-size:1.25em;
+//             padding: 0 6px;
+//             margin:0;
+//             &:hover,
+//             &:active {
+//                 // background: $gallery;
+//                 border-color:transparent;
+//             }
+//         }
+//         input[value="Today"] {
+//             @include sakai_label();
+//             margin:0 calc(#{$standard-spacing}/2);
+//         }
+//     }
+// }
+// Announcement Portlet
+// body.workspace .#{$namespace}multipleTools{
+//     .#{$namespace}toolBody--sakai-synoptic-announcement {
+//         .portletMainIframe {
+//             padding-top:0;
+//         }
+//     }
+// }
+
+
+//not maintaining these
+////////////////////////////////////////////
+// Calendar styles
+////////////////////////////////////////
+// .#{$namespace}sakai-schedule {
+//     input[value="Next Week >"],
+//     input[value="< Previous Week"],
+//     input[value="Today"] {
+//         margin:0;
+//     }
+// }
+
+//not maintaining these customizations
+////////////////////////////////////////////
+// Lessons styles
+////////////////////////////////////////
+
+// .#{$namespace}sakai-lessonbuildertool {
+    
+//     @media #{$nonPhone}{
+//         .Mrphs-toolTitleNav .Mrphs-toolTitleNav__link .Mrphs-itemTitle {
+//             display: none;
+//         }
+//     }
+    
+//     .instructor & .navIntraTool {
+//         border-bottom:1px solid $limestone;
+//         #toolbar {
+//             margin:0;
+//         }
+//         li span a {
+//             // border-bottom:none;
+
+//         }
+//     }
+//     .navIntraTool {
+//         height:calc(#{$standard-spacing}*2);
+//         margin-bottom:$standard-spacing;
+//         border-bottom:1px solid $limestone;
+//         ~ div.itemclass {
+//         //    margin-top:calc(#{$standard-spacing}*3);
+//         }
+//     }
+//     .instruction.error-spacingabove.error-nospacebelow {
+//         margin:#{$standard-spacing} 0 0;
+//     }
+//     .portletBody {
+//         margin-top:0;
+//     }
+//     .returnheader a.ui-button:link{
+//         border:none;
+//         text-decoration: none;
+//         color:$primary-color;
+//         font-weight: 500;
+//         font-size: 1.25em;
+//     }
+//     .column {
+//         border-color:transparent;
+//         border-radius:0;
+//         padding-top:0;
+   
+//         .col {
+//             padding:0;
+//             display: flex;
+//                 justify-items: center;
+//                 justify-content: center;
+//             a {
+                
+//                 text-align: center;
+//                 margin: 0 $standard-spacing;
+//             }
+//         } 
+//         .col-md-10-9 {
+//             width:9.259%;
+//             float: left;
+//         }	
+//         .col-md-10-8 {
+//             width:10.416%;
+//             float: left;
+//         }
+//         .col-md-10-7 {
+//             width:11.904%;
+//             float: left;
+//         }
+//         .col-md-10-6 {
+//             width:13.888%;
+//             float: left;
+//         }
+//         .col-md-10-4 {
+//             width:20.833%;
+//             float:left;
+//         }
+//         .col-md-10-3 {
+//             width:27.777%;
+//             float: left;
+//         }
+//         .prev {
+//             .fa {
+//                 margin-right:.5em
+//             }
+//         }
+//         .current {
+//             a {
+//                 background:$primary-color;
+//                 // border-right:none;
+//                 &:hover {
+//                     background:$primary-color-light;
+//                 }
+//             }
+//         }
+//     }
+
+//     .subpage-breadcrumb-div {
+//         margin:0;
+//         // margin:-130px 0 calc(130px - #{$standard-spacing} - 21px - #{$standard-spacing});
+//         // padding: calc(#{$standard-spacing}) 0;
+//         // background:$white;
+//         // position: relative;
+//         // display: flex;
+//         // max-width: calc(100% - 586px - #{$standard-spacing}); //account for the width of toolTitleNav
+//     }
+//     .startupHelp {
+//         margin-top:0;
+//     }
+
+//     .checklist-checkbox-label {
+//         padding:.5em;
+//     }
+//     .checklist-checkbox ~ span.checklist-checkbox-label{
+//         background-image:none;
+//         &:before {
+//             font-size: 16px;
+//             font-weight: normal;
+//             font-family: FontAwesome;
+//             content: "\f096";
+//             margin-right: .5em;
+//             width:1em;
+//         }
+//     }
+//     label.checklistLabel:hover .checklist-checkbox ~ span.checklist-checkbox-label,
+//     label.checklistLabel:hover .checklist-checkbox:checked ~ span.checklist-checkbox,
+//     label.checklistLabel:hover .checklist-checkbox:checked ~ span.checklist-checkbox-label,
+//     .checklist-checkbox:checked ~ span.checklist-checkbox-label {
+//         background-image:none;
+//         &:before {
+//             font-size: 16px;
+//             font-weight: normal;
+//             font-family: FontAwesome;
+//             content: "\f046";
+//             margin-right: .5em;
+//             width:1em;
+//         }
+//     }
+//     .saveChecklistSuccess {
+//         background: $ok-background-color;
+//         color: $ok-color;
+//         &:before {
+//             font-size: 16px;
+//             font-weight: normal;
+//             font-family: FontAwesome;
+//             content: "\f058";
+//             margin-right: .5em;
+//         }
+//     }
+//     .checklistSaveMessage {
+//         padding: 4px;
+//     }
+//     input[type="submit"].question-submit.showPollGraph {
+//         &:hover {
+//             background: rgba(0,0,0,.1);
+//         }
+//     }
+//     .edit-col {
+//         a.ui-button[role="button"],
+//         .add-link{
+//             border:none;
+//             background:transparent;
+//             padding: calc(#{$standard-spacing}/2);
+//             margin:0 calc(#{$standard-spacing}/4);
+//             &:hover {
+//                 border:none;
+//                 background: rgba(0,0,0,.1);
+//             }
+//         }
+//     }
+//     .sectionedit.addbottom {
+//         bottom: calc(#{$standard-spacing}*-1);
+//     }
+    // change columns with colors
+
+// }
+
+
+// not maintaining these customizations
+////////////////////////////////////////////
+// Gradebook styles
+////////////////////////////////////////
+// .#{$namespace}sakai-gradebookng {
+    
+//     #gradebookGradesToolbar {
+//         background:$body-background-color;
+//     }
+//     .gradeTableOuterWrapper {
+//         // overflow:scroll;
+//     }
+//     #gradeTableWrapper {
+//         background:$body-background-color;
+//         .gb-title {
+//             text-overflow: ellipsis;
+//             overflow: hidden;
+//         }
+//     }
+// }
+// .gb-add-gradebook-item-button,
+// .gb-create-or-save {
+//     margin-right:0;
+// }
+
+//not maintaining these customizations
+///////////////////////////////////////////
+// Forums styles
+////////////////////////////////////////
+// .#{$namespace}sakai-forums {
+
+//     #msgForum {
+//     @media #{$desktop}{
+//         &[action$="dfForumDetail"] h3.specialLink,
+//         &[action$="dfAllMessages"] > table:first-of-type,
+//         &[action$="dfViewThread"] table.specialLink div.specialLink,
+//         &[action$="dfViewMessage"] .navPanel {
+//             padding: 0;
+//             background:$white;
+//             max-width: calc(100% - 172px - #{$standard-spacing});
+//             height: 42px;           
+//             overflow: hidden;
+//             position:relative;
+//             line-height: 1.5em;
+//             line-height: 1.5em;
+//             font-size: 1em;
+//             font-weight: 400;
+//             h1,h2,h3,h4,h5,h6,a {
+//                 margin:0;
+//                 padding:0;
+//                 line-height: 1.5em;
+//                 font-size: 1em;
+//                 font-weight: 400;
+//             }
+//             a{
+//                 display: inline-block;
+//                 text-overflow: ellipsis;
+//                 overflow: hidden;
+//                 max-width:34%;
+//                 white-space:nowrap;
+//                 line-height: 1.5em;
+//                 vertical-align: bottom;
+//             }
+//         }
+//         &[action$="dfForumDetail"] {
+//             .forumHeader.specialLink {
+//                 margin-top:48px;
+//             }
+//             h3.specialLink {
+//                 margin:-74px 0 0;
+//                 &::before {
+//                     position: absolute;
+//                     content: "";
+//                     background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 50%);
+//                     bottom: 0;
+//                     right: 0;
+//                     width:2em;
+//                     height:1.5em;
+//                   }
+//                   &::after {
+//                     content: "";
+//                     position: absolute;
+//                     right: 0;
+//                     width: 1rem;
+//                     height: 1rem;
+//                     background: white;
+//                 }
+//                 a {
+//                     max-width: 49%;
+//                 }
+//             }
+//         }
+//         &[action$="dfAllMessages"] > table:first-of-type {
+//             display: block;
+//             height: 42px;
+//             position: relative;
+//             z-index: 1;
+//             margin:-108px 0 68px;
+//             tbody, tr, td {
+//                 display: block;
+//                 height:42px;
+//                 width: 100%;
+//             }
+//             .specialLink {
+//                 width: 100%;
+//                 max-width: 100%;
+//             }
+//             h1 {
+//                 margin:0; 
+//                 width:100%;
+//                 &::before {
+//                     position: absolute;
+//                     content: "";
+//                     background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 50%);
+//                     bottom: 0;
+//                     right: 0;
+//                     width:2em;
+//                     height:1.5em;
+//                     }
+//                     &::after {
+//                     content: "";
+//                     position: absolute;
+//                     right: 0;
+//                     width: 1rem;
+//                     height: 1rem;
+//                     background: white;
+//                 }
+//                 a {
+//                     max-width: 33%;
+//                     &:last-of-type {
+//                         position: absolute;
+//                         right: 0;
+//                         bottom: -6px;
+//                         margin: 0;
+//                     }
+//                 }
+//             }
+//         }
+//         &[action$="dfViewThread"] > table:first-of-type {
+//             display: block;
+//             height: 42px;
+//             position: relative;
+//             z-index: 1;
+//             margin:-108px 0 68px;
+//             tbody, tr, td {
+//                 display: block;
+//                 height:42px;
+//                 width: 100%;
+//             }
+//             .specialLink {
+//                 width: 100%;
+//                 max-width: 100%;
+//             }
+//             h3 {
+//                 margin:0; 
+//                 width:100%;
+//                 &::before {
+//                     position: absolute;
+//                     content: "";
+//                     background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 50%);
+//                     bottom: 0;
+//                     right: 0;
+//                     width:2em;
+//                     height:1.5em;
+//                     }
+//                     &::after {
+//                     content: "";
+//                     position: absolute;
+//                     right: 0;
+//                     width: 1rem;
+//                     height: 1rem;
+//                     background: white;
+//                 }
+//                 a {
+//                     max-width: 24%;
+                    
+//                 }
+//             }
+//             .itemNav {
+//                 bottom:-4em;
+//             }
+//         }
+//         &[action$="dfViewMessage"] {
+//             .navPanel {
+//                 margin:-72px 0 32px;
+//                 h3 {
+//                     &::before {
+//                         position: absolute;
+//                         content: "";
+//                         background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 50%);
+//                         bottom: 0;
+//                         right: 0;
+//                         width:2em;
+//                         height:1.5em;
+//                         }
+//                         &::after {
+//                         content: "";
+//                         position: absolute;
+//                         right: 0;
+//                         width: 1rem;
+//                         height: 1rem;
+//                         background: white;
+//                     }
+//                     a {
+//                         max-width: 48%;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+
+//         .itemNav {
+//             right:-16px;
+//             margin:0;
+            
+//             @media #{$tablet}{
+//                 // top:-86px;
+//                 // right:98px;
+//             }
+            
+//             .button {
+//                 padding:calc(#{$standard-spacing}/2);
+//                 &.formButtonDisabled{
+//                     color: $button-disabled-text-color;
+// 			        background: $button-disabled-background;
+// 			        border-color: $button-disabled-border-color;
+// 			        box-shadow: $button-disabled-shadow;
+//                 } 
+//             }
+//         }
+//         @media #{$phone} {
+//             .itemNav{
+//                 display:none;
+//             }
+//             .specialLink .itemNav {
+//                 display:table;
+//             }
+            
+//         }
+
+//     }
+// }
+
+//not maintaining these customizations
+/////////////////////////////////////////
+// Samigo Tests & Quizzes styles
+/////////////////////////////////////////
+// .#{$namespace}sakai-samigo{
+
+//     .hasDatepicker {
+//         // padding-left:calc(#{$standard-spacing}*1.5);
+//         text-align: right;
+//         &:hover {
+//             cursor: pointer;
+//         }
+//         &:active, &:focus {
+//             cursor: text;
+//         }
+//     }
+//     .ui-datepicker-trigger {
+//         margin:0 0 0 -1px;
+//         border-radius: 0;
+//         padding:2px 6px;
+//         border-color:rgb(210, 210, 210);
+
+        
+//         &:hover, &:active, &:focus {
+//             background: none;
+//             border-color:rgb(210, 210, 210);
+//             box-shadow: none;
+//         }
+//         span.fa {
+//             color:$button-tertiary-text-color;
+//         }
+//     }
+// }
+
