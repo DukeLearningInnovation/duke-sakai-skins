@@ -1,6 +1,4 @@
-console.log('duke.extend.js');
-dukeWatchForPasystemLoad(".Mrphs-siteHierarchy .Mrphs-hierarchy--siteName");
-dukeWatchForPASystemOnScroll(".Mrphs-siteHierarchy .Mrphs-hierarchy--siteName");
+// console.log('duke.extend.js');
 
 if (typeof portal.siteTitle !== 'undefined'){
     let dukeSiteTitle = `<span class="Duke-headerlogo--siteTitle">${portal.siteTitle}</span>`;
