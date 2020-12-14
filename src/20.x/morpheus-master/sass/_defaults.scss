@@ -9,8 +9,8 @@ $break-small-end: 	800px;
 $break-medium-end: 	1030px;
 
 $smallPhone:    "only screen and (max-width : #{$break-tiny-end})";
-$phone  :       "only screen and (max-width : #{$break-small-end})" !default;
-$tablet :       "only screen and (max-width : #{$break-medium-end})" !default;
+$phone:       "only screen and (max-width : #{$break-small-end})" !default;
+$tablet:       "only screen and (max-width : #{$break-medium-end})" !default;
 $desktop:       "only screen and (min-width : #{$break-medium-end + 1})" !default;
 $nonPhone:      "only screen and (min-width : #{$break-small-end + 1})" !default;
 
@@ -43,6 +43,7 @@ $background-color: 			 #FFFFFF !default;
 $background-color-secondary: #000036 !default;
 
 $primary-color:    			 #15597e !default;
+$primary-color-light: lighten($primary-color, 8%) !default;
 $primary-color-highContrast: darken( $primary-color, 4% ) !default;	// for use of primary on non-white light backgrounds, such as greys
 $primary-color-shadow:			 adjust-hue( $primary-color, 5 ) !default;	// To give primary a darker shadow
 $secondary-color:  			 #F00 !default;
@@ -75,6 +76,7 @@ $tool-tab-hover-background-color:                         #ECECEC !default;
 $tool-tab-hover-highlight-color:                          #7F7F7F !default;
 $tool-tab-active-text-color:                              $primary-color !default;
 $tool-tab-active-text-size:                               12px !default;
+$tool-tab-active-border-color:                            $tool-tab-border-color !default;
 $tool-tab-active-background-color:                        #FFFFFF !default;
 $tool-tab-active-highlight-color:                         $primary-color !default;
 
@@ -115,46 +117,48 @@ $button-radius-pill:            16px !default;
 $button-text-transform:         none !default;
 
 // Default (non-primary) button design:
-$button-text-color:             #333;
-$button-background:             linear-gradient(#fff, #f9f9f9);
-$button-border-color:           #ccc;
+$button-text-color:             #333 !default;
+$button-background:             linear-gradient(#fff, #f9f9f9) !default;
+$button-border-color:           #ccc !default;
 $button-font-weight:            400 !default;
 $button-shadow:                 0 1px 0 rgba(255,255,255,0.15) inset !default;
+$button-transition:none !default;
 // hover and focus states:
-$button-hover-text-color:       $button-text-color;
-$button-hover-background:       $button-background;
-$button-hover-border-color:     #999;
+$button-hover-text-color:       $button-text-color !default;
+$button-hover-background:       $button-background !default;
+$button-hover-border-color:     #999 !default;
 $button-hover-shadow:           $button-shadow !default;
 // active state:
-$button-active-text-color:      $button-text-color;
-$button-active-background:      linear-gradient(#f9f9f9, #fff);	//note: inverse order from above
-$button-active-border-color:    $button-hover-border-color;
-$button-active-shadow-color:    rgba(0, 0, 0, 0.3);
+$button-active-text-color:      $button-text-color !default;
+$button-active-background:      linear-gradient(#f9f9f9, #fff) !default;	//note: inverse order from above
+$button-active-border-color:    $button-hover-border-color !default;
+$button-active-shadow-color:    rgba(0, 0, 0, 0.3) !default;
 $button-active-shadow:          inset 0 0 $standard-spacing $button-active-shadow-color !default;
 // disabled state:
-$button-disabled-text-color:    #717171;
-$button-disabled-background:    #f6f6f6;
-$button-disabled-border-color:  #dbdbdb;
-$button-disabled-shadow:        none;
-$button-disabled-font-weight:   300;
+$button-disabled-text-color:    #717171 !default;
+$button-disabled-background:    #f6f6f6 !default;
+$button-disabled-border-color:  #dbdbdb !default;
+$button-disabled-shadow:        none !default;
+$button-disabled-font-weight:   300 !default;
 
 // Primary action button design:
-$button-primary-text-color:                 #fff;
-$button-primary-background:                 $primary-color;
-$button-primary-border-color:               #326b97;
+$button-primary-text-color:                 #fff !default;
+$button-primary-background:                 $primary-color !default;
+$button-primary-border-color:               #326b97 !default;
 $button-primary-text-transform:             none !default;
 $button-primary-font-weight:                400 !default;
 $button-primary-shadow:                     $button-shadow !default;
+$button-primary-transition: none !default;
 // hover and focus states for primary action button:
-$button-primary-hover-text-color:           $button-primary-text-color;
-$button-primary-hover-background:           #176691;
-$button-primary-hover-border-color:         #124466;
+$button-primary-hover-text-color:           $button-primary-text-color !default;
+$button-primary-hover-background:           #176691 !default;
+$button-primary-hover-border-color:         #124466 !default;
 $button-primary-hover-shadow:               $button-shadow !default;
 // active state for primary action button:
-$button-primary-active-text-color:          $button-primary-text-color;
-$button-primary-active-background:          $button-primary-hover-background;
-$button-primary-active-border-color:        $button-primary-hover-border-color;
-$button-primary-active-shadow-color:        $button-active-shadow-color;
+$button-primary-active-text-color:          $button-primary-text-color !default;
+$button-primary-active-background:          $button-primary-hover-background !default;
+$button-primary-active-border-color:        $button-primary-hover-border-color !default;
+$button-primary-active-shadow-color:        $button-active-shadow-color !default;
 $button-primary-active-shadow:              inset 0 0 $standard-spacing $button-active-shadow-color !default;
 
 /* end of General button design */
@@ -190,9 +194,9 @@ $warnBanner-color: $text-color;
 $warnBanner-icon: ".fa-exclamation-circle";
 
 // Error banner
-$errorBanner-bordercolor: #cf4f16;
-$errorBanner-bgcolor: #f4dcd2;
-$errorBanner-color: $text-color;
+$errorBanner-bordercolor: #cf4f16 !default;
+$errorBanner-bgcolor: #f4dcd2 !default;
+$errorBanner-color: $text-color !default;
 $errorBanner-icon: ".fa-ban";
 /* end of Sakai Banners */
 
@@ -508,3 +512,212 @@ $focus-outline-style: solid;
 $focus-outline-color: #5b9dd9;
 $sakai-focus-outline: $focus-outline-width $focus-outline-style $focus-outline-color;
 $focus-outline-offset: 2px;
+
+
+/* Enable Google Material Design inspired theme elements */
+/* by setting the variables below to true. */
+/* Added in SAK-42889 */
+$standard-spacing-as-material: true;
+$sites-nav-as-material: true;
+$portal-as-material: true;
+$tool-menu-as-material: true;
+$buttons-as-material: true;
+$top-header-as-material: true;
+$cards-as-material: true;
+$lessons-as-material: true;
+
+/*    Standard Spacing Large    */
+// Increases the standard spacing all over Sakai
+// to feel more open and modern.
+// @if $standard-spacing-as-material {
+    $standard-spacing: 16px !default; 
+    $sites-nav-submenu-top: $standard-spacing !default;
+    $tool-menu-padding: calc(#{$standard-spacing} / 2) 0 0 0 !default;
+// }
+
+//Built to be used for padding
+//https://material-components.github.io/material-components-web-catalog/#/component/menu
+$material-menu-padding: calc( #{$standard-spacing} / 2) 0 !default;
+$material-menu-item-padding: calc(#{$standard-spacing} / 2) $standard-spacing !default;
+
+//Built to be used for box-shadow
+//https://material-components.github.io/material-components-web-catalog/#/component/elevation
+$material-elevation-1dp: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12) !default;
+$material-elevation-2dp: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12) !default;
+$material-elevation-3dp: 0 3px 3px -2px rgba(0,0,0,.2), 0 3px 4px 0 rgba(0,0,0,.14), 0 1px 8px 0 rgba(0,0,0,.12) !default;
+$material-elevation-4dp: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12) !default;
+$material-elevation-5dp: 0 3px 5px -1px rgba(0,0,0,.2), 0 5px 8px 0 rgba(0,0,0,.14), 0 1px 14px 0 rgba(0,0,0,.12) !default;
+$material-elevation-6dp: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12) !default;
+$material-elevation-7dp: 0 4px 5px -2px rgba(0,0,0,.2), 0 7px 10px 1px rgba(0,0,0,.14), 0 2px 16px 1px rgba(0,0,0,.12) !default;
+$material-elevation-8dp: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12) !default;
+
+// @if $portal-as-material {
+    $primary-color: #15597e !default;
+    $secondary-color: #42AAE0 !default;
+    $body-background-color: #fff !default;
+    $top-header-background: $primary-color !default;
+    $tool-menu-background-color: $body-background-color !default;
+    $sites-nav-background: $body-background-color !default;
+    $footer-background-color: $body-background-color !default;
+// }
+
+// @if $sites-nav-as-material {
+    $divider-shadow-fixed: 0 1px 0 $tool-border-color !default;
+    $sites-nav-menu-item-border-thickness: 1px !default;
+    $sites-nav-menu-item-border-radius: $button-radius-pill !default;
+    
+    $sites-nav-menu-item-background: hsla(0, 0%, 92%, 1) !default;
+    $sites-nav-menu-item-color: hsla(0, 0%, 25%, 1) !default;
+    $sites-nav-menu-item-border-color: $sites-nav-menu-item-background !default;
+    $sites-nav-menu-item-border-top:            $sites-nav-menu-item-border-thickness solid $sites-nav-menu-item-border-color !default;
+    $sites-nav-menu-item-border-right:          $sites-nav-menu-item-border-top !default;
+    $sites-nav-menu-item-border-bottom:         $sites-nav-menu-item-border-top !default;
+    $sites-nav-menu-item-border-left:           $sites-nav-menu-item-border-top !default;
+    
+    $sites-nav-menu-item-hover-background: hsla(0, 0%, 82%, 1) !default;
+    $sites-nav-menu-item-hover-color: rgba(0,0,0,1) !default;
+    $sites-nav-menu-item-hover-border-color:      $sites-nav-menu-item-hover-background !default;
+    $sites-nav-menu-item-hover-border-top:      $sites-nav-menu-item-border-thickness solid $sites-nav-menu-item-hover-border-color !default;
+    $sites-nav-menu-item-hover-border-right:    $sites-nav-menu-item-hover-border-top !default;
+    $sites-nav-menu-item-hover-border-bottom:   $sites-nav-menu-item-hover-border-top !default;
+    $sites-nav-menu-item-hover-border-left:     $sites-nav-menu-item-hover-border-top !default;
+    
+    $sites-nav-menu-item-selected-background: hsla(200, 31%, 84%,1) !default;
+    $sites-nav-menu-item-selected-color: hsl(201, 71%, 20%) !default;
+    $sites-nav-menu-item-selected-border-color: $sites-nav-menu-item-selected-background !default;
+    $sites-nav-menu-item-selected-border-top:   $sites-nav-menu-item-border-thickness solid $sites-nav-menu-item-selected-border-color !default;
+    $sites-nav-menu-item-selected-border-bottom:$sites-nav-menu-item-selected-border-top !default;
+    $sites-nav-menu-item-selected-border-left:  $sites-nav-menu-item-selected-border-top !default;
+    $sites-nav-menu-item-selected-border-right: $sites-nav-menu-item-selected-border-top !default;
+    
+    $sites-nav-menu-item-selected-hover-background:   hsla(200, 31%, 76%,1) !default;
+    $sites-nav-menu-item-selected-hover-color: hsl(201, 71%, 20%) !default;
+    $sites-nav-menu-item-selected-hover-border-color: $sites-nav-menu-item-selected-hover-background !default;
+    $sites-nav-menu-item-selected-hover-border-top:   $sites-nav-menu-item-border-thickness solid $sites-nav-menu-item-selected-hover-border-color !default;
+    $sites-nav-menu-item-selected-hover-border-right: $sites-nav-menu-item-selected-hover-border-top !default;
+    $sites-nav-menu-item-selected-hover-border-bottom:$sites-nav-menu-item-selected-hover-border-top !default;
+    $sites-nav-menu-item-selected-hover-border-left:  $sites-nav-menu-item-selected-hover-border-top !default;
+    
+    $sites-nav-selected-submenu-border-color: #fff !default;
+    $sites-nav-selected-submenu-border-color: transparent !default;
+    $sites-nav-selected-submenu-border: none !default; 
+    $sites-nav-submenu-border: none !default;
+    $sites-nav-submenu-item-left-border: none !default;
+    $sites-nav-submenu-item-padding: $material-menu-item-padding !default;
+    $sites-nav-submenu-padding: $material-menu-padding !default;
+    $sites-nav-submenu-shadow: $material-elevation-8dp !default;
+    $sites-nav-submenu-top: -#{$standard-spacing} !default; //fallback to calc( #{$default-font-size} + #{$sites-nav-menu-item-border-thickness})
+// }
+
+// @if $tool-menu-as-material {
+    $tool-menu-width: 200px + $standard-spacing !default;
+    $tool-menu-width-collapsed: 52px !default;
+    $tool-menu-item-separator-color: #fff !default;
+    $tool-menu-item-background-color: #fff !default;
+    $tool-menu-item-border-left: none !default;
+    $tool-menu-item-margin-right: calc( #{$standard-spacing} / 2) !default;
+    $tool-menu-item-hover-background-color: hsla(0, 0%, 92%, 1) !default;
+    $tool-menu-item-hover-border-left: $tool-menu-item-border-left !default;
+    $tool-menu-item-selected-text-color: hsl(201, 71%, 20%) !default;
+    $tool-menu-item-selected-icon-color: hsl(201, 71%, 20%) !default;
+    $tool-menu-item-selected-background-color: hsla(200, 31%, 84%,1) !default;
+    $tool-menu-item-selected-border-left: $tool-menu-item-border-left !default;
+    $tool-menu-item-selected-hover-text-color: hsl(201, 71%, 20%) !default;
+    $tool-menu-item-selected-hover-icon-color: hsl(201, 71%, 20%) !default;
+    $tool-menu-item-selected-hover-border-left: $tool-menu-item-border-left !default;
+    $tool-menu-item-selected-hover-background-color: hsla(200, 31%, 76%,1) !default;
+    $tool-menu-item-border-radius: 0 calc(#{$button-radius-pill} * 1.5) calc(#{$button-radius-pill} * 1.5) 0 !default;
+     
+    $tool-menu-item-padding: calc( #{$standard-spacing} / 2) 0 calc( #{$standard-spacing} / 2) $standard-spacing !default;
+    $tool-menu-item-collapsed-padding: $tool-menu-item-padding !default;
+    $tool-lessons-toplevel-menu-icon-padding: $material-menu-item-padding !default;
+    $tool-lessons-toplevel-menu-text-padding: $material-menu-item-padding !default;
+    $tool-lessons-toplevel-menu-selected-background-color: $tool-menu-item-background-color !default;
+    $tool-lessons-toplevel-menu-expanded-selected-background-color:$tool-menu-item-selected-background-color !default;
+    $tool-lessons-toplevel-menu-expanded-selected-color: $tool-menu-item-selected-text-color !default;
+    $tool-lessons-toplevel-menu-sliding-background-color: $tool-menu-item-background-color !default;
+
+    $tool-lessons-subpage-menu-text-padding: calc(#{$standard-spacing} / 2) $standard-spacing calc(#{$standard-spacing} / 2) calc(#{$standard-spacing} * 2) !default;
+    $tool-lessons-subpage-menu-selected-background-color: $tool-menu-item-selected-background-color !default;
+    $tool-lessons-subpage-menu-selected-parent-background-color: $tool-menu-item-background-color !default;
+    $tool-lessons-subpage-menu-expanded-background-color: $tool-menu-item-background-color !default;
+    $tool-lessons-subpage-menu-border-radius: 0 $button-radius-pill $button-radius-pill 0 !default;
+// }
+
+// @if $buttons-as-material {
+    /* General button design */
+    $button-radius: 4px !default;
+    $button-text-transform: none !default;
+
+    // Default (non-primary) button design:
+    $button-text-color: $primary-color !default;
+    $button-background: $background-color !default;
+    $button-border-color: $button-text-color !default;
+    $button-font-weight: 600 !default;
+    $button-shadow: none !default;
+    // hover and focus states:
+    $button-hover-text-color: $button-text-color !default;
+    $button-hover-background: #F7F9FA !default;
+    $button-hover-border-color: $button-hover-text-color !default;
+    $button-hover-shadow: none !default;
+    // active state:
+    $button-active-text-color:$button-text-color !default;
+    $button-active-background: #E3EBF0 !default;
+    $button-active-border-color:    $button-hover-border-color !default;
+    $button-active-shadow-color: rgba(0,0,0,0) !default;
+    $button-active-shadow: none !default;
+    // disabled state:
+    $button-disabled-text-color:    #717171 !default;
+    $button-disabled-background:    #f6f6f6 !default;
+    $button-disabled-border-color:  #dbdbdb !default;
+    $button-disabled-shadow:        none !default;
+    $button-disabled-font-weight:   300 !default;
+
+    // Primary action button design:
+    $button-primary-text-color:                 #fff !default;
+    $button-primary-background:                 $primary-color !default;
+    $button-primary-border-color:               $primary-color !default;
+    $button-primary-text-transform: uppercase !default;
+    $button-primary-font-weight: 600 !default;
+    $button-primary-shadow: $material-elevation-2dp !default;
+ 
+    // hover and focus states for primary action button:
+    $button-primary-hover-text-color:           $button-primary-text-color !default;
+    $button-primary-hover-background:           #266688 !default;
+    $button-primary-hover-border-color:         #266688 !default;
+    $button-primary-hover-shadow: $material-elevation-4dp !default;
+    // active state for primary action button:
+    $button-primary-active-text-color:          $button-primary-text-color !default;
+    $button-primary-active-background:          #5a93ab !default;
+    $button-primary-active-border-color:        $button-primary-active-background !default;
+    $button-primary-active-shadow-color:        $button-active-shadow-color !default;
+    $button-primary-active-shadow:              $material-elevation-4dp !default;
+// }
+
+// @if $top-header-as-material {
+    $top-header-separators-thickness: 0px !default;
+    $top-header-profile-border-thickness: 2px !default;
+    $top-header-item-spacing: calc(#{$standard-spacing} / 2) !default;
+    $top-header-text-display: none !default;
+    $top-header-icon-size: calc(#{$standard-spacing} * 2) !default;
+    $top-header-sites-padding-top: 6px !default;
+    $top-header-profile-border-color-top: $secondary-color !default;
+    $top-header-profile-border-color-right: $secondary-color !default;
+    $top-header-profile-border-color-bottom: $alt-colour !default;
+    $top-header-profile-border-color-left: $background-color-secondary !default;
+    $top-header-profile-border-color-inner: #fff !default;
+// }
+
+// @if $cards-as-material {
+    $overview-portlet-border: none !default;
+    $overview-portlet-border-radius: $button-radius !default;
+    $overview-portlet-shadow: $material-elevation-1dp !default;
+// }
+
+// @if $lessons-as-material {
+    $lessons-column-border:none !default;
+    $lessons-item-border-top: 1px solid $sites-nav-menu-item-background !default;
+    $lessons-item-hover-background: #fff !default;
+    $lessons-item-hover-shadow: $material-elevation-4dp !default;
+    $lessons-item-edit-display: none !default;
+// }

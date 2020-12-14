@@ -23,26 +23,26 @@ html[dir="rtl"]{
 
 	.#{$namespace}toolTitleNav {
 		.#{$namespace}toolTitleNav__button_container {
-	    	float: left;
+			float: left;
 		} 
 	}
 
 	.#{$namespace}footerApp__presence, .#{$namespace}footerApp__portalChat {
-	    left: 20px;
-	    right: auto;
+		left: 20px;
+		right: auto;
 	}
 
 	.#{$namespace}portalChat {
-	    left: 21px;
-	    right: auto;
+		left: 21px;
+		right: auto;
 	}
 
 	.#{$namespace}toolTitleNav .#{$namespace}toolTitleNav__title ~ .#{$namespace}toolTitleNav__button_container>.#{$namespace}directUrl__dropDown.active {
-	    margin: 10px 0 0 0px;
+		margin: 10px 0 0 0px;
 	}
 
 	#toolMenu ul li.#{$namespace}collapseTools, #subSites ul li.#{$namespace}collapseTools {
-	    @include transform( rotate(180deg) );
+		@include transform( rotate(180deg) );
 	}
 
 	#selectSiteModal.dhtml_more_tabs{
@@ -51,7 +51,7 @@ html[dir="rtl"]{
 			margin: 0 0 0 0;
 		}
 		&:after {
-		    left: 3%;
+			left: 3%;
 			@media #{$phone}{
 				left: 26%;
 			}
@@ -59,15 +59,15 @@ html[dir="rtl"]{
 	}
 
 	ul#otherSitesMenu li.otherSitesMenuClose {
-	    display: inline-block;
-	    font-size: 1.5em;
-	    float: left;
+		display: inline-block;
+		font-size: 1.5em;
+		float: left;
 	}
 
 	#mastLogin #loginLinks ul{
-	    left: 0;
-	    right: auto;
-	    text-align: right;
+		left: 0;
+		right: auto;
+		text-align: right;
 		@media #{$phone}{
 			left: 9.8em;
 			> * {
@@ -76,9 +76,9 @@ html[dir="rtl"]{
 		}
 	}
 	#linkNav ul li.#{$namespace}sitesNav__menuitem ul {
-	    left: auto;
-	    right: auto;
-	    text-align: right;
+		left: auto;
+		right: auto;
+		text-align: right;
 		@media #{$phone}{
 			left: 9.8em;
 			> * {
@@ -88,12 +88,43 @@ html[dir="rtl"]{
 	}
 
 	#mastLogin #loginLinks ul:after {
-	    left: 8%;
+		left: 8%;
 	}
+	@media #{$nonPhone}{
 
+		#toolMenuWrap {
+			left:auto;
+			right:0;
+			#toolMenu,
+			#subSites {
+				ul {
+					li {
+						&.#{$namespace}collapseTools {
+							left:auto;
+							right:0;
+						}
+					}
+				}
+			}
+		}
+	
+		#pageBody>.#{$namespace}pagebody,
+		#topnav_container {
+			margin-left:0;
+			margin-right:#{$tool-menu-width};
+		}
+
+		body.#{$namespace}toolMenu-collapsed {
+			#pageBody>.#{$namespace}pagebody,
+			#topnav_container {
+					margin-left: 0;
+					margin-right:#{$tool-menu-width-collapsed};
+			}
+		}
+	}
 	@media #{$phone}{
 		body.toolsNav--displayed #toolMenuWrap>h1.skip:after {
-		    left: 75%;
+			left: 75%;
 		}
 		.#{$namespace}userNav__popup.js-toggle-user-nav{
 			position: absolute;
@@ -106,7 +137,7 @@ html[dir="rtl"]{
 
 		@media (min-width: 992px){
 			.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
-			    float: right;
+				float: right;
 			}
 		}
 	}

@@ -24,7 +24,12 @@
 	> .#{$namespace}pagebody{
 		@include display-flex;
 		@include flex-direction(column);
-		width: 100%;
+		border-left:1px solid $tool-border-color;
+
+		@media #{$nonPhone} {
+			margin-left:#{$tool-menu-width};
+			width: calc(100% - #{$tool-menu-width});
+		}
 	}
 }
 

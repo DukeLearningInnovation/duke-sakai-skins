@@ -48,7 +48,6 @@
 						top: -1px;
 					}
 				}
-				
 				&:focus {
 					position: relative;		// so the outline doesn't get hidden by adjacent tabs
 					outline-offset: -#{$focus-outline-width};	// to match the width of the default link focus to fit in the tool's link container
@@ -58,9 +57,9 @@
 				color: $tool-tab-active-text-color;
 				font-size: $tool-tab-active-text-size;
 				background-color: $tool-tab-active-background-color;
-				border-top: 1px solid $tool-tab-border-color;
-				border-left: 1px solid $tool-tab-border-color;
-				border-right: 1px solid $tool-tab-border-color;
+				border-top: 1px solid $tool-tab-active-border-color;
+				border-left: 1px solid $tool-tab-active-border-color;
+				border-right: 1px solid $tool-tab-active-border-color;
 				position: relative;
 				margin: 0;
 				padding: 0 0.6em;

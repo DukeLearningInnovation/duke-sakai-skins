@@ -15,6 +15,11 @@
 		.nextprev {
 			 line-height: 1em;
 		}
+		.buttomButtons {
+			.button:last-of-type {
+				@include sakai_primary_button();
+			}
+		}
 	}
 	.portletBody > * {
 		position: inherit;
@@ -49,6 +54,13 @@
 		.menuitem {
 			  line-height: 1em;
 		}
+		.Mrphs-toolTitleNav__link .Mrphs-itemTitle {
+            display: none;
+		}
+		#print-all:after {
+			content: "\00a0\f02f\00a0\f02f";
+			font:normal normal normal 14px/1 FontAwesome;
+		}
     }
 
 	.#{$namespace}toolTitleNav__button_container {
@@ -75,6 +87,71 @@
 	.portletBody {
 		.column {
 			border: $lessons-column-border;
+			.contentCol,
+			.textbox {
+				a {
+					&[href]{  // This means a[href]
+						color: $link-color;
+						text-decoration:underline;
+						&:focus{
+							outline: $sakai-focus-outline;
+							outline-offset: $focus-outline-offset;
+						}
+						&:hover{
+							color: $link-hover-color;
+							background-color: $link-hover-background-color;
+							text-decoration:underline;
+						}
+						&:active{
+							color: $link-active-color;
+							background-color: $link-active-background-color;
+							outline: 0;		// no focus outline on click
+						}
+						&.btn,
+						&.btn-default{
+							text-decoration: none;
+							@include sakai_secondary_button();
+						}
+						&.btn-primary,
+						&.ui-button{
+							@include sakai_primary_button();
+						}
+						
+					}
+				}
+			}
+			.commentDiv,
+			.studentContentTable,
+			.questionDiv .contentCol,
+			.checklistDiv,
+			.forumSummaryHeaderDiv,
+			.announcementsHeaderDiv,
+			.fc-toolbar {
+				background: #E2E6ED; //Duke $hatteras
+				color:$text-color;
+				border-radius: $button-radius;
+			}
+			.question-submit {
+				@include sakai_primary_button();
+				margin: $standard-spacing $standard-spacing 0 0;
+				color: $button-primary-text-color !important;
+				&:hover, &:focus {
+					color: $button-primary-hover-text-color !important;
+				}
+				&:active {
+					outline: 0;		// no focus outline on click
+					color: $button-primary-active-text-color !important;
+				}
+			}
+			&.colblue {
+				background: #cce7fe; //Duke $frenchpass
+			}
+			&.colgray {
+				background:#f5f5f5; //Duke $wildsand
+			}
+			&.colgreen {
+				background: lighten(#a1b70d, 55%); //Duke $piedmont
+			}
 		}
 		.mainList {
 			div:hover {
@@ -113,11 +190,34 @@
 		position: absolute;
 		top: 0;
 		right: 0;
-		
+		.button:last-of-type{
+			@include sakai_primary_button();
+		}
 		@media #{$phone} {
 			top: 2em;	
 		}	
 	}
+	.sectionCollapsedIcon {
+        display:none !important; //JS somewhere applying inline display styles...
+    }
+    .collapsibleSectionHeader {
+        @include sakai_secondary_button();
+		display: block;
+		
+        .collapseIcon {
+            float:left;
+            margin-right: $standard-spacing;
+            font-size:24px;
+			width:$standard-spacing;
+
+            &.fa-toggle-down:before {
+                content: "\f0da";
+            }
+            &.fa-toggle-up:before {
+                content: "\f0d7";
+            }
+        }
+    }
 }
 
 .#{$namespace}multipleTools {

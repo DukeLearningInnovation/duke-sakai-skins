@@ -238,7 +238,8 @@
 					$sb-font-weight,
 					$sb-shadow,
 					$sb-hover-shadow,
-					$sb-active-shadow) {
+					$sb-active-shadow,
+					$sb-transition) {
 	display: inline-block;
 	margin: 0;
 	padding: 7px $standard-spacing;
@@ -271,6 +272,7 @@
 		background: $sb-hover-background;
 		border-color: $sb-hover-border-color;
 		box-shadow: $sb-hover-shadow;
+		transition: $sb-transition;
 		&:before { // icon
 			color: $sb-hover-text-color;
 		}
@@ -316,7 +318,8 @@
 							$button-primary-font-weight,
 							$button-primary-shadow,
 							$button-primary-hover-shadow,
-							$button-primary-active-shadow);
+							$button-primary-active-shadow,
+							$button-primary-transition);
 }
 
 // the standard button design for non-primary action buttons (opposite of sakai_primary_button above)
@@ -334,10 +337,11 @@
 							$button-font-weight,
 							$button-shadow,
 							$button-hover-shadow,
-							$button-active-shadow);
+							$button-active-shadow,
+							$button-transition);
 }
 
-button.btn-primary, .act .active {
+button.btn-primary, .act .active, .bottomButtons.contentButton .bottomRight {
 	@include sakai_primary_button();
 }
 
@@ -345,6 +349,59 @@ button.btn-primary, .act .active {
 	@include sakai_secondary_button();
 }
 
+.act .active[value="Remove"], //announcements, dropbox, resources, samigo
+.act #btnRemove, //assignments
+.act #delete, //assignments
+.act #btnHardRemove, //assignments
+.act input[type="submit"][value="Remove Event"], //calendar
+.act input[value="Delete Forum"], //forums
+.act input[value="Delete Topic"], //forums
+.Mrphs-sakai-forums .otherActions a:last-of-type, //forums message
+.act input[value="Delete"], //forums
+.act #delete-polls, //polls
+.act input[value="Remove Meetings"], //signup
+.act #delete-groups-submit-button, //siteinfo
+.Mrphs-sakai-samigo #authorIndexForm\:remove-selected:not(.fc-button), //samigo
+.extendedTimeDataTable input[value="Delete"] //samigo
+{
+	$red: #d73941;
+
+	@include sakai_button(	$button-primary-text-color,
+							$red,
+							$red,
+							$button-primary-hover-text-color,
+							darken($red, 8%),
+							darken($red, 8%),
+							$button-primary-active-text-color,
+							darken($red, 12%),
+							darken($red, 12%),
+							$button-primary-text-transform,
+							$button-primary-font-weight,
+							$button-primary-shadow,
+							$button-primary-hover-shadow,
+							$button-primary-active-shadow,
+							$button-primary-transition);
+	margin-right: $standard-space;
+}
+.act #delete-button { //dropbox button-group
+	$red-light: #f1d3d3;
+	@include sakai_button(	$text-color,
+							$red-light,
+							$red-light,
+							$text-color,
+							darken($red-light, 8%),
+							darken($red-light, 8%),
+							$text-color,
+							darken($red-light, 12%),
+							darken($red-light, 12%),
+							$button-text-transform,
+							$button-font-weight,
+							$button-shadow,
+							$button-hover-shadow,
+							$button-active-shadow,
+							$button-transition);
+	border-radius: 0 4px 4px 0;
+}
 .input-group-btn .btn {
   margin: 0 0 0 -1px;
 }

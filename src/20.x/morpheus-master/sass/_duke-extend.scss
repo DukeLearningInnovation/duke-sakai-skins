@@ -1,0 +1,53 @@
+@import "duke-default";
+
+$accent-color: $copper !default;
+$tool-menu-collapse-background-color: $accent-color;
+$tool-menu-collapse-hover-background-color: darken($accent-color, 8%);
+
+$sites-nav-menu-item-selected-background: $accent-color;
+$sites-nav-menu-item-selected-color: $white;
+$sites-nav-menu-item-selected-border-color: $sites-nav-menu-item-selected-background;
+$sites-nav-menu-item-selected-border-top:   $sites-nav-menu-item-border-thickness solid $sites-nav-menu-item-selected-border-color;
+$sites-nav-menu-item-selected-border-bottom:$sites-nav-menu-item-selected-border-top;
+$sites-nav-menu-item-selected-border-left:  $sites-nav-menu-item-selected-border-top;
+$sites-nav-menu-item-selected-border-right: $sites-nav-menu-item-selected-border-top;
+
+$tool-menu-item-selected-text-color: $white;
+$tool-menu-item-selected-icon-color: $white;
+$tool-menu-item-selected-background-color: $accent-color;
+$tool-lessons-subpage-menu-selected-background-color: $tool-menu-item-selected-background-color;
+
+.Mrphs-portalBody #topnav_container {
+    display: none;
+}
+.Mrphs-portalBody .Mrphs-mainHeader,
+.Mrphs-portalBody .Mrphs-topHeader {
+    box-shadow: none;
+}
+
+.Duke-headerlogo--siteTitle {
+    float: left;
+    line-height: 52px;
+    margin-left: $standard-spacing;
+    font-size: 16px;
+    @media only screen and (max-width : 800px){
+        display: none;
+    }
+}
+.Mrphs-sakai-lessonbuildertool {
+    .Mrphs-toolTitleNav.Mrphs-container--toolTitleNav {
+        position: absolute;
+        bottom:67px;
+        // right:86px;
+        display: flex;
+        justify-content: center;
+        width:calc(100% - 200px); //account for tool menu
+
+        .action.topaction {
+            display:none;
+        }
+    }
+    .subpage-breadcrumb-div {
+        display:none;
+    }
+}

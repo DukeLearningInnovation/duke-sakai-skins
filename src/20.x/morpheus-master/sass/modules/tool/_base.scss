@@ -72,6 +72,123 @@
 	}
 }
 
+body.workspace{
+    #content.Mrphs-multipleTools {
+        margin-top:-48px;
+        @media #{$phone}{
+            margin-top: 0;
+        }
+        #col1 {
+			display:flex;
+            flex-wrap:wrap;
+			flex-direction:row;
+        	align-content: space-between;
+    	    flex: 0 1 auto;
+	        justify-content: space-between;
+            padding:0 calc(#{$standard-spacing}*2) calc(#{$standard-spacing}*2);
+            @media #{$phone}{
+                padding:$standard-spacing;
+            }
+            .#{$namespace}container {
+                margin:$standard-spacing 0;
+				width:48%;
+				box-shadow:$material-elevation-2dp;
+                @media #{$phone}{
+                    width:100%;
+				}
+				.#{$namespace}toolTitleNav {
+					padding-bottom:0;
+					.#{$namespace}toolTitleNav__button_container {
+						display:none;
+					}
+					.Mrphs-toolTitleNav__text {
+						font-weight: 700;
+						font-size: 1.25em;
+						color: $text-color;
+					}
+				}
+            }
+            .#{$namespace}sakai-motd {
+                width:100%;
+                box-shadow: none;
+                padding:0;
+                margin:calc(#{$standard-spacing}/2) -8px -48px;
+                .Mrphs-toolTitleNav {
+                    display:none;
+				}
+				.portletMainIframe {
+					padding: 0;
+				}
+            }
+        }
+    }
+}
+.Mrphs-sakai-motd>.portletBody {
+    background:none;
+    padding:8px;
+    &>.synopticList{
+        list-style: none;
+        padding:0;
+        margin:0;
+        display:flex;
+        flex-wrap:wrap;
+        justify-content: space-between;
+        overflow: initial;
+        li {
+            margin:0 0 calc(#{$standard-spacing} * 1.5);
+            width:31%;
+            @media #{$phone}{
+                width:100%;
+            }
+            .textPanel{
+                
+                border-radius: $button-radius;
+                background: $tool-background-color;
+                border:none;
+                margin:0;
+                box-shadow: $material-elevation-2dp;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+
+                h1, h2, h3, h4 {
+                    background:$tool-background-color;
+                    color: $text-color;
+                    font-weight: 500;
+                    font-size: 1.25em;
+                    margin:0 0 $standard-spacing;
+                    border:none;
+                    line-height: 1.5em;
+                    padding:0 $standard-spacing;
+                    min-height:52px;
+                }
+                p {
+                    letter-spacing: .0178571429em;
+                    color: rgba(0,0,0,.54);
+                    padding:0 $standard-spacing;
+                    margin:0 0 $standard-spacing;
+                    
+                }
+                p:last-child {
+                    margin:auto 0 $standard-spacing;
+                }
+                img,
+                .img-responsive {
+                    justify-content: flex-start;
+                    margin: 0 -#{$standard-spacing};
+                    max-width:calc(100% + (2*#{$standard-spacing}));
+                    border-radius: $button-radius $button-radius 0 0;
+                }
+                a {
+					@include sakai_secondary_button();
+					// margin-bottom:calc(#{$standard-spacing}/2);
+                    // padding: calc(#{$standard-spacing}/2) $standard-spacing;
+                }
+            }
+        }
+    } 
+}
+
 .#{$namespace}toolTitleNav{
 	position: relative;
 	@include display-flex;
