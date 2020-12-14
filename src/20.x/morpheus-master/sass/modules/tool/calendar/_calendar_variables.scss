@@ -25,7 +25,7 @@ $calendar-day-today-text-color: #333;
 
 // a day with event(s)
 $calendar-event-border-color: $primary-color;
-$calendar-event-background-color: #f9f9ff;
+$calendar-event-background-color: #f9f9ff !default;
 $calendar-event-text-color: $link-color;
 $calendar-event-indicator-color: #666;
 
