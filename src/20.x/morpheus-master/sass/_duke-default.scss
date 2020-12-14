@@ -1,0 +1,288 @@
+@import "duke-colors";
+
+$font-family-url: "https://fonts.googleapis.com/css?family=Open+Sans:400,500,600,700";
+
+$standard-spacing: 16px;
+
+$background-color: $white;
+$background-color-secondary: $navy;
+
+$primary-color: $bay;
+$primary-color-light: $frenchpass;
+$primary-color-highContrast: darken( $primary-color, 4% );	// for use of primary on non-white light backgrounds, such as greys
+$primary-color-shadow: adjust-hue( $primary-color, 5 );	// To give primary a darker shadow
+$background-color: $white;
+$body-background-color: $white;
+$secondary-color: $royal;
+$alt-colour: $persimmon;
+$text-color: #212121;
+$sakai-border-color: #e5e5e5;
+$logo: 'images/logo-duke-u@2x.png';
+$logo-width: 81px;
+
+$tool-tab-background-color: $white;
+$tool-tab-border-color: transparent;
+$tool-tab-active-border-color: $limestone;
+
+$tool-menu-collapse-shadow: none;
+$tool-menu-collapse-background-color: $dodger;
+$tool-menu-collapse-text-color: $white;
+$tool-menu-collapse-icon-color: $white;
+$tool-menu-collapse-hover-text-color: $white;
+$tool-menu-collapse-hover-background-color: $royal;
+
+$errorBanner-bordercolor: #d73941;
+$errorBanner-bgcolor: #f1d3d3;
+// $errorBanner-color: $text-color;
+
+$swapped-view-enabled: true;
+$swapped-view-primary: $copper;
+
+//Built to be used for box-shadow
+//https://material-components.github.io/material-components-web-catalog/#/component/elevation
+$material-elevation-1dp: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+$material-elevation-2dp: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+$material-elevation-3dp: 0 3px 3px -2px rgba(0,0,0,.2), 0 3px 4px 0 rgba(0,0,0,.14), 0 1px 8px 0 rgba(0,0,0,.12);
+$material-elevation-4dp: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
+$material-elevation-5dp: 0 3px 5px -1px rgba(0,0,0,.2), 0 5px 8px 0 rgba(0,0,0,.14), 0 1px 14px 0 rgba(0,0,0,.12);
+$material-elevation-6dp: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+$material-elevation-7dp: 0 4px 5px -2px rgba(0,0,0,.2), 0 7px 10px 1px rgba(0,0,0,.14), 0 2px 16px 1px rgba(0,0,0,.12);
+$material-elevation-8dp: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+
+    $sites-nav-submenu-top: $standard-spacing;
+    $tool-menu-padding: calc(#{$standard-spacing} / 2) 0 0 0;
+
+$material-menu-padding: calc( #{$standard-spacing} / 2) 0;
+$material-menu-item-padding: calc(#{$standard-spacing} / 2) $standard-spacing;
+
+
+// @if $portal-as-material
+    $primary-color: $bay;
+    $secondary-color: $royal;
+    $background-color: $white;
+    $body-background-color: $white;
+    $top-header-background: $primary-color;
+    $tool-menu-background-color: $body-background-color;
+    $sites-nav-background: $body-background-color;
+    $footer-background-color: $body-background-color;
+
+// @if $sites-nav-as-material
+    $divider-shadow-fixed: 0 1px 0 $sakai-border-color;
+    $sites-nav-menu-item-border-thickness: 1px;
+    $sites-nav-menu-item-border-radius: $standard-spacing;
+    
+    $sites-nav-menu-item-background: hsl(240, 4%, 95%);
+    $sites-nav-menu-item-color: $text-color;
+    $sites-nav-menu-item-border-color: $sites-nav-menu-item-background;
+    $sites-nav-menu-item-border-top:            $sites-nav-menu-item-border-thickness solid $sites-nav-menu-item-border-color;
+    $sites-nav-menu-item-border-right:          $sites-nav-menu-item-border-top;
+    $sites-nav-menu-item-border-bottom:         $sites-nav-menu-item-border-top;
+    $sites-nav-menu-item-border-left:           $sites-nav-menu-item-border-top;
+    
+    $sites-nav-menu-item-hover-background: hsl(210, 4%, 89%);
+    $sites-nav-menu-item-hover-color:$text-color;
+    $sites-nav-menu-item-hover-border-color:      $sites-nav-menu-item-hover-background;
+    $sites-nav-menu-item-hover-border-top:      $sites-nav-menu-item-border-thickness solid $sites-nav-menu-item-hover-border-color;
+    $sites-nav-menu-item-hover-border-right:    $sites-nav-menu-item-hover-border-top;
+    $sites-nav-menu-item-hover-border-bottom:   $sites-nav-menu-item-hover-border-top;
+    $sites-nav-menu-item-hover-border-left:     $sites-nav-menu-item-hover-border-top;
+    
+    $sites-nav-menu-item-selected-background: $frenchpass;
+    $sites-nav-menu-item-selected-color: $navy;
+    $sites-nav-menu-item-selected-border-color: $sites-nav-menu-item-selected-background;
+    $sites-nav-menu-item-selected-border-top:   $sites-nav-menu-item-border-thickness solid $sites-nav-menu-item-selected-border-color;
+    $sites-nav-menu-item-selected-border-bottom:$sites-nav-menu-item-selected-border-top;
+    $sites-nav-menu-item-selected-border-left:  $sites-nav-menu-item-selected-border-top;
+    $sites-nav-menu-item-selected-border-right: $sites-nav-menu-item-selected-border-top;
+    
+    $sites-nav-menu-item-selected-hover-background: $primary-color;
+    $sites-nav-menu-item-selected-hover-color: $white;
+    $sites-nav-menu-item-selected-hover-border-color: $sites-nav-menu-item-selected-hover-background;
+    $sites-nav-menu-item-selected-hover-border-top:   $sites-nav-menu-item-border-thickness solid $sites-nav-menu-item-selected-hover-border-color;
+    $sites-nav-menu-item-selected-hover-border-right: $sites-nav-menu-item-selected-hover-border-top;
+    $sites-nav-menu-item-selected-hover-border-bottom:$sites-nav-menu-item-selected-hover-border-top;
+    $sites-nav-menu-item-selected-hover-border-left:  $sites-nav-menu-item-selected-hover-border-top;
+    
+    $sites-nav-selected-submenu-border-color: #fff;
+    $sites-nav-selected-submenu-border-color: transparent;
+    $sites-nav-selected-submenu-border: none; 
+    $sites-nav-submenu-border: none;
+    $sites-nav-submenu-item-left-border: none;
+    $sites-nav-submenu-item-padding: $material-menu-item-padding;
+    $sites-nav-submenu-padding: $material-menu-padding;
+    $sites-nav-submenu-shadow: $material-elevation-8dp;
+    $sites-nav-submenu-top: -#{$standard-spacing}; //fallback to calc( #{$default-font-size} + #{$sites-nav-menu-item-border-thickness})
+
+// @if $tool-menu-as-material
+    $tool-menu-width: 200px + $standard-spacing;
+    $tool-menu-width-collapsed: 52px;
+    $tool-menu-item-separator-color: #fff;
+    $tool-menu-item-background-color: #fff;
+    $tool-menu-item-border-left: none;
+    $tool-menu-item-margin-right: $standard-spacing;
+    $tool-menu-item-hover-text-color: $sites-nav-menu-item-hover-color;
+    $tool-menu-item-hover-icon-color: $sites-nav-menu-item-hover-color;
+    $tool-menu-item-hover-background-color: $sites-nav-menu-item-hover-background;
+    $tool-menu-item-hover-border-left: $tool-menu-item-border-left;
+    $tool-menu-item-selected-text-color: $navy;
+    $tool-menu-item-selected-icon-color: $bay;
+    $tool-menu-item-selected-background-color: $frenchpass;
+    $tool-menu-item-selected-border-left: $tool-menu-item-border-left;
+    $tool-menu-item-selected-hover-text-color: $white;
+    $tool-menu-item-selected-hover-icon-color: $white;
+    $tool-menu-item-selected-hover-border-left: $tool-menu-item-hover-border-left;
+    $tool-menu-item-selected-hover-background-color: $primary-color;
+    $tool-menu-item-border-radius: 0 calc(#{$standard-spacing} * 1.5) calc(#{$standard-spacing} * 1.5) 0;
+     
+    $tool-menu-item-padding: calc( #{$standard-spacing} / 2) 0 calc( #{$standard-spacing} / 2) $standard-spacing;
+    $tool-menu-item-collapsed-padding: $tool-menu-item-padding;
+    $tool-lessons-toplevel-menu-icon-padding: $material-menu-item-padding;
+    $tool-lessons-toplevel-menu-text-padding: $material-menu-item-padding;
+    $tool-lessons-toplevel-menu-selected-background-color: $tool-menu-item-background-color;
+    $tool-lessons-toplevel-menu-expanded-background-color: $tool-menu-background-color;
+    $tool-lessons-toplevel-menu-expanded-selected-background-color:$tool-menu-background-color;
+    $tool-lessons-toplevel-menu-expanded-selected-color: $tool-menu-item-selected-text-color;
+    $tool-lessons-toplevel-menu-sliding-background-color: $tool-menu-item-hover-background-color;
+    $tool-lessons-toplevel-menu-sliding-text-color: $tool-menu-item-hover-text-color;
+    $tool-lessons-subpage-menu-text-padding: calc(#{$standard-spacing} / 2) $standard-spacing calc(#{$standard-spacing} / 2) calc(#{$standard-spacing} * 2);
+    $tool-lessons-subpage-menu-selected-background-color: $tool-menu-item-selected-background-color;
+    $tool-lessons-subpage-menu-selected-parent-background-color: $tool-menu-item-background-color;
+    $tool-lessons-subpage-menu-expanded-background-color: $tool-menu-item-background-color;
+    $tool-lessons-subpage-menu-border-radius: 0 $standard-spacing $standard-spacing 0;
+
+// @if $buttons-as-material
+    /* General button design */
+    $button-radius: 4px;
+    $button-text-transform: none;
+
+    // Default (non-primary) button design:
+    $button-text-color: $navy;
+    $button-background: $hatteras;
+    $button-border-color: $button-background;
+    $button-font-weight: 500;
+    $button-shadow: none;
+    // hover and focus states:
+    $button-hover-text-color: $white;
+    $button-hover-background: $primary-color;
+    $button-hover-border-color: $button-hover-background;
+    $button-hover-shadow: none;
+    // active state:
+    $button-active-text-color: $button-hover-text-color;
+    $button-active-background: darken($button-hover-background, 6%);
+    $button-active-border-color: $button-hover-border-color;
+    $button-active-shadow-color: rgba(0,0,0,0);
+    $button-active-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.8), 0 1px 2px rgba(0,0,0,.1);;
+    // disabled state:
+    $button-disabled-text-color:    #717171;
+    $button-disabled-background:    #f6f6f6;
+    $button-disabled-border-color:  #dbdbdb;
+    $button-disabled-shadow:        none;
+    $button-disabled-font-weight:   400;
+
+    // Primary action button design:
+    $button-primary-text-color:                 #fff;
+    $button-primary-background:                 $primary-color;
+    $button-primary-border-color:               $primary-color;
+    $button-primary-text-transform: none;
+    $button-primary-font-weight: 700;
+    $button-primary-shadow: $material-elevation-2dp;
+ 
+    // hover and focus states for primary action button:
+    $button-primary-hover-text-color:           $button-primary-text-color;
+    $button-primary-hover-background:           darken($button-primary-background, 6%);
+    $button-primary-hover-border-color:         darken($button-primary-background, 6%);;
+    $button-primary-hover-shadow: $material-elevation-4dp;
+    // active state for primary action button:
+    $button-primary-active-text-color:          $button-primary-text-color;
+    $button-primary-active-background:          darken($button-primary-background, 10%);
+    $button-primary-active-border-color:        darken($button-primary-background, 10%);
+    $button-primary-active-shadow-color:        $button-active-shadow-color;
+    $button-primary-active-shadow:              $material-elevation-3dp, inset 0 0 0 1px rgba(255, 255, 255, 0.8), 0 1px 2px rgba(0,0,0,.1);;
+
+// @if $top-header-as-material
+    $top-header-separators-thickness: 0px;
+    $top-header-profile-border-thickness: 2px;
+    $top-header-item-spacing: calc(#{$standard-spacing} / 2);
+    $top-header-text-display: none;
+    $top-header-icon-size: calc(#{$standard-spacing} * 2);
+    $top-header-sites-padding-top: 6px;
+    $top-header-profile-border-color-top: $eno;
+    $top-header-profile-border-color-right: $eno;
+    $top-header-profile-border-color-bottom: $alt-colour;
+    $top-header-profile-border-color-left: darken($navy, 10%);
+    $top-header-profile-border-color-inner: #fff;
+
+// @if $cards-as-material
+    $overview-portlet-border: none;
+    $overview-portlet-border-radius: 4px;
+    $overview-portlet-shadow: $material-elevation-1dp;
+
+// @if $lessons-as-material
+    $lessons-column-border:none;
+    $lessons-item-border-top: 1px solid $sites-nav-menu-item-background;
+    $lessons-item-hover-background: #fff;
+    $lessons-item-hover-shadow: $material-elevation-4dp;
+    $lessons-item-edit-display: none;
+// end material-defaults
+
+.printTable pre {
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    background-color: transparent;
+} 
+
+// BECOME USER
+body.duke-become-user {
+    .Mrphs-mainHeader .Mrphs-headerLogo {
+        background: $ironweed;
+    }
+}
+
+// distinguish different servers visually
+body.duke-sakai-test-duke-edu {
+    .Mrphs-mainHeader .Mrphs-headerLogo--institution {
+        &:after {
+            content: "TEST SERVER";
+            background: $piedmont;
+            padding: 8px 16px;
+            font-weight: 700;
+            color: $castiron;
+            font-size:.8em;
+            display: inline-block;
+            height: 52px;
+            margin-left: calc(#{$logo-width} + #{$standard-spacing});
+        }
+        
+    }
+}
+
+$button-transition: background .1s cubic-bezier(0.65, 0.05, 0.36, 1), color .1s cubic-bezier(0.65, 0.05, 0.36, 1);
+$button-transition:none;
+$button-primary-transition: none;
+
+// Worksite setup styles
+.Mrphs-sakai-siteinfo,
+.Mrphs-sakai-sitesetup {
+    #siteTypeList {
+        background:$primary-color-light;
+        margin:0 0 $standard-spacing;
+        padding: $standard-spacing;
+    }
+}
+
+#jqueryui-accordion .ui-accordion-content {
+    background:none;
+}
+
+button.ui-datepicker-trigger:focus,
+button.ui-datepicker-trigger:hover {
+    .fa {
+        color:$white;
+    }
+}
+.Mrphs-container--footer{
+    .Mrphs-footer--project {
+        display:none;
+    }
+}

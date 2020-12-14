@@ -182,7 +182,9 @@
 			border-bottom-right-radius: 25px !important;
 			margin-right: -20px !important;
 	}
-
+	.breadcrumb {
+		padding:$standard-spacing;
+	}
 	.dropdown-menu{
 
 		padding: 1em 0;

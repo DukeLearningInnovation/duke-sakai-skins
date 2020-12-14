@@ -33,9 +33,12 @@ body.is-logged-out{
 	}
 
 	body.tool-maximised {
-
 		.#{$namespace}topHeader, ##{$namespace}sites-nav, #footer, #presenceToggle {
 			display: none;
+		}
+		#pageBody>.#{$namespace}pagebody {
+			margin-left: $standard-spacing;
+			width:100%;
 		}
 
 		#toolMenuWrap {
@@ -51,6 +54,11 @@ body.is-logged-out{
 
 	// LHS tool menu collapsed to show icons only and not tool titles.
 	body.#{$namespace}toolMenu-collapsed:not(.tool-maximised) {
+		#pageBody>.#{$namespace}pagebody,
+    	#topnav_container {
+        	margin-left:#{$tool-menu-width-collapsed};
+        	width: calc(100% - #{$tool-menu-width-collapsed} - #{$standard-spacing});
+		}
 		#toolMenuWrap{
 			max-width: #{ $tool-menu-width-collapsed };
 			min-width: #{ $tool-menu-width-collapsed };
@@ -205,8 +213,11 @@ body.is-logged-out{
 	@include flex-basis( $tool-menu-width );
 	padding: $tool-menu-padding;
 	text-align: center;
-	border-right: 1px solid $tool-border-color;
+	border-right: none;
 	@include transition( left 0.25s linear 0s );
+	position: absolute;
+	top: 52px;
+	left:0;
 
 	@media #{$phone}{
 		left: -100%;
@@ -327,13 +338,14 @@ nav#subSites{
 			&.#{$namespace}collapseTools
 			{
 				position: fixed;
-				bottom: 0;
+				top: 0;
 				left: 0;
-				z-index: 1;
+				z-index: 1001;
 				display:flex;
 				align-items:center;
 				justify-content:flex-end; /* right-align the arrows when expanded */
-				width: calc(#{$tool-menu-width} - 1px); /* width of sidebar minus border edge */
+				width: 52px;
+				height:52px;
 				padding: 0;
 				border-top: $tool-menu-collapse-border-top;
 				border-bottom: none;
@@ -382,15 +394,26 @@ nav#subSites{
 				button
 				{
 					border-radius: 0;
-					
+					width:52px;
+					height:52px;
 					span.fa-angle-double-left
 					{
 						color: $tool-menu-collapse-icon-color;
+						&:before {
+							content: "\f0c9"
+						}
 					}
 					
 					&:focus 
 					{
 						outline-offset: -#{$focus-outline-width};	// to match the width of the default link focus to fit in the link container
+					}
+					&.min {
+						span.fa-angle-double-left {
+							&:before {
+								content: "\f100";
+							}
+						}
 					}
 				}
 
@@ -735,30 +758,32 @@ body {
 				background-color: $tool-lessons-toplevel-menu-expanded-background-color;
 				&.is-current {
 					> .Mrphs-toolsNav__menuitem--link {
-						background-color: $tool-lessons-toplevel-menu-expanded-selected-background-color;
-						&:hover {
-							background-color: $tool-menu-item-selected-hover-background-color;
-						}
+							color: $tool-menu-item-selected-text-color;
+							background-color: $tool-menu-item-selected-background-color;
+
+						//DUKE removed overcomplicated selector
+						// &:hover {
+						// }
 					}
 				}
 				&.is-parent-of-current {
 					> .Mrphs-toolsNav__menuitem--link {
 						background-color: $tool-lessons-subpage-menu-selected-parent-background-color;
-						.#{$namespace}toolsNav__menuitem--icon {
-							color: $tool-menu-item-icon-color !important;
-						}
+						.#{$namespace}toolsNav__menuitem--icon,
 						.#{$namespace}toolsNav__menuitem--title {
-							color: $tool-menu-item-text-color !important;
+							color: $tool-lessons-toplevel-menu-expanded-selected-color !important;
 							font-weight: normal !important;
 						}
 						&:hover {
-							color: $tool-menu-item-hover-text-color !important;
+							background-color: $tool-menu-item-selected-hover-background-color;
+							color: $tool-menu-item-selected-hover-text-color !important;
 							&:before {
 								border-left: $tool-menu-item-hover-border-left !important;
 							}
 
-							.#{$namespace}toolsNav__menuitem--icon {
-								color: $tool-menu-item-hidden-icon-color !important;
+							.#{$namespace}toolsNav__menuitem--icon,
+							.#{$namespace}toolsNav__menuitem--title {
+								color: $tool-menu-item-selected-hover-text-color !important;
 							}
 						}
 					}
@@ -766,6 +791,7 @@ body {
 
 				> .Mrphs-toolsNav__menuitem--link {
 					background-color: $tool-lessons-subpage-menu-expanded-background-color;
+					color: $tool-lessons-toplevel-menu-expanded-selected-color;
 					&:hover {
 						background-color: darken($tool-lessons-toplevel-menu-expanded-background-color, 10%);
 					}
@@ -783,8 +809,9 @@ body {
 			}
 
 			&.sliding-down {
-					background-color: $tool-lessons-toplevel-menu-sliding-background-color;
+					// background-color: $tool-lessons-toplevel-menu-sliding-background-color;
 					.Mrphs-toolsNav__menuitem--link {
+						background-color: $tool-lessons-toplevel-menu-sliding-background-color;
 							.#{$namespace}toolsNav__menuitem--icon {
 									-webkit-transition-duration: 0.5s;
 									-moz-transition-duration: 0.5s;
@@ -800,7 +827,7 @@ body {
 									-webkit-transform: rotate(90deg);
 									transform: rotate(90deg);
 							}
-							background-color: $tool-lessons-toplevel-menu-sliding-background-color;
+
 							&:hover {
 									background-color: $tool-lessons-toplevel-menu-sliding-background-color;
 							}
@@ -836,9 +863,9 @@ body {
 					border-bottom: none;
 					min-height: 28px;
 					max-height: 100px;
-					text-overflow: ellipsis;
-					overflow:hidden;
-					background-color: #FFFFFF;
+					// text-overflow: ellipsis;
+					// overflow:hidden;
+					background-color: $tool-menu-item-background-color;
 
 					a {
 						@include display-flex();
@@ -860,8 +887,8 @@ body {
 							text-align: center;
 						}
 						font-size: $tool-lessons-subpage-menu-fontsize;
-						text-overflow: ellipsis;
-						white-space: nowrap;
+						// text-overflow: ellipsis;
+						// white-space: nowrap;
 						color: $tool-menu-item-text-color !important;
 						text-decoration: none;
 
@@ -943,28 +970,33 @@ body {
 				> .Mrphs-toolsNav__menuitem--link {
 					&:hover {
 						background-color: $tool-menu-item-selected-hover-background-color;
-					}
-				}
-				.lessons-goto-top-page {
-					.Mrphs-toolsNav__menuitem--title {
-						color: $tool-menu-item-selected-text-color !important;
-					}
-					&:hover {
-						.Mrphs-toolsNav__menuitem--title {
+
+						.#{$namespace}toolsNav__menuitem--title,
+						.#{$namespace}toolsNav__menuitem--icon {
 							color: $tool-menu-item-selected-hover-text-color !important;
 						}
 					}
+				}
+				.lessons-goto-top-page {					
+					.#{$namespace}toolsNav__menuitem--title,
+					.#{$namespace}toolsNav__menuitem--icon {
+						color: $tool-menu-item-selected-text-color !important;
+						
+					}
+					
 				}
 			}
 
 			&.is-current.is-parent-of-current {
 				.lessons-goto-top-page {
-					.Mrphs-toolsNav__menuitem--title {
+					.#{$namespace}toolsNav__menuitem--title,
+					.#{$namespace}toolsNav__menuitem--icon {
 						color: $tool-menu-item-text-color !important;
 					}
 					&:hover {
-						.Mrphs-toolsNav__menuitem--title {
-							color: $tool-menu-item-hover-text-color !important;
+						.#{$namespace}toolsNav__menuitem--title,
+						.#{$namespace}toolsNav__menuitem--icon  {
+							color: $tool-menu-item-selected-hover-text-color !important;
 						}
 					}
 				}

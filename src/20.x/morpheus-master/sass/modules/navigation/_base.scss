@@ -42,6 +42,9 @@ body.is-logged-out{
 			height: 100%; // align vertically center
 			float: left;
 			background-size: $logo-width $logo-height;
+			@media #{$nonPhone} {
+				margin-left: 52px;
+			}
 		}
 	}
 
@@ -851,6 +854,9 @@ body.is-logged-out{
 	background-color: $sites-nav-background;
 	min-height: $banner-height;
 	padding: 0 $standard-spacing;		// space on the sides; top and bottom spacing will be determined by children
+	margin-left:#{$tool-menu-width};
+	border-left:1px solid $tool-border-color;
+	width: calc(100% - #{$tool-menu-width});
 }
 
 #linkNav{
@@ -1007,6 +1013,7 @@ body.is-logged-out{
 						border-bottom: $sites-nav-menu-item-selected-hover-border-bottom;
 						border-left: $sites-nav-menu-item-selected-hover-border-left;
 						background: $sites-nav-menu-item-selected-hover-background;
+						color: $sites-nav-menu-item-selected-hover-color;
 					}
 				}
 
@@ -1022,6 +1029,7 @@ body.is-logged-out{
 						border-bottom: $sites-nav-menu-item-selected-hover-border-bottom;
 						border-left: $sites-nav-menu-item-selected-hover-border-left;
 						background: $sites-nav-menu-item-selected-hover-background;
+						color: $sites-nav-menu-item-selected-hover-color;
 					}
 				}
 
@@ -1199,7 +1207,7 @@ body.is-logged-out #linkNav .#{$namespace}sitesNav__menuitem .#{$namespace}sites
 			padding: 0;
 		}
 		button{
-			@extend .button;
+			@include sakai_primary_button();
 			margin: 0 0 0 $standard-spacing;
 		}
 	}
