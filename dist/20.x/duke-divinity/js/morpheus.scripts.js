@@ -342,7 +342,7 @@ if ( document.getElementById('Mrphs-footer--details__info') !== 'null'){
 
     document.getElementById('serverTime').insertAdjacentHTML('afterend',buildTimeHtml);
 }
-console.log('duke.divinity.js');
+// console.log('duke.divinity.js');
 (function ($) {
 
   $(function () {
