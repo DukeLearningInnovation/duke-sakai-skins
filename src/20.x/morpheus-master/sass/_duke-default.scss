@@ -289,3 +289,16 @@ button.ui-datepicker-trigger:hover {
 
 // #182
 $calendar-event-background-color: $hatteras;
+
+// #204
+.duke-20x-sakai-localhost #lti_1,
+.duke-sakai-test-duke-edu #lti_37,
+.duke-sakai-duke-edu #lti_260 {
+    display:none;
+}
+
+.duke-20x-sakai-localhost .Mrphs-sakai-siteinfo #toolHolder #lti_1_wrap label,
+.duke-sakai-test-duke-edu .Mrphs-sakai-siteinfo #toolHolder #lti_37_wrap label,
+.duke-sakai-duke-edu .Mrphs-sakai-siteinfo #toolHolder #lti_260_wrap label {
+    margin-left: 20px;
+}
