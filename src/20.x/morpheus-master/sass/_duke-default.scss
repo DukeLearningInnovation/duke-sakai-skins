@@ -302,3 +302,16 @@ $calendar-event-background-color: $hatteras;
 .duke-sakai-duke-edu .Mrphs-sakai-siteinfo #toolHolder #lti_260_wrap label {
     margin-left: 20px;
 }
+
+// #225
+.Mrphs-toolTitleNav {
+    sakai-maximise-button {
+
+        a.Mrphs-toolTitleNav__link {
+            fa-icon {
+                font: normal normal normal 16px/1 FontAwesome;
+            }
+        }
+    }
+    
+}
