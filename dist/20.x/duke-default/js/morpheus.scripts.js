@@ -79,6 +79,7 @@
 
     // click event to show tool dropdown in favorite sites
     $PBJQ(".Mrphs-sitesNav__dropdown").on("click", function(e) {
+
         var label=$PBJQ(this).siblings('a.link-container')[0].title;
 
         var gaEventData = {
@@ -342,6 +343,25 @@ if ( document.getElementById('Mrphs-footer--details__info') !== 'null'){
 
     document.getElementById('serverTime').insertAdjacentHTML('afterend',buildTimeHtml);
 }
+
+// #222
+let logoContainer = document.querySelector('.Mrphs-headerLogo--institution');
+let homeLinkContainer = document.querySelector('.Mrphs-sitesNav__menuitem--myworkspace .link-container');
+logoContainer.style.cursor = 'pointer';
+logoContainer.addEventListener("click", function(evt){
+    
+    var gaEventData = {
+        'hitType': 'event',
+        'eventCategory': 'topHeader',
+        'eventAction': 'clickLogo',
+        'eventLabel': document.title
+        };
+    if (typeof ga === 'function') {
+        ga('send', gaEventData);
+    }
+
+    homeLinkContainer.click();
+});
 console.log('duke.default.js');
 (function ($) {
 
