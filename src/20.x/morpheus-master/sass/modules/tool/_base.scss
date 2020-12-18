@@ -224,9 +224,11 @@ body.workspace{
 					margin: 0 0 $standard-spacing 0;
 					
 					&.dropDown_title {
-						display: block;
-					    font-weight: bold;
-					    white-space: nowrap;
+						#content &{ //fix ui bug in lessons
+							display: block;
+							font-weight: bold;
+							white-space: nowrap;	
+						}
 					}
 				}
 				input[type="checkbox"] {
