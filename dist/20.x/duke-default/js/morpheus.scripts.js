@@ -362,7 +362,7 @@ logoContainer.addEventListener("click", function(evt){
 
     homeLinkContainer.click();
 });
-console.log('duke.default.js');
+// console.log('duke.default.js');
 (function ($) {
 
   $(function () {

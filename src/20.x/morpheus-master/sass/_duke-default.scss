@@ -287,6 +287,9 @@ button.ui-datepicker-trigger:hover {
     }
 }
 
+// Issue 193
+$jumbotron-heading-font-size: 42px;
+
 // #182
 $calendar-event-background-color: $hatteras;
 
@@ -314,4 +317,12 @@ $calendar-event-background-color: $hatteras;
         }
     }
     
+}
+
+//#229
+body.project .Mrphs-sakai-siteinfo {
+    .add-official-1,
+    .add-official-instruction {
+        display:none;
+    }
 }
