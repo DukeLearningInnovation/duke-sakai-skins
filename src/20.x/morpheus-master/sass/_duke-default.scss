@@ -233,11 +233,7 @@ $material-menu-item-padding: calc(#{$standard-spacing} / 2) $standard-spacing;
 } 
 
 // BECOME USER
-body.duke-become-user {
-    .Mrphs-mainHeader .Mrphs-headerLogo {
-        background: $ironweed;
-    }
-}
+$become-user-primary: $ironweed;
 
 // distinguish different servers visually
 body.duke-sakai-test-duke-edu {
