@@ -180,15 +180,10 @@ var dukeAddBodyClasses = function(){
     /////////////////////////////////////////////////
     // Add role to body as class
     ////////////////////////////////////////////////
-    var userSiteRole = `duke-role-${portal.user.siteRole.toLowerCase()}`;
+    var userSiteRole = `duke-role-${portal.user.siteRole.toLowerCase().replace(/\s/g, '')}`;
     bodyClasses.push(userSiteRole);
 
-    /////////////////////////////////////////////////
-    // Add become user to body as a class
-    ////////////////////////////////////////////////
-    if ( $PBJQ('#loginLink1').find('.Mrphs-login-Message').text().startsWith("Return") ){
-        bodyClasses.push('duke-become-user');
-    }
+
 
     document.getElementsByTagName("body")[0].classList.add(...bodyClasses);
 
@@ -514,15 +509,15 @@ logoContainer.addEventListener("click", function(evt){
 
     const formattedStartDate = formatDate({epochSecond: startDate});
 
-    var toolName = "Announcements";
+    var toolName =  i18n.announcementsTool;   
     if ("assignments" === tool) {
-      toolName = "Assignments";
+      toolName =  i18n.assignmentsTool;
     } else if ("commons" === tool) {
-      toolName = "Commons";
+      toolName =  i18n.commonsTool;
     } else if ("lessonbuilder" === tool) {
-      toolName = "Lessons";
+      toolName =  i18n.lessonsTool;
     } else if ("profile" === tool) {
-      toolName = "Social Alerts";
+      toolName = i18n.socialAlerts;
     }
 
     return `

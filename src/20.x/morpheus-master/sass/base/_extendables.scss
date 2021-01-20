@@ -339,6 +339,7 @@
 							$button-hover-shadow,
 							$button-active-shadow,
 							$button-transition);
+	margin-right: $standard-space;
 }
 
 button.btn-primary, .act .active, .bottomButtons.contentButton .bottomRight {

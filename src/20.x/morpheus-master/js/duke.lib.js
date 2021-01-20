@@ -180,15 +180,10 @@ var dukeAddBodyClasses = function(){
     /////////////////////////////////////////////////
     // Add role to body as class
     ////////////////////////////////////////////////
-    var userSiteRole = `duke-role-${portal.user.siteRole.toLowerCase()}`;
+    var userSiteRole = `duke-role-${portal.user.siteRole.toLowerCase().replace(/\s/g, '')}`;
     bodyClasses.push(userSiteRole);
 
-    /////////////////////////////////////////////////
-    // Add become user to body as a class
-    ////////////////////////////////////////////////
-    if ( $PBJQ('#loginLink1').find('.Mrphs-login-Message').text().startsWith("Return") ){
-        bodyClasses.push('duke-become-user');
-    }
+
 
     document.getElementsByTagName("body")[0].classList.add(...bodyClasses);
 
