@@ -183,8 +183,6 @@ var dukeAddBodyClasses = function(){
     var userSiteRole = `duke-role-${portal.user.siteRole.toLowerCase().replace(/\s/g, '')}`;
     bodyClasses.push(userSiteRole);
 
-
-
     document.getElementsByTagName("body")[0].classList.add(...bodyClasses);
 
 }; 
