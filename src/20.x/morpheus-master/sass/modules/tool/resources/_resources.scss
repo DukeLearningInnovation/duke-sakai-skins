@@ -62,7 +62,26 @@
 					font-size: initial;
 				}
 				button {
-					border:1px solid #ccc !important;
+					color: $button-text-color !important;
+					
+					&:hover,
+					&:focus {
+						color: $button-hover-text-color !important;
+						span {
+							color: $button-hover-text-color !important;
+						}
+					}
+					
+					&:active {
+						color: $button-active-text-color !important;
+						span {
+							color: $button-active-text-color !important;
+						}
+					}
+					
+					span {
+						color: $button-text-color !important;
+					}
 				}
 				.dropdown-menu a {
 					color:#000 !important;
