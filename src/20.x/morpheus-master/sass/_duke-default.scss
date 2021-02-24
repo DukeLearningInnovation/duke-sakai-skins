@@ -119,7 +119,7 @@ $material-menu-item-padding: calc(#{$standard-spacing} / 2) $standard-spacing;
     $tool-menu-item-separator-color: #fff;
     $tool-menu-item-background-color: #fff;
     $tool-menu-item-border-left: none;
-    $tool-menu-item-margin-right: $standard-spacing;
+    $tool-menu-item-margin-right: calc(#{$standard-spacing} / 2);
     $tool-menu-item-hover-text-color: $sites-nav-menu-item-hover-color;
     $tool-menu-item-hover-icon-color: $sites-nav-menu-item-hover-color;
     $tool-menu-item-hover-background-color: $sites-nav-menu-item-hover-background;
