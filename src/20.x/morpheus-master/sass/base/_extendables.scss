@@ -363,7 +363,9 @@ button.btn-primary, .act .active, .bottomButtons.contentButton .bottomRight {
 .act input[value="Remove Meetings"], //signup
 .act #delete-groups-submit-button, //siteinfo
 .Mrphs-sakai-samigo #authorIndexForm\:remove-selected:not(.fc-button), //samigo
-.extendedTimeDataTable input[value="Delete"] //samigo
+.extendedTimeDataTable input[value="Delete"], //samigo
+.ui-widget[aria-describedby="delete-confirm"] .ui-dialog-buttonpane button.ui-button:first-of-type //lessons delete item #241
+
 {
 	$red: #d73941;
 
@@ -403,6 +405,27 @@ button.btn-primary, .act .active, .bottomButtons.contentButton .bottomRight {
 							$button-transition);
 	border-radius: 0 4px 4px 0;
 }
+.controlsPanel .act .deleteButton,
+.act .deleteButton { //lessons delete subpage #240
+	$red: #d73941;
+	@include sakai_button(	$button-primary-text-color !important,
+							$red !important,
+							$red !important,
+							$button-primary-hover-text-color !important,
+							darken($red, 8%) !important,
+							darken($red, 8%) !important,
+							$button-primary-active-text-color !important,
+							darken($red, 12%) !important,
+							darken($red, 12%) !important,
+							$button-primary-text-transform !important,
+							$button-primary-font-weight !important,
+							$button-primary-shadow !important,
+							$button-primary-hover-shadow !important,
+							$button-primary-active-shadow !important,
+							$button-primary-transition);
+	margin-right: $standard-space;
+}
+
 .input-group-btn .btn {
   margin: 0 0 0 -1px;
 }

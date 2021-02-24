@@ -13,6 +13,13 @@
 		display: inline-block;
 		font-size: $default-font-size;
 		margin: 0 -1px 0 0;
+
+		&.inputItem {
+			.inlineForm {
+				margin-right: 1px; //#233
+			}
+		}
+
 		span{
 			display: inline;
 			a{

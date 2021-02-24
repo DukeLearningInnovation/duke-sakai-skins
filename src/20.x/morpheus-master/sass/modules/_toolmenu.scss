@@ -519,7 +519,7 @@ nav#subSites{
 					@if $tool-menu-icon-on-left {
 						width: calc(#{$tool-menu-width} - #{$tool-menu-width-collapsed} - #{$standard-spacing});
 						vertical-align: middle;
-						margin-left: $standard-spacing;
+						margin-left: calc(#{$standard-spacing} / 2); //#235
 					}
 					text-overflow: ellipsis;
 					white-space: pre;
@@ -704,6 +704,7 @@ body {
 						width: calc(#{$tool-menu-width} - calc(#{$standard-spacing} * 2));
 						.Mrphs-toolsNav__menuitem--title {
 							color: $tool-menu-item-text-color;
+							width: calc(#{$tool-menu-width} - #{$tool-menu-width-collapsed} - calc(#{$standard-spacing} )); // #235
 						}
 						&:hover {
 							.Mrphs-toolsNav__menuitem--title {
@@ -717,7 +718,7 @@ body {
 							
 							.Mrphs-toolsNav__menuitem--title {
 								text-overflow: clip;
-								width: calc(#{$tool-menu-width} - #{$tool-menu-width-collapsed} - calc(#{$standard-spacing} * 1.5));
+								width: calc(#{$tool-menu-width} - #{$tool-menu-width-collapsed} - calc(#{$standard-spacing} ));
 								&:after {
 									font-family: 'FontAwesome';
 									content: '\f0a9';
