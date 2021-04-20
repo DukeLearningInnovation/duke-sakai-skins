@@ -364,8 +364,8 @@ button.btn-primary, .act .active, .bottomButtons.contentButton .bottomRight {
 .act #delete-groups-submit-button, //siteinfo
 .Mrphs-sakai-samigo #authorIndexForm\:remove-selected:not(.fc-button), //samigo
 .extendedTimeDataTable input[value="Delete"], //samigo
-.ui-widget[aria-describedby="delete-confirm"] .ui-dialog-buttonpane button.ui-button:first-of-type //lessons delete item #241
-
+.ui-widget[aria-describedby="delete-confirm"] .ui-dialog-buttonpane button.ui-button:first-of-type, //lessons delete item #241
+.act .delete //rubrics
 {
 	$red: #d73941;
 
