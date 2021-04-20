@@ -322,3 +322,10 @@ body.project .Mrphs-sakai-siteinfo {
         display:none;
     }
 }
+
+//#245
+$rubrics-popover-cancel-color: $button-text-color;
+$rubrics-popover-cancel-color--hover: $button-hover-text-color;
+$rubrics-popover-cancel-background--hover: $button-hover-background;
+$rubrics-popover-cancel-color--active: $button-active-text-color;
+$rubrics-popover-cancel-background--active: $button-active-background;

@@ -34,3 +34,7 @@ $rubrics-link-color:            #0093b8 !default;
 $rubrics-empty-bg:              #fff !default;
 $rubrics-disabled-label-color:  #ccc !default;
 $rubrics-popover-cancel-color:  #777 !default;
+$rubrics-popover-cancel-color--hover: $button-hover-text-color !default;
+$rubrics-popover-cancel-background--hover: $button-hover-background !default;
+$rubrics-popover-cancel-color--active: $button-active-text-color !default;
+$rubrics-popover-cancel-background--active: $button-active-background !default;
