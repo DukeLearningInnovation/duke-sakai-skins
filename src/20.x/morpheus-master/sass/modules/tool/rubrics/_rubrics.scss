@@ -389,6 +389,16 @@ sakai-rubric-student-comment {
 
             &.cancel {
                 color: $rubrics-popover-cancel-color;
+
+                &:hover,
+                &:focus {
+                    color: $rubrics-popover-cancel-color--hover;
+                    background-color: $rubrics-popover-cancel-background--hover;
+                }
+                &:active {
+                    color: $rubrics-popover-cancel-color--active;
+                    background-color: $rubrics-popover-cancel-background--active;
+                }
             }
         }
     }
