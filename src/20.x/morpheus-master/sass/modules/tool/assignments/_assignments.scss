@@ -553,6 +553,9 @@
 		h4 {
 			font-size: $jumbotron-heading-font-size;
 			margin: 0 0 0.5em 0;
+			ul {
+				font-size: $jumbotron-font-size;
+			}
 		}
 		margin-bottom: 0;
 	}
