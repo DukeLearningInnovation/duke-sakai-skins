@@ -1,7 +1,7 @@
 @import "duke-colors";
 
 $font-family-url: "https://fonts.googleapis.com/css?family=Open+Sans:400,500,600,700";
-
+$font-family: "Open Sans",sans-serif;
 $standard-spacing: 16px;
 
 $background-color: $white;
@@ -329,3 +329,61 @@ $rubrics-popover-cancel-color--hover: $button-hover-text-color;
 $rubrics-popover-cancel-background--hover: $button-hover-background;
 $rubrics-popover-cancel-color--active: $button-active-text-color;
 $rubrics-popover-cancel-background--active: $button-active-background;
+
+// #DUKE-259
+#toolMenu .icon-sakai--sakai-conversations+.Mrphs-toolsNav__menuitem--title::after,
+.icon-sakai--sakai-conversations+.Mrphs-breadcrumb--toolNameText::after,
+.Mrphs-sakai-siteinfo #sakai_conversations_wrap::after,
+#reorder-list .icon-sakai--sakai-conversations::after {
+    background: $ironweed;
+    color: $white;
+    content: "beta";
+    display: inline-block;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    border-radius: 16px;
+    padding: 4px 8px;
+    margin: 0;
+    font-weight: 400;
+    font-style: normal;
+    font-size: .75em;
+    font-family: $font-family;
+}
+#toolMenu .icon-sakai--sakai-conversations+.Mrphs-toolsNav__menuitem--title::after {
+    top: 7px;
+}
+
+#toolMenu .is-invisible .icon-sakai--sakai-conversations+.Mrphs-toolsNav__menuitem--title::after {
+    right: 26px;
+}
+.Mrphs-toolMenu-collapsed #toolMenu .icon-sakai--sakai-conversations+.Mrphs-toolsNav__menuitem--title::after {
+    position: relative;
+    display: inline;
+    margin-left: 8px;
+    top:-3px;
+    right: 0;
+    padding: 0 8px;
+}
+.Mrphs-siteHierarchy .icon-sakai--sakai-conversations+.Mrphs-breadcrumb--toolNameText::after {
+    text-transform: lowercase;
+    position: relative;
+    top: -2px;
+    right: 0;
+    margin-left: 8px;
+
+}
+.Mrphs-sakai-siteinfo #sakai_conversations_wrap::after {
+    position: relative;
+    display: inline-block;
+    top: 0;
+    right: 0;
+}
+#reorder-list .icon-sakai--sakai-conversations::after {
+    left: 155px;
+    right: auto;
+    top: 2px;
+}
+#conv-search-field {
+    display:none;
+}

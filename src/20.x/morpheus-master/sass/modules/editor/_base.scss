@@ -14,28 +14,39 @@
 		height: 24px;
 		width: 24px;
 		line-height: 28px;
-		margin: 0;
-		color: var(--sakai-text-color-1);
-		border-color: var(--sakai-border-color);
+		margin: 0 6px 0 0;
+		padding: 1px;
+		color: $text-color;
+		border-color: #bcbcbc;
 		&:hover,
 		&:focus {
-			background: var(--sakai-background-color-2);
+			background: #e5e5e5;
 		}
 		&:active {
-			background: var(--sakai-background-color-3);
+			background: #d5d5d5;
 		}
 		.cke_arrow {
 			border-width: 6px;
-			border-bottom-color: var(--sakai-text-color-1);
+			border-top-color: $text-color;
+			border-bottom-color: transparent;
 			margin: 0;
-			
+			position: relative;
+			top: 2px;
+			left: 0;
 		}
 	}
 	a.cke_toolbox_collapser_min {
 		.cke_arrow {
-			border-top-color: var(--sakai-text-color-1);
+			border-left-color: $text-color;
 			border-bottom-color: transparent;
+			border-top-color: transparent;
+			left: 4px;
+			top:-2px;
 		}
+	}
+	.cke_combo__format .cke_combo_button {
+		border: 1px solid #d1d1d1;
+		padding: 0;
 	}
 	.cke_toolbox_main {
 		display: block;
@@ -51,7 +62,10 @@
 		width: 45px; //adjust width to make icons line up across mutliple lines
 	}
 	.cke_contents {
-		background: var(--sakai-background-color-1);
+		background: #fff;
+	}
+	.cke_wysiwyg_frame {
+		padding: 16px;
 	}
 }
 #ckeditorPreview.modal {
