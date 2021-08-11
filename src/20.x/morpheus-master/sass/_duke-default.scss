@@ -387,3 +387,28 @@ $rubrics-popover-cancel-background--active: $button-active-background;
 #conv-search-field {
     display:none;
 }
+
+// Duke-262
+.textPanel,
+.message-body {
+    h3 {
+        font-size: 2em;
+    }
+    
+    h4 {
+        font-size: 1.7em;
+    }
+    h5 {
+        font-size: 1.4em;
+    }
+    .bg-primary,
+    .bg-info,
+    .bg-warning,
+    .bg-danger,
+    .bg-success {
+        padding: 5px;
+    }
+    .bg-primary {
+        background-color: $primary-color;
+    }
+}

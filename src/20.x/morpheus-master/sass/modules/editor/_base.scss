@@ -44,7 +44,8 @@
 			top:-2px;
 		}
 	}
-	.cke_combo__format .cke_combo_button {
+	.cke_combo__format .cke_combo_button,
+	.cke_combo__styles .cke_combo_button, {
 		border: 1px solid #d1d1d1;
 		padding: 0;
 	}
@@ -63,9 +64,6 @@
 	}
 	.cke_contents {
 		background: #fff;
-	}
-	.cke_wysiwyg_frame {
-		padding: 16px;
 	}
 }
 #ckeditorPreview.modal {
