@@ -1,0 +1,52 @@
+@import "duke-colors";
+$primary-color: $bay;
+h3 {
+    font-size: 2em;
+}
+h4 {
+    font-size: 1.7em;
+}
+h5 {
+    font-size: 1.4em;
+}
+h4 {
+    &.bg-primary,
+    &.bg-info,
+    &.bg-warning,
+    &.bg-danger,
+    &.bg-success,
+    &.bg-dimmed {
+        padding: 4px 8px;
+    }
+    &.bg-primary {
+        background-color: $primary-color;
+    }
+    &.bg-dimmed {
+        background-color: $hatteras;
+    }
+}
+body.cke_editable {
+    padding: 16px;
+}
+// stylesdropdown
+.cke_panel_listItem {
+    a[role="option"] {
+        text-decoration: none;
+    }
+    .none,
+    .bg-primary,
+    .bg-info,
+    .bg-warning,
+    .bg-danger,
+    .bg-success,
+    .bg-dimmed {
+        padding: 0;
+        font-size: 1em;
+    }
+    a[title="Link Button"] {
+        background-color: $primary-color;
+        color: #fff !important; //sadly have to override a ckeditor style with important
+        text-decoration-color: #fff;
+    }
+}
+// switch out paste from word with normal paste if it still works
