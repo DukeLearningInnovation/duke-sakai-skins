@@ -389,8 +389,18 @@ $rubrics-popover-cancel-background--active: $button-active-background;
 }
 
 // Duke-262
-.textPanel,
-.message-body {
+.textPanel, //default
+.message-body, //announcements
+.textbox, //lessons text
+.commentBody, //lessons comment
+.itemSummary, //calendar
+.commons-post-body, //commons
+.siteDescription, //overview
+.Mrphs-sakai-poll .portletBody, //polls
+.Mrphs-sakai-signup .longtext, //signup
+.Mrphs-sakai-syllabus .ui-accordion-content, //syllabus
+.Mrphs-sakai-samigo .portletBody //samigo
+ {
     h3 {
         font-size: 2em;
     }
