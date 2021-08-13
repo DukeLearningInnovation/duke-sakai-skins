@@ -1,5 +1,11 @@
 @import "duke-colors";
 $primary-color: $bay;
+h1 {
+    font-size: 2.4em;
+}
+h2 {
+    font-size: 2.2em;
+}
 h3 {
     font-size: 2em;
 }
@@ -24,6 +30,20 @@ h4 {
     &.bg-dimmed {
         background-color: $hatteras;
     }
+}
+.bg-primary,
+.bg-info,
+.bg-warning,
+.bg-danger,
+.bg-success,
+.bg-dimmed {
+    padding: 4px 8px;
+}
+.bg-primary {
+    background-color: $primary-color;
+}
+.bg-dimmed {
+    background-color: $hatteras;
 }
 body.cke_editable {
     padding: 16px;
