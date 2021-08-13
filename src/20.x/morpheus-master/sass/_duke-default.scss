@@ -401,6 +401,12 @@ $rubrics-popover-cancel-background--active: $button-active-background;
 .Mrphs-sakai-syllabus .ui-accordion-content, //syllabus
 .Mrphs-sakai-samigo .portletBody //samigo
  {
+    h1 {
+        font-size: 2.4em;
+    }
+    h2 {
+        font-size: 2.2em;
+    }
     h3 {
         font-size: 2em;
     }
