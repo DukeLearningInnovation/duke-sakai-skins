@@ -2,6 +2,7 @@
 
 $font-family-url: "https://fonts.googleapis.com/css?family=Open+Sans:400,500,600,700";
 $font-family: "Open Sans",sans-serif;
+$default-font-size: 14px;
 $standard-spacing: 16px;
 
 $background-color: $white;
@@ -16,6 +17,7 @@ $body-background-color: $white;
 $secondary-color: $royal;
 $alt-colour: $persimmon;
 $text-color: #212121;
+$link-color: $primary-color;
 $sakai-border-color: #e5e5e5;
 $logo: 'images/logo-duke-u@2x.png';
 $logo-width: 81px;
@@ -49,8 +51,8 @@ $material-elevation-6dp: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,
 $material-elevation-7dp: 0 4px 5px -2px rgba(0,0,0,.2), 0 7px 10px 1px rgba(0,0,0,.14), 0 2px 16px 1px rgba(0,0,0,.12);
 $material-elevation-8dp: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
 
-    $sites-nav-submenu-top: $standard-spacing;
-    $tool-menu-padding: calc(#{$standard-spacing} / 2) 0 0 0;
+$sites-nav-submenu-top: $standard-spacing;
+$tool-menu-padding: calc(#{$standard-spacing} / 2) 0 0 0;
 
 $material-menu-padding: calc( #{$standard-spacing} / 2) 0;
 $material-menu-item-padding: calc(#{$standard-spacing} / 2) $standard-spacing;
@@ -206,8 +208,8 @@ $material-menu-item-padding: calc(#{$standard-spacing} / 2) $standard-spacing;
     $top-header-text-display: none;
     $top-header-icon-size: calc(#{$standard-spacing} * 2);
     $top-header-sites-padding-top: 6px;
-    $top-header-profile-border-color-top: $eno;
-    $top-header-profile-border-color-right: $eno;
+    $top-header-profile-border-color-top: $magnolia;
+    $top-header-profile-border-color-right: $magnolia;
     $top-header-profile-border-color-bottom: $alt-colour;
     $top-header-profile-border-color-left: darken($navy, 10%);
     $top-header-profile-border-color-inner: #fff;
@@ -402,29 +404,96 @@ $rubrics-popover-cancel-background--active: $button-active-background;
 .Mrphs-sakai-samigo .portletBody //samigo
  {
     h1 {
-        font-size: 2.4em;
-    }
-    h2 {
         font-size: 2.2em;
     }
-    h3 {
+    h2 {
         font-size: 2em;
     }
-    
+    h3 {
+        font-size: 1.8em;
+    }
     h4 {
-        font-size: 1.7em;
+        font-size: 1.6em;
     }
     h5 {
         font-size: 1.4em;
     }
+    .bg-navy,
+    .bg-copper,
+    .bg-dandelion,
+    .bg-piedmont,
+    .bg-magnolia,
+    .bg-ironweed,
     .bg-primary,
     .bg-info,
     .bg-warning,
     .bg-danger,
     .bg-success {
         padding: 5px;
+        border-radius: 4px;
+        &,
+        &[style],
+        span[style] {
+            color: $text-color;
+        }
+    }
+
+    .bg-navy {
+        background: $navy;
+    }
+    .bg-copper {
+        background: $copper;
+    }
+    .bg-dandelion {
+        background: $dandelion;
+    }
+    .bg-piedmont {
+        background: $piedmont;
+    }
+    .bg-magnolia {
+        background: $magnolia;
+    }
+    .bg-ironweed {
+        background: $ironweed;
     }
     .bg-primary {
         background-color: $primary-color;
+    }
+    .bg-dimmed {
+        background-color: $hatteras;
+    }
+    .bg-danger {
+        // background-color: $sakai-red;
+    }
+    .bg-ironweed,
+    .bg-copper,
+    .bg-navy,
+    .bg-primary,
+    // .bg-danger,
+    .bg-magnolia {
+        &,
+        &[style],
+        span[style] {
+            color: #fff;
+        }
+    }
+}
+.cke.cke_combopanel {
+    width: 360px;
+    height: 440px;
+}
+.cke_panel_container .cke_panel_block {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    grid-template-rows: 30px auto;
+    grid-gap: 10px;
+    h1 {
+        grid-row-start: 1;
+        line-height: 30px;
+        padding: 0 0 0 5px;
+        font-size: 14px;
+    }
+    ul {
+        grid-row-start: 2;
     }
 }

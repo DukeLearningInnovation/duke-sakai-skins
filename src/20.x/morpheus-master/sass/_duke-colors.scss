@@ -13,6 +13,7 @@ $magnolia: #1D6363;
 $prussian: #005587;
 $shale: #0577B1;
 $ironweed: #993399;
+$sakai-red: #cc000a;
 $hatteras: #E2E6ED;
 $ginger: #FCF7E5;
 $dogwood: #988675;
@@ -28,3 +29,23 @@ $alto: #dcdcdc;
 $granite: #B5B5B5;
 $graphite: #666666;
 $castiron: #262626;
+
+$font-family-url: "https://fonts.googleapis.com/css?family=Open+Sans:400,500,600,700";
+$font-family: "Open Sans",sans-serif;
+$default-font-size: 14px;
+$standard-spacing: 16px;
+
+$background-color: $white;
+$background-color-secondary: $navy;
+
+$primary-color: $bay;
+$primary-color-light: $frenchpass;
+$primary-color-highContrast: darken( $primary-color, 4% );	// for use of primary on non-white light backgrounds, such as greys
+$primary-color-shadow: adjust-hue( $primary-color, 5 );	// To give primary a darker shadow
+$background-color: $white;
+$body-background-color: $white;
+$secondary-color: $royal;
+$alt-colour: $persimmon;
+$text-color: #212121;
+$link-color: $primary-color;
+$sakai-border-color: #e5e5e5;
