@@ -1,43 +1,59 @@
 @import "duke-colors";
 $primary-color: $bay;
 h1 {
-    font-size: 2.4em;
-}
-h2 {
     font-size: 2.2em;
 }
-h3 {
+h2 {
     font-size: 2em;
 }
+h3 {
+    font-size: 1.8em;
+}
+
 h4 {
-    font-size: 1.7em;
+    font-size: 1.6em;
 }
 h5 {
     font-size: 1.4em;
 }
-h4 {
-    &.bg-primary,
-    &.bg-info,
-    &.bg-warning,
-    &.bg-danger,
-    &.bg-success,
-    &.bg-dimmed {
-        padding: 4px 8px;
-    }
-    &.bg-primary {
-        background-color: $primary-color;
-    }
-    &.bg-dimmed {
-        background-color: $hatteras;
-    }
-}
+
+.bg-navy,
+.bg-copper,
+.bg-dandelion,
+.bg-piedmont,
+.bg-magnolia,
+.bg-ironweed,
+.bg-hatteras,
 .bg-primary,
 .bg-info,
 .bg-warning,
 .bg-danger,
-.bg-success,
-.bg-dimmed {
-    padding: 4px 8px;
+.bg-success {
+    padding: 5px;
+    border-radius: 4px;
+    &,
+    &[style],
+    span[style] {
+        color: $text-color;
+    }
+}
+.bg-navy {
+    background: $navy;
+}
+.bg-copper {
+    background: $copper;
+}
+.bg-dandelion {
+    background: $dandelion;
+}
+.bg-piedmont {
+    background: $piedmont;
+}
+.bg-magnolia {
+    background: $magnolia;
+}
+.bg-ironweed {
+    background: $ironweed;
 }
 .bg-primary {
     background-color: $primary-color;
@@ -45,6 +61,22 @@ h4 {
 .bg-dimmed {
     background-color: $hatteras;
 }
+.bg-danger {
+    // background-color: $sakai-red;
+}
+.bg-ironweed,
+.bg-copper,
+.bg-navy,
+.bg-primary,
+// .bg-danger,
+.bg-magnolia{
+    &,
+    &[style],
+    span[style] {
+        color: #fff;
+    }
+}
+
 body.cke_editable {
     padding: 16px;
 }
@@ -54,14 +86,30 @@ body.cke_editable {
         text-decoration: none;
     }
     .none,
+    .bg-navy,
+    .bg-copper,
+    .bg-dandelion,
+    .bg-piedmont,
+    .bg-magnolia,
+    .bg-ironweed,
+    .bg-hatteras,
     .bg-primary,
     .bg-info,
     .bg-warning,
     .bg-danger,
     .bg-success,
-    .bg-dimmed {
+    .bg-dimmed,
+    .bg-danger {
         padding: 0;
         font-size: 1em;
+        color: $text-color;
+    }
+    .bg-ironweed,
+    .bg-copper,
+    .bg-navy,
+    // .bg-danger,
+    .bg-magnolia {
+        color: #fff;
     }
     a[title="Link Button"] {
         background-color: $primary-color;
@@ -69,4 +117,3 @@ body.cke_editable {
         text-decoration-color: #fff;
     }
 }
-// switch out paste from word with normal paste if it still works
