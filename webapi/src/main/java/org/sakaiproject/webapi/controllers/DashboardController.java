@@ -62,8 +62,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import io.swagger.annotations.ApiOperation;
-
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -138,7 +136,6 @@ public class DashboardController extends AbstractSakaiApiController {
         defaultWidgetLayouts.put("3", Arrays.asList(courseWidgetLayout3));
     }
 
-    @ApiOperation(value = "Get a particular user's dashboard data")
 	@GetMapping(value = "/users/{userId}/dashboard", produces = MediaType.APPLICATION_JSON_VALUE)
     public DashboardRestBean getUserDashboard(@PathVariable String userId) throws UserNotDefinedException {
 
@@ -209,7 +206,6 @@ public class DashboardController extends AbstractSakaiApiController {
         return bean;
 	}
 
-    @ApiOperation(value = "Save a particular user's dashboard data")
 	@PutMapping(value = "/users/{userId}/dashboard")
     public void saveUserDashboard(@PathVariable String userId, @RequestBody DashboardRestBean bean) throws UserNotDefinedException {
 
@@ -229,7 +225,6 @@ public class DashboardController extends AbstractSakaiApiController {
         }
 	}
 
-    @ApiOperation(value = "Get a particular site's dashboard data")
 	@GetMapping(value = "/sites/{siteId}/dashboard", produces = MediaType.APPLICATION_JSON_VALUE)
     public DashboardRestBean getSiteDashboard(@PathVariable String siteId) throws UserNotDefinedException {
 
@@ -268,7 +263,6 @@ public class DashboardController extends AbstractSakaiApiController {
         return bean;
 	}
 
-    @ApiOperation(value = "Save a particular site's dashboard data")
 	@PutMapping(value = "/sites/{siteId}/dashboard")
     public void saveSiteDashboard(@PathVariable String siteId, @RequestBody DashboardRestBean bean) throws UserNotDefinedException {
 
@@ -288,7 +282,6 @@ public class DashboardController extends AbstractSakaiApiController {
         }
 	}
 
-    @ApiOperation(value = "Save a particular site's image")
 	@PostMapping(value = "/sites/{siteId}/image", produces = "text/plain")
     public String saveSiteImage(HttpServletRequest req, @PathVariable String siteId) throws Exception {
 
