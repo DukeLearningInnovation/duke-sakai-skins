@@ -48,8 +48,6 @@ import java.util.Objects;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import io.swagger.annotations.ApiOperation;
-
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -149,16 +147,14 @@ public class GradesController extends AbstractSakaiApiController {
         }
     };
 
-    @ApiOperation(value = "Get a particular user's grades data")
-    @GetMapping(value = "/users/{userId}/grades", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/users/{userId}/grades", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<GradeRestBean> getUserGrades(@PathVariable String userId) throws UserNotDefinedException {
 
         checkSakaiSession();
         return siteService.getUserSites().stream().map(convert).flatMap(Collection::stream).collect(Collectors.toList());
     }
 
-    @ApiOperation(value = "Get a particular site's grades data")
-    @GetMapping(value = "/sites/{siteId}/grades", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/sites/{siteId}/grades", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<GradeRestBean> getSiteGrades(@PathVariable String siteId) throws UserNotDefinedException {
 
         checkSakaiSession();
