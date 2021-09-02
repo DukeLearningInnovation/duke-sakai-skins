@@ -2,9 +2,7 @@
 !js/**/*.js
 !src/**/*.js
 !conf/*.js
-!stories/*.js
-!stories/i18n/*.js
-!stories/data/*.js
-!stories/styles/*.js
+!.config/*.js
+!stories/**/*.js
 !.storybook/*.js
 !test/*

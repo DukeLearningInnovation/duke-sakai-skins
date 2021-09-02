@@ -66,9 +66,9 @@ class SakaiPermissions extends SakaiElement {
       disableGroups: { attribute: 'disabled-groups', type: Boolean },
       bundleKey: { attribute: 'bundle-key', type: String },
       onRefresh: { attribute: 'on-refresh', type: String },
-      roles: { attribute: false, type: Array },
-      groups: { attribute: false, type: Array },
-      error: { attribute: false, type: String },
+      roles: {type: Array},
+      groups: Array,
+      fireEvent: { attribute: "fire-event", type: Boolean },
     };
   }
 
@@ -93,7 +93,7 @@ class SakaiPermissions extends SakaiElement {
     if (this.roles) {
       return html`
 
-        ${this.groups ? html`
+        ${this.groups && this.groups.length > 0 ? html`
           <div>
             <label for="permissons-group-picker">${this.i18n["per.lis.selectgrp"]}</label>
             <sakai-group-picker id="permissions-group-picker" groups="${JSON.stringify(this.groups)}" @group-selected=${this.groupSelected} />
@@ -131,7 +131,7 @@ class SakaiPermissions extends SakaiElement {
         </table>
         <div class="act">
           <input type="button" class="active" value="${this.i18n["gen.sav"]}" aria-label="${this.i18n["gen.sav"]}" @click=${this.savePermissions}/>
-          <input type="button" value="${this.i18n["gen.can"]}" aria-label="${this.i18n["gen.can"]}" @click=${this.cancelPermissions}/>
+          <input type="button" value="${this.i18n["gen.can"]}" aria-label="${this.i18n["gen.can"]}" @click=${this._completePermissions}/>
           <span id="${this.tool}-failure-message" class="permissions-save-message" style="display: none;">${this.i18n["per.error.save"]}</span>
         </div>
       `;
@@ -171,7 +171,7 @@ class SakaiPermissions extends SakaiElement {
 
     document.body.style.cursor = "wait";
 
-    const boxes = document.querySelectorAll(`#${this.tool.replace('.', '\\.')}-permissions-table input[type="checkbox"]`);
+    const boxes = this.querySelectorAll(`#${this.tool.replace('.', '\\.')}-permissions-table input[type="checkbox"]`);
     const params = `ref=${this.groupReference}&` + Array.from(boxes).reduce((acc,b) => {
 
       if (b.checked) {
@@ -185,11 +185,7 @@ class SakaiPermissions extends SakaiElement {
       .then(res => {
 
         if (res.ok) {
-          if (this.onRefresh) {
-            window.location.href = this.onRefresh;
-          } else {
-            window.location.reload();
-          }
+          this._completePermissions();
         } else {
           throw new Error("Network response was not ok.");
         }
@@ -222,8 +218,11 @@ class SakaiPermissions extends SakaiElement {
     });
   }
 
-  cancelPermissions() {
-    if (this.onRefresh) {
+  _completePermissions() {
+
+    if (this.fireEvent) {
+      this.dispatchEvent(new CustomEvent("permissions-complete"));
+    } else if (this.onRefresh) {
       window.location.href = this.onRefresh;
     } else {
       window.location.reload();
@@ -289,5 +288,11 @@ class SakaiPermissions extends SakaiElement {
   }
 }
 
+<<<<<<< HEAD
 const tagName = "sakai-permissions";
 !customElements.get(tagName) && customElements.define(tagName, SakaiPermissions);
+=======
+if (!customElements.get("sakai-permissions")) {
+  customElements.define("sakai-permissions", SakaiPermissions);
+}
+>>>>>>> 1751b1505b... SAK-45092 Create a new tool for handling conversations in Sakai (#9500)
