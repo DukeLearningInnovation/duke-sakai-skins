@@ -104,15 +104,17 @@ export class SakaiTopicSummary extends SakaiElement {
             ` : ""}
             ${this.topic.locked ? html`
             <div class="topic-status"
-                title="${this.i18n["topic_locked_tooltip"]}"
-                aria-label="${this.i18n["topic_locked_tooltip"]}">
+                role="image"
+                title="${this.i18n.topic_locked_tooltip}"
+                aria-label="${this.i18n.topic_locked_tooltip}">
               <sakai-icon type="lock" size="small"></sakai-icon></div>
             </div>
             ` : ""}
             ${this.topic.hidden ? html`
             <div class="topic-status"
-                title="${this.i18n["topic_hidden_tooltip"]}"
-                aria-label="${this.i18n["topic_hidden_tooltip"]}">
+                role="image"
+                title="${this.i18n.topic_hidden_tooltip}"
+                aria-label="${this.i18n.topic_hidden_tooltip}">
               <sakai-icon type="hidden" size="small"></sakai-icon></div>
             </div>
             ` : ""}
@@ -139,15 +141,13 @@ export class SakaiTopicSummary extends SakaiElement {
               <sakai-icon type="check_circle"
                   size="small"
                   class="answered-icon"
-                  aria-label="${this.i18n["answered_tooltip"]}"
-                  title="${this.i18n["answered_tooltip"]}">
+                  title="${this.i18n.answered_tooltip}">
               </sakai-icon>
             ` : html`
               <sakai-icon type="questioncircle"
                   size="small"
                   class="unanswered-icon"
-                  aria-label="${this.i18n["unanswered_tooltip"]}"
-                  title="${this.i18n["unanswered_tooltip"]}">
+                  title="${this.i18n.unanswered_tooltip}">
               </sakai-icon>
             `}
           ` : ""}
@@ -165,8 +165,7 @@ export class SakaiTopicSummary extends SakaiElement {
             <div>${this.topic.formattedCreatedDate}</div>
           </div>
           <div class="topic-summary-posts-indicator"
-              aria-label="${this.i18n["numberposts_tooltip"]}"
-              title="${this.i18n["numberposts_tooltip"]}">
+              title="${this.i18n.numberposts_tooltip}">
             <div>
               <sakai-icon type="comment" size="smallest"></sakai-icon>
             </div>
