@@ -52,7 +52,6 @@ export class ConversationsStatistics extends SakaiElement {
       if (r.ok) {
         return r.json();
       }
-
       throw new Error(`Network error while getting statistics from ${this.siteUrl}`);
     })
     .then(data => {
