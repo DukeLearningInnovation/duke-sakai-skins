@@ -411,12 +411,16 @@ $rubrics-popover-cancel-background--active: $button-active-background;
     }
     h3 {
         font-size: 1.8em;
+
     }
     h4 {
         font-size: 1.6em;
     }
     h5 {
         font-size: 1.4em;
+    }
+    #jqueryui-accordion h3 {
+        font-size: 100%;
     }
     .bg-navy,
     .bg-copper,
@@ -496,4 +500,10 @@ $rubrics-popover-cancel-background--active: $button-active-background;
     ul {
         grid-row-start: 2;
     }
+}
+
+.Mrphs-sakai-samigo button.partLink:active,
+.Mrphs-sakai-samigo button.partLink:focus,
+.Mrphs-sakai-samigo button.partLink:hover {
+    background: $button-background;
 }
