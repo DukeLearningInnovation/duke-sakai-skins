@@ -60,6 +60,10 @@
             <version>21-SNAPSHOT</version>
         </dependency>
         <dependency>
+            <groupId>org.sakaiproject.conversations</groupId>
+            <artifactId>sakai-conversations-api</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
         </dependency>

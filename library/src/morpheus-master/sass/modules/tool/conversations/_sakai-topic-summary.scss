@@ -1,6 +1,9 @@
   .topic-summary-link {
-    text-decoration: none;
+    display: block;
     color: inherit;
+    /*&:focus {
+        outline: solid;
+    }*/
   }
 
   .topic-summary {
@@ -111,8 +114,8 @@
     }
   }
 
-  .post-numbers {
-      white-space: nowrap;
+  .post-numbers span:nth-child(2) {
+    white-space: nowrap;
   }
 
   .post-number {
@@ -132,6 +135,16 @@
   }
   .selected * {
     color: #666666;
+  }
+
+  .selected {
+    .discussion-icon {
+      color: #FFFFFF;
+    }
+
+    .question-icon {
+      color: #D97008;
+    }
   }
 
   @media (max-width: 1200px) {
