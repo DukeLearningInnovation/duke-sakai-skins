@@ -21,7 +21,9 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "CONV_POSTS", indexes = { @Index(columnList = "TOPIC_ID"),
-                                        @Index(columnList = "SITE_ID") })
+                                        @Index(columnList = "SITE_ID"),
+                                        @Index(columnList = "PARENT_POST_ID"),
+                                        @Index(columnList = "PARENT_THREAD_ID") })
 @Getter
 @Setter
 public class Post implements PersistableEntity<String> {
@@ -36,9 +38,12 @@ public class Post implements PersistableEntity<String> {
     @JoinColumn(name = "TOPIC_ID", nullable = false)
     private Topic topic;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "PARENT_POST_ID")
-    private Post parentPost;
+    @Column(name = "PARENT_POST_ID")
+    private String parentPostId;
+
+    // This holds the oldest ancestor, the thread starter, in this thread of posts
+    @Column(name = "PARENT_THREAD_ID")
+    private String parentThreadId;
 
     @Column(name = "SITE_ID", length = 99, nullable = false)
     private String siteId;
@@ -49,6 +54,20 @@ public class Post implements PersistableEntity<String> {
 
     @Column(name = "NUMBER_OF_COMMENTS")
     private Integer numberOfComments = 0;
+
+    // This is only used in a thread context, ie when a post is a top level
+    // reply to a topic
+    @Column(name = "NUMBER_OF_THREAD_REPLIES")
+    private Integer numberOfThreadReplies = 0;
+
+    @Column(name = "NUMBER_OF_THREAD_REACTIONS")
+    private Integer numberOfThreadReactions = 0;
+
+    @Column(name = "DEPTH")
+    private Integer depth = 1;
+
+    @Column(name = "HOW_ACTIVE")
+    private Integer howActive = 0;
 
     @Column(name = "DRAFT")
     private Boolean draft = Boolean.FALSE;
