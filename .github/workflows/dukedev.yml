@@ -6,9 +6,9 @@ name: dukedev
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ master ]
+    branches: [ 21.x ]
   pull_request:
-    branches: [ master ]
+    branches: [ 21.x ]
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -30,7 +30,7 @@ jobs:
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com 
-          git subtree split --prefix dist/20.x -b dukedev # create a local dukedev branch containing the splitted output folder
+          git subtree split --prefix library/src/webapp/skin -b dukedev # create a local dukedev branch containing the splitted output folder
           git checkout dukedev
           git status
       - name: Update JS files with SHA
