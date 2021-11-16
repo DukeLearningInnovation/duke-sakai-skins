@@ -1,3 +1,5 @@
+@import "defaults";
+@import "customization";
 
 @import "themes/base";
 
@@ -5,7 +7,6 @@
 @import "themes/dark";
 @import "customization"; //it is copied from the user supplied file by maven
 
-@import "defaults";
 
 @import "base/bootstrap-defaults";
 @import "base/jquery-ui-defaults";
@@ -92,3 +93,5 @@
 @import "modules/widget-panel/base";
 @import "modules/theme-switcher/base";
 @import "modules/multiselect/base";
+
+@import "overrides";
