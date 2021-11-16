@@ -1,0 +1,51 @@
+/* Duke Color palette */
+$navy: #012169;
+$royal: #005199;
+$dodger: #0E99F0;
+$frenchpass: #cce7fe;
+$bay: #243a82;
+$copper: #c64c00;
+$persimmon: #E89923;
+$dandelion: #FFD960;
+$piedmont: #A1B70D;
+$eno: #339898;
+$magnolia: #1D6363;
+$prussian: #005587;
+$shale: #0577B1;
+$ironweed: #993399;
+$sakai-red: #cc000a;
+$hatteras: #E2E6ED;
+$ginger: #FCF7E5;
+$dogwood: #988675;
+$shackleford: #DAD0C6;
+$white: #fff;
+$alabaster: #fafafa;
+$athens: #F8F9FA;
+$whisper: #F3F2F1;
+$wildsand: #f5f5f5;
+$gallery: #eee;
+$limestone: #E5E5E5;
+$alto: #dcdcdc;
+$granite: #B5B5B5;
+$graphite: #666666;
+$castiron: #262626;
+
+$font-family-url: "https://fonts.googleapis.com/css?family=Open+Sans:400,500,600,700";
+$font-family: "Open Sans",sans-serif;
+$default-font-size: 14px;
+$standard-spacing: 16px;
+
+$background-color: $white;
+$background-color-secondary: $navy;
+
+$primary-color: $bay;
+$primary-color-light: $frenchpass;
+$primary-color-highContrast: darken( $primary-color, 4% );	// for use of primary on non-white light backgrounds, such as greys
+$primary-color-shadow: adjust-hue( $primary-color, 5 );	// To give primary a darker shadow
+$background-color: $white;
+$body-background-color: $white;
+$secondary-color: $royal;
+$alt-colour: $persimmon;
+$text-color: #212121;
+$link-color: $primary-color;
+$sakai-border-color: #e5e5e5;
