@@ -1,0 +1,28 @@
+:root {
+    @include defineColorHSL(--duke-navy, 222, 98%, 21%);
+    --logo: url(#{$skin-path}images/logo-duke-u@2x.png);
+    --logo-height: 36px;
+    --logo-width: 81px;
+    --sakai-primary-color-1: var(--duke-navy);
+    --sakai-primary-color-2: var(--duke-navy--darker-2);
+    --sakai-primary-color-3: var(--duke-navy--darker-3);
+    --sakai-active-color-1: var(--duke-navy--lighter-6);
+    --sakai-active-color-2: var(--duke-navy--lighter-5);
+    --sakai-active-color-3: var(--duke-navy--lighter-4);
+    --sakai-passive-color-1: var(--sakai-color-gray--lighter-6);
+    --sakai-passive-color-2: var(--sakai-color-gray--lighter-5);
+    --sakai-passive-color-3: var(--sakai-color-gray--lighter-4);
+    --sakai-background-color-1: var(--sakai-color-white);
+    --sakai-background-color-2: var(--sakai-color-gray--lighter-7);
+    --sakai-background-color-3: var(--sakai-color-gray--lighter-6);
+    --sakai-background-color-4: var(--sakai-color-gray--lighter-5);
+    --sakai-secondary-color-1: var(--sakai-color-blue--darker-2);
+    --sakai-tertiary-color-1: var(--sakai-color-orange--darker-4);
+    --sakai-border-color: var(--sakai-color-gray--lighter-6);
+    --sakai-text-color-1: var(--sakai-color-gray--darker-5);
+    --sakai-text-color-2: var(--sakai-color-gray--darker-6);
+    --sakai-text-color-3: var(--duke-navy--darker-3);
+    --sakai-text-color-dimmed: var(--sakai-color-gray--darker-4);
+    --sakai-text-color-disabled: var(--sakai-color-gray--darker-2);
+    --sakai-text-color-inverted: var(--sakai-background-color-1);
+}
