@@ -355,6 +355,8 @@
 				<sakai.skin.target>morpheus-default</sakai.skin.target>
 				<sakai.skin.customization.file>src/${sakai.skin.source}/sass/examples/_customization_example_empty.scss</sakai.skin.customization.file>
 				<sakai.skin.overrides.file>src/${sakai.skin.source}/sass/examples/_customization_example_empty.scss</sakai.skin.overrides.file>
+				<sakai.skin.customization.js.lib>_custom.lib.js</sakai.skin.customization.js.lib>
+				<sakai.skin.customization.js.main>_custom.main.js</sakai.skin.customization.js.main>
 				<sakai.skin.outputStyle>compressed</sakai.skin.outputStyle>
 			</properties>
 			<build>
@@ -432,6 +434,21 @@
 									</resources>
 								</configuration>
 							</execution>
+							<execution>
+								<id>copy-dist</id>
+								<phase>install</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${basedir}/dist/${sakai.skin.target}/</outputDirectory>
+									<resources>
+										<resource>
+											<directory>${project.build.directory}/library-${version}/skin/${sakai.skin.target}</directory>
+										</resource>
+									</resources>
+								</configuration>
+							</execution>
 						</executions>
                     </plugin>
 
@@ -445,8 +462,14 @@
                                 <configuration>
                                     <charset>UTF-8</charset>
                                     <webappSourceDir>${basedir}/src/${sakai.skin.source}</webappSourceDir>
-                                    <jsSourceDir>js/src/</jsSourceDir>
-                                    <jsIncludes>*.js</jsIncludes>
+                                    <jsSourceDir>js/</jsSourceDir>
+                                    <jsSourceIncludes>
+						                <jsSourceInclude>src/*.js</jsSourceInclude>
+              						</jsSourceIncludes>
+                                    <jsSourceFiles>
+	                                    <jsSourceFile>${sakai.skin.customization.js.lib}</jsSourceFile>
+	                                    <jsSourceFile>${sakai.skin.customization.js.main}</jsSourceFile>
+									</jsSourceFiles>
                                     <jsTargetDir>skin/${sakai.skin.target}/js</jsTargetDir>
                                     <jsFinalFile>morpheus.scripts.js</jsFinalFile>
                                     <jsEngine>CLOSURE</jsEngine>
@@ -557,6 +580,11 @@
 							<filesets>
 								<fileset>
 									<directory>${basedir}/src/webapp/skin/${sakai.skin.target}</directory>
+								</fileset>
+							</filesets>
+							<filesets>
+								<fileset>
+									<directory>${basedir}/dist/${sakai.skin.target}</directory>
 								</fileset>
 							</filesets>
 						</configuration>
