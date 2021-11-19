@@ -165,7 +165,14 @@ public class DashboardController extends AbstractSakaiApiController {
                 false);
 
             if (motdMessages.size() > 0) {
-                bean.setMotd(motdMessages.get(motdMessages.size() - 1).getBody());
+                String motdString = motdMessages.get(motdMessages.size() - 1).getBody();
+                if (motdMessages.size() > 1) {
+                    motdString += motdMessages.get(motdMessages.size() - 2).getBody();
+                }
+                if (motdMessages.size() > 2) {
+                    motdString += motdMessages.get(motdMessages.size() - 3).getBody();
+                }
+                bean.setMotd(motdString);
             }
         } catch (Exception e) {
             log.warn("Failed to set the MOTD for {}", userId, e);
