@@ -18,7 +18,7 @@
 		<bootstrap-version>3.3.7</bootstrap-version>
 		<font-awesome-version>4.7.0</font-awesome-version>
 		<!-- Default extra plugins enabled -->
-		<ckeditor-extra-plugins>image2,audiorecorder,contentitem,html5video,wordcount,notification,autosave,bt_table,sakaiopenlink,sakaidropdowntoolbar,sakaiformat</ckeditor-extra-plugins>
+		<ckeditor-extra-plugins>sakaiopenlink,sakaidropdowntoolbar,</ckeditor-extra-plugins>
 		<!-- Empty defaults for a11y-->
 		<ckeditor-a11y-extra-plugins></ckeditor-a11y-extra-plugins>
 		<ckeditor.a11ychecker.version>1.1.1</ckeditor.a11ychecker.version>
@@ -457,6 +457,27 @@
 											<directory>${project.build.directory}/library-${project.version}/editor</directory>
 											<includes>
 												<include>ckeditor.launch.js</include>
+											</includes>
+										</resource>
+									</resources>
+								</configuration>
+							</execution>
+							<execution>
+								<id>copy-ckeditor-extraplugins</id>
+								<phase>install</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${basedir}/dist/editor/ckextraplugins</outputDirectory>
+									<resources>
+										<resource>
+											<directory>${basedir}/src/webapp/editor/ckextraplugins</directory>
+											<includes>
+												<include>sakaidropdowntoolbar/</include>
+												<include>sakaiformat/</include>
+												<include>sakaiopenlink/</include>
+												<include>templates/</include>
 											</includes>
 										</resource>
 									</resources>

@@ -24,7 +24,6 @@
                 const toolboxCollapser = document.querySelector(`#${editor.id}_toolbox .cke_toolbox_collapser`);
                 if (editor.config.toolbar === "Full") {
                 
-                    console.log(editor);
                     if (!editor.config.toolbarStartupExpanded){
                         top.classList.add('min');
                         toolboxMain.style.display = 'block';
