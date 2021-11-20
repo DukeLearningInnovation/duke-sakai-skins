@@ -1,12 +1,11 @@
 @import "defaults";
-@import "customization";
 
 @import "themes/base";
 
 @import "themes/light";
 @import "themes/dark";
-@import "customization"; //it is copied from the user supplied file by maven
-
+@import "duke-all";
+@import "customization";
 
 @import "base/bootstrap-defaults";
 @import "base/jquery-ui-defaults";
@@ -94,4 +93,5 @@
 @import "modules/theme-switcher/base";
 @import "modules/multiselect/base";
 
+@import "duke-all-overrides";
 @import "overrides";
