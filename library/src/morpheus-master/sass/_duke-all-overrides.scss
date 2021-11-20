@@ -1,0 +1,26 @@
+// Move collapse tools toggle to upper right hamburger menu
+@media #{$nonPhone} {
+    .Mrphs-mainHeader .Mrphs-headerLogo {
+        padding-left: 0;
+    }
+    .#{$namespace}collapseTools button.js-toggle-nav {
+        width: 52px;
+        float: left;
+        color: var(--button-primary-text-color);
+        background-color: var(--duke-navy--lighter-3);
+        border-radius: 0;
+        
+        &:hover,
+        &:focus {
+            background-color: var(--duke-navy--lighter-2);
+        }
+
+        &:active {
+            background-color: var(--duke-navy--lighter-1);
+        }
+    }
+    .Mrphs-headerLogo--institution {
+        margin-left: 16px;
+    }
+}
+// end collapse tools customizations
