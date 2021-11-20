@@ -1,3 +1,5 @@
+$skin-name: duke-default;
+
 /* Duke Color palette */
 $navy: #012169;
 $royal: #005199;
@@ -33,8 +35,23 @@ $castiron: #262626;
 $font-family-url: "https://fonts.googleapis.com/css?family=Open+Sans:400,500,600,700";
 @import url(#{$font-family-url});
 
+$become-user-primary: $ironweed;
+
 :root {
     @include defineColorHSL(--duke-navy, 222, 98%, 21%);
+    --duke-royal: #005199;
+    --duke-dodger: #0E99F0;
+    --duke-frenchpass: #cce7fe;
+    --duke-bay: #243a82;
+    --duke-copper: #c64c00;
+    --duke-persimmon: #E89923;
+    --duke-dandelion: #FFD960;
+    --duke-piedmont: #A1B70D;
+    --duke-eno: #339898;
+    --duke-magnolia: #1D6363;
+    --duke-prussian: #005587;
+    --duke-shale: #0577B1;
+    --duke-ironweed: #993399;
     --logo: url(#{$skin-path}images/logo-duke-u@2x.png);
     --logo-height: 36px;
     --logo-width: 81px;
@@ -46,3 +63,284 @@ $font-family-url: "https://fonts.googleapis.com/css?family=Open+Sans:400,500,600
     --sakai-active-color-3: var(--duke-navy--lighter-4);
     --sakai-text-color-3: var(--duke-navy--darker-3);
 }
+
+///////////////////////////////////////////////////
+// Extend Skins site title in header
+///////////////////////////////////////////////////
+.Duke-headerlogo--siteTitle {
+    float: left;
+    line-height: $banner-height;
+    margin-left: $standard-space-4x;
+    font-size: 16px;
+}
+
+///////////////////////////////////////////////////
+// distinguish different servers visually
+///////////////////////////////////////////////////
+body.duke-sakai-test-duke-edu,
+body.duke-sakai-21-localhost {
+    .Mrphs-headerLogo--banner {
+        float: left;
+        &:after {
+            content: "TEST SERVER";
+            background: var(--sakai-color-green--darker-3);
+            padding: 8px 16px;
+            font-weight: 700;
+            color: var(--sakai-color-green--lighter-6);
+            font-size:.8em;
+            line-height: calc(#{$banner-height} - 16px);
+            display: inline-block;
+            height: $banner-height;
+            margin-left: $standard-space-4x;
+        }
+        
+    }
+}
+body.duke-sakai-21-localhost {
+    .Mrphs-headerLogo--banner {
+        &:after {
+            content: "DEV SERVER";
+            background: var(--sakai-color-red--darker-3);
+            color: var(--sakai-color-red--lighter-6);
+        }
+    }
+}
+
+///////////////////////////////////////////////////
+// Forums print styles
+///////////////////////////////////////////////////
+.printTable pre {
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    background-color: transparent;
+}
+///////////////////////////////////////////////////
+// Worksite setup margin fix
+///////////////////////////////////////////////////
+.Mrphs-sakai-siteinfo,
+.Mrphs-sakai-sitesetup {
+    #siteTypeList {
+        margin:0 0 $standard-spacing;
+        padding: $standard-spacing;
+    }
+}
+
+///////////////////////////////////////////////////
+// Hide open source footer info
+///////////////////////////////////////////////////
+.Mrphs-container--footer {
+    .Mrphs-footer--project {
+        display:none;
+    }
+}
+
+///////////////////////////////////////////////////
+// DUKE-204
+///////////////////////////////////////////////////
+.duke-20x-sakai-localhost #lti_1,
+.duke-sakai-test-duke-edu #lti_37,
+.duke-sakai-duke-edu #lti_260 {
+    display: none;
+}
+
+.duke-20x-sakai-localhost .Mrphs-sakai-siteinfo #toolHolder #lti_1_wrap label,
+.duke-sakai-test-duke-edu .Mrphs-sakai-siteinfo #toolHolder #lti_37_wrap label,
+.duke-sakai-duke-edu .Mrphs-sakai-siteinfo #toolHolder #lti_260_wrap label {
+    margin-left: 20px;
+}
+
+///////////////////////////////////////////////////
+//DUKE-229
+///////////////////////////////////////////////////
+body.project .Mrphs-sakai-siteinfo {
+    .add-official-1,
+    .add-official-instruction {
+        display:none;
+    }
+}
+
+///////////////////////////////////////////////////
+// DUKE-259
+///////////////////////////////////////////////////
+#toolMenu .icon-sakai--sakai-conversations+.Mrphs-toolsNav__menuitem--title::after,
+.icon-sakai--sakai-conversations+.Mrphs-breadcrumb--toolNameText::after,
+.Mrphs-sakai-siteinfo #sakai_conversations_wrap::after,
+#reorder-list .icon-sakai--sakai-conversations::after {
+    background: $ironweed;
+    color: $white;
+    content: "beta";
+    display: inline-block;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    border-radius: 16px;
+    padding: 4px 8px;
+    margin: 0;
+    font-weight: 400;
+    font-style: normal;
+    font-size: .75em;
+    font-family: $font-family;
+}
+#toolMenu .icon-sakai--sakai-conversations+.Mrphs-toolsNav__menuitem--title::after {
+    top: 7px;
+}
+
+#toolMenu .is-invisible .icon-sakai--sakai-conversations+.Mrphs-toolsNav__menuitem--title::after {
+    right: 26px;
+}
+.Mrphs-toolMenu-collapsed #toolMenu .icon-sakai--sakai-conversations+.Mrphs-toolsNav__menuitem--title::after {
+    position: relative;
+    display: inline;
+    margin-left: 8px;
+    top:-3px;
+    right: 0;
+    padding: 0 8px;
+}
+.Mrphs-siteHierarchy .icon-sakai--sakai-conversations+.Mrphs-breadcrumb--toolNameText::after {
+    text-transform: lowercase;
+    position: relative;
+    top: -2px;
+    right: 0;
+    margin-left: 8px;
+
+}
+.Mrphs-sakai-siteinfo #sakai_conversations_wrap::after {
+    position: relative;
+    display: inline-block;
+    top: 0;
+    right: 0;
+}
+#reorder-list .icon-sakai--sakai-conversations::after {
+    left: 155px;
+    right: auto;
+    top: 2px;
+}
+#conv-search-field {
+    display:none;
+}
+
+
+// Duke-262
+.textPanel, //default
+.message-body, //announcements
+.textbox, //lessons text
+.commentBody, //lessons comment
+.itemSummary, //calendar
+.commons-post-body, //commons
+.siteDescription, //overview
+.Mrphs-sakai-poll .portletBody, //polls
+.Mrphs-sakai-signup .longtext, //signup
+.Mrphs-sakai-syllabus .ui-accordion-content, //syllabus
+.Mrphs-sakai-samigo .portletBody //samigo
+ {
+    h1 {
+        font-size: 2.2em;
+    }
+    h2 {
+        font-size: 2em;
+    }
+    h3 {
+        font-size: 1.8em;
+
+    }
+    h4 {
+        font-size: 1.6em;
+    }
+    h5 {
+        font-size: 1.4em;
+    }
+    #jqueryui-accordion h3 {
+        font-size: 100%;
+    }
+    .bg-navy,
+    .bg-copper,
+    .bg-dandelion,
+    .bg-piedmont,
+    .bg-magnolia,
+    .bg-ironweed,
+    .bg-primary,
+    .bg-info,
+    .bg-warning,
+    .bg-danger,
+    .bg-success {
+        padding: 5px;
+        border-radius: 4px;
+        &,
+        &[style],
+        span[style] {
+            color: $castiron;
+        }
+    }
+    span.bg-navy,
+    span.bg-copper,
+    span.bg-dandelion,
+    span.bg-piedmont,
+    span.bg-magnolia,
+    span.bg-ironweed,
+    span.bg-hatteras,
+    span.bg-primary,
+    span.bg-info,
+    span.bg-warning,
+    span.bg-danger,
+    span.bg-success {
+        padding: 1px 5px;
+    }
+    .bg-navy {
+        background: $navy;
+    }
+    .bg-copper {
+        background: $copper;
+    }
+    .bg-dandelion {
+        background: $dandelion;
+    }
+    .bg-piedmont {
+        background: $piedmont;
+    }
+    .bg-magnolia {
+        background: $magnolia;
+    }
+    .bg-ironweed {
+        background: $ironweed;
+    }
+    .bg-primary {
+        background-color: var(--duke-navy);
+    }
+    .bg-dimmed {
+        background-color: $hatteras;
+    }
+    .bg-ironweed,
+    .bg-copper,
+    .bg-navy,
+    .bg-primary,
+    // .bg-danger,
+    .bg-magnolia {
+        &,
+        &[style],
+        span[style] {
+            color: #fff;
+        }
+    }
+}
+.cke.cke_combopanel {
+    width: 360px;
+    height: 440px;
+}
+.cke_panel_container .cke_panel_block {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    grid-template-rows: 30px auto;
+    grid-gap: 10px;
+    h1 {
+        grid-row-start: 1;
+        line-height: 30px;
+        padding: 0 0 0 5px;
+        font-size: 14px;
+    }
+    ul {
+        grid-row-start: 2;
+    }
+}
+
+$pre-bg: transparent;

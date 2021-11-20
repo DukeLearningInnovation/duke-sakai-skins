@@ -23,6 +23,8 @@ sakai.editor = sakai.editor || {};
 sakai.editor.editors = sakai.editor.editors || {};
 // Temporarily disable enableResourceSearch till citations plugin is ported (SAK-22862)
 sakai.editor.enableResourceSearch = false;
+sakai.editor.enableSakaiPreview = false;
+sakai.editor.enableSakaiOpenLink = true;
 
 sakai.editor.editors.ckeditor = sakai.editor.editors.ckeditor || {} ;
 
@@ -63,17 +65,17 @@ sakai.editor.editors.ckeditor.launch = function(targetId, config, w, h) {
 
     //http://stackoverflow.com/a/1038781/3708872
     function getWidth() {
-      if (self.innerHeight) {
-        return self.innerWidth;
-      }
+        if (self.innerHeight) {
+            return self.innerWidth;
+        }
 
-      if (document.documentElement && document.documentElement.clientWidth) {
-        return document.documentElement.clientWidth;
-      }
+        if (document.documentElement && document.documentElement.clientWidth) {
+            return document.documentElement.clientWidth;
+        }
 
-      if (document.body) {
-        return document.body.clientWidth;
-      }
+        if (document.body) {
+            return document.body.clientWidth;
+        }
     }
 
     function addClassOnLoad(){
@@ -171,7 +173,7 @@ sakai.editor.editors.ckeditor.launch = function(targetId, config, w, h) {
                 classes: true
             }
         },
-        disallowedContent: 'table[cellspacing,cellpadding,border,summary];',
+        disallowedContent: 'table[cellspacing,cellpadding,border,summary]',
 
         contentsCss: [(webJars+'bootstrap/3.3.7/css/bootstrap.min.css')],
 
@@ -184,8 +186,110 @@ sakai.editor.editors.ckeditor.launch = function(targetId, config, w, h) {
         filebrowserBrowseUrl :      filebrowser.browseUrl,
         filebrowserImageBrowseUrl : filebrowser.imageBrowseUrl,
         filebrowserFlashBrowseUrl : filebrowser.flashBrowseUrl,
-
-        extraPlugins: (sakai.editor.enableResourceSearch ? 'resourcesearch,' : '')+'uploadimage,magicline,bt_table,a11ychecker,audiorecorder,autogrow,smiley,autolink,codesnippet,mentions,justify,balloontoolbar,balloonpanel,bidi,templates,mathjax,preview,showblocks,find,removeformat,pastetools,image2,warpwirecontentitem,contentitem,wordcount,notification,autosave,sakaiopenlink,sakaidropdowntoolbar,sakaiformat,iframe,iframedialog,indentblock,indentlist,pastefromgdocs,pastefromlibreoffice,pastefromword',
+        sakaiDropdownToolbar: true,
+        toolbarCanCollapse: true,
+        toolbarStartupExpanded: false,
+        sakaiOpenLink: true,
+        // extraPlugins: ',warpwirecontentitem,',
+        extraPlugins: [
+            //These plugins are included in the ckeditor4 webjar
+            // 'a11yhelp',
+            'about',
+            // 'adobeair',
+            // 'autocomplete',
+            // 'autoembed',
+            'autogrow',
+            'autolink',
+            'balloonpanel',
+            'balloontoolbar',
+            // 'bbcode',
+            'bidi',
+            'clipboard',
+            // 'cloudservices',
+            'codesnippet',
+            // 'codesnippetgeshi',
+            'colorbutton',
+            'colordialog',
+            'copyformatting',
+            // 'devtools',
+            // 'dialog',
+            // 'dialogadvtab',
+            'div',
+            // 'divarea',
+            // 'docprops',
+            // 'easyimage',
+            // 'editorplaceholder',
+            // 'embed',
+            // 'embedbase',
+            // 'embedsemantic',
+            // 'emoji',
+            // 'exportpdf',
+            'find',
+            // 'flash',
+            'font',
+            // 'forms',
+            'iframe',
+            'iframedialog',
+            // 'image',
+            'image2',
+            // 'imagebase',
+            'indentblock',
+            'justify',
+            'language',
+            'link',
+            'liststyle',
+            'magicline',
+            'mathjax',
+            'mentions',
+            // 'newpage',
+            // 'pagebreak',
+            // 'panelbutton',
+            'pastefromgdocs',
+            'pastefromlibreoffice',
+            'pastefromword',
+            'pastetools',
+            // 'placeholder',
+            'preview',
+            'print',
+            // 'save',
+            // 'scayt',
+            'selectall',
+            // 'sharedspace',
+            'showblocks',
+            'smiley',
+            'sourcedialog',
+            'specialchar',
+            // 'stylesheetparser',
+            // 'table',
+            // 'tableresize',
+            // 'tableselection',
+            // 'tabletools',
+            'templates',
+            // 'textmatch',
+            // 'textwatcher',
+            'uicolor',
+            // 'uploadfile',
+            'widget',
+            // 'wsc',
+            
+            //These are additional plugins not included in the ckeditor4 webjar
+            'audiorecorder',
+            'autosave',
+            'bt_table',
+            'contentitem',
+            'html5video',
+            'indentlist',
+            'notification',
+            'removeformat',
+            'wordcount',
+            (sakai.editor.sakaiDropdownToolbar ? 'sakaidropdowntoolbar' : ''),
+            (sakai.editor.enableSakaiPreview ? 'sakaipreview' : 'preview'),
+            (sakai.editor.enableResourceSearch ? 'resourcesearch' : ''),
+            (sakai.editor.enableSakaiOpenLink ? 'sakaiopenlink' : ''),
+            'warpwirecontentitem',
+            `${ckeditor-extra-plugins}`,
+            `${ckeditor-a11y-extra-plugins}`
+        ].join(','),
         mentions: [{
             feed: `/direct/roster/site/${portal.siteId}.json`,
             marker: '@',
@@ -197,15 +301,7 @@ sakai.editor.editors.ckeditor.launch = function(targetId, config, w, h) {
         // menu. In some cases (Firefox and Safari, at least), this supplies corrections, suggestions, etc.
         disableNativeSpellChecker: false,
         browserContextMenuOnCtrl: true,
-        removeButtons: '',
-        autoGrow_minHeight: 200,
-        autoGrow_maxHeight: 600,
-        autoGrow_bottomSpace: 32,
-        autoGrow_onStartup: true,
-        sakaiDropdownToolbar: true,
-        toolbarCanCollapse: true,
-        toolbarStartupExpanded: false,
-        sakaiOpenLinkToolbar: true,
+
         stylesSet: [
         // Block-level styles
         { name: 'Paragraph', element: 'p', attributes: { 'class': 'none' } },
@@ -250,7 +346,7 @@ sakai.editor.editors.ckeditor.launch = function(targetId, config, w, h) {
         // browserContextMenuOnCtrl: true,
 
         // Fix the smileys to a single location
-        smiley_path: "/library/webjars/ckeditor4/4.16.1/plugins/smiley/images/",
+        smiley_path: `/library/webjars/ckeditor4/${ckeditor.version}/plugins/smiley/images/`,
 
         toolbar_Basic:
         [
@@ -286,6 +382,13 @@ sakai.editor.editors.ckeditor.launch = function(targetId, config, w, h) {
             // //['SpellChecker', 'Scayt'],
         ].filter(el => el !== undefined),
         toolbar: 'Full',
+        removeButtons: '',
+        autoGrow_minHeight: 200,
+        autoGrow_maxHeight: 600,
+        autoGrow_bottomSpace: 32,
+        autoGrow_onStartup: true,
+        removeDialogTabs: 'image:advanced;link:advanced',
+        removePlugins: 'image',
         resize_dir: 'both',
         //SAK-23418
         // pasteFromWordRemoveFontStyles : false,
@@ -311,12 +414,12 @@ sakai.editor.editors.ckeditor.launch = function(targetId, config, w, h) {
         },
 
         //SAK-29598 - Add more templates to CK Editor
-        templates_files: [basePath+"sakaitemplates/default.js"],
-        templates: 'sakaiTemplates',
+        templates_files: [basePath+"templates/default.js"],
+        templates: 'customtemplates',
         templates_replaceContent: false,
         format_tags: 'p;h3;h4;h5',
         sakaiFormat: false,
-        mathJaxLib: sakai.editor.mathjaxSrc,
+        mathJaxLib: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML,Safe',
     };
 
     // Merge config values into ckconfig
@@ -351,20 +454,14 @@ sakai.editor.editors.ckeditor.launch = function(targetId, config, w, h) {
         }
         //These could be applicable to the basic toolbar
         CKEDITOR.plugins.addExternal('lineutils',basePath+'lineutils/', 'plugin.js');
-        CKEDITOR.plugins.addExternal('widget',basePath+'widget/', 'plugin.js');
-        CKEDITOR.plugins.addExternal('iframedialog',basePath+'iframedialog/', 'plugin.js');
         CKEDITOR.plugins.addExternal('html5video',webJars+'github-com-bahriddin-ckeditor-html5-video/${ckeditor.html5video.version}/html5video/', 'plugin.js');
         CKEDITOR.plugins.addExternal('audiorecorder',basePath+'audiorecorder/', 'plugin.js');
         CKEDITOR.plugins.addExternal('warpwirecontentitem',basePath+'warpwirecontentitem/', 'plugin.js');
         CKEDITOR.plugins.addExternal('contentitem',basePath+'contentitem/', 'plugin.js');
         // CKEDITOR.plugins.addExternal('sakaipreview',basePath+'sakaipreview/', 'plugin.js');
-        CKEDITOR.plugins.addExternal('bt_table',basePath+'bt_table/', 'plugin.js');
-        CKEDITOR.plugins.addExternal('image2',webJars+'ckeditor-image2/${ckeditor.image2.version}/', 'plugin.js');
-        // CKEDITOR.plugins.addExternal('image2',webJars+'ckeditor-image2/4.14.0/', 'plugin.js');
-        CKEDITOR.plugins.addExternal('sakaidropdowntoolbar', basePath+'sakaidropdowntoolbar/', 'plugin.js');
         CKEDITOR.plugins.addExternal('sakaiopenlink', basePath+'sakaiopenlink/', 'plugin.js');
-        CKEDITOR.plugins.addExternal('sakaiformat', basePath+'sakaiformat/', 'plugin.js');
-        // CKEDITOR.plugins.addExternal('sakaipreview2', basePath+'sakaipreview2/', 'plugin.js');
+        CKEDITOR.plugins.addExternal('sakaidropdowntoolbar', basePath+'sakaidropdowntoolbar/', 'plugin.js');
+        CKEDITOR.plugins.addExternal('bt_table',basePath+'bt_table/', 'plugin.js');
         //Autosave has a dependency on notification
         CKEDITOR.plugins.addExternal('autosave',webJars+'ckeditor-autosave/${ckeditor.autosave.version}/', 'plugin.js');
         CKEDITOR.plugins.addExternal('wordcount',webJars+'wordcount/${ckeditor.wordcount.version}/', 'plugin.js');
@@ -716,37 +813,6 @@ sakai.editor.editors.ckeditor.launch = function(targetId, config, w, h) {
     });
 
     let instance = CKEDITOR.replace(targetId, ckconfig);
-    //SAK-22505
-//       CKEDITOR.on('dialogDefinition', function(e) {
-//           // Take the dialog name and its definition from the event
-//           // data.
-//           var dialogName = e.data.name;
-//           var dialogDefinition = e.data.definition;
-
-//           var onShow = dialogDefinition.onShow;
-//           dialogDefinition.onShow = function() {
-//               var result;
-//               if (typeof onShow !== 'undefined' && typeof onShow.call === 'function') {
-//                   result = onShow.call(this);
-//               }
-//               return result;
-//           }
-
-//           if ( dialogName == 'link' )
-//           {
-//               var targetTab = dialogDefinition.getContents('target');
-//               var linkTypeItems = targetTab.elements[0].children[0].items;
-//               var itemsNoPopup = [];
-//               for (i=0;i<linkTypeItems.length;i++) {
-//                   if (linkTypeItems[i][1] != "popup") {
-//                       itemsNoPopup.push(linkTypeItems[i]);
-//                   }
-//               }
-//               targetTab.elements[0].children[0].items = itemsNoPopup;
-
-//           }
-
-//       });
 
     return instance;
 }

@@ -1,5 +1,23 @@
+$skin-name: duke-dku;
+
 :root {
     --logo: url(#{$skin-path}images/logo-dku.png);
     --logo-height: 52px;
     --logo-width: 158px;
+}
+
+// Duke 193
+// Hide asn honor code so JS can display it after text update
+.Mrphs-sakai-assignment-grades {
+    #honor-pledge-agreement {
+        display: none;
+        margin-bottom: $standard-spacing
+    }
+
+}
+
+.Mrphs-sakai-samigo {
+    #honor-pledge-agreement {
+        margin-bottom: $standard-spacing;
+    }
 }
