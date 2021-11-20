@@ -442,10 +442,46 @@
 									<goal>copy-resources</goal>
 								</goals>
 								<configuration>
-									<outputDirectory>${basedir}/dist/${sakai.skin.target}/</outputDirectory>
+									<outputDirectory>${basedir}/dist/skin/${sakai.skin.target}/</outputDirectory>
 									<resources>
 										<resource>
-											<directory>${project.build.directory}/library-${version}/skin/${sakai.skin.target}</directory>
+											<directory>${project.build.directory}/library-${project.version}/skin/${sakai.skin.target}</directory>
+										</resource>
+									</resources>
+								</configuration>
+							</execution>
+							<execution>
+								<id>copy-ckeditor-config</id>
+								<phase>install</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${basedir}/dist/editor/</outputDirectory>
+									<resources>
+										<resource>
+											<directory>${project.build.directory}/library-${project.version}/editor</directory>
+											<includes>
+												<include>ckeditor.launch.js</include>
+											</includes>
+										</resource>
+									</resources>
+								</configuration>
+							</execution>
+							<execution>
+								<id>copy-tool_base</id>
+								<phase>install</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${basedir}/dist/skin/</outputDirectory>
+									<resources>
+										<resource>
+											<directory>${project.build.directory}/library-${project.version}/skin</directory>
+											<includes>
+												<include>tool_base.css</include>
+											</includes>
 										</resource>
 									</resources>
 								</configuration>
@@ -582,10 +618,14 @@
 								<fileset>
 									<directory>${basedir}/src/webapp/skin/${sakai.skin.target}</directory>
 								</fileset>
-							</filesets>
-							<filesets>
 								<fileset>
-									<directory>${basedir}/dist/${sakai.skin.target}</directory>
+									<directory>${basedir}/dist/skin/${sakai.skin.target}</directory>
+								</fileset>
+								<fileset>
+									<directory>${basedir}/dist/skin</directory>
+									<includes>
+										<include>tool_base.css</include>
+									</includes>
 								</fileset>
 							</filesets>
 						</configuration>
