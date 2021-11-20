@@ -33,10 +33,7 @@
                     #parse("/vm/morpheus/snippets/header-snippet.vm")
                 </div>
 
-                #if (${tabsSites})
-                    ## tabs
-                    #parse("/vm/morpheus/includeTabs.vm")
-                #end ## END of IF (${tabsSites})
+                
 
             </div>
 
