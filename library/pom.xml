@@ -442,7 +442,7 @@
 									<goal>copy-resources</goal>
 								</goals>
 								<configuration>
-									<outputDirectory>${basedir}/dist/skin/${sakai.skin.target}/</outputDirectory>
+									<outputDirectory>${basedir}/dist/${sakai.skin.target}/</outputDirectory>
 									<resources>
 										<resource>
 											<directory>${project.build.directory}/library-${project.version}/skin/${sakai.skin.target}</directory>
@@ -475,7 +475,7 @@
 									<goal>copy-resources</goal>
 								</goals>
 								<configuration>
-									<outputDirectory>${basedir}/dist/skin/</outputDirectory>
+									<outputDirectory>${basedir}/dist/</outputDirectory>
 									<resources>
 										<resource>
 											<directory>${project.build.directory}/library-${project.version}/skin</directory>
@@ -619,10 +619,10 @@
 									<directory>${basedir}/src/webapp/skin/${sakai.skin.target}</directory>
 								</fileset>
 								<fileset>
-									<directory>${basedir}/dist/skin/${sakai.skin.target}</directory>
+									<directory>${basedir}/dist/${sakai.skin.target}</directory>
 								</fileset>
 								<fileset>
-									<directory>${basedir}/dist/skin</directory>
+									<directory>${basedir}/dist</directory>
 									<includes>
 										<include>tool_base.css</include>
 									</includes>
