@@ -469,6 +469,27 @@
 								</configuration>
 							</execution>
 							<execution>
+								<id>copy-ckeditor-extraplugins</id>
+								<phase>install</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${basedir}/dist/editor/ckextraplugins</outputDirectory>
+									<resources>
+										<resource>
+											<directory>${basedir}/src/webapp/editor/ckextraplugins</directory>
+											<includes>
+												<include>sakaidropdowntoolbar/</include>
+												<include>sakaiformat/</include>
+												<include>sakaiopenlink/</include>
+												<include>templates/</include>
+											</includes>
+										</resource>
+									</resources>
+								</configuration>
+							</execution>
+							<execution>
 								<id>copy-tool_base</id>
 								<phase>install</phase>
 								<goals>
