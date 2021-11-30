@@ -1,4 +1,4 @@
-import { html, css, LitElement } from './assets/lit-element/lit-element.js';
+import { html, css, LitElement, unsafeCSS } from './assets/lit-element/lit-element.js';
 import { ifDefined } from './assets/lit-html/directives/if-defined.js';
 import { unsafeHTML } from './assets/lit-html/directives/unsafe-html.js';
 import './sakai-icon.js';
@@ -6,6 +6,7 @@ import { loadProperties } from "./sakai-i18n.js";
 import "./sakai-course-list.js";
 import "./widgets/sakai-widget-panel.js";
 import "./sakai-button.js";
+import { dukeDashboardStyles } from "/library/skin/duke-default/js/duke-webcomponent-styles.js";
 
 export class SakaiHomeDashboard extends LitElement {
 
@@ -137,7 +138,7 @@ export class SakaiHomeDashboard extends LitElement {
                 </a>
               </div>
             </div>
-            <div id="motd-message" style="display: ${this.showMotd ? "block" : "none"}">${unsafeHTML(this.data.motd)}</div>
+            <div id="motd-message" style="display: ${this.showMotd ? "flex" : "none"}">${unsafeHTML(this.data.motd)}</div>
           </div>
         ` : ""}
         <div id="courses-and-widgets">
@@ -162,7 +163,7 @@ export class SakaiHomeDashboard extends LitElement {
 
   static get styles() {
 
-    return css`
+    return [css`
       #container {
         padding: var(--sakai-dashboard-container-padding);
         font-family: var(--sakai-font-family);
@@ -244,7 +245,8 @@ export class SakaiHomeDashboard extends LitElement {
           #edit-block div {
             display: inline-block;
           }
-    `;
+
+    `, unsafeCSS(dukeDashboardStyles)];
   }
 }
 
