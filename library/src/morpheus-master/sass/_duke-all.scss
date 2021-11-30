@@ -344,3 +344,24 @@ body.project .Mrphs-sakai-siteinfo {
 }
 
 $pre-bg: transparent;
+
+///////////////////////////////////////////////////
+// DUKE-293
+///////////////////////////////////////////////////
+
+.workspace {
+    .Mrphs-sakai-dashboard.Mrphs-container {
+        margin-top: -40px;
+
+        .Mrphs-toolTitleNav__button_container {
+            display: none;
+        }
+    } 
+}
+
+sakai-home-dashboard {
+    --sakai-dashboard-container-padding: 0;
+    --sakai-tool-bg-color: var(--sakai-background-color-1);
+    --sakai-motd-padding: 0;
+    --sakai-motd-margin-top: 16px;
+}
