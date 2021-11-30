@@ -239,22 +239,6 @@
 			}
 		}
 
-		.usebutton.n#{$name},
-		.usebutton.n#{$name}-trans {
-			@extend .sakai-colorize#{$shade2};
-			border: 1px solid var(#{$shade2});
-
-			&:hover,
-			&:focus {
-			@extend .sakai-colorize#{$shade1};
-			border: 1px solid var(#{$shade1});
-			}
-
-			&:active {
-			@extend .sakai-colorize#{$shade3};
-			border: 1px solid var(#{$shade3});
-			}
-		}
 	}
 
 	@include sakaiLessonsLayoutColorScheme('--sakai-color-gray', 'lighter', 'gray');

@@ -375,6 +375,24 @@
 								</configuration>
 							</execution>
 							<execution>
+								<id>copy-wc-styles</id>
+								<phase>generate-resources</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${basedir}/src/webapp/skin/${sakai.skin.target}/js/</outputDirectory>
+									<resources>
+										<resource>
+											<directory>src/${sakai.skin.source}/js/</directory>
+											<includes>
+												<include>duke-webcomponent-styles.js</include>
+											</includes>
+										</resource>
+									</resources>
+								</configuration>
+							</execution>
+							<execution>
 								<id>copy-js</id>
 								<phase>generate-resources</phase>
 								<goals>
