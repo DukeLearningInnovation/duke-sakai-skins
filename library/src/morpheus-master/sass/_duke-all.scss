@@ -43,15 +43,15 @@ $become-user-primary: $ironweed;
     --duke-dodger: #0E99F0;
     --duke-frenchpass: #cce7fe;
     --duke-bay: #243a82;
-    --duke-copper: #c64c00;
+    @include defineColorHSL(--duke-copper, 23, 100%, 39%);
     --duke-persimmon: #E89923;
-    --duke-dandelion: #FFD960;
-    --duke-piedmont: #A1B70D;
-    --duke-eno: #339898;
+    @include defineColorHSL(--duke-dandelion, 46, 100%, 69%);
+    @include defineColorHSL(--duke-piedmont, 68, 87%, 38%);
+    @include defineColorHSL(--duke-eno, 180, 50%, 40%);
     --duke-magnolia: #1D6363;
     --duke-prussian: #005587;
     --duke-shale: #0577B1;
-    --duke-ironweed: #993399;
+    @include defineColorHSL(--duke-ironweed, 300, 50%, 40%);
     --logo: url(#{$skin-path}images/logo-duke-u@2x.png);
     --logo-height: 36px;
     --logo-width: 81px;
@@ -62,6 +62,7 @@ $become-user-primary: $ironweed;
     --sakai-active-color-2: var(--duke-navy--lighter-5);
     --sakai-active-color-3: var(--duke-navy--lighter-4);
     --sakai-text-color-3: var(--duke-navy--darker-3);
+    --lessons-item-hover-background: var(--sakai-background-color-1);
 }
 
 ///////////////////////////////////////////////////
@@ -344,3 +345,24 @@ body.project .Mrphs-sakai-siteinfo {
 }
 
 $pre-bg: transparent;
+
+///////////////////////////////////////////////////
+// DUKE-293
+///////////////////////////////////////////////////
+
+.workspace {
+    .Mrphs-sakai-dashboard.Mrphs-container {
+        margin-top: -40px;
+
+        .Mrphs-toolTitleNav__button_container {
+            display: none;
+        }
+    } 
+}
+
+sakai-home-dashboard {
+    --sakai-dashboard-container-padding: 0;
+    --sakai-tool-bg-color: var(--sakai-background-color-1);
+    --sakai-motd-padding: 0;
+    --sakai-motd-margin-top: 16px;
+}
