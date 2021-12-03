@@ -257,11 +257,6 @@
 			}
 		}
 
-		.usebutton.n#{$name},
-		.usebutton.n#{$name}-trans {
-			background-color: var(#{$shade1}) !important;
-			color: white !important;
-		}
 	}
 
 	@include sakaiLessonsLayoutColorScheme('--sakai-color-gray', 'lighter', 'gray');
