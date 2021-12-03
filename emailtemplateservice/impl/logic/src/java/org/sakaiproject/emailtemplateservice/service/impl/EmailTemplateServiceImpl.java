@@ -195,7 +195,7 @@ public class EmailTemplateServiceImpl implements EmailTemplateService {
       return dao.findAll(EmailTemplate.class, start, max);
    }
 
-   public RenderedTemplate getRenderedTemplate(String key, Locale locale, Map<String, String> replacementValues) {
+   public RenderedTemplate getRenderedTemplate(String key, Locale locale, Map<String, Object> replacementValues) {
       EmailTemplate temp = getEmailTemplate(key, locale);
       //if no template was found we need to return null to avoid an NPE
       if (temp == null)
@@ -206,7 +206,7 @@ public class EmailTemplateServiceImpl implements EmailTemplateService {
       //get the default current user fields
       log.debug("getting default values");
 
-      Map<String, String> userVals = getCurrentUserFields();
+      Map<String, Object> userVals = getCurrentUserFields();
       replacementValues.putAll(userVals);
       log.debug("got replacement values");
 
@@ -218,7 +218,7 @@ public class EmailTemplateServiceImpl implements EmailTemplateService {
       return ret;
    }
 
-   public RenderedTemplate getRenderedTemplateForUser(String key, String userReference, Map<String, String> replacementValues) {
+   public RenderedTemplate getRenderedTemplateForUser(String key, String userReference, Map<String, Object> replacementValues) {
       log.debug("getRenderedTemplateForUser(" + key + ", " +userReference);
 	  String userId = developerHelperService.getUserIdFromRef(userReference);
       Locale loc = preferencesService.getLocale(userId);
@@ -274,12 +274,12 @@ public class EmailTemplateServiceImpl implements EmailTemplateService {
 	   log.info("updated template: " + template.getId());
 	}
 
-   protected String processText(String text, Map<String, String> values, String templateName) {
+   protected String processText(String text, Map<String, Object> values, String templateName) {
       return TextTemplateLogicUtils.processTextTemplate(text, values, templateName);
    }
 
-   protected Map<String, String> getCurrentUserFields() {
-      Map<String, String> rv = new HashMap<>();
+   protected Map<String, Object> getCurrentUserFields() {
+      Map<String, Object> rv = new HashMap<>();
       String userRef = developerHelperService.getCurrentUserReference();
       if (userRef != null) {
          User user = (User) developerHelperService.fetchEntity(userRef);
@@ -316,7 +316,7 @@ public class EmailTemplateServiceImpl implements EmailTemplateService {
 
 
 public Map<EmailTemplateLocaleUsers, RenderedTemplate> getRenderedTemplates(
-		String key, List<String> userReferences, Map<String, String> replacementValues) {
+		String key, List<String> userReferences, Map<String, Object> replacementValues) {
 	
 	List<Locale> foundLocales = new ArrayList<>();
 	Map<Locale, EmailTemplateLocaleUsers> mapStore = new HashMap<>();
@@ -369,7 +369,7 @@ private final String MIME_ADVISORY = "This message is for MIME-compliant mail re
 
 
 public void sendRenderedMessages(String key, List<String> userReferences,
-		Map<String, String> replacementValues, String fromEmail, String fromName) {
+		Map<String, Object> replacementValues, String fromEmail, String fromName) {
 
 	Map<EmailTemplateLocaleUsers, RenderedTemplate> tMap = this.getRenderedTemplates(key, userReferences, replacementValues);
 	Set<Entry<EmailTemplateLocaleUsers, RenderedTemplate>> set = tMap.entrySet();
