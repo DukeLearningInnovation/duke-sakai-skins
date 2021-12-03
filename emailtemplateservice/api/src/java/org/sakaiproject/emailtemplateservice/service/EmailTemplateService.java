@@ -102,7 +102,7 @@ public interface EmailTemplateService {
     * course_title => Math 1001 Differential Equations<br/>
     * @return the processed template
     */
-   public RenderedTemplate getRenderedTemplate(String key, Locale locale, Map<String, String> replacementValues);
+   public RenderedTemplate getRenderedTemplate(String key, Locale locale, Map<String, Object> replacementValues);
 
    /**
     * Get a template in the appropriate locale for a user - is the user has no preferred locale set the system default will be used
@@ -114,7 +114,7 @@ public interface EmailTemplateService {
     * course_title => Math 1001 Differential Equations<br/>
     * @return the processed template
     */
-   public RenderedTemplate getRenderedTemplateForUser(String key, String userReference, Map<String, String> replacementValues);
+   public RenderedTemplate getRenderedTemplateForUser(String key, String userReference, Map<String, Object> replacementValues);
 
    /**
     * Save a template to storage
@@ -139,7 +139,7 @@ public interface EmailTemplateService {
     * @param user references e.g. "/user/admin"
     * @return
     */
-   public Map<EmailTemplateLocaleUsers, RenderedTemplate> getRenderedTemplates(String key, List<String> userReferences, Map<String, String> replacementValues); 
+   public Map<EmailTemplateLocaleUsers, RenderedTemplate> getRenderedTemplates(String key, List<String> userReferences, Map<String, Object> replacementValues); 
    
    
    /**
@@ -148,7 +148,7 @@ public interface EmailTemplateService {
     * @param userReferences list of user references (e.g /user/admin)
     * @param replacementValues
     */
-   public void sendRenderedMessages(String key, List<String> userReferences, Map<String, String> replacementValues, String from, String fromName);
+   public void sendRenderedMessages(String key, List<String> userReferences, Map<String, Object> replacementValues, String from, String fromName);
 
    /**
     * Takes the list of paths supplied and looks up the XML files using the services classloader. Each file is parsed

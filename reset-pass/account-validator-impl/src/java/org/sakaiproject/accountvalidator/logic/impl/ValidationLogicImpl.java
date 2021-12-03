@@ -503,7 +503,7 @@ public class ValidationLogicImpl implements ValidationLogic {
 		String userReference = userDirectoryService.userReference(account.getUserId());
 		List<String> userIds = new ArrayList<>();
 		List<String> emailAddresses = new ArrayList<>();
-		Map<String, String> replacementValues = new HashMap<>();
+		Map<String, Object> replacementValues = new HashMap<>();
 		replacementValues.put("validationToken", account.getValidationToken());
 		//get the url
 		Map<String, String> parameters = new  HashMap<>();

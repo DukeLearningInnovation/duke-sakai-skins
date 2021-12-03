@@ -203,7 +203,7 @@ public class UserProcessor extends AbstractUserProcessor {
         String newUserEmail = user.getEmail();
 
         if (StringUtils.isNotBlank(from) && StringUtils.isNotBlank(newUserEmail)) {
-            Map<String, String> replacementValues = new HashMap<>();
+            Map<String, Object> replacementValues = new HashMap<>();
             replacementValues.put("userName", user.getDisplayName());
             replacementValues.put("userEid", user.getEid());
             replacementValues.put("localSakaiName", serverConfigurationService.getString("ui.service", "Sakai"));

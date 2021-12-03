@@ -763,7 +763,7 @@ public class SakaiProxyImpl implements SakaiProxy {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void sendEmail(final List<String> userIds, final String emailTemplateKey, final Map<String, String> replacementValues) {
+	public void sendEmail(final List<String> userIds, final String emailTemplateKey, final Map<String, Object> replacementValues) {
 
 		// get list of Users
 		final List<User> users = new ArrayList<User>(getUsers(userIds));
@@ -803,7 +803,7 @@ public class SakaiProxyImpl implements SakaiProxy {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void sendEmail(final String userId, final String emailTemplateKey, final Map<String, String> replacementValues) {
+	public void sendEmail(final String userId, final String emailTemplateKey, final Map<String, Object> replacementValues) {
 		sendEmail(Collections.singletonList(userId), emailTemplateKey, replacementValues);
 	}
 

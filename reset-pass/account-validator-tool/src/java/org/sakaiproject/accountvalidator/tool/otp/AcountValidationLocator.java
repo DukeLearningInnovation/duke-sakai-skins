@@ -371,7 +371,7 @@ public class AcountValidationLocator implements BeanLocator  {
 			if (ValidationAccount.ACCOUNT_STATUS_PASSWORD_RESET == accountStatus)
 			{
 				String supportEmail = serverConfigurationService.getString("mail.support");
-				Map<String, String> replacementValues = new HashMap<String, String>();
+				Map<String, Object> replacementValues = new HashMap<>();
 				replacementValues.put("emailSupport", supportEmail);
 				emailTemplateService.sendRenderedMessages(TEMPLATE_KEY_ACKNOWLEDGE_PASSWORD_RESET, userReferences, replacementValues, supportEmail, supportEmail);
 			}
