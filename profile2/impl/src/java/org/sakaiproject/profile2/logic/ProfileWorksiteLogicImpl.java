@@ -395,7 +395,7 @@ public class ProfileWorksiteLogicImpl implements ProfileWorksiteLogic {
 	private void emailSiteMember(String siteTitle, String siteUrl, String ownerId, Person member) {
 		
 		// create the map of replacement values for this email template
-		Map<String, String> replacementValues = new HashMap<String, String>();
+		Map<String, Object> replacementValues = new HashMap<>();
 		replacementValues.put("senderDisplayName", sakaiProxy.getUserDisplayName(ownerId));
 		replacementValues.put("worksiteTitle", siteTitle);
 		replacementValues.put("worksiteLink", siteUrl);
