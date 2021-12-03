@@ -209,7 +209,7 @@ public class CheckValidations implements Job {
 				
 				
 				
-				Map<String, String> replacementValues = new HashMap<String, String>();
+				Map<String, Object> replacementValues = new HashMap<>();
 				replacementValues.put("userList", userText.toString());
 				replacementValues.put("creatorName", creator.getDisplayName());
 				replacementValues.put("deleteDays", Integer.valueOf(maxDays).toString());
