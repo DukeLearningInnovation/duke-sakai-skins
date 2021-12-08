@@ -196,7 +196,7 @@ sakai.editor.editors.ckeditor.launch = function(targetId, config, w, h) {
         extraPlugins: [
             //These plugins are included in the ckeditor4 webjar
             // 'a11yhelp',
-            'about',
+            // 'about',
             // 'adobeair',
             // 'autocomplete',
             // 'autoembed',
@@ -214,7 +214,7 @@ sakai.editor.editors.ckeditor.launch = function(targetId, config, w, h) {
             'colordialog',
             'copyformatting',
             // 'devtools',
-            // 'dialog',
+            'dialog',
             // 'dialogadvtab',
             'div',
             // 'divarea',
@@ -789,7 +789,6 @@ sakai.editor.editors.ckeditor.launch = function(targetId, config, w, h) {
         if (document.querySelector("#content .Mrphs-sakai-samigo") !== null ){
             document.querySelector('.cke_inner a.cke_button__mathjax').style.display = 'none';
         }
-        console.log( event.editor.filter.allowedContent );
     });
 
     // DUKE-276
@@ -817,6 +816,37 @@ sakai.editor.editors.ckeditor.launch = function(targetId, config, w, h) {
     });
 
     let instance = CKEDITOR.replace(targetId, ckconfig);
+
+    CKEDITOR.on('dialogDefinition', function(e) {
+        // Take the dialog name and its definition from the event
+        // data.
+        var dialogName = e.data.name;
+        var dialogDefinition = e.data.definition;
+
+        var onShow = dialogDefinition.onShow;
+        dialogDefinition.onShow = function() {
+            var result;
+            if (typeof onShow !== 'undefined' && typeof onShow.call === 'function') {
+                result = onShow.call(this);
+            }
+            return result;
+        }
+
+        if ( dialogName == 'link' )
+        {
+            var targetTab = dialogDefinition.getContents('target');
+            var linkTypeItems = targetTab.elements[0].children[0].items;
+            var itemsNoPopup = [];
+            for (i=0;i<linkTypeItems.length;i++) {
+                if (linkTypeItems[i][1] != "popup") {
+                    itemsNoPopup.push(linkTypeItems[i]);
+                }
+            }
+            targetTab.elements[0].children[0].items = itemsNoPopup;
+
+        }
+
+    });
 
     return instance;
 }
