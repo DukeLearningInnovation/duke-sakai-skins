@@ -362,19 +362,19 @@ table caption {
 	}
 .#{$namespace}sakai-lessonbuildertool {
 
-        @include sakaiLessonsLayoutColorScheme('--sakai-color-gray', 'lighter', 'gray');
-        @include sakaiLessonsLayoutColorScheme('--sakai-color-gray', 'darker', 'black');
+        // @include sakaiLessonsLayoutColorScheme('--sakai-color-gray', 'lighter', 'gray');
+        // @include sakaiLessonsLayoutColorScheme('--sakai-color-gray', 'darker', 'black');
         @include sakaiLessonsLayoutColorScheme('--duke-navy', 'lighter', 'blue');
         @include sakaiLessonsLayoutColorScheme('--duke-navy', 'darker', 'blue2');
-        @include sakaiLessonsLayoutColorScheme('--sakai-color-red', 'lighter', 'red');
+        // @include sakaiLessonsLayoutColorScheme('--sakai-color-red', 'lighter', 'red');
         @include sakaiLessonsLayoutColorScheme('--duke-piedmont', 'lighter', 'green');
         @include sakaiLessonsLayoutColorScheme('--duke-copper', 'lighter', 'orange');
         @include sakaiLessonsLayoutColorScheme('--duke-dandelion', 'lighter', 'gold');
         @include sakaiLessonsLayoutColorScheme('--duke-eno', 'lighter', 'teal');
         @include sakaiLessonsLayoutColorScheme('--duke-ironweed', 'lighter', 'purple');
 
-        @include sakaiLessonsLayoutColorScheme('--sakai-lessons-navy', 'lighter', 'navy' );
-        @include sakaiLessonsLayoutColorScheme('--sakai-lessons-navy', 'darker', 'navy2' );
+        // @include sakaiLessonsLayoutColorScheme('--sakai-lessons-navy', 'lighter', 'navy' );
+        // @include sakaiLessonsLayoutColorScheme('--sakai-lessons-navy', 'darker', 'navy2' );
 
         .navIntraTool:last-of-type {
             position: sticky;
@@ -401,3 +401,64 @@ table caption {
     border-radius: 20px;
 }
 
+///////////////////////////////////////////////////
+// duke-308 make lessons page titles wrap in sidebar
+///////////////////////////////////////////////////
+body #toolMenu li.has-lessons-sub-pages.has-lessons-sub-pages .lessons-top-level-placeholder:hover .lessons-goto-top-page .Mrphs-toolsNav__menuitem--title,
+body #toolMenu li.has-lessons-sub-pages.has-lessons-sub-pages .lessons-top-level-placeholder:active .lessons-goto-top-page .Mrphs-toolsNav__menuitem--title {
+    width: calc(216px - 52px - 16px);
+    
+}
+
+body #toolMenu li.has-lessons-sub-pages.has-lessons-sub-pages .lessons-top-level-placeholder:hover .lessons-goto-top-page .Mrphs-toolsNav__menuitem--title:after,
+body #toolMenu li.has-lessons-sub-pages.has-lessons-sub-pages .lessons-top-level-placeholder:active .lessons-goto-top-page .Mrphs-toolsNav__menuitem--title:after {
+    top: calc(50% - 8px);
+    right: 4px;
+    left: unset;
+    padding-left: 0;
+}
+
+body:not(.Mrphs-toolMenu-collapsed) {
+    #toolMenu ul li .Mrphs-toolsNav__menuitem--link .Mrphs-toolsNav__menuitem--title,
+    #toolMenu #selectQuickLink li .Mrphs-toolsNav__menuitem--link .Mrphs-toolsNav__menuitem--title,
+    #subSites ul li .Mrphs-toolsNav__menuitem--link .Mrphs-toolsNav__menuitem--title,
+    #subSites #selectQuickLink li .Mrphs-toolsNav__menuitem--link .Mrphs-toolsNav__menuitem--title,
+    #toolMenu li.has-lessons-sub-pages ul.lessons-sub-page-menu li a,
+    #toolMenu li.has-lessons-sub-pages #selectQuickLink.lessons-sub-page-menu li a {
+        text-overflow: unset;
+        white-space: unset;
+        overflow: unset;
+    }
+}
+
+body.Mrphs-toolMenu-collapsed:not(.tool-maximised) {
+    #toolMenu ul li .Mrphs-toolsNav__menuitem--link.lessons-top-level-placeholder,
+    #toolMenu #selectQuickLink li .Mrphs-toolsNav__menuitem--link.lessons-top-level-placeholder,
+    #subSites:not(.floating) ul li .Mrphs-toolsNav__menuitem--link.lessons-top-level-placeholder,
+    #subSites:not(.floating) #selectQuickLink li .Mrphs-toolsNav__menuitem--link.lessons-top-level-placeholder {
+        padding: 0;
+    }
+
+    #toolMenu li.has-lessons-sub-pages.has-lessons-sub-pages .lessons-top-level-placeholder:hover .lessons-goto-top-page .Mrphs-toolsNav__menuitem--title,
+    #toolMenu li.has-lessons-sub-pages.has-lessons-sub-pages .lessons-top-level-placeholder:active .lessons-goto-top-page .Mrphs-toolsNav__menuitem--title {
+        width: unset;
+    }
+} 
+
+///////////////////////////////////////////////////
+// make sidebar more slacklike. help with trinity transition
+///////////////////////////////////////////////////
+#toolMenu ul li .Mrphs-toolsNav__menuitem--link,
+#toolMenu #selectQuickLink li .Mrphs-toolsNav__menuitem--link,
+#subSites ul li .Mrphs-toolsNav__menuitem--link,
+#subSites #selectQuickLink li .Mrphs-toolsNav__menuitem--link,
+body #toolMenu li.has-lessons-sub-pages ul.lessons-sub-page-menu li a,
+body #toolMenu li.has-lessons-sub-pages #selectQuickLink.lessons-sub-page-menu li a {
+    border-radius: 0;
+    margin:0;
+}
+
+#toolMenu ul li .Mrphs-toolsNav__menuitem--link:hover,
+#toolMenu ul li .Mrphs-toolsNav__menuitem--link:active {
+    box-shadow: none;
+}
