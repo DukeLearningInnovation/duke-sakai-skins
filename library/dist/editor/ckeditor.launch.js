@@ -169,13 +169,15 @@ sakai.editor.editors.ckeditor.launch = function(targetId, config, w, h) {
                 // Use the ability to specify elements as an object.
                 elements: CKEDITOR.dtd,
                 attributes: true,
-                styles: true,
+                styles: '*',
                 classes: true
             }
         },
         disallowedContent: 'table[cellspacing,cellpadding,border,summary]',
 
-        contentsCss: [(webJars+'bootstrap/3.3.7/css/bootstrap.min.css')],
+        contentsCss: [
+            // (webJars+'bootstrap/3.3.7/css/bootstrap.min.css')
+        ],
 
         language: language + (country ? '-' + country.toLowerCase() : ''),
         // This is used for uploading by the autorecorder plugin.
@@ -194,7 +196,7 @@ sakai.editor.editors.ckeditor.launch = function(targetId, config, w, h) {
         extraPlugins: [
             //These plugins are included in the ckeditor4 webjar
             // 'a11yhelp',
-            'about',
+            // 'about',
             // 'adobeair',
             // 'autocomplete',
             // 'autoembed',
@@ -212,7 +214,7 @@ sakai.editor.editors.ckeditor.launch = function(targetId, config, w, h) {
             'colordialog',
             'copyformatting',
             // 'devtools',
-            // 'dialog',
+            'dialog',
             // 'dialogadvtab',
             'div',
             // 'divarea',
@@ -508,7 +510,7 @@ sakai.editor.editors.ckeditor.launch = function(targetId, config, w, h) {
         ckconfig.extraPlugins+="";
 
         // Load FontAwesome CSS in case a user wants to manually add FA markup
-        ckconfig.contentsCss.push(webJars+'fontawesome/4.7.0/css/font-awesome.min.css');
+        // ckconfig.contentsCss.push(webJars+'fontawesome/4.7.0/css/font-awesome.min.css');
         //If the siteskin is defined, add the print.css
         if (sakai.editor.sitePrintSkin) {
             ckconfig.contentsCss.push(sakai.editor.sitePrintSkin);
@@ -521,7 +523,8 @@ sakai.editor.editors.ckeditor.launch = function(targetId, config, w, h) {
         //SAK-44562 Dark Mode
         //Add styles to the content in CKeditor
         if (sakai.editor.sitePropertiesSkin) {
-            ckconfig.contentsCss.push(sakai.editor.sitePropertiesSkin);
+            // ckconfig.contentsCss.push(sakai.editor.sitePropertiesSkin);
+            ckconfig.contentsCss.push(sakai.editor.siteToolSkin);
             ckconfig.contentsCss.push('/library/editor/ckeditor.css');
         }
         ckconfig.contentsCss.push('/library/skin/duke-default/duke-editor.css');
@@ -813,6 +816,37 @@ sakai.editor.editors.ckeditor.launch = function(targetId, config, w, h) {
     });
 
     let instance = CKEDITOR.replace(targetId, ckconfig);
+
+    CKEDITOR.on('dialogDefinition', function(e) {
+        // Take the dialog name and its definition from the event
+        // data.
+        var dialogName = e.data.name;
+        var dialogDefinition = e.data.definition;
+
+        var onShow = dialogDefinition.onShow;
+        dialogDefinition.onShow = function() {
+            var result;
+            if (typeof onShow !== 'undefined' && typeof onShow.call === 'function') {
+                result = onShow.call(this);
+            }
+            return result;
+        }
+
+        if ( dialogName == 'link' )
+        {
+            var targetTab = dialogDefinition.getContents('target');
+            var linkTypeItems = targetTab.elements[0].children[0].items;
+            var itemsNoPopup = [];
+            for (i=0;i<linkTypeItems.length;i++) {
+                if (linkTypeItems[i][1] != "popup") {
+                    itemsNoPopup.push(linkTypeItems[i]);
+                }
+            }
+            targetTab.elements[0].children[0].items = itemsNoPopup;
+
+        }
+
+    });
 
     return instance;
 }
