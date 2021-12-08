@@ -169,13 +169,15 @@ sakai.editor.editors.ckeditor.launch = function(targetId, config, w, h) {
                 // Use the ability to specify elements as an object.
                 elements: CKEDITOR.dtd,
                 attributes: true,
-                styles: true,
+                styles: '*',
                 classes: true
             }
         },
         disallowedContent: 'table[cellspacing,cellpadding,border,summary]',
 
-        contentsCss: [(webJars+'bootstrap/3.3.7/css/bootstrap.min.css')],
+        contentsCss: [
+            // (webJars+'bootstrap/3.3.7/css/bootstrap.min.css')
+        ],
 
         language: language + (country ? '-' + country.toLowerCase() : ''),
         // This is used for uploading by the autorecorder plugin.
@@ -508,7 +510,7 @@ sakai.editor.editors.ckeditor.launch = function(targetId, config, w, h) {
         ckconfig.extraPlugins+="";
 
         // Load FontAwesome CSS in case a user wants to manually add FA markup
-        ckconfig.contentsCss.push(webJars+'fontawesome/4.7.0/css/font-awesome.min.css');
+        // ckconfig.contentsCss.push(webJars+'fontawesome/4.7.0/css/font-awesome.min.css');
         //If the siteskin is defined, add the print.css
         if (sakai.editor.sitePrintSkin) {
             ckconfig.contentsCss.push(sakai.editor.sitePrintSkin);
@@ -521,7 +523,8 @@ sakai.editor.editors.ckeditor.launch = function(targetId, config, w, h) {
         //SAK-44562 Dark Mode
         //Add styles to the content in CKeditor
         if (sakai.editor.sitePropertiesSkin) {
-            ckconfig.contentsCss.push(sakai.editor.sitePropertiesSkin);
+            // ckconfig.contentsCss.push(sakai.editor.sitePropertiesSkin);
+            ckconfig.contentsCss.push(sakai.editor.siteToolSkin);
             ckconfig.contentsCss.push('/library/editor/ckeditor.css');
         }
         ckconfig.contentsCss.push('/library/skin/duke-default/duke-editor.css');
@@ -786,6 +789,7 @@ sakai.editor.editors.ckeditor.launch = function(targetId, config, w, h) {
         if (document.querySelector("#content .Mrphs-sakai-samigo") !== null ){
             document.querySelector('.cke_inner a.cke_button__mathjax').style.display = 'none';
         }
+        console.log( event.editor.filter.allowedContent );
     });
 
     // DUKE-276
