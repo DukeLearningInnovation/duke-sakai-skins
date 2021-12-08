@@ -346,7 +346,7 @@ table caption {
 				margin-top: $standard-space-4x;
 			}
 		}
-
+        //SAK-46594
 		.usebutton.n#{$name},
 		.usebutton.n#{$name}-trans {
             @extend .sakai-colorize#{$shade2};
@@ -365,19 +365,19 @@ table caption {
 	}
 .#{$namespace}sakai-lessonbuildertool {
 
-        // @include sakaiLessonsLayoutColorScheme('--sakai-color-gray', 'lighter', 'gray');
-        // @include sakaiLessonsLayoutColorScheme('--sakai-color-gray', 'darker', 'black');
+        @include sakaiLessonsLayoutColorScheme('--sakai-color-gray', 'lighter', 'gray');
+        @include sakaiLessonsLayoutColorScheme('--sakai-color-gray', 'darker', 'black');
         @include sakaiLessonsLayoutColorScheme('--duke-navy', 'lighter', 'blue');
         @include sakaiLessonsLayoutColorScheme('--duke-navy', 'darker', 'blue2');
-        // @include sakaiLessonsLayoutColorScheme('--sakai-color-red', 'lighter', 'red');
+        @include sakaiLessonsLayoutColorScheme('--sakai-color-red', 'lighter', 'red');
         @include sakaiLessonsLayoutColorScheme('--duke-piedmont', 'lighter', 'green');
         @include sakaiLessonsLayoutColorScheme('--duke-copper', 'lighter', 'orange');
         @include sakaiLessonsLayoutColorScheme('--duke-dandelion', 'lighter', 'gold');
         @include sakaiLessonsLayoutColorScheme('--duke-eno', 'lighter', 'teal');
         @include sakaiLessonsLayoutColorScheme('--duke-ironweed', 'lighter', 'purple');
 
-        // @include sakaiLessonsLayoutColorScheme('--sakai-lessons-navy', 'lighter', 'navy' );
-        // @include sakaiLessonsLayoutColorScheme('--sakai-lessons-navy', 'darker', 'navy2' );
+        @include sakaiLessonsLayoutColorScheme('--sakai-lessons-navy', 'lighter', 'navy' );
+        @include sakaiLessonsLayoutColorScheme('--sakai-lessons-navy', 'darker', 'navy2' );
 
         .navIntraTool:last-of-type {
             position: sticky;
@@ -465,3 +465,252 @@ body #toolMenu li.has-lessons-sub-pages #selectQuickLink.lessons-sub-page-menu l
 #toolMenu ul li .Mrphs-toolsNav__menuitem--link:active {
     box-shadow: none;
 }
+
+///////////////////////////////////////////////////
+// DUKE-259 Conversations Beta Label
+///////////////////////////////////////////////////
+#toolMenu .icon-sakai--sakai-conversations+.Mrphs-toolsNav__menuitem--title::after,
+.icon-sakai--sakai-conversations+.Mrphs-breadcrumb--toolNameText::after,
+.Mrphs-sakai-siteinfo #sakai_conversations_wrap::after,
+#reorder-list .icon-sakai--sakai-conversations::after {
+    background: $ironweed;
+    color: $white;
+    content: "beta";
+    display: inline-block;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    border-radius: 16px;
+    padding: 4px 8px;
+    margin: 0;
+    font-weight: 400;
+    font-style: normal;
+    font-size: .75em;
+    font-family: $font-family;
+}
+#toolMenu .icon-sakai--sakai-conversations+.Mrphs-toolsNav__menuitem--title::after {
+    top: 7px;
+}
+
+#toolMenu .is-invisible .icon-sakai--sakai-conversations+.Mrphs-toolsNav__menuitem--title::after {
+    right: 26px;
+}
+.Mrphs-toolMenu-collapsed #toolMenu .icon-sakai--sakai-conversations+.Mrphs-toolsNav__menuitem--title::after {
+    position: relative;
+    display: inline;
+    margin-left: 8px;
+    top:-3px;
+    right: 0;
+    padding: 0 8px;
+}
+.Mrphs-siteHierarchy .icon-sakai--sakai-conversations+.Mrphs-breadcrumb--toolNameText::after {
+    text-transform: lowercase;
+    position: relative;
+    top: -2px;
+    right: 0;
+    margin-left: 8px;
+
+}
+.Mrphs-sakai-siteinfo #sakai_conversations_wrap::after {
+    position: relative;
+    display: inline-block;
+    top: 0;
+    right: 0;
+}
+#reorder-list .icon-sakai--sakai-conversations::after {
+    left: 155px;
+    right: auto;
+    top: 2px;
+}
+
+///////////////////////////////////////////////////
+// DUKE-300 Dashboard Beta Label
+///////////////////////////////////////////////////
+#toolMenu .icon-sakai--sakai-dashboard+.Mrphs-toolsNav__menuitem--title::after,
+.icon-sakai--sakai-dashboard+.Mrphs-breadcrumb--toolNameText::after,
+.Mrphs-sakai-siteinfo #sakai_dashboard_wrap::after,
+#reorder-list .icon-sakai--sakai-dashboard::after {
+    background: $ironweed;
+    color: $white;
+    content: "beta";
+    display: inline-block;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    border-radius: 16px;
+    padding: 4px 8px;
+    margin: 0;
+    font-weight: 400;
+    font-style: normal;
+    font-size: .75em;
+    font-family: $font-family;
+}
+#toolMenu .icon-sakai--sakai-dashboard+.Mrphs-toolsNav__menuitem--title::after {
+    top: 7px;
+}
+
+#toolMenu .is-invisible .icon-sakai--sakai-dashboard+.Mrphs-toolsNav__menuitem--title::after {
+    right: 26px;
+}
+.Mrphs-toolMenu-collapsed #toolMenu .icon-sakai--sakai-dashboard+.Mrphs-toolsNav__menuitem--title::after {
+    position: relative;
+    display: inline;
+    margin-left: 8px;
+    top:-3px;
+    right: 0;
+    padding: 0 8px;
+}
+.Mrphs-siteHierarchy .icon-sakai--sakai-dashboard+.Mrphs-breadcrumb--toolNameText::after {
+    text-transform: lowercase;
+    position: relative;
+    top: -2px;
+    right: 0;
+    margin-left: 8px;
+
+}
+.Mrphs-sakai-siteinfo #sakai_dashboard_wrap::after {
+    position: relative;
+    display: inline-block;
+    top: 0;
+    right: 0;
+}
+#reorder-list .icon-sakai--sakai-dashboard::after {
+    left: 155px;
+    right: auto;
+    top: 2px;
+}
+
+///////////////////////////////////////////////////
+// DUKE-301 Dark Theme beta label
+///////////////////////////////////////////////////
+
+.Mrphs-sakai-preferences .prefs-themeSelection li:last-of-type::after {
+    background: $ironweed;
+    color: $white;
+    content: "beta";
+    display: inline-block;
+    border-radius: 16px;
+    padding: 4px 8px;
+    margin-left: 16px;
+    font-weight: 400;
+    font-style: normal;
+    font-size: .75em;
+    font-family: $font-family;
+}
+
+//SAK-46182 SAK-46570
+.Mrphs-sakai-siteinfo #summary, .Mrphs-sakai-sitesetup #summary {
+    background: var(--sakai-background-color-2);
+}
+
+.chatListMonitor {
+    background: var(--sakai-background-color-1);
+}
+.Mrphs-sakai-chat .panel-chat .panel-body-chat .chatListWrapperCont .chatListWrapper .chatListHeadWrapper {
+    color: var(--sakai-text-color-dimmed);
+}
+
+// Adjust site waffle buttons
+#otherSitesMenu #newSite {
+    @include sakai_primary_button();
+}
+#otherSitesMenu #allSites,
+ul#otherSitesMenu li:nth-child(3):not(.otherSitesMenuClose) a {
+    @include sakai_secondary_button();
+}
+
+// SAK-46654 SAK-46366
+.inopPanel {
+    background: var(--sakai-background-color-1);
+}
+
+//SAK-46525
+.Mrphs-sakai-signup {
+    .instruction[style] {
+        background: var(--infoBanner-bgcolor) !important;
+        color: var(--infoBanner-color);
+        border: 1px solid var(--infoBanner-borderColor);
+        font-size: $default-font-size;
+    }
+    .form-group label[style] {
+        color: var(--sakai-text-color-1) !important;
+    }
+    .alertMessage[style] {
+        color: var(--errorBanner-color) !important;
+    }
+    .addWaiter,
+    .addAttendee,
+    .activeTag {
+        color: var(--link-color) !important;
+
+        &:hover {
+            color: var(--link-color-hover) !important;
+        }
+    }
+    .signupTable {
+        background: var(--sakai-background-color-1);
+
+        th {
+            background: var(--sakai-background-color-2);
+        }
+        tr.evenRow {
+            background: var(--sakai-background-color-1);
+        }
+    }
+}
+
+//SAK-46338
+:root.sakaiUserTheme-dark {
+    .Mrphs-sakai-lessonbuildertool {
+        .icon-image {
+            filter: var(--sakai-image-invert);
+        }
+    }
+}
+
+//SAK-46240
+.Mrphs-sakai-siteinfo {
+    .groups-site li:nth-child(odd) {
+        background: var(--sakai-background-color-2);
+    }
+}
+.Mrphs-html .ui-state-active .ui-icon, .Mrphs-html .ui-button:active .ui-icon {
+    background-image: url("/library/webjars/jquery-ui/1.12.1/images/ui-icons_444444_256x240.png");
+}
+.#{$namespace}html.sakaiUserTheme-dark {
+    .ui-icon, .ui-widget-content .ui-icon,
+    .ui-state-active .ui-icon, .ui-button:active .ui-icon {
+        background-image: url("/library/webjars/jquery-ui/1.12.1/images/ui-icons_ffffff_256x240.png");
+    }
+    .Mrphs-sakai-assignment-grades {
+        img[src*="checkon.gif"] {
+            filter: var(--sakai-image-invert);
+        }
+    }
+    .ui-state-active a,
+    .ui-state-active a:link,
+    .ui-state-active a:visited {
+        color: var(--sakai-text-color-2);
+    }
+}
+.selected {
+    background: var(--sakai-background-color-2);
+    border: 1px solid var(--sakai-border-color);
+}
+.selected * {
+    color: var(--sakai-text-color-dimmed);
+}
+.sectionContainerNav {
+    background: var(--sakai-background-color-2);
+}
+.required {
+    color: var(--sakai-text-color-1);
+}
+
+//SAK-46653
+//SAK-46247
+//SAK-46240
+.active {
+    background: var(--sakai-background-color-2);
+}
+// CKeditor Autosave dark theme
