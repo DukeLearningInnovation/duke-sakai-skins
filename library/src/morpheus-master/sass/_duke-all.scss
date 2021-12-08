@@ -39,7 +39,7 @@ $become-user-primary: $ironweed;
 
 :root {
     @include defineColorHSL(--duke-navy, 222, 98%, 21%);
-    --duke-royal: #005199;
+    @include defineColorHSL(--duke-royal, 208, 100%, 30%);
     --duke-dodger: #0E99F0;
     --duke-frenchpass: #cce7fe;
     --duke-bay: #243a82;
@@ -64,7 +64,33 @@ $become-user-primary: $ironweed;
     --sakai-text-color-3: var(--duke-navy--darker-3);
     --lessons-item-hover-background: var(--sakai-background-color-1);
 }
-
+///////////////////////////////////////////////////
+// DUKE-301 Dark Theme
+///////////////////////////////////////////////////
+:root.sakaiUserTheme-dark {
+    --sakai-primary-color-1: var(--duke-royal--darker-3);
+    --sakai-primary-color-2: var(--duke-royal--darker-1);
+    --sakai-primary-color-3: var(--duke-royal);
+    --sakai-active-color-1: var(--duke-royal--darker-3);
+    --sakai-active-color-2: var(--duke-royal--darker-1);
+    --sakai-active-color-3: var(--duke-royal);
+    --sakai-passive-color-1: var(--sakai-greyblue--darker-5);
+    --sakai-passive-color-2: var(--sakai-greyblue--darker-4);
+    --sakai-passive-color-3: var(--sakai-greyblue--darker-3);
+    --sakai-background-color-1: var(--sakai-greyblue--darker-6);
+    --sakai-background-color-2: var(--sakai-greyblue--darker-5);
+    --sakai-background-color-3: var(--sakai-greyblue--darker-4);
+    --sakai-background-color-4: var(--sakai-greyblue--darker-3);
+    --sakai-secondary-color-1: var(--duke-navy--lighter-2);
+    --sakai-tertiary-color-1: var(--duke-copper--lighter-2);
+    --sakai-border-color: var(--sakai-greyblue--darker-4);
+    --sakai-text-color-1: var(--sakai-color-gray--lighter-5);
+    --sakai-text-color-2: var(--sakai-color-gray--lighter-6);
+    --sakai-text-color-3: var(--duke-navy--lighter-6);
+    --sakai-text-color-dimmed: var(--sakai-color-gray--lighter-4);
+    --sakai-text-color-disabled: var(--sakai-color-gray--lighter-2);
+    --sakai-text-color-inverted: var(--sakai-color-gray--lighter-6);
+}
 ///////////////////////////////////////////////////
 // Extend Skins site title in header
 ///////////////////////////////////////////////////
@@ -366,3 +392,4 @@ sakai-home-dashboard {
     --sakai-motd-padding: 0;
     --sakai-motd-margin-top: 16px;
 }
+
