@@ -157,10 +157,10 @@
         border-color: var(--sakai-border-color);
         &:hover,
         &:focus {
-            background: var(--sakai-background-color-2);
+            background: var(--sakai-background-color-3);
         }
         &:active {
-            background: var(--sakai-background-color-3);
+            background: var(--sakai-background-color-4);
         }
         .cke_arrow {
             border-width: 6px;
@@ -231,6 +231,9 @@
     }
     .cke_combo__format .cke_combo_text {
         width: 45px; //adjust width to make icons line up across mutliple lines
+    }
+    .cke_combo:after {
+        border-right:none;
     }
 }
 
