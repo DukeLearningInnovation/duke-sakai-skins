@@ -169,19 +169,21 @@
         }
     });
 
-var dukeAddBodyClasses = function(){
-    var bodyClasses = [];
+const dukeAddBodyClasses = function(){
+    let bodyClasses = [];
     /////////////////////////////////////////////////
     // Add server domain to body as class
     ////////////////////////////////////////////////
-    var serverClass = new URL(window.location.href).hostname.replace(/\./g, "-");
+    let serverClass = new URL(window.location.href).hostname.replace(/\./g, "-");
     bodyClasses.push(`duke-${serverClass}`);
 
     /////////////////////////////////////////////////
     // Add role to body as class
     ////////////////////////////////////////////////
-    var userSiteRole = `duke-role-${portal.user.siteRole.toLowerCase().replace(/\s/g, '')}`;
-    bodyClasses.push(userSiteRole);
+    if (portal.user.siteRole){
+        let userSiteRole = `duke-role-${portal.user.siteRole.toLowerCase().replace(/\s/g, '')}`;
+        bodyClasses.push(userSiteRole);
+    }
 
     document.getElementsByTagName("body")[0].classList.add(...bodyClasses);
 
