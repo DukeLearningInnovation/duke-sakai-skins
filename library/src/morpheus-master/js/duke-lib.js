@@ -180,7 +180,7 @@ const dukeAddBodyClasses = function(){
     /////////////////////////////////////////////////
     // Add role to body as class
     ////////////////////////////////////////////////
-    if (portal.user.siteRole){
+    if (portal.user && portal.user.siteRole){
         let userSiteRole = `duke-role-${portal.user.siteRole.toLowerCase().replace(/\s/g, '')}`;
         bodyClasses.push(userSiteRole);
     }
@@ -211,8 +211,7 @@ if (document.title === 'Sakai : Home : Overview') {
 ///////////////////////////////////////////////////
 // #157 Inject skin modified date into footer 
 ///////////////////////////////////////////////////
-if ( document.getElementById('Mrphs-footer--details__info') !== 'null'){
-    //the bin/uglify.sh script updates this on compile
+if ( document.getElementById('Mrphs-footer--details__info') !== 'null' && portal.portalCDNQuery){
     let buildTimeHtml = `<dt>Skin | CDN:</dt><dd>DUKEGITHUBSHA | ${portal.portalCDNQuery.substr(9)}</dd>`;
     document.getElementById('serverTime').insertAdjacentHTML('afterend',buildTimeHtml);
 }
@@ -220,20 +219,22 @@ if ( document.getElementById('Mrphs-footer--details__info') !== 'null'){
 ///////////////////////////////////////////////////
 // #222 Make logo take you to the home page
 ///////////////////////////////////////////////////
-let logoContainer = document.querySelector('.Mrphs-headerLogo--institution');
-let homeLinkContainer = document.querySelector('.Mrphs-sitesNav__menuitem--myworkspace .link-container');
-logoContainer.style.cursor = 'pointer';
-logoContainer.addEventListener("click", function(evt){
-    
-    var gaEventData = {
-        'hitType': 'event',
-        'eventCategory': 'topHeader',
-        'eventAction': 'clickLogo',
-        'eventLabel': document.title
-        };
-    if (typeof ga === 'function') {
-        ga('send', gaEventData);
-    }
+if (document.querySelector('.Mrphs-headerLogo--institution')) {
+    let logoContainer = document.querySelector('.Mrphs-headerLogo--institution');
+    let homeLinkContainer = document.querySelector('.Mrphs-sitesNav__menuitem--myworkspace .link-container');
+    logoContainer.style.cursor = 'pointer';
+    logoContainer.addEventListener("click", function(evt){
+        
+        var gaEventData = {
+            'hitType': 'event',
+            'eventCategory': 'topHeader',
+            'eventAction': 'clickLogo',
+            'eventLabel': document.title
+            };
+        if (typeof ga === 'function') {
+            ga('send', gaEventData);
+        }
 
-    homeLinkContainer.click();
-});
+        homeLinkContainer.click();
+    });
+}

@@ -65,6 +65,9 @@ let dukeDashboardStyles = `
   border: 1px solid var(--button-active-border-color);
   text-decoration: none;
 }
+#edit-block {
+  display: none;
+}
 `;
 
 export {dukeDashboardStyles as dukeDashboardStyles};
