@@ -1,0 +1,15 @@
+// Extend based skins don't currently inherit from this file
+// Overrides will need to be duplicated in their respective
+// override file.
+// duke-alumni, duke-dghi, duke-pratt
+
+///////////////////////////////////////////////////
+// Hide favorites
+///////////////////////////////////////////////////
+.Mrphs-portalBody #topnav_container {
+    display: none;
+}
+.Mrphs-portalBody .Mrphs-mainHeader,
+.Mrphs-portalBody .Mrphs-topHeader {
+    box-shadow: none;
+}
