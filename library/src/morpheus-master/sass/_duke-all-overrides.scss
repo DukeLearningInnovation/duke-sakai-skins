@@ -606,7 +606,8 @@ body #toolMenu li.has-lessons-sub-pages #selectQuickLink.lessons-sub-page-menu l
 .chatListMonitor {
     background: var(--sakai-background-color-1);
 }
-.Mrphs-sakai-chat .panel-chat .panel-body-chat .chatListWrapperCont .chatListWrapper .chatListHeadWrapper {
+.Mrphs-sakai-chat .panel-chat .panel-body-chat .chatListWrapperCont .chatListWrapper .chatListHeadWrapper,
+.Mrphs-sakai-chat .panel-chat .panel-body-chat .chatListWrapperCont .chatListWrapper .shown_total {
     color: var(--sakai-text-color-dimmed);
 }
 
@@ -710,7 +711,13 @@ ul#otherSitesMenu li:nth-child(3):not(.otherSitesMenuClose) a {
 //SAK-46653
 //SAK-46247
 //SAK-46240
-.active {
-    background: var(--sakai-background-color-2);
-}
+
+    .active {
+        background: var(--sakai-active-color-1);
+        color: var(--sakai-text-color-3);
+    }
+    .breadcrumb>.active {
+        color: var(--sakai-text-color-1);
+        background: none;
+    }
 // CKeditor Autosave dark theme
