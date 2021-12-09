@@ -2,65 +2,64 @@
 // Move collapse tools toggle to upper right hamburger menu
 ///////////////////////////////////////////////////
 @media #{$nonPhone} {
-    .Mrphs-mainHeader .Mrphs-headerLogo {
-        padding-left: 0;
-    }
-    .#{$namespace}collapseTools button.js-toggle-nav {
-        width: 52px;
-        float: left;
-        color: var(--sites-nav-menu-item-selected-color);
-        background-color: var(--sites-nav-menu-item-selected-background);
-        border-radius: 0;
-        
-        &:hover,
-        &:focus {
-            background-color: var(--sites-nav-menu-item-selected-hover-background);
-        }
+  .Mrphs-mainHeader .Mrphs-headerLogo {
+    padding-left: 0;
+  }
+  .#{$namespace}collapseTools button.js-toggle-nav {
+    width: 52px;
+    float: left;
+    color: var(--sites-nav-menu-item-selected-color);
+    background-color: var(--sites-nav-menu-item-selected-background);
+    border-radius: 0;
 
-        &:active {
-            background-color: var(--sites-nav-menu-item-selected-active-background);
-        }
+    &:hover,
+    &:focus {
+      background-color: var(--sites-nav-menu-item-selected-hover-background);
     }
-    .Mrphs-headerLogo--institution {
-        margin-left: 16px;
+
+    &:active {
+      background-color: var(--sites-nav-menu-item-selected-active-background);
     }
-    html[dir="rtl"] {
-        .Mrphs-mainHeader .Mrphs-headerLogo {
-            padding-right: 0;
-        }
-        .#{$namespace}collapseTools {
-                float: right;
-        }
-        #toolMenu ul li .Mrphs-toolsNav__menuitem--link,
-        #toolMenu #selectQuickLink li .Mrphs-toolsNav__menuitem--link,
-        #subSites ul li .Mrphs-toolsNav__menuitem--link,
-        #subSites #selectQuickLink li .Mrphs-toolsNav__menuitem--link {
-            border-radius:  calc(16px * 1.5) 0 0 calc(16px * 1.5);
-        }
+  }
+  .Mrphs-headerLogo--institution {
+    margin-left: 16px;
+  }
+  html[dir="rtl"] {
+    .Mrphs-mainHeader .Mrphs-headerLogo {
+      padding-right: 0;
     }
+    .#{$namespace}collapseTools {
+      float: right;
+    }
+    #toolMenu ul li .Mrphs-toolsNav__menuitem--link,
+    #toolMenu #selectQuickLink li .Mrphs-toolsNav__menuitem--link,
+    #subSites ul li .Mrphs-toolsNav__menuitem--link,
+    #subSites #selectQuickLink li .Mrphs-toolsNav__menuitem--link {
+      border-radius: calc(16px * 1.5) 0 0 calc(16px * 1.5);
+    }
+  }
 }
 @media #{$phone} {
-    .#{$namespace}collapseTools {
-        display: none;
-    }
+  .#{$namespace}collapseTools {
+    display: none;
+  }
 }
 
 ///////////////////////////////////////////////////
 // Jumbotron dark theme
 ///////////////////////////////////////////////////
 .jumbotron {
+  color: var(--sakai-text-color-1);
+  background-color: var(--sakai-background-color-2);
+
+  h1,
+  .h1 {
     color: var(--sakai-text-color-1);
-    background-color: var(--sakai-background-color-2);
+  }
 
-    h1,
-    .h1 {
-      color: var(--sakai-text-color-1);
-    }
-
-  
-    > hr {
-      border-top-color: var(--sakai-border-color);
-    }
+  > hr {
+    border-top-color: var(--sakai-border-color);
+  }
 }
 
 ///////////////////////////////////////////////////
@@ -78,375 +77,468 @@
 .act #delete-polls, //polls
 .act input[value="Remove Meetings"], //signup
 .act #delete-groups-submit-button, //siteinfo
-.Mrphs-sakai-samigo #authorIndexForm\:remove-selected:not(.fc-button), //samigo
+.Mrphs-sakai-samigo #authorIndexForm\:remove-selected:not(.fc-button):not(.paginate_button), //samigo
 .extendedTimeDataTable input[value="Delete"], //samigo
 .ui-widget[aria-describedby="delete-confirm"] .ui-dialog-buttonpane button.ui-button:first-of-type, //lessons delete item #241
-.act .delete //rubrics
+.act .delete, //rubrics
+.actions .pasystem-delete-btn // PA Banner System SAK-45661
 {
-
-    @include sakai_button(	var(--sakai-color-red--lighter-7),
-							var(--sakai-color-red--darker-1),
-							var(--sakai-color-red--darker-2),
-							var(--sakai-color-red--lighter-7),
-							var(--sakai-color-red--darker-2),
-							var(--sakai-color-red--darker-3),
-							var(--sakai-color-red--lighter-7),
-							var(--sakai-color-red--darker-3),
-							var(--sakai-color-red--darker-4),
-							$button-primary-text-transform,
-							$button-primary-font-weight,
-							var(--button-primary-shadow),
-							var(--button-primary-hover-shadow),
-							var(--button-primary-active-shadow));
-	margin-right: $standard-space;
+  @include sakai_button(
+    var(--sakai-color-red--lighter-7),
+    var(--sakai-color-red--darker-1),
+    var(--sakai-color-red--darker-2),
+    var(--sakai-color-red--lighter-7),
+    var(--sakai-color-red--darker-2),
+    var(--sakai-color-red--darker-3),
+    var(--sakai-color-red--lighter-7),
+    var(--sakai-color-red--darker-3),
+    var(--sakai-color-red--darker-4),
+    $button-primary-text-transform,
+    $button-primary-font-weight,
+    var(--button-primary-shadow),
+    var(--button-primary-hover-shadow),
+    var(--button-primary-active-shadow)
+  );
+  margin-right: $standard-space;
 }
-.act #delete-button { //dropbox button-group
-	$red-light: #f1d3d3;
-	@include sakai_button(	var(--sakai-color-red--darker-6),
-							var(--sakai-color-red--lighter-1),
-							var(--sakai-color-red--lighter-2),
-							var(--sakai-color-red--darker-6),
-							var(--sakai-color-red--lighter-2),
-							var(--sakai-color-red--lighter-3),
-							var(--sakai-color-red--darker-6),
-							var(--sakai-color-red--lighter-3),
-							var(--sakai-color-red--lighter-4),
-							$button-primary-text-transform,
-							$button-primary-font-weight,
-							var(--button-primary-shadow),
-							var(--button-primary-hover-shadow),
-							var(--button-primary-active-shadow));
-	border-radius: 0 4px 4px 0;
+.act #delete-button {
+  //dropbox button-group
+  $red-light: #f1d3d3;
+  @include sakai_button(
+    var(--sakai-color-red--darker-6),
+    var(--sakai-color-red--lighter-1),
+    var(--sakai-color-red--lighter-2),
+    var(--sakai-color-red--darker-6),
+    var(--sakai-color-red--lighter-2),
+    var(--sakai-color-red--lighter-3),
+    var(--sakai-color-red--darker-6),
+    var(--sakai-color-red--lighter-3),
+    var(--sakai-color-red--lighter-4),
+    $button-primary-text-transform,
+    $button-primary-font-weight,
+    var(--button-primary-shadow),
+    var(--button-primary-hover-shadow),
+    var(--button-primary-active-shadow)
+  );
+  border-radius: 0 4px 4px 0;
 }
 .controlsPanel .act .deleteButton,
-.act .deleteButton { //lessons delete subpage #240
-	@include sakai_button(	var(--sakai-color-red--lighter-7) !important,
-							var(--sakai-color-red--darker-1) !important,
-							var(--sakai-color-red--darker-2) !important,
-							var(--sakai-color-red--lighter-7) !important,
-							var(--sakai-color-red--darker-2) !important,
-							var(--sakai-color-red--darker-3) !important,
-							var(--sakai-color-red--lighter-7) !important,
-							var(--sakai-color-red--darker-3) !important,
-							var(--sakai-color-red--darker-4) !important,
-							$button-primary-text-transform !important,
-							$button-primary-font-weight !important,
-							var(--button-primary-shadow) !important,
-							var(--button-primary-hover-shadow) !important,
-							var(--button-primary-active-shadow) !important);
-	margin-right: $standard-space;
+.act .deleteButton {
+  //lessons delete subpage #240
+  @include sakai_button(
+    var(--sakai-color-red--lighter-7) !important,
+    var(--sakai-color-red--darker-1) !important,
+    var(--sakai-color-red--darker-2) !important,
+    var(--sakai-color-red--lighter-7) !important,
+    var(--sakai-color-red--darker-2) !important,
+    var(--sakai-color-red--darker-3) !important,
+    var(--sakai-color-red--lighter-7) !important,
+    var(--sakai-color-red--darker-3) !important,
+    var(--sakai-color-red--darker-4) !important,
+    $button-primary-text-transform !important,
+    $button-primary-font-weight !important,
+    var(--button-primary-shadow) !important,
+    var(--button-primary-hover-shadow) !important,
+    var(--button-primary-active-shadow) !important
+  );
+  margin-right: $standard-space;
 }
 
 ///////////////////////////////////////////////////
 // CKEditor
 ///////////////////////////////////////////////////
 .cke {
-    .cke_button__sakaipreview {
-		.cke_button__sakaipreview_icon {
-			background: url(/library/webjars/ckeditor4/4.16.1/full/skins/moono-lisa/icons_hidpi.png) no-repeat 0 -1632px !important;
-        }
+  .cke_button__sakaipreview {
+    .cke_button__sakaipreview_icon {
+      background: url(/library/webjars/ckeditor4/4.16.1/full/skins/moono-lisa/icons_hidpi.png)
+        no-repeat 0 -1632px !important;
     }
-    a.cke_toolbox_collapser {
-        order: 1;
-        height: 24px;
-        width: 24px;
-        line-height: 28px;
-        margin: 0 6px 0 0;
-        padding: 1px;
-        color: var(--sakai-text-color-1);
-        border-color: var(--sakai-border-color);
-        &:hover,
-        &:focus {
-            background: var(--sakai-background-color-3);
-        }
-        &:active {
-            background: var(--sakai-background-color-4);
-        }
-        .cke_arrow {
-            border-width: 6px;
-            border-top-color: var(--sakai-text-color-1);
-            border-bottom-color: transparent;
-            margin: 0;
-            position: relative;
-            top: 2px;
-            left: 0;
-        }
+  }
+  a.cke_toolbox_collapser {
+    order: 1;
+    height: 24px;
+    width: 24px;
+    line-height: 28px;
+    margin: 0 6px 0 0;
+    padding: 1px;
+    color: var(--sakai-text-color-1);
+    border-color: var(--sakai-border-color);
+    &:hover,
+    &:focus {
+      background: var(--sakai-background-color-3);
     }
-    a.cke_toolbox_collapser_min {
-        .cke_arrow {
-            border-left-color: var(--sakai-text-color-1);
-            border-bottom-color: transparent;
-            border-top-color: transparent;
-            left: 4px;
-            top:-2px;
-        }
+    &:active {
+      background: var(--sakai-background-color-4);
     }
-    .cke_combo__format .cke_combo_button,
-    .cke_combo__styles .cke_combo_button {
-        border: 1px solid var(--sakai-border-color);
-        padding: 0;
+    .cke_arrow {
+      border-width: 6px;
+      border-top-color: var(--sakai-text-color-1);
+      border-bottom-color: transparent;
+      margin: 0;
+      position: relative;
+      top: 2px;
+      left: 0;
     }
-    a.cke_button.cke_button__templates {
+  }
+  a.cke_toolbox_collapser_min {
+    .cke_arrow {
+      border-left-color: var(--sakai-text-color-1);
+      border-bottom-color: transparent;
+      border-top-color: transparent;
+      left: 4px;
+      top: -2px;
+    }
+  }
+  .cke_combo__format .cke_combo_button,
+  .cke_combo__styles .cke_combo_button {
+    border: 1px solid var(--sakai-border-color);
+    padding: 0;
+  }
+  a.cke_button.cke_button__templates {
+    padding: 4px 14px 4px 6px;
+
+    &:hover,
+    &:focus,
+    &:active {
+      padding: 3px 13px 3px 5px;
+    }
+    &.cke_button_disabled {
+      .cke_button_label {
+        opacity: 0.3;
+      }
+      &:hover,
+      &:focus,
+      &:active {
         padding: 4px 14px 4px 6px;
+      }
+    }
+  }
 
-        &:hover,
-        &:focus,
-        &:active {
-            padding: 3px 13px 3px 5px;
-        }
-        &.cke_button_disabled {
-            .cke_button_label {
-                opacity: .3;
-            }
-            &:hover,
-            &:focus,
-            &:active {
-                padding: 4px 14px 4px 6px;
-            }	
-        }
-    }
+  a.cke_button.cke_button__source {
+    padding: 4px 31px 4px 6px;
 
-    a.cke_button.cke_button__source {
-        padding:4px 31px 4px 6px;
-
-        &:hover,
-        &:focus,
-        &:active {
-            padding: 3px 30px 3px 5px;
-        }
+    &:hover,
+    &:focus,
+    &:active {
+      padding: 3px 30px 3px 5px;
     }
-    a.cke_button_on.cke_button__source {
-        padding: 3px 30px 3px 5px;
-
-    }
-    .cke_toolbox_main {
-        display: block;
-        order: 2;
-    }
-    .cke_top.min,
-    .cke_toolbox.min,
-    .cke_toolbox_main.min {
-        height: 32px !important; //!important to override inline styles set by ckeditor
-        display: block !important;
-    }
-    .cke_combo__format .cke_combo_text {
-        width: 45px; //adjust width to make icons line up across mutliple lines
-    }
-    .cke_combo:after {
-        border-right:none;
-    }
+  }
+  a.cke_button_on.cke_button__source {
+    padding: 3px 30px 3px 5px;
+  }
+  .cke_toolbox_main {
+    display: block;
+    order: 2;
+  }
+  .cke_top.min,
+  .cke_toolbox.min,
+  .cke_toolbox_main.min {
+    height: 32px !important; //!important to override inline styles set by ckeditor
+    display: block !important;
+  }
+  .cke_combo__format .cke_combo_text {
+    width: 45px; //adjust width to make icons line up across mutliple lines
+  }
+  .cke_combo:after {
+    border-right: none;
+  }
 }
 
 ///////////////////////////////////////////////////
 // Adjust table styles
 ///////////////////////////////////////////////////
 table caption {
-    text-align: center;
+  text-align: center;
 }
 
 ///////////////////////////////////////////////////
 // Adjust forums styles
 ///////////////////////////////////////////////////
-.#{$namespace}sakai-forums{
-	.topicBlocLone{
-		border: none;
-        background: var(--sakai-background-color-2);
-        color: var(--sakai-text-color-1);
-        padding: 0;
-        margin: 0 0 $standard-spacing 0;
-	}
-    //most breadcrumbs
-    h3.specialLink,
-    #msgForum .specialLink h1,
-    .specialLink .specialLink h3 {
-            font-weight: 400;
-            font-size: 16px;
-    }
-    a[id$="df_componse_message_dfAllMessages"],
-    a[id~="msgForum:replyThread"],
-    input[id~="dfCompose:post"] {
-            @include sakai_primary_button();
-            margin: $standard-spacing calc( #{$standard-spacing} / 2) $standard-spacing 0;
-    }
+.#{$namespace}sakai-forums {
+  .topicBlocLone {
+    border: none;
+    background: var(--sakai-background-color-2);
+    color: var(--sakai-text-color-1);
+    padding: 0;
+    margin: 0 0 $standard-spacing 0;
+  }
+  //most breadcrumbs
+  h3.specialLink,
+  #msgForum .specialLink h1,
+  .specialLink .specialLink h3 {
+    font-weight: 400;
+    font-size: 16px;
+  }
+  a[id$="df_componse_message_dfAllMessages"],
+  a[id~="msgForum:replyThread"],
+  input[id~="dfCompose:post"] {
+    @include sakai_primary_button();
+    margin: $standard-spacing calc(#{$standard-spacing} / 2) $standard-spacing 0;
+  }
 }
 
 ///////////////////////////////////////////////////
 // duke-296 adjust lessons styles
 ///////////////////////////////////////////////////
 
-@mixin sakaiLessonsLayoutColorScheme($color, $lighterOrDarker, $name){
-	// Color scheme generation in Lessons Layouts
-	// Use any color previously defined via defineColorHSL
-	// @include sakaiLessonsLayoutColorScheme($color, $lighterOrDarker, $name)
-	// @param color
-	//      Type: string
-	//      expects the same value used to define a color palette in defineColorHSL
-	// @param lighterOrDarker
-	//      Type: string
-	//      expects a string either lighter or darker
-	// @param name
-	//      Type: string
-	//      expects a string which matches the classes the lessons tool will apply to the markup
-	// @returns a set of CSS selectors and rules
-	// Example usage 
-	//      @include sakaiLessonsLayoutColorScheme('--sakai-color-gray', 'lighter', 'gray');
+@mixin sakaiLessonsLayoutColorScheme($color, $lighterOrDarker, $name) {
+  // Color scheme generation in Lessons Layouts
+  // Use any color previously defined via defineColorHSL
+  // @include sakaiLessonsLayoutColorScheme($color, $lighterOrDarker, $name)
+  // @param color
+  //      Type: string
+  //      expects the same value used to define a color palette in defineColorHSL
+  // @param lighterOrDarker
+  //      Type: string
+  //      expects a string either lighter or darker
+  // @param name
+  //      Type: string
+  //      expects a string which matches the classes the lessons tool will apply to the markup
+  // @returns a set of CSS selectors and rules
+  // Example usage
+  //      @include sakaiLessonsLayoutColorScheme('--sakai-color-gray', 'lighter', 'gray');
 
-		$shade1: #{$color}--#{$lighterOrDarker}-1;
-		$shade2: #{$color}--#{$lighterOrDarker}-2;
-		$shade3: #{$color};
-		$shade4: #{$color}--#{$lighterOrDarker}-7;
-		@if $lighterOrDarker == 'darker' {
-			$shade1: #{$color}--#{$lighterOrDarker}-4;
-			$shade2: #{$color}--#{$lighterOrDarker}-5;
-			$shade3: #{$color}--#{$lighterOrDarker}-3;
-			$shade4: #{$color}--#{$lighterOrDarker}-7;
-		}
-		
-		.coln#{$name}, .coln#{$name}-trans {
-			background: var(--sakai-background-color-1);
-			border: 1px solid var($shade1);
-		}
-		.coln#{$name}-header, .coln#{$name}-trans-header {
-			@extend .sakai-colorize#{$shade2};
-			border: 1px solid var(#{$shade2});
-		}
-		.collapsibleSectionHeader.coln#{$name}-header:hover, .collapsibleSectionHeader.coln#{$name}-trans-header:hover {
-			@extend .sakai-colorize#{$shade1};
-			border-color: var(#{$shade1});
-		}
-		.collapsibleSectionHeader.coln#{$name}-header:active, .collapsibleSectionHeader.coln#{$name}-trans-header:active {
-			@extend .sakai-colorize#{$shade3};
-			border-color: var(#{$shade3});
-		}
-		.coln#{$name}-header + .section {
-			border: 1px solid var(#{$shade2});
-			// border-top: none; // #duke-310
-		}
-		
-		.coln#{$name} {
-			.questionDiv .contentCol, .checklistDiv {
-				@extend .sakai-colorize#{$shade4};
-			}
-			input[type="submit"].question-submit,
-			.linkCell .addStudentContent,
-			input[type="submit"].setStudentZero {
-				@extend .sakai-colorize#{$shade2};
-				border: 1px solid var(#{$shade2});
-				&:hover,
-				&:focus {
-					@extend .sakai-colorize#{$shade1};
-					border: 1px solid var(#{$shade1});
-				}
-				&:active {
-					@extend .sakai-colorize#{$shade3};
-					border: 1px solid var(#{$shade3});
-				}
-			}
-			input[type="submit"].question-submit,.linkCell .addStudentContent, input[type="submit"].setStudentZero {
-				margin-top: $standard-space-4x;
-			}
-		}
-        //SAK-46594
-		.usebutton.n#{$name},
-		.usebutton.n#{$name}-trans {
-            @extend .sakai-colorize#{$shade2};
+  $shade1: #{$color}--#{$lighterOrDarker}-1;
+  $shade2: #{$color}--#{$lighterOrDarker}-2;
+  $shade3: #{$color};
+  $shade4: #{$color}--#{$lighterOrDarker}-7;
+  @if $lighterOrDarker == "darker" {
+    $shade1: #{$color}--#{$lighterOrDarker}-4;
+    $shade2: #{$color}--#{$lighterOrDarker}-5;
+    $shade3: #{$color}--#{$lighterOrDarker}-3;
+    $shade4: #{$color}--#{$lighterOrDarker}-7;
+  }
 
-            border: 1px solid var(#{$shade2}) !important;
-            &:hover,
-				&:focus {
-					@extend .sakai-colorize#{$shade1};
-					border: 1px solid var(#{$shade1});
-				}
-				&:active {
-					@extend .sakai-colorize#{$shade3};
-					border: 1px solid var(#{$shade3});
-				}
-		}
-	}
+  .coln#{$name},
+  .coln#{$name}-trans {
+    background: var(--sakai-background-color-1);
+    border: 1px solid var($shade1);
+  }
+  .coln#{$name}-header,
+  .coln#{$name}-trans-header {
+    @extend .sakai-colorize#{$shade2};
+    border: 1px solid var(#{$shade2});
+  }
+  .collapsibleSectionHeader.coln#{$name}-header:hover,
+  .collapsibleSectionHeader.coln#{$name}-trans-header:hover {
+    @extend .sakai-colorize#{$shade1};
+    border-color: var(#{$shade1});
+  }
+  .collapsibleSectionHeader.coln#{$name}-header:active,
+  .collapsibleSectionHeader.coln#{$name}-trans-header:active {
+    @extend .sakai-colorize#{$shade3};
+    border-color: var(#{$shade3});
+  }
+  .coln#{$name}-header + .section {
+    border: 1px solid var(#{$shade2});
+    // border-top: none; // #duke-310
+  }
+
+  .coln#{$name} {
+    .questionDiv .contentCol,
+    .checklistDiv {
+      @extend .sakai-colorize#{$shade4};
+    }
+    input[type="submit"].question-submit,
+    .linkCell .addStudentContent,
+    input[type="submit"].setStudentZero {
+      @extend .sakai-colorize#{$shade2};
+      border: 1px solid var(#{$shade2});
+      &:hover,
+      &:focus {
+        @extend .sakai-colorize#{$shade1};
+        border: 1px solid var(#{$shade1});
+      }
+      &:active {
+        @extend .sakai-colorize#{$shade3};
+        border: 1px solid var(#{$shade3});
+      }
+    }
+    input[type="submit"].question-submit,
+    .linkCell .addStudentContent,
+    input[type="submit"].setStudentZero {
+      margin-top: $standard-space-4x;
+    }
+  }
+  //SAK-46594
+  .usebutton.n#{$name},
+  .usebutton.n#{$name}-trans {
+    @extend .sakai-colorize#{$shade2};
+
+    border: 1px solid var(#{$shade2}) !important;
+    &:hover,
+    &:focus {
+      @extend .sakai-colorize#{$shade1};
+      border: 1px solid var(#{$shade1});
+    }
+    &:active {
+      @extend .sakai-colorize#{$shade3};
+      border: 1px solid var(#{$shade3});
+    }
+  }
+}
 .#{$namespace}sakai-lessonbuildertool {
+  @include sakaiLessonsLayoutColorScheme(
+    "--sakai-color-gray",
+    "lighter",
+    "gray"
+  );
+  @include sakaiLessonsLayoutColorScheme(
+    "--sakai-color-gray",
+    "darker",
+    "black"
+  );
+  @include sakaiLessonsLayoutColorScheme("--duke-navy", "lighter", "blue");
+  @include sakaiLessonsLayoutColorScheme("--duke-navy", "darker", "blue2");
+  @include sakaiLessonsLayoutColorScheme("--sakai-color-red", "lighter", "red");
+  @include sakaiLessonsLayoutColorScheme("--duke-piedmont", "lighter", "green");
+  @include sakaiLessonsLayoutColorScheme("--duke-copper", "lighter", "orange");
+  @include sakaiLessonsLayoutColorScheme("--duke-dandelion", "lighter", "gold");
+  @include sakaiLessonsLayoutColorScheme("--duke-eno", "lighter", "teal");
+  @include sakaiLessonsLayoutColorScheme(
+    "--duke-ironweed",
+    "lighter",
+    "purple"
+  );
 
-        @include sakaiLessonsLayoutColorScheme('--sakai-color-gray', 'lighter', 'gray');
-        @include sakaiLessonsLayoutColorScheme('--sakai-color-gray', 'darker', 'black');
-        @include sakaiLessonsLayoutColorScheme('--duke-navy', 'lighter', 'blue');
-        @include sakaiLessonsLayoutColorScheme('--duke-navy', 'darker', 'blue2');
-        @include sakaiLessonsLayoutColorScheme('--sakai-color-red', 'lighter', 'red');
-        @include sakaiLessonsLayoutColorScheme('--duke-piedmont', 'lighter', 'green');
-        @include sakaiLessonsLayoutColorScheme('--duke-copper', 'lighter', 'orange');
-        @include sakaiLessonsLayoutColorScheme('--duke-dandelion', 'lighter', 'gold');
-        @include sakaiLessonsLayoutColorScheme('--duke-eno', 'lighter', 'teal');
-        @include sakaiLessonsLayoutColorScheme('--duke-ironweed', 'lighter', 'purple');
+  @include sakaiLessonsLayoutColorScheme(
+    "--sakai-lessons-navy",
+    "lighter",
+    "navy"
+  );
+  @include sakaiLessonsLayoutColorScheme(
+    "--sakai-lessons-navy",
+    "darker",
+    "navy2"
+  );
 
-        @include sakaiLessonsLayoutColorScheme('--sakai-lessons-navy', 'lighter', 'navy' );
-        @include sakaiLessonsLayoutColorScheme('--sakai-lessons-navy', 'darker', 'navy2' );
+  .navIntraTool:last-of-type {
+    position: sticky;
+    bottom: 0;
+    background: var(--sakai-background-color-1);
+  }
+  .bottomButtons {
+    margin: $standard-space-2x 0;
 
-        .navIntraTool:last-of-type {
-            position: sticky;
-            bottom: 0;
-            background: var(--sakai-background-color-1);
-        }
-        .bottomButtons {
-            margin: $standard-space-2x 0;
-
-            .button:last-of-type {
-                    @include sakai_primary_button();
-            }
-        }
+    .button:last-of-type {
+      @include sakai_primary_button();
+    }
+  }
 }
 
 ///////////////////////////////////////////////////
 // duke-303 adjust jumptotop styles
 ///////////////////////////////////////////////////
 #jumptotop {
-    bottom: 10px;
-    height: 40px;
-    width: 40px;
-    background-size: 40px;
-    border-radius: 20px;
+  bottom: 10px;
+  height: 40px;
+  width: 40px;
+  background-size: 40px;
+  border-radius: 20px;
+}
+.sakaiUserTheme-dark #jumptotop {
+  filter: var(--sakai-image-invert);
 }
 
 ///////////////////////////////////////////////////
 // duke-308 make lessons page titles wrap in sidebar
 ///////////////////////////////////////////////////
-body #toolMenu li.has-lessons-sub-pages.has-lessons-sub-pages .lessons-top-level-placeholder:hover .lessons-goto-top-page .Mrphs-toolsNav__menuitem--title,
-body #toolMenu li.has-lessons-sub-pages.has-lessons-sub-pages .lessons-top-level-placeholder:active .lessons-goto-top-page .Mrphs-toolsNav__menuitem--title {
-    width: calc(216px - 52px - 16px);
-    
+body
+  #toolMenu
+  li.has-lessons-sub-pages.has-lessons-sub-pages
+  .lessons-top-level-placeholder:hover
+  .lessons-goto-top-page
+  .Mrphs-toolsNav__menuitem--title,
+body
+  #toolMenu
+  li.has-lessons-sub-pages.has-lessons-sub-pages
+  .lessons-top-level-placeholder:active
+  .lessons-goto-top-page
+  .Mrphs-toolsNav__menuitem--title {
+  width: calc(216px - 52px - 16px);
 }
 
-body #toolMenu li.has-lessons-sub-pages.has-lessons-sub-pages .lessons-top-level-placeholder:hover .lessons-goto-top-page .Mrphs-toolsNav__menuitem--title:after,
-body #toolMenu li.has-lessons-sub-pages.has-lessons-sub-pages .lessons-top-level-placeholder:active .lessons-goto-top-page .Mrphs-toolsNav__menuitem--title:after {
-    top: calc(50% - 8px);
-    right: 4px;
-    left: unset;
-    padding-left: 0;
+body
+  #toolMenu
+  li.has-lessons-sub-pages.has-lessons-sub-pages
+  .lessons-top-level-placeholder:hover
+  .lessons-goto-top-page
+  .Mrphs-toolsNav__menuitem--title:after,
+body
+  #toolMenu
+  li.has-lessons-sub-pages.has-lessons-sub-pages
+  .lessons-top-level-placeholder:active
+  .lessons-goto-top-page
+  .Mrphs-toolsNav__menuitem--title:after {
+  top: calc(50% - 8px);
+  right: 4px;
+  left: unset;
+  padding-left: 0;
 }
 
 body:not(.Mrphs-toolMenu-collapsed) {
-    #toolMenu ul li .Mrphs-toolsNav__menuitem--link .Mrphs-toolsNav__menuitem--title,
-    #toolMenu #selectQuickLink li .Mrphs-toolsNav__menuitem--link .Mrphs-toolsNav__menuitem--title,
-    #subSites ul li .Mrphs-toolsNav__menuitem--link .Mrphs-toolsNav__menuitem--title,
-    #subSites #selectQuickLink li .Mrphs-toolsNav__menuitem--link .Mrphs-toolsNav__menuitem--title,
-    #toolMenu li.has-lessons-sub-pages ul.lessons-sub-page-menu li a,
-    #toolMenu li.has-lessons-sub-pages #selectQuickLink.lessons-sub-page-menu li a {
-        text-overflow: unset;
-        white-space: unset;
-        overflow: unset;
-    }
+  #toolMenu
+    ul
+    li
+    .Mrphs-toolsNav__menuitem--link
+    .Mrphs-toolsNav__menuitem--title,
+  #toolMenu
+    #selectQuickLink
+    li
+    .Mrphs-toolsNav__menuitem--link
+    .Mrphs-toolsNav__menuitem--title,
+  #subSites
+    ul
+    li
+    .Mrphs-toolsNav__menuitem--link
+    .Mrphs-toolsNav__menuitem--title,
+  #subSites
+    #selectQuickLink
+    li
+    .Mrphs-toolsNav__menuitem--link
+    .Mrphs-toolsNav__menuitem--title,
+  #toolMenu li.has-lessons-sub-pages ul.lessons-sub-page-menu li a,
+  #toolMenu
+    li.has-lessons-sub-pages
+    #selectQuickLink.lessons-sub-page-menu
+    li
+    a {
+    text-overflow: unset;
+    white-space: unset;
+    overflow: unset;
+  }
 }
 
 body.Mrphs-toolMenu-collapsed:not(.tool-maximised) {
-    #toolMenu ul li .Mrphs-toolsNav__menuitem--link.lessons-top-level-placeholder,
-    #toolMenu #selectQuickLink li .Mrphs-toolsNav__menuitem--link.lessons-top-level-placeholder,
-    #subSites:not(.floating) ul li .Mrphs-toolsNav__menuitem--link.lessons-top-level-placeholder,
-    #subSites:not(.floating) #selectQuickLink li .Mrphs-toolsNav__menuitem--link.lessons-top-level-placeholder {
-        padding: 0;
-    }
+  #toolMenu ul li .Mrphs-toolsNav__menuitem--link.lessons-top-level-placeholder,
+  #toolMenu
+    #selectQuickLink
+    li
+    .Mrphs-toolsNav__menuitem--link.lessons-top-level-placeholder,
+  #subSites:not(.floating)
+    ul
+    li
+    .Mrphs-toolsNav__menuitem--link.lessons-top-level-placeholder,
+  #subSites:not(.floating)
+    #selectQuickLink
+    li
+    .Mrphs-toolsNav__menuitem--link.lessons-top-level-placeholder {
+    padding: 0;
+  }
 
-    #toolMenu li.has-lessons-sub-pages.has-lessons-sub-pages .lessons-top-level-placeholder:hover .lessons-goto-top-page .Mrphs-toolsNav__menuitem--title,
-    #toolMenu li.has-lessons-sub-pages.has-lessons-sub-pages .lessons-top-level-placeholder:active .lessons-goto-top-page .Mrphs-toolsNav__menuitem--title {
-        width: unset;
-    }
-} 
+  #toolMenu
+    li.has-lessons-sub-pages.has-lessons-sub-pages
+    .lessons-top-level-placeholder:hover
+    .lessons-goto-top-page
+    .Mrphs-toolsNav__menuitem--title,
+  #toolMenu
+    li.has-lessons-sub-pages.has-lessons-sub-pages
+    .lessons-top-level-placeholder:active
+    .lessons-goto-top-page
+    .Mrphs-toolsNav__menuitem--title {
+    width: unset;
+  }
+}
 
 ///////////////////////////////////////////////////
 // make sidebar more slacklike. help with trinity transition
@@ -456,128 +548,155 @@ body.Mrphs-toolMenu-collapsed:not(.tool-maximised) {
 #subSites ul li .Mrphs-toolsNav__menuitem--link,
 #subSites #selectQuickLink li .Mrphs-toolsNav__menuitem--link,
 body #toolMenu li.has-lessons-sub-pages ul.lessons-sub-page-menu li a,
-body #toolMenu li.has-lessons-sub-pages #selectQuickLink.lessons-sub-page-menu li a {
-    border-radius: 0;
-    margin:0;
+body
+  #toolMenu
+  li.has-lessons-sub-pages
+  #selectQuickLink.lessons-sub-page-menu
+  li
+  a {
+  border-radius: 0;
+  margin: 0;
 }
 
 #toolMenu ul li .Mrphs-toolsNav__menuitem--link:hover,
 #toolMenu ul li .Mrphs-toolsNav__menuitem--link:active {
-    box-shadow: none;
+  box-shadow: none;
 }
 
 ///////////////////////////////////////////////////
 // DUKE-259 Conversations Beta Label
 ///////////////////////////////////////////////////
-#toolMenu .icon-sakai--sakai-conversations+.Mrphs-toolsNav__menuitem--title::after,
-.icon-sakai--sakai-conversations+.Mrphs-breadcrumb--toolNameText::after,
+#toolMenu
+  .icon-sakai--sakai-conversations
+  + .Mrphs-toolsNav__menuitem--title::after,
+.icon-sakai--sakai-conversations + .Mrphs-breadcrumb--toolNameText::after,
 .Mrphs-sakai-siteinfo #sakai_conversations_wrap::after,
 #reorder-list .icon-sakai--sakai-conversations::after {
-    background: $ironweed;
-    color: $white;
-    content: "beta";
-    display: inline-block;
-    position: absolute;
-    top: 4px;
-    right: 4px;
-    border-radius: 16px;
-    padding: 4px 8px;
-    margin: 0;
-    font-weight: 400;
-    font-style: normal;
-    font-size: .75em;
-    font-family: $font-family;
+  background: $ironweed;
+  color: $white;
+  content: "beta";
+  display: inline-block;
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  border-radius: 16px;
+  padding: 4px 8px;
+  margin: 0;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.75em;
+  font-family: $font-family;
 }
-#toolMenu .icon-sakai--sakai-conversations+.Mrphs-toolsNav__menuitem--title::after {
-    top: 7px;
+#toolMenu
+  .icon-sakai--sakai-conversations
+  + .Mrphs-toolsNav__menuitem--title::after {
+  top: 7px;
 }
 
-#toolMenu .is-invisible .icon-sakai--sakai-conversations+.Mrphs-toolsNav__menuitem--title::after {
-    right: 26px;
+#toolMenu
+  .is-invisible
+  .icon-sakai--sakai-conversations
+  + .Mrphs-toolsNav__menuitem--title::after {
+  right: 26px;
 }
-.Mrphs-toolMenu-collapsed #toolMenu .icon-sakai--sakai-conversations+.Mrphs-toolsNav__menuitem--title::after {
-    position: relative;
-    display: inline;
-    margin-left: 8px;
-    top:-3px;
-    right: 0;
-    padding: 0 8px;
+.Mrphs-toolMenu-collapsed
+  #toolMenu
+  .icon-sakai--sakai-conversations
+  + .Mrphs-toolsNav__menuitem--title::after {
+  position: relative;
+  display: inline;
+  margin-left: 8px;
+  top: -3px;
+  right: 0;
+  padding: 0 8px;
 }
-.Mrphs-siteHierarchy .icon-sakai--sakai-conversations+.Mrphs-breadcrumb--toolNameText::after {
-    text-transform: lowercase;
-    position: relative;
-    top: -2px;
-    right: 0;
-    margin-left: 8px;
-
+.Mrphs-siteHierarchy
+  .icon-sakai--sakai-conversations
+  + .Mrphs-breadcrumb--toolNameText::after {
+  text-transform: lowercase;
+  position: relative;
+  top: -2px;
+  right: 0;
+  margin-left: 8px;
 }
 .Mrphs-sakai-siteinfo #sakai_conversations_wrap::after {
-    position: relative;
-    display: inline-block;
-    top: 0;
-    right: 0;
+  position: relative;
+  display: inline-block;
+  top: 0;
+  right: 0;
 }
 #reorder-list .icon-sakai--sakai-conversations::after {
-    left: 155px;
-    right: auto;
-    top: 2px;
+  left: 155px;
+  right: auto;
+  top: 2px;
 }
 
 ///////////////////////////////////////////////////
 // DUKE-300 Dashboard Beta Label
 ///////////////////////////////////////////////////
-#toolMenu .icon-sakai--sakai-dashboard+.Mrphs-toolsNav__menuitem--title::after,
-.icon-sakai--sakai-dashboard+.Mrphs-breadcrumb--toolNameText::after,
+#toolMenu
+  .icon-sakai--sakai-dashboard
+  + .Mrphs-toolsNav__menuitem--title::after,
+.icon-sakai--sakai-dashboard + .Mrphs-breadcrumb--toolNameText::after,
 .Mrphs-sakai-siteinfo #sakai_dashboard_wrap::after,
 #reorder-list .icon-sakai--sakai-dashboard::after {
-    background: $ironweed;
-    color: $white;
-    content: "beta";
-    display: inline-block;
-    position: absolute;
-    top: 4px;
-    right: 4px;
-    border-radius: 16px;
-    padding: 4px 8px;
-    margin: 0;
-    font-weight: 400;
-    font-style: normal;
-    font-size: .75em;
-    font-family: $font-family;
+  background: $ironweed;
+  color: $white;
+  content: "beta";
+  display: inline-block;
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  border-radius: 16px;
+  padding: 4px 8px;
+  margin: 0;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.75em;
+  font-family: $font-family;
 }
-#toolMenu .icon-sakai--sakai-dashboard+.Mrphs-toolsNav__menuitem--title::after {
-    top: 7px;
+#toolMenu
+  .icon-sakai--sakai-dashboard
+  + .Mrphs-toolsNav__menuitem--title::after {
+  top: 7px;
 }
 
-#toolMenu .is-invisible .icon-sakai--sakai-dashboard+.Mrphs-toolsNav__menuitem--title::after {
-    right: 26px;
+#toolMenu
+  .is-invisible
+  .icon-sakai--sakai-dashboard
+  + .Mrphs-toolsNav__menuitem--title::after {
+  right: 26px;
 }
-.Mrphs-toolMenu-collapsed #toolMenu .icon-sakai--sakai-dashboard+.Mrphs-toolsNav__menuitem--title::after {
-    position: relative;
-    display: inline;
-    margin-left: 8px;
-    top:-3px;
-    right: 0;
-    padding: 0 8px;
+.Mrphs-toolMenu-collapsed
+  #toolMenu
+  .icon-sakai--sakai-dashboard
+  + .Mrphs-toolsNav__menuitem--title::after {
+  position: relative;
+  display: inline;
+  margin-left: 8px;
+  top: -3px;
+  right: 0;
+  padding: 0 8px;
 }
-.Mrphs-siteHierarchy .icon-sakai--sakai-dashboard+.Mrphs-breadcrumb--toolNameText::after {
-    text-transform: lowercase;
-    position: relative;
-    top: -2px;
-    right: 0;
-    margin-left: 8px;
-
+.Mrphs-siteHierarchy
+  .icon-sakai--sakai-dashboard
+  + .Mrphs-breadcrumb--toolNameText::after {
+  text-transform: lowercase;
+  position: relative;
+  top: -2px;
+  right: 0;
+  margin-left: 8px;
 }
 .Mrphs-sakai-siteinfo #sakai_dashboard_wrap::after {
-    position: relative;
-    display: inline-block;
-    top: 0;
-    right: 0;
+  position: relative;
+  display: inline-block;
+  top: 0;
+  right: 0;
 }
 #reorder-list .icon-sakai--sakai-dashboard::after {
-    left: 155px;
-    right: auto;
-    top: 2px;
+  left: 155px;
+  right: auto;
+  top: 2px;
 }
 
 ///////////////////////////////////////////////////
@@ -585,139 +704,693 @@ body #toolMenu li.has-lessons-sub-pages #selectQuickLink.lessons-sub-page-menu l
 ///////////////////////////////////////////////////
 
 .Mrphs-sakai-preferences .prefs-themeSelection li:last-of-type::after {
-    background: $ironweed;
-    color: $white;
-    content: "beta";
-    display: inline-block;
-    border-radius: 16px;
-    padding: 4px 8px;
-    margin-left: 16px;
-    font-weight: 400;
-    font-style: normal;
-    font-size: .75em;
-    font-family: $font-family;
+  background: $ironweed;
+  color: $white;
+  content: "beta";
+  display: inline-block;
+  border-radius: 16px;
+  padding: 4px 8px;
+  margin-left: 16px;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.75em;
+  font-family: $font-family;
 }
 
 //SAK-46182 SAK-46570
-.Mrphs-sakai-siteinfo #summary, .Mrphs-sakai-sitesetup #summary {
-    background: var(--sakai-background-color-2);
+.Mrphs-sakai-siteinfo #summary,
+.Mrphs-sakai-sitesetup #summary {
+  background: var(--sakai-background-color-2);
 }
 
 .chatListMonitor {
-    background: var(--sakai-background-color-1);
+  background: var(--sakai-background-color-1);
 }
-.Mrphs-sakai-chat .panel-chat .panel-body-chat .chatListWrapperCont .chatListWrapper .chatListHeadWrapper,
-.Mrphs-sakai-chat .panel-chat .panel-body-chat .chatListWrapperCont .chatListWrapper .shown_total {
-    color: var(--sakai-text-color-dimmed);
+.Mrphs-sakai-chat
+  .panel-chat
+  .panel-body-chat
+  .chatListWrapperCont
+  .chatListWrapper
+  .chatListHeadWrapper,
+.Mrphs-sakai-chat
+  .panel-chat
+  .panel-body-chat
+  .chatListWrapperCont
+  .chatListWrapper
+  .shown_total {
+  color: var(--sakai-text-color-dimmed);
 }
 
 // Adjust site waffle buttons
 #otherSitesMenu #newSite {
-    @include sakai_primary_button();
+  @include sakai_primary_button();
 }
 #otherSitesMenu #allSites,
 ul#otherSitesMenu li:nth-child(3):not(.otherSitesMenuClose) a {
-    @include sakai_secondary_button();
+  @include sakai_secondary_button();
 }
 
 // SAK-46654 SAK-46366
 .inopPanel {
-    background: var(--sakai-background-color-1);
+  background: var(--sakai-background-color-1);
 }
 
 //SAK-46525
 .Mrphs-sakai-signup {
-    .instruction[style] {
-        background: var(--infoBanner-bgcolor) !important;
-        color: var(--infoBanner-color);
-        border: 1px solid var(--infoBanner-borderColor);
-        font-size: $default-font-size;
-    }
-    .form-group label[style] {
-        color: var(--sakai-text-color-1) !important;
-    }
-    .alertMessage[style] {
-        color: var(--errorBanner-color) !important;
-    }
-    .addWaiter,
-    .addAttendee,
-    .activeTag {
-        color: var(--link-color) !important;
+  .instruction[style] {
+    background: var(--infoBanner-bgcolor) !important;
+    color: var(--infoBanner-color);
+    border: 1px solid var(--infoBanner-borderColor);
+    font-size: $default-font-size;
+  }
+  .form-group label[style] {
+    color: var(--sakai-text-color-1) !important;
+  }
+  .alertMessage[style] {
+    color: var(--errorBanner-color) !important;
+  }
+  .addWaiter,
+  .addAttendee,
+  .activeTag {
+    color: var(--link-color) !important;
 
-        &:hover {
-            color: var(--link-color-hover) !important;
-        }
+    &:hover {
+      color: var(--link-color-hover) !important;
     }
-    .signupTable {
-        background: var(--sakai-background-color-1);
+  }
+  .signupTable {
+    background: var(--sakai-background-color-1);
 
-        th {
-            background: var(--sakai-background-color-2);
-        }
-        tr.evenRow {
-            background: var(--sakai-background-color-1);
-        }
+    th {
+      background: var(--sakai-background-color-2);
     }
+    tr.evenRow {
+      background: var(--sakai-background-color-1);
+    }
+  }
 }
 
 //SAK-46338
 :root.sakaiUserTheme-dark {
-    .Mrphs-sakai-lessonbuildertool {
-        .icon-image {
-            filter: var(--sakai-image-invert);
-        }
+  .Mrphs-sakai-lessonbuildertool {
+    .icon-image {
+      filter: var(--sakai-image-invert);
     }
+  }
 }
 
 //SAK-46240
 .Mrphs-sakai-siteinfo {
-    .groups-site li:nth-child(odd) {
-        background: var(--sakai-background-color-2);
-    }
+  .groups-site li:nth-child(odd) {
+    background: var(--sakai-background-color-2);
+  }
 }
-.Mrphs-html .ui-state-active .ui-icon, .Mrphs-html .ui-button:active .ui-icon {
-    background-image: url("/library/webjars/jquery-ui/1.12.1/images/ui-icons_444444_256x240.png");
+.Mrphs-html .ui-state-active .ui-icon,
+.Mrphs-html .ui-button:active .ui-icon {
+  background-image: url("/library/webjars/jquery-ui/1.12.1/images/ui-icons_444444_256x240.png");
 }
 .#{$namespace}html.sakaiUserTheme-dark {
-    .ui-icon, .ui-widget-content .ui-icon,
-    .ui-state-active .ui-icon, .ui-button:active .ui-icon {
-        background-image: url("/library/webjars/jquery-ui/1.12.1/images/ui-icons_ffffff_256x240.png");
+  .ui-icon,
+  .ui-widget-content .ui-icon,
+  .ui-state-active .ui-icon,
+  .ui-button:active .ui-icon {
+    background-image: url("/library/webjars/jquery-ui/1.12.1/images/ui-icons_ffffff_256x240.png");
+  }
+  .Mrphs-sakai-assignment-grades {
+    img[src*="checkon.gif"] {
+      filter: var(--sakai-image-invert);
     }
-    .Mrphs-sakai-assignment-grades {
-        img[src*="checkon.gif"] {
-            filter: var(--sakai-image-invert);
-        }
-    }
-    .ui-state-active a,
-    .ui-state-active a:link,
-    .ui-state-active a:visited {
-        color: var(--sakai-text-color-2);
-    }
+  }
+  .ui-state-active a,
+  .ui-state-active a:link,
+  .ui-state-active a:visited {
+    color: var(--sakai-text-color-2);
+  }
 }
 .selected {
-    background: var(--sakai-background-color-2);
-    border: 1px solid var(--sakai-border-color);
+  background: var(--sakai-background-color-2);
+  border: 1px solid var(--sakai-border-color);
 }
 .selected * {
-    color: var(--sakai-text-color-dimmed);
+  color: var(--sakai-text-color-dimmed);
 }
 .sectionContainerNav {
-    background: var(--sakai-background-color-2);
+  background: var(--sakai-background-color-2);
 }
 .required {
-    color: var(--sakai-text-color-1);
+  color: var(--sakai-text-color-1);
 }
 
 //SAK-46653
 //SAK-46247
 //SAK-46240
 
-    .active {
-        background: var(--sakai-active-color-1);
-        color: var(--sakai-text-color-3);
+.active {
+  background: var(--sakai-active-color-1);
+  color: var(--sakai-text-color-3);
+}
+.breadcrumb > .active {
+  color: var(--sakai-text-color-1);
+  background: none;
+}
+
+// SAK-46187
+.sakai-options-menu-content a {
+  color: var(--link-color);
+}
+#conv-settings {
+  background: var(--sakai-background-color-2);
+}
+#conv-settings > div > a {
+  color: var(--sakai-text-color-dimmed);
+}
+
+#conv-settings > div.setting-active > a {
+  color: var(--sakai-text-color-1);
+}
+.conv-topbar {
+  border-bottom: 1px solid var(--sakai-border-color);
+}
+#conv-settings {
+  color: var(--sakai-text-color-dimmed);
+}
+.conv-settings-and-create {
+
+  .conv-settings-link {
+
+    a {
+  color: var(--sakai-text-color-dimmed);
     }
-    .breadcrumb>.active {
-        color: var(--sakai-text-color-1);
-        background: none;
+  }
+}
+.conv-add-topic {
+  // background: var(--button-primary-background);
+  // color: var(--button-primary-text-color);
+	@include sakai_primary_button();
+  margin-left: 8px;
+  a {
+  color: var(--button-primary-color);
+  }
+}
+#conv-content {
+  border-left: var(--sakai-border-color) 1px solid;
+}
+.tag {
+  background: var(--sakai-background-color-2);
+  color: var(--sakai-text-color-1);
+}
+@media (max-width: 800px) {
+  .add-topic-icon {
+    color: var(--successBanner-color);
+  }
+  .topic-summary.selected {
+    border: 1px solid var(--sakai-border-color);
+  }
+}
+#add-topic-title {
+  color: var(--sakai-text-color-1);
+}
+#summary {
+  background: var(--sakai-background-color-2);
+
+  border: 1px solid var(--sakai-border-color);
+}
+
+.add-topic-label {
+  color: var(--sakai-text-color-1);
+}
+#conv-edit-tags-link-wrapper > a {
+  color: var(--link-color);
+}
+.topic-type-toggle {
+  background: var(--sakai-background-color-2);
+  border: 1px solid var(--sakai-border-color);
+}
+
+.topic-type-toggle div {
+  color: var(--sakai-text-color-3);
+}
+.active {
+    background: var(--sakai-active-color-1);
+    color: var(--sakai-text-color-3);
+  }
+.tag-remove-icon sakai-icon {
+  color: var(--errorBanner-color);
+}
+.conv-error {
+  background: var(--errorBanner-bgcolor) !important;
+  color: var(--errorBanner-color);
+}
+.required {
+  color: var(--sakai-text-color-1);
+}
+.topic-option-label {
+  color: var(--sakai-text-color-1);
+}
+.selected-tag {
+  background-color: var(--sakai-active-color-1);
+}
+
+#button-block {
+  border-top: var(--sakai-border-color) 1px solid;
+}
+.button {
+  background: var(--button-primary-background);
+  border-radius: $button-radius;
+  color: var(--button-primary-text-color);
+
+}
+
+.cke_chrome {
+  border: 1px solid var(--sakai-border-color);
+}
+#settings-guidelines-preview {
+  border: 1px solid var(--sakai-border-color);
+}
+.add-topic-wrapper h1 {
+  color: var(--sakai-text-color-1);
+}
+#tag-creation-field {
+  background: var(--sakai-background-color-2);
+  border: 1px solid var(--sakai-border-color);
+}
+.tag-editor input[type="text"] {
+  background: var(--sakai-background-color-2);
+  border: 1px solid var(--sakai-border-color);
+}
+.tag-label {
+  background: var(--sakai-background-color-2);
+  color: var(--sakai-text-color-1);
+}
+
+.tag-row {
+  border-top: 1px solid var(--sakai-border-color);
+}
+.tag-buttons input {
+  border: 1px solid var(--button-border-color);
+  background: var(--button-background);
+  color: var(--button-text-color);
+}
+.tag-buttons input[value="Delete"] {
+    background: var(--errorBanner-bgcolor);
+    color: var(--errorBanner-color);
+    border: 1px solid var(--errorBanner-bordercolor);
+}
+.post-creator-name {
+  color: var(--sakai-text-color-1);
+}
+.post-creator-instructor {
+    @extend .sakai-colorize--sakai-color-purple--lighter-6;
+}
+
+.post-created-date {
+  color: var(--sakai-text-color-dimmed);
+}
+
+.conv-instructors-answer {
+  color: var(--sakai-text-color-1);
+}
+.post-comments-block {
+  background: var(--sakai-background-color-2);
+}
+.post-upvote-container {
+  background: var(--sakai-active-color-1);
+  border: 1px solid var(--sakai-active-color-2);
+  color: var(--sakai-text-color-3);
+}
+
+.no-votes {
+  background: var(--sakai-background-color-1);
+}
+
+.post-message {
+  color: var(--sakai-text-color-1);
+}
+.post-comment-toggle-block {
+  color: var(--link-color);
+}
+
+.post-comment-toggle-block .reactions-link > a {
+  color: var(--link-color);
+}
+.post {
+  border: 1px solid var(--sakai-border-color);
+}
+
+.post-without-comment-block {
+  border: 1px solid var(--sakai-border-color);
+}
+.instructor {
+  background: var(--successBanner-bgcolor);
+  border: 1px solid var(--sakai-border-color);
+}
+
+.post .message {
+  color: var(--sakai-text-color-1);
+}
+.discussion-post-vbar {
+    background: var(--sakai-background-color-2);
+}
+
+.discussion-post-content-wrapper {
+    background: var(--sakai-background-color-2);
+
+  &.new {
+    background-color: var(--sakai-active-color-1);
+  }
+}
+.post-actions-block {
+  color: var(--link-color);
+}
+.post-replies-toggle-block {
+  color: var(--link-color);
+}
+.discussion-post-new {
+  background: var(--successBanner-bgcolor);
+  color: var(--successBanner-color);
+}
+.topic-list-pinned-header {
+  background: var(--sakai-background-color-2);
+  color: var(--sakai-text-color-1);
+}
+
+#topic-list-filters select {
+  background: var(--sakai-background-color-1);
+  border: 1px solid var(--sakai-border-color);
+}
+
+#topic-list-topics {
+  border-right: 1px solid var(--sakai-border-color);
+}
+.topic-summary {
+  border: 1px solid var(--sakai-border-color);
+}
+.topic-summary-title-wrapper {
+  color: var(--sakai-text-color-3);
+}
+.topic-summary-title-wrapper {
+  color: var(--sakai-active-color-3);
+}
+.draft {
+  color: var(--errorBanner-color);
+}
+.unanswered {
+  background: var(--sakai-background-color-2);
+}
+
+.unread {
+  border: 1px solid var(--sakai-active-color-1);
+}
+
+.unread-icon {
+  sakai-icon {
+    color: var(--sakai-primary-color-1);
+  }
+}
+
+.topic-summary-title {
+  color: var(--sakai-text-color-3);
+}
+
+.answered-icon {
+  color: var(--successBanner-bgcolor);
+}
+
+.unanswered-icon {
+  color: var(--sakai-text-color-inverted);
+}
+
+.question-icon {
+  color: var(--duke-copper);
+}
+
+.discussion-icon-wrapper {
+  background-color: var(--duke-ironweed);
+  color: var(--sakai-background-color-1);
+}
+
+.topic-summary-creator-block {
+  color: var(--sakai-text-color-dimmed);
+}
+.new-posts-number {
+  color: var(--sakai-text-color-3);
+}
+
+.selected {
+  background: var(--sakai-active-color-1);
+  border: 1px solid var(--sakai-active-color-2);
+  color: var(--sakai-text-color-3);
+}
+.selected * {
+  color: var(--sakai-text-color-3);
+}
+
+.selected {
+  .discussion-icon {
+    color: var(--sakai-text-color-inverted);
+  }
+
+  .question-icon {
+    color: var(--duke-copper);
+  }
+}
+.topic-content {
+  border-bottom: 1px var(--sakai-border-color) solid;
+}
+
+.topic-tag {
+  color: var(--sakai-text-color-dimmed);
+}
+
+.options-menu {
+  background: var(--sakai-background-color-1);
+  border: 1px solid var(--sakai-border-color);
+}
+
+.options-menu > div {
+  color: var(--sakai-text-color-1);
+}
+
+.topic-creator-name,
+.post-creator-name {
+  color: var(--sakai-text-color-1);
+}
+
+.topic-created-date,
+.post-created-date,
+.topic-question-asked {
+  color: var(--sakai-text-color-dimmed);
+}
+
+.topic-title-and-status {
+  border-bottom: 1px solid var(--sakai-border-color);
+}
+.topic-status-text {
+  color: var(--sakai-text-color-1);
+}
+
+.topic-message {
+  color: var(--sakai-text-color-1);
+}
+
+.topic-message-bottom-bar {
+  color: var(--link-color);
+}
+.good-question-on,
+.reaction-on {
+  background: var(--sakai-active-color-1);
+  color: var(--sakai-text-color-3);
+}
+.topic-reactions-popup {
+  background: var(--sakai-background-color-1);
+  border: 1px solid var(--sakai-border-color);
+}
+
+
+sakai-icon.heart {
+  color: var(--infoBanner-color);
+}
+
+sakai-icon.lightbulb {
+  color: var(--successBanner-color);
+}
+
+sakai-icon.key {
+  color: var(--errorBanner-color);
+}
+
+.topic-message-reactions-bar {
+  color: var(--sakai-text-color-3);
+}
+.topic-status sakai-icon {
+  color: var(--errorBanner-color);
+}
+
+.topic-message-reactions-bar > .topic-reaction {
+  background: var(--sakai-background-color-1);
+  border: 1px solid var(--sakai-border-color);
+}
+.topic-no-replies-block {
+  background: var(--sakai-background-color-2);
+}
+
+.topic-no-replies-message {
+  color: var(--sakai-text-color-1);
+}
+
+.placeholder {
+  background: var(--sakai-background-color-2);
+  div:not(:first-child) {
+    background: var(--sakai-background-color-1);
+    color: var(--sakai-text-color-1);
+    border: 1px solid var(--sakai-border-color);
+    padding: 8px;
+  }
+  div:nth-child(2){
+    border-radius: 4px 0 0 4px;
+    border-right: none;
+    margin-right:0
+  }
+  div:nth-child(3){
+    border-radius: 0 4px 4px 0;
+    border-left:none;
+
+  }
+}
+.topic-reply-block {
+  background: var(--sakai-background-color-2);
+  box-shadow: var(--elevation-4dp);
+  a:hover,
+  a:focus {
+    text-decoration: none;
+  }
+}
+.topic-reply-button-block {
+  background: var(--button-primary-background);
+  color: var(--button-primary-text-color);
+}
+
+.answered-icon {
+  color: var(--successBanner-color);
+}
+
+.unanswered-icon {
+  color: var(--warnBanner-color);
+}
+
+.topic-title-wrapper {
+  color: var(--sakai-text-color-1);
+}
+.topic-posts-block {
+
+  .topic-posts-header {
+    color: var(--sakai-text-color-1);
+  }
+}
+
+.post-to-topic {
+  background: var(--sakai-background-color-3);
+}
+
+.topic-wrapper {
+  border: 1px solid var(--sakai-border-color);
+}
+
+.topic-more-replies-block {
+  color: var(--link-color);
+}
+#statistics-timeframe-block {
+  div {
+    color: var(--sakai-text-color-1);
+  }
+}
+#statistics-report-table {
+
+  th {
+    background: var(--sakai-active-color-1);
+    a {
+      color: var(--sakai-text-color-inverted);
     }
+  }
+  td {
+    color: var(--sakai-text-color-1);
+  }
+}
+hr {
+  border-color: var(--sakai-border-color);
+}
+
+/////////////////////////////////
+// Duke Conversations Customziations
+/////////////////////////////////
+.conv-search-field {
+  display: none;
+}
+
+
+//SAK-45644
+.Mrphs-sakai-messages .nav_table {
+  font-size: 14px;
+}
+
+//SAK-45627
+.portal-bullhorn-icon.fa {
+  color: var(--button-text-color);
+}
+.portal-bullhorn-icon .fa-inverse {
+  color: var(--button-background);
+}
+
+//SAK-45626
+.sakaiUserTheme-dark .Mrphs-sakai-samigo .dataTable thead a::after {
+  filter: var(--sakai-image-invert);
+}
+
+//SAK-45624
+.addSectionTitleExample {
+  color: var(--sakai-text-color-1);
+}
+
+//SAK-45591
+table.listHier tr:nth-child(even) table tr:nth-child(odd) {
+  background: var(--sakai-background-color-1);
+}
+
+//SAK-45317
+.criterion.sakai-rubric-criterion .criterion-row .add-criterion-item,
+.criterion.sakai-rubric-criterion-preview .criterion-row .add-criterion-item,
+.criterion.sakai-rubric-criteria-grading .criterion-row .add-criterion-item,
+.criterion.sakai-rubric-criterion-student .criterion-row .add-criterion-item,
+.criterion.sakai-rubric-criterion-readonly .criterion-row .add-criterion-item {
+  opacity: 1;
+  right: 0;
+  padding: 0;
+  .fa {
+    padding:8px;
+  }
+}
+
 // CKeditor Autosave dark theme
+.cke_dialog {
+  table.diff {
+    border-color: var(--sakai-border-color);
+  
+    thead {
+      background: var(--sakai-background-color-2);
+      color: var(--sakai-text-color-1);
+      border-color: var(--sakai-border-color);
+
+    }
+    tbody th {
+      background: var(--sakai-background-color-3);
+      color: var(--sakai-text-color-1);
+      border-color: var(--sakai-border-color);
+    }
+    th.author {
+      border-color: var(--sakai-border-color);
+      background: var(--sakai-background-color-2);
+      color: var(--sakai-text-color-1);
+    }
+  }
+
+}

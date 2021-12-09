@@ -68,28 +68,31 @@ $become-user-primary: $ironweed;
 // DUKE-301 Dark Theme
 ///////////////////////////////////////////////////
 :root.sakaiUserTheme-dark {
+    @include defineColorHSL(--duke-dark, 222, 97%, 14%);
     --sakai-primary-color-1: var(--duke-royal--darker-3);
     --sakai-primary-color-2: var(--duke-royal--darker-1);
     --sakai-primary-color-3: var(--duke-royal);
     --sakai-active-color-1: var(--duke-royal--darker-3);
     --sakai-active-color-2: var(--duke-royal--darker-1);
     --sakai-active-color-3: var(--duke-royal);
-    --sakai-passive-color-1: var(--sakai-greyblue--darker-5);
-    --sakai-passive-color-2: var(--sakai-greyblue--darker-4);
-    --sakai-passive-color-3: var(--sakai-greyblue--darker-3);
-    --sakai-background-color-1: var(--sakai-greyblue--darker-6);
-    --sakai-background-color-2: var(--sakai-greyblue--darker-5);
-    --sakai-background-color-3: var(--sakai-greyblue--darker-4);
-    --sakai-background-color-4: var(--sakai-greyblue--darker-3);
+    --sakai-passive-color-1: var(--sakai-greyblue--darker-6);
+    --sakai-passive-color-2: var(--sakai-greyblue--darker-5);
+    --sakai-passive-color-3: var(--sakai-greyblue--darker-4);
+    --sakai-background-color-1: var(--sakai-color-gray--darker-7);
+    --sakai-background-color-3: var(--sakai-color-gray--darker-5);
+    --sakai-background-color-4: var(--sakai-color-gray--darker-4);
+    --sakai-background-color-2: var(--sakai-color-gray--darker-6);
     --sakai-secondary-color-1: var(--duke-navy--lighter-2);
     --sakai-tertiary-color-1: var(--duke-copper--lighter-2);
-    --sakai-border-color: var(--sakai-greyblue--darker-4);
+    --sakai-border-color: var(--sakai-color-gray--darker-5);
     --sakai-text-color-1: var(--sakai-color-gray--lighter-5);
     --sakai-text-color-2: var(--sakai-color-gray--lighter-6);
     --sakai-text-color-3: var(--duke-navy--lighter-6);
     --sakai-text-color-dimmed: var(--sakai-color-gray--lighter-4);
     --sakai-text-color-disabled: var(--sakai-color-gray--lighter-2);
     --sakai-text-color-inverted: var(--sakai-color-gray--lighter-6);
+    --progress-bar-bg: var(--infoBanner-color); // SAK-45588
+
 }
 ///////////////////////////////////////////////////
 // Extend Skins site title in header
@@ -259,7 +262,8 @@ body.project .Mrphs-sakai-siteinfo {
 .Mrphs-sakai-poll .portletBody, //polls
 .Mrphs-sakai-signup .longtext, //signup
 .Mrphs-sakai-syllabus .ui-accordion-content, //syllabus
-.Mrphs-sakai-samigo .portletBody //samigo
+.Mrphs-sakai-samigo .portletBody, //samigo
+sakai-course-overview //dashboard
  {
     h1 {
         font-size: 2.2em;
