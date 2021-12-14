@@ -1394,3 +1394,40 @@ table.listHier tr:nth-child(even) table tr:nth-child(odd) {
   }
 
 }
+
+// Duke-319
+#pickerUploadOption,
+#pickerShareLinkOption,
+#pickerSelectFormResources,
+#resourceTabs .active {
+  background: var(--sakai-background-color-1);
+  color: var(--sakai-text-color-1);
+}
+
+// Duke-320
+.Mrphs-sakai-samigo table.stats-bar td:last-of-type {
+  display: flex;
+  width: 110px;
+}
+.Mrphs-sakai-samigo table.stats-bar table.question-with-progress td:last-of-type {
+  width: 50%;
+}
+
+span.progress-num {
+  flex: 20%;
+  float: unset;
+  width: unset;
+}
+
+div.progress-bar {
+float:unset;
+}
+
+div.progress-stat {
+  flex: 80%;
+  overflow: unset;
+}
+
+.progress-bar-success {
+  background: var(--successBanner-color);
+}
