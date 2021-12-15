@@ -1442,3 +1442,11 @@ div.progress-stat {
 .progress-bar-success {
   background: var(--successBanner-color);
 }
+
+// Duke-124
+.Mrphs-toolTitleNav .Mrphs-toolTitleNav__link {
+  background: var(--sakai-background-color-1);
+}
+.navIntraTool li span a {
+  font-size: 1em;
+}
