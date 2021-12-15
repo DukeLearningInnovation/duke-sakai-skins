@@ -1405,27 +1405,38 @@ table.listHier tr:nth-child(even) table tr:nth-child(odd) {
 }
 
 // Duke-320
-.Mrphs-sakai-samigo table.stats-bar td:last-of-type {
+.Mrphs-sakai-samigo table.stats-bar td:first-of-type {
+  width: 60%;
+}
+.Mrphs-sakai-samigo table.stats-bar td.stats-correctness {
+  width: 120px;
+}
+.Mrphs-sakai-samigo table.stats-bar td:nth-child(3) {
   display: flex;
-  width: 110px;
+  flex-wrap: nowrap;
+  width: 240px;
 }
 .Mrphs-sakai-samigo table.stats-bar table.question-with-progress td:last-of-type {
-  width: 50%;
+  width: 240px;
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 span.progress-num {
-  flex: 20%;
+  flex: 25%;
   float: unset;
   width: unset;
 }
 
 div.progress-bar {
 float:unset;
+--progress-bar-bg: var(--errorBanner-color);
 }
 
 div.progress-stat {
-  flex: 80%;
+  flex: 75%;
   overflow: unset;
+  background-color: var(--sakai-background-color-1);
 }
 
 .progress-bar-success {
