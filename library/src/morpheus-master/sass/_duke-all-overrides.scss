@@ -1480,22 +1480,65 @@ div.progress-stat {
 }
 
 // Duke-154
-.subpage-breadcrumb-div {
+// Duke-337
+.Mrphs-siteHierarchy {
+  line-height: unset;
+}
+.hierarchyWrap {
   display: flex;
   flex-wrap: nowrap;
-  
+  justify-content: flex-start;
+  align-items: center;
+  width: 0;
+  min-width: 100%;
 }
-.subpage-breadcrumb-div a {
-  // max-width: 200px;
-  overflow: hidden;
+
+.hierarchyWrap a,
+.hierarchyWrap .Mrphs-breadcrumb--toolNameText,
+.lessons-siteHierarchy-title {
   text-overflow: ellipsis;
   white-space: nowrap;
-  display: block;
+  overflow: hidden;
+  display: inline-block;
+}
+.lessons-siteHierarchy-title {
+  flex: auto;
+}
+
+.hierarchyWrap a {
+  color: var(--breadcrumbs-tool-color);
+  text-decoration: underline;
+}
+.hierarchyWrap a:hover,
+.hierarchyWarp a:focus {
+  color: var(--breadcrumbs-hover-color);
+}
+.Mrphs-siteHierarchy a,
+.Mrphs-siteHierarchy a.Mrphs-hierarchy--toolName,
+.lessons-siteHierarchy-title {
+  margin: 0 .5em;
 }
 .subpage-breadcrumb-div span {
   min-width: 0;
 }
-.subpage-breadcrumb-div a,
-.Mrphs-hierarchy--separator,
-.lessons-siteHierarchy-title {
+.Mrphs-hierarchy--separator {
+  width: .5em;
+}
+@media only screen and (max-width: 480px) {
+  .Mrphs-siteHierarchy {
+    width: calc(100% - 95px);
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .Mrphs-hierarchy--siteName {
+    display: flex;
+    align-items: center;
+  }
+  .Mrphs-siteHierarchy span.nextprev {
+    display: none;
+  }
+  .Mrphs-siteHierarchy a,
+  .Mrphs-siteHierarchy a.Mrphs-hierarchy--toolName {
+    margin: 0 .5em;
+  }
 }
