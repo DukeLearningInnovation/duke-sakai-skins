@@ -1450,3 +1450,24 @@ div.progress-stat {
 .navIntraTool li span a {
   font-size: 1em;
 }
+
+// Duke-154
+.subpage-breadcrumb-div {
+  display: flex;
+  flex-wrap: nowrap;
+  
+}
+.subpage-breadcrumb-div a {
+  // max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+}
+.subpage-breadcrumb-div span {
+  min-width: 0;
+}
+.subpage-breadcrumb-div a,
+.Mrphs-hierarchy--separator,
+.lessons-siteHierarchy-title {
+}
