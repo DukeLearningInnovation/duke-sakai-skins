@@ -1455,10 +1455,8 @@ div.progress-stat {
 .subpage-breadcrumb-div {
   display: flex;
   flex-wrap: nowrap;
-  
 }
 .subpage-breadcrumb-div a {
-  // max-width: 200px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -1466,8 +1464,4 @@ div.progress-stat {
 }
 .subpage-breadcrumb-div span {
   min-width: 0;
-}
-.subpage-breadcrumb-div a,
-.Mrphs-hierarchy--separator,
-.lessons-siteHierarchy-title {
 }
