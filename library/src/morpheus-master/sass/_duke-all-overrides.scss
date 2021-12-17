@@ -901,7 +901,7 @@ ul#otherSitesMenu li:nth-child(3):not(.otherSitesMenuClose) a {
 }
 @media (max-width: 800px) {
   .add-topic-icon {
-    color: var(--successBanner-color);
+    color: var(--button-primary-color);
   }
   .topic-summary.selected {
     border: 1px solid var(--sakai-border-color);
@@ -1237,6 +1237,9 @@ sakai-icon.key {
 .topic-no-replies-message {
   color: var(--sakai-text-color-1);
 }
+.topic {
+  min-height: 100vh;
+}
 #conv-topbar-and-content,
 #conv-content {
   min-width: 0;
@@ -1246,10 +1249,6 @@ sakai-icon.key {
   box-shadow: var(--elevation-4dp);
   margin: 0 -44px 0 -28px;
   z-index: 1000;
-  > a {
-    // @include sakai_primary_button();
-    // @include sakai_secondary_button();
-  }
   a:hover,
   a:focus {
     text-decoration: none;
@@ -1263,35 +1262,31 @@ sakai-icon.key {
     color: var(--link-color);
   }
   div:not(:first-child) {
-    background: var(--sakai-background-color-1);
-    border: 1px solid var(--button-border-color);
     padding: 8px;
   }
+  > div:first-child {
+    margin-right: 8px;
+  }
   > div:nth-child(2){
-    border-radius: 4px 0 0 4px;
-    border-right: none;
-    margin-right:0;
     min-width: 100px;
-    align-self: stretch;
-    padding-right: 4px;
-    text-transform: uppercase;
+    order: 3;
+    @include sakai_primary_button();
+    margin-left: 8px;
     &::before {
       @extend .fa;
       @extend .fa-mail-reply;
-      margin: 0 8px 0 4px
+      margin: 0 8px 0 0;
     }
   }
   > div:nth-child(3){
-    border-radius: 0 4px 4px 0;
-    border-left:none;
     font-weight: 400;
-    padding-left: 0;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
     flex: 1;
   }
 }
+
 .conv-post-editor-header span:nth-child(2) {
   font-weight: 400;
 }
