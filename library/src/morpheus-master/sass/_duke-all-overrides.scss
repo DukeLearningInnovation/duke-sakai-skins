@@ -388,6 +388,9 @@ table caption {
     "darker",
     "black"
   );
+  a.usebutton.none {
+    @include sakai_primary_button();
+  }
   @include sakaiLessonsLayoutColorScheme("--duke-navy", "lighter", "blue");
   @include sakaiLessonsLayoutColorScheme("--duke-navy", "darker", "blue2");
   @include sakaiLessonsLayoutColorScheme("--sakai-color-red", "lighter", "red");
