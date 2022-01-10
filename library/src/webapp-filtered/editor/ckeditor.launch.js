@@ -292,11 +292,11 @@ sakai.editor.editors.ckeditor.launch = function(targetId, config, w, h) {
             `${ckeditor-extra-plugins}`,
             `${ckeditor-a11y-extra-plugins}`
         ].join(','),
-        mentions: [{
-            feed: `/direct/roster/site/${portal.siteId}.json`,
-            marker: '@',
-            minChars: 0
-        }],
+        // mentions: [{
+        //     feed: `/direct/roster/site/${portal.siteId}.json`,
+        //     marker: '@',
+        //     minChars: 0
+        // }],
         // These two settings enable the browser's native spell checking and context menus.
         // Control-Right-Click (Windows/Linux) or Command-Right-Click (Mac) on highlighted words
         // will cause the CKEditor menu to be suppressed and display the browser's standard context
