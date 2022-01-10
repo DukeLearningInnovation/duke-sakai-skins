@@ -498,10 +498,12 @@
 										<resource>
 											<directory>${basedir}/src/webapp/editor/ckextraplugins</directory>
 											<includes>
+												<include>contentitem/</include>
 												<include>sakaidropdowntoolbar/</include>
 												<include>sakaiformat/</include>
 												<include>sakaiopenlink/</include>
 												<include>templates/</include>
+												<include>warpwirecontentitem/</include>
 											</includes>
 										</resource>
 									</resources>
