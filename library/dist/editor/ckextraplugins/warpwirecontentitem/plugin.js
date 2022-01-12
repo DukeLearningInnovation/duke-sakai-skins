@@ -26,8 +26,11 @@ CKEDITOR.plugins.add('warpwirecontentitem', {
 		var _wwInstance = _wwPluginInstance;
 		_wwPluginInstance++;
 		// NOTE: enter URL of your Warpwire instance (if empty, students will not be able to contribute)
-		var studentContributionUri = '';
+		var studentContributionUri = 'https://warpwire.duke.edu';
 
+		if (window.location.hostname === 'sakai-test.duke.edu') {
+			studentContributionUri = 'https://warpwire-frontend-test.oit.duke.edu';
+		}
 		var pluginVersion = '3.0.3';
 		var pluginEditor = this;
 		var attachedEvents = [];
