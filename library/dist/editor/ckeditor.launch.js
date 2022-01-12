@@ -242,7 +242,7 @@ sakai.editor.editors.ckeditor.launch = function(targetId, config, w, h) {
             'liststyle',
             'magicline',
             'mathjax',
-            'mentions',
+            // 'mentions',
             // 'newpage',
             // 'pagebreak',
             // 'panelbutton',
@@ -278,7 +278,7 @@ sakai.editor.editors.ckeditor.launch = function(targetId, config, w, h) {
             'audiorecorder',
             'autosave',
             'bt_table',
-            'contentitem',
+            'sakaicontentitem',
             'html5video',
             'indentlist',
             'notification',
@@ -292,11 +292,11 @@ sakai.editor.editors.ckeditor.launch = function(targetId, config, w, h) {
             `sakaiopenlink,sakaidropdowntoolbar,`,
             `,a11ychecker`
         ].join(','),
-        mentions: [{
-            feed: `/direct/roster/site/${portal.siteId}.json`,
-            marker: '@',
-            minChars: 0
-        }],
+        // mentions: [{
+        //     feed: `/direct/roster/site/${portal.siteId}.json`,
+        //     marker: '@',
+        //     minChars: 0
+        // }],
         // These two settings enable the browser's native spell checking and context menus.
         // Control-Right-Click (Windows/Linux) or Command-Right-Click (Mac) on highlighted words
         // will cause the CKEditor menu to be suppressed and display the browser's standard context
@@ -360,7 +360,10 @@ sakai.editor.editors.ckeditor.launch = function(targetId, config, w, h) {
             [ 'Bold', 'Italic'],
             [ 'NumberedList', 'BulletedList' ],
             [ 'Link', 'Unlink' ],
-            [ 'Image', 'Table', 'WarpwireContentItem', ( sakai.editor.contentItemUrl ? 'ContentItem' : undefined) ],
+            [ 'Image', 'Table', 
+            'WarpwireContentItem', 
+            ( sakai.editor.contentItemUrl ? 'SakaiContentItem' : undefined),
+             ],
             [ 'Paste', 'RemoveFormat' ],
             [ 'A11ychecker'], 
             [ 'Undo', 'Redo'],
@@ -459,7 +462,7 @@ sakai.editor.editors.ckeditor.launch = function(targetId, config, w, h) {
         CKEDITOR.plugins.addExternal('html5video',webJars+'github-com-bahriddin-ckeditor-html5-video/1.2.1/html5video/', 'plugin.js');
         CKEDITOR.plugins.addExternal('audiorecorder',basePath+'audiorecorder/', 'plugin.js');
         CKEDITOR.plugins.addExternal('warpwirecontentitem',basePath+'warpwirecontentitem/', 'plugin.js');
-        CKEDITOR.plugins.addExternal('contentitem',basePath+'contentitem/', 'plugin.js');
+        CKEDITOR.plugins.addExternal('sakaicontentitem',basePath+'contentitem/', 'plugin.js');
         // CKEDITOR.plugins.addExternal('sakaipreview',basePath+'sakaipreview/', 'plugin.js');
         CKEDITOR.plugins.addExternal('sakaiopenlink', basePath+'sakaiopenlink/', 'plugin.js');
         CKEDITOR.plugins.addExternal('sakaidropdowntoolbar', basePath+'sakaidropdowntoolbar/', 'plugin.js');
@@ -816,7 +819,7 @@ sakai.editor.editors.ckeditor.launch = function(targetId, config, w, h) {
     });
 
     let instance = CKEDITOR.replace(targetId, ckconfig);
-
+    //SAK-22505
     CKEDITOR.on('dialogDefinition', function(e) {
         // Take the dialog name and its definition from the event
         // data.
