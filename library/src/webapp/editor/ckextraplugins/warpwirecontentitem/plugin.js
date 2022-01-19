@@ -19,7 +19,7 @@
 var _wwPluginInstance = 1;
 CKEDITOR.plugins.add('warpwirecontentitem', {
 	requires: ['iframedialog'],
-	lang: ['en'],
+	lang: 'en',
 
 	// The plugin initialization logic goes inside this method.
 	init: function(editor) {
@@ -52,7 +52,7 @@ CKEDITOR.plugins.add('warpwirecontentitem', {
 		) {
 			CKEDITOR.dialog.addIframe(
 				'WarpwireContentItemDialog_'+_wwInstance,
-				'Select Content Item',
+				`${editor.lang.warpwirecontentitem.dialogTitle}`,
 				CKEDITOR.plugins.externals.warpwirecontentitem.dir + 'index.html', width, height,
 				function() {
 					var self = this;
@@ -308,7 +308,7 @@ CKEDITOR.plugins.add('warpwirecontentitem', {
 			// set up the iframe loader
 			CKEDITOR.dialog.addIframe(
 				'WarpwireContentItemDialog_'+_wwInstance,
-				'Select Content Item',
+				`${editor.lang.warpwirecontentitem.dialogTitle}`,
 				sakai.editor.contentItemUrl, width, height,
 				loadFunction, {
 					// onShow callback - used to set the visibility of the container to hidden on initial load, so that there is no
@@ -418,7 +418,7 @@ CKEDITOR.plugins.add('warpwirecontentitem', {
 		// http://docs.cksource.com/ckeditor_api/symbols/CKEDITOR.ui.html#addButton
 		editor.ui.addButton('WarpwireContentItem', {
 			// Toolbar button tooltip.
-			label: 'Insert Warpwire Media',
+			label: `${editor.lang.warpwirecontentitem.tooltip}`,
 			// Reference to the plugin command name.
 			command: 'WarpwireContentItemDialog_'+_wwInstance,
 			// Button's icon file path.
