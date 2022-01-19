@@ -1,5 +1,6 @@
 CKEDITOR.plugins.setLang('warpwirecontentitem','en',
     {
-	'tooltip':'Insert Content Item'
+	tooltip: 'Insert Warpwire Item',
+    dialogTitle: 'Select Warpwire Item',
     }
 );
