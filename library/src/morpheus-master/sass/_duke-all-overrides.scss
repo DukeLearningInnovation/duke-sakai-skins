@@ -1481,41 +1481,65 @@ div.progress-stat {
 
 // Duke-154
 // Duke-337
-.hierarchyWrap,
-// .subpage-breadcrumb-div
-{
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  width: 0;
-  min-width: 100%;
+
+.Mrphs-siteHierarchy {
+  line-height: unset;
+}
+  .hierarchyWrap
+  // .subpage-breadcrumb-div
+  {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 0;
+    min-width: 100%;
+    
+  }
   
-}
+  .hierarchyWrap a,
+  .hierarchyWrap .Mrphs-breadcrumb--toolNameText
+  // .subpage-breadcrumb-div a,
+  // .lessons-siteHierarchy-title
+  {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    flex: 1;
+    display: inline-block;
+  }
+  .lessons-siteHierarchy-title {
+    flex: auto;
+  }
+  
+  .hierarchyWrap a
+  // .subpage-breadcrumb-div a
+  {
+    color: var(--breadcrumbs-tool-color);
+    text-decoration: underline;
+  }
+  .hierarchyWrap a:hover,
+  .hierarchyWarp a:focus {
+    color: var(--breadcrumbs-hover-color);
+  }
+  .Mrphs-siteHierarchy a.Mrphs-hierarchy--toolName {
+    margin: 0 16px;
+  }
+  .subpage-breadcrumb-div span {
+    min-width: 0;
+  }
+  .Mrphs-hierarchy--separator {
+    width: 16px;
+  }
+  @media only screen and (max-width: 480px) {
+    .Mrphs-siteHierarchy {
+      width: calc(100% - 95px);
+    }
+    .Mrphs-siteHierarchy span.nextprev {
+      display: none;
+    }
+    .Mrphs-siteHierarchy a {
+      margin: 0;
+    }
 
-.hierarchyWrap a,
-.hierarchyWrap .Mrphs-breadcrumb--toolNameText
-// .subpage-breadcrumb-div a,
-// .lessons-siteHierarchy-title
-{
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  flex: 1;
-  display: inline-block;
-}
-.lessons-siteHierarchy-title {
-  flex: auto;
-}
-
-.hierarchyWrap a,
-// .subpage-breadcrumb-div a
-{
-  color: var(--link-color);
-  text-decoration: underline;
-}
-.Mrphs-siteHierarchy a.Mrphs-hierarchy--toolName {
-  margin: 0 16px;
-}
-.subpage-breadcrumb-div span {
-  min-width: 0;
 }
