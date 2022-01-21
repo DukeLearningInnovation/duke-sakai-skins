@@ -109,33 +109,11 @@ $become-user-primary: $ironweed;
 ///////////////////////////////////////////////////
 // distinguish different servers visually
 ///////////////////////////////////////////////////
-body.duke-sakai-test-duke-edu,
-body.duke-sakai-21-localhost {
-    .Mrphs-headerLogo--banner {
-        float: left;
-        &:after {
-            content: "TEST SERVER";
-            background: var(--sakai-color-green--darker-3);
-            padding: 8px 16px;
-            font-weight: 700;
-            color: var(--sakai-color-green--lighter-6);
-            font-size:.8em;
-            line-height: calc(#{$banner-height} - 16px);
-            display: inline-block;
-            height: $banner-height;
-            margin-left: $standard-space-4x;
-        }
-        
-    }
+body.duke-sakai-test-duke-edu {
+    --top-header-background: var(--sakai-color-green--darker-6);
 }
 body.duke-sakai-21-localhost {
-    .Mrphs-headerLogo--banner {
-        &:after {
-            content: "DEV SERVER";
-            background: var(--sakai-color-red--darker-3);
-            color: var(--sakai-color-red--lighter-6);
-        }
-    }
+    --top-header-background: var(--sakai-color-red--darker-3);
 }
 
 ///////////////////////////////////////////////////
