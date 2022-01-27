@@ -1481,64 +1481,79 @@ div.progress-stat {
 
 // Duke-154
 // Duke-337
-
 .Mrphs-siteHierarchy {
   line-height: unset;
 }
-  .hierarchyWrap
-  // .subpage-breadcrumb-div
-  {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items: center;
-    width: 0;
-    min-width: 100%;
-    
-  }
-  
-  .hierarchyWrap a,
-  .hierarchyWrap .Mrphs-breadcrumb--toolNameText
-  // .subpage-breadcrumb-div a,
-  // .lessons-siteHierarchy-title
-  {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    display: inline-block;
-  }
-  .lessons-siteHierarchy-title {
-    flex: auto;
-  }
-  
-  .hierarchyWrap a
-  // .subpage-breadcrumb-div a
-  {
-    color: var(--breadcrumbs-tool-color);
-    text-decoration: underline;
-  }
-  .hierarchyWrap a:hover,
-  .hierarchyWarp a:focus {
-    color: var(--breadcrumbs-hover-color);
-  }
-  .Mrphs-siteHierarchy a.Mrphs-hierarchy--toolName {
-    margin: 0 16px;
-  }
-  .subpage-breadcrumb-div span {
-    min-width: 0;
-  }
-  .Mrphs-hierarchy--separator {
-    width: 16px;
-  }
-  @media only screen and (max-width: 480px) {
-    .Mrphs-siteHierarchy {
-      width: calc(100% - 95px);
-    }
-    .Mrphs-siteHierarchy span.nextprev {
-      display: none;
-    }
-    .Mrphs-siteHierarchy a {
-      margin: 0;
-    }
+.hierarchyWrap {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  width: 0;
+  min-width: 100%;
+}
 
+.hierarchyWrap a,
+.hierarchyWrap .Mrphs-breadcrumb--toolNameText {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+}
+.lessons-siteHierarchy-title {
+  flex: auto;
+}
+
+.hierarchyWrap a {
+  color: var(--breadcrumbs-tool-color);
+  text-decoration: underline;
+}
+.hierarchyWrap a:hover,
+.hierarchyWarp a:focus {
+  color: var(--breadcrumbs-hover-color);
+}
+.Mrphs-siteHierarchy a,
+  .Mrphs-siteHierarchy a.Mrphs-hierarchy--toolName {
+  margin: 0 .5em;
+}
+.subpage-breadcrumb-div span {
+  min-width: 0;
+}
+.Mrphs-hierarchy--separator {
+  width: .5em;
+}
+@media only screen and (max-width: 480px) {
+  .Mrphs-siteHierarchy {
+    width: calc(100% - 95px);
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .Mrphs-hierarchy--siteName {
+    display: flex;
+    align-items: center;
+  }
+  .Mrphs-siteHierarchy span.nextprev {
+    display: none;
+  }
+  .Mrphs-siteHierarchy a,
+  .Mrphs-siteHierarchy a.Mrphs-hierarchy--toolName {
+    margin: 0 .5em;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  body.active-more-sites #selectSiteModal {
+    left: 0 !important; //simplepagetool style uses important
+  }
+  ul#otherSitesMenu {
+    margin: 5px;
+  }
+  ul#otherSitesMenu li:not(.otherSitesMenuClose) {
+    margin-bottom: 5px;
+  }
+
+
+  #selectSite .tab-bar .tab-btn:first-of-type {
+    margin-left: 5px;
+  }
 }
