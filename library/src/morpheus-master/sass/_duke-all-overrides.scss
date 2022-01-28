@@ -1494,7 +1494,8 @@ div.progress-stat {
 }
 
 .hierarchyWrap a,
-.hierarchyWrap .Mrphs-breadcrumb--toolNameText {
+.hierarchyWrap .Mrphs-breadcrumb--toolNameText,
+.lessons-siteHierarchy-title {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -1513,7 +1514,8 @@ div.progress-stat {
   color: var(--breadcrumbs-hover-color);
 }
 .Mrphs-siteHierarchy a,
-  .Mrphs-siteHierarchy a.Mrphs-hierarchy--toolName {
+.Mrphs-siteHierarchy a.Mrphs-hierarchy--toolName,
+.lessons-siteHierarchy-title {
   margin: 0 .5em;
 }
 .subpage-breadcrumb-div span {
