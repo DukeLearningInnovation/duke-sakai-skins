@@ -219,7 +219,8 @@ if (
   document.getElementById("Mrphs-footer--details__info") !== "null" &&
   portal.portalCDNQuery
 ) {
-  let buildTimeHtml = `<dt>Skin | CDN:</dt><dd>DUKEGITHUBSHA | ${portal.portalCDNQuery.substr(
+  let buildTimeStamp = DUKESKINTIMESTAMP;
+  let buildTimeHtml = `<dt>Skin | CDN:</dt><dd>${buildTimeStamp} | ${portal.portalCDNQuery.substr(
     9
   )}</dd>`;
   document
