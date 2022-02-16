@@ -363,6 +363,23 @@
 			<build>
 				<plugins>
 					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>buildnumber-maven-plugin</artifactId>
+						<version>1.4</version>
+						<executions>
+							<execution>
+								<phase>initialize</phase>
+								<goals>
+									<goal>create-timestamp</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<timestampFormat>"yy.MM.dd HH:mm z"</timestampFormat>
+							<timezone>EST</timezone>
+						</configuration>
+					</plugin>
+					<plugin>
 						<artifactId>maven-resources-plugin</artifactId>
 						<executions>
 							<execution>
@@ -615,6 +632,40 @@
 										<replacement>
 											<token>${sakai.skin.target}</token>
 											<value>morpheus-default</value>
+										</replacement>
+									</replacements>
+								</configuration>
+							</execution>
+							<execution>
+								<id>replace-skin-timestamp</id>
+								<phase>process-sources</phase>
+								<goals>
+									<goal>replace</goal>
+								</goals>
+								<configuration>
+									<ignoreMissingFile>false</ignoreMissingFile>
+                                    <file>${project.basedir}/src/morpheus-master/js/duke-lib.js</file>
+									<replacements>
+										<replacement>
+											<token>DUKESKINTIMESTAMP</token>
+											<value>${timestamp}</value>
+										</replacement>
+									</replacements>
+								</configuration>
+							</execution>
+							<execution>
+								<id>revert-skin-timestamp</id>
+								<phase>package</phase>
+								<goals>
+									<goal>replace</goal>
+								</goals>
+								<configuration>
+									<ignoreMissingFile>false</ignoreMissingFile>
+                                    <file>${project.basedir}/src/morpheus-master/js/duke-lib.js</file>
+									<replacements>
+										<replacement>
+											<token>${timestamp}</token>
+											<value>DUKESKINTIMESTAMP</value>
 										</replacement>
 									</replacements>
 								</configuration>
