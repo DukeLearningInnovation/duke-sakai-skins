@@ -288,11 +288,6 @@ class SakaiPermissions extends SakaiElement {
   }
 }
 
-<<<<<<< HEAD
-const tagName = "sakai-permissions";
-!customElements.get(tagName) && customElements.define(tagName, SakaiPermissions);
-=======
 if (!customElements.get("sakai-permissions")) {
   customElements.define("sakai-permissions", SakaiPermissions);
 }
->>>>>>> 1751b1505b... SAK-45092 Create a new tool for handling conversations in Sakai (#9500)
