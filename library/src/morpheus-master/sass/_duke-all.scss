@@ -3,32 +3,32 @@ $skin-name: duke-default;
 /* Duke Color palette */
 $navy: #012169;
 $royal: #005199;
-$dodger: #0E99F0;
+$dodger: #0e99f0;
 $frenchpass: #cce7fe;
 $bay: #243a82;
 $copper: #c64c00;
-$persimmon: #E89923;
-$dandelion: #FFD960;
-$piedmont: #A1B70D;
+$persimmon: #e89923;
+$dandelion: #ffd960;
+$piedmont: #a1b70d;
 $eno: #339898;
-$magnolia: #1D6363;
+$magnolia: #1d6363;
 $prussian: #005587;
-$shale: #0577B1;
+$shale: #0577b1;
 $ironweed: #993399;
 $sakai-red: #cc000a;
-$hatteras: #E2E6ED;
-$ginger: #FCF7E5;
+$hatteras: #e2e6ed;
+$ginger: #fcf7e5;
 $dogwood: #988675;
-$shackleford: #DAD0C6;
+$shackleford: #dad0c6;
 $white: #fff;
 $alabaster: #fafafa;
-$athens: #F8F9FA;
-$whisper: #F3F2F1;
+$athens: #f8f9fa;
+$whisper: #f3f2f1;
 $wildsand: #f5f5f5;
 $gallery: #eee;
-$limestone: #E5E5E5;
+$limestone: #e5e5e5;
 $alto: #dcdcdc;
-$granite: #B5B5B5;
+$granite: #b5b5b5;
 $graphite: #666666;
 $castiron: #262626;
 
@@ -38,117 +38,116 @@ $font-family-url: "https://fonts.googleapis.com/css?family=Open+Sans:400,500,600
 $become-user-primary: $ironweed;
 
 :root {
-    @include defineColorHSL(--duke-navy, 222, 98%, 21%);
-    @include defineColorHSL(--duke-royal, 208, 100%, 30%);
-    --duke-dodger: #0E99F0;
-    --duke-frenchpass: #cce7fe;
-    --duke-bay: #243a82;
-    @include defineColorHSL(--duke-copper, 23, 100%, 39%);
-    --duke-persimmon: #E89923;
-    @include defineColorHSL(--duke-dandelion, 46, 100%, 69%);
-    @include defineColorHSL(--duke-piedmont, 68, 87%, 38%);
-    @include defineColorHSL(--duke-eno, 180, 50%, 40%);
-    --duke-magnolia: #1D6363;
-    --duke-prussian: #005587;
-    --duke-shale: #0577B1;
-    @include defineColorHSL(--duke-ironweed, 300, 50%, 40%);
-    --logo: url(#{$skin-path}images/logo-duke-u@2x.png);
-    --logo-height: 36px;
-    --logo-width: 81px;
-    --sakai-primary-color-1: var(--duke-navy);
-    --sakai-primary-color-2: var(--duke-navy--darker-2);
-    --sakai-primary-color-3: var(--duke-navy--darker-3);
-    --sakai-active-color-1: var(--duke-navy--lighter-6);
-    --sakai-active-color-2: var(--duke-navy--lighter-5);
-    --sakai-active-color-3: var(--duke-navy--lighter-4);
-    --sakai-text-color-3: var(--duke-navy--darker-3);
-    --lessons-item-hover-background: var(--sakai-background-color-1);
-    --breadcrumb-color: var(--sakai-primary-color-1);
-    --breadcrumb-hover-color: var(--sakai-primary-color-2);
+  @include defineColorHSL(--duke-navy, 222, 98%, 21%);
+  @include defineColorHSL(--duke-royal, 208, 100%, 30%);
+  --duke-dodger: #0e99f0;
+  --duke-frenchpass: #cce7fe;
+  --duke-bay: #243a82;
+  @include defineColorHSL(--duke-copper, 23, 100%, 39%);
+  --duke-persimmon: #e89923;
+  @include defineColorHSL(--duke-dandelion, 46, 100%, 69%);
+  @include defineColorHSL(--duke-piedmont, 68, 87%, 38%);
+  @include defineColorHSL(--duke-eno, 180, 50%, 40%);
+  --duke-magnolia: #1d6363;
+  --duke-prussian: #005587;
+  --duke-shale: #0577b1;
+  @include defineColorHSL(--duke-ironweed, 300, 50%, 40%);
+  --logo: url(#{$skin-path}images/logo-duke-u@2x.png);
+  --logo-height: 36px;
+  --logo-width: 81px;
+  --sakai-primary-color-1: var(--duke-navy);
+  --sakai-primary-color-2: var(--duke-navy--darker-2);
+  --sakai-primary-color-3: var(--duke-navy--darker-3);
+  --sakai-active-color-1: var(--duke-navy--lighter-6);
+  --sakai-active-color-2: var(--duke-navy--lighter-5);
+  --sakai-active-color-3: var(--duke-navy--lighter-4);
+  --sakai-text-color-3: var(--duke-navy--darker-3);
+  --lessons-item-hover-background: var(--sakai-background-color-1);
+  --breadcrumb-color: var(--sakai-primary-color-1);
+  --breadcrumb-hover-color: var(--sakai-primary-color-2);
 }
 ///////////////////////////////////////////////////
 // DUKE-301 Dark Theme
 ///////////////////////////////////////////////////
 :root.sakaiUserTheme-dark {
-    @include defineColorHSL(--duke-dark, 222, 97%, 14%);
-    --sakai-primary-color-1: var(--duke-royal--darker-3);
-    --sakai-primary-color-2: var(--duke-royal--darker-1);
-    --sakai-primary-color-3: var(--duke-royal);
-    --sakai-active-color-1: var(--duke-royal--darker-3);
-    --sakai-active-color-2: var(--duke-royal--darker-1);
-    --sakai-active-color-3: var(--duke-royal);
-    --sakai-passive-color-1: var(--sakai-greyblue--darker-6);
-    --sakai-passive-color-2: var(--sakai-greyblue--darker-5);
-    --sakai-passive-color-3: var(--sakai-greyblue--darker-4);
-    --sakai-background-color-1: var(--sakai-color-gray--darker-7);
-    --sakai-background-color-3: var(--sakai-color-gray--darker-5);
-    --sakai-background-color-4: var(--sakai-color-gray--darker-4);
-    --sakai-background-color-2: var(--sakai-color-gray--darker-6);
-    --sakai-secondary-color-1: var(--duke-navy--lighter-2);
-    --sakai-tertiary-color-1: var(--duke-copper--lighter-2);
-    --sakai-border-color: var(--sakai-color-gray--darker-5);
-    --sakai-text-color-1: var(--sakai-color-gray--lighter-5);
-    --sakai-text-color-2: var(--sakai-color-gray--lighter-6);
-    --sakai-text-color-3: var(--duke-navy--lighter-6);
-    --sakai-text-color-dimmed: var(--sakai-color-gray--lighter-4);
-    --sakai-text-color-disabled: var(--sakai-color-gray--lighter-2);
-    --sakai-text-color-inverted: var(--sakai-color-gray--lighter-6);
-    --progress-bar-bg: var(--infoBanner-color); // SAK-45588
-
+  @include defineColorHSL(--duke-dark, 222, 97%, 14%);
+  --sakai-primary-color-1: var(--duke-royal--darker-3);
+  --sakai-primary-color-2: var(--duke-royal--darker-1);
+  --sakai-primary-color-3: var(--duke-royal);
+  --sakai-active-color-1: var(--duke-royal--darker-3);
+  --sakai-active-color-2: var(--duke-royal--darker-1);
+  --sakai-active-color-3: var(--duke-royal);
+  --sakai-passive-color-1: var(--sakai-greyblue--darker-6);
+  --sakai-passive-color-2: var(--sakai-greyblue--darker-5);
+  --sakai-passive-color-3: var(--sakai-greyblue--darker-4);
+  --sakai-background-color-1: var(--sakai-color-gray--darker-7);
+  --sakai-background-color-3: var(--sakai-color-gray--darker-5);
+  --sakai-background-color-4: var(--sakai-color-gray--darker-4);
+  --sakai-background-color-2: var(--sakai-color-gray--darker-6);
+  --sakai-secondary-color-1: var(--duke-navy--lighter-2);
+  --sakai-tertiary-color-1: var(--duke-copper--lighter-2);
+  --sakai-border-color: var(--sakai-color-gray--darker-5);
+  --sakai-text-color-1: var(--sakai-color-gray--lighter-5);
+  --sakai-text-color-2: var(--sakai-color-gray--lighter-6);
+  --sakai-text-color-3: var(--duke-navy--lighter-6);
+  --sakai-text-color-dimmed: var(--sakai-color-gray--lighter-4);
+  --sakai-text-color-disabled: var(--sakai-color-gray--lighter-2);
+  --sakai-text-color-inverted: var(--sakai-color-gray--lighter-6);
+  --progress-bar-bg: var(--infoBanner-color); // SAK-45588
 }
 ///////////////////////////////////////////////////
 // Extend Skins site title in header
 ///////////////////////////////////////////////////
 .Duke-headerlogo--siteTitle {
-    float: left;
-    line-height: $banner-height;
-    margin-left: $standard-space-4x;
-    font-size: 16px;
+  float: left;
+  line-height: $banner-height;
+  margin-left: $standard-space-4x;
+  font-size: 16px;
 }
 // duke-353
 @media only screen and (max-width: 480px) {
-    .Duke-headerlogo--siteTitle {
-        display: none;
-    }
+  .Duke-headerlogo--siteTitle {
+    display: none;
+  }
 }
 
 ///////////////////////////////////////////////////
 // duke-354 distinguish different servers visually
 ///////////////////////////////////////////////////
 body.duke-sakai-test-duke-edu {
-    --top-header-background: var(--sakai-color-green--darker-6);
+  --top-header-background: var(--sakai-color-green--darker-6);
 }
 body.duke-sakai-21-localhost {
-    --top-header-background: var(--sakai-color-red--darker-3);
+  --top-header-background: var(--sakai-color-red--darker-3);
 }
 
 ///////////////////////////////////////////////////
 // Forums print styles
 ///////////////////////////////////////////////////
 .printTable pre {
-    overflow-x: auto;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    background-color: transparent;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background-color: transparent;
 }
 ///////////////////////////////////////////////////
 // Worksite setup margin fix
 ///////////////////////////////////////////////////
 .Mrphs-sakai-siteinfo,
 .Mrphs-sakai-sitesetup {
-    #siteTypeList {
-        margin:0 0 $standard-spacing;
-        padding: $standard-spacing;
-    }
+  #siteTypeList {
+    margin: 0 0 $standard-spacing;
+    padding: $standard-spacing;
+  }
 }
 
 ///////////////////////////////////////////////////
 // Hide open source footer info
 ///////////////////////////////////////////////////
 .Mrphs-container--footer {
-    .Mrphs-footer--project {
-        display:none;
-    }
+  .Mrphs-footer--project {
+    display: none;
+  }
 }
 
 ///////////////////////////////////////////////////
@@ -157,85 +156,95 @@ body.duke-sakai-21-localhost {
 .duke-20x-sakai-localhost #lti_1,
 .duke-sakai-test-duke-edu #lti_37,
 .duke-sakai-duke-edu #lti_260 {
-    display: none;
+  display: none;
 }
 
 .duke-20x-sakai-localhost .Mrphs-sakai-siteinfo #toolHolder #lti_1_wrap label,
 .duke-sakai-test-duke-edu .Mrphs-sakai-siteinfo #toolHolder #lti_37_wrap label,
 .duke-sakai-duke-edu .Mrphs-sakai-siteinfo #toolHolder #lti_260_wrap label {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
 ///////////////////////////////////////////////////
 //DUKE-229
 ///////////////////////////////////////////////////
 body.project .Mrphs-sakai-siteinfo {
-    .add-official-1,
-    .add-official-instruction {
-        display:none;
-    }
+  .add-official-1,
+  .add-official-instruction {
+    display: none;
+  }
 }
 
 ///////////////////////////////////////////////////
 // DUKE-259
 ///////////////////////////////////////////////////
-#toolMenu .icon-sakai--sakai-conversations+.Mrphs-toolsNav__menuitem--title::after,
-.icon-sakai--sakai-conversations+.Mrphs-breadcrumb--toolNameText::after,
+#toolMenu
+  .icon-sakai--sakai-conversations
+  + .Mrphs-toolsNav__menuitem--title::after,
+.icon-sakai--sakai-conversations + .Mrphs-breadcrumb--toolNameText::after,
 .Mrphs-sakai-siteinfo #sakai_conversations_wrap::after,
 #reorder-list .icon-sakai--sakai-conversations::after {
-    background: $ironweed;
-    color: $white;
-    content: "beta";
-    display: inline-block;
-    position: absolute;
-    top: 4px;
-    right: 4px;
-    border-radius: 16px;
-    padding: 4px 8px;
-    margin: 0;
-    font-weight: 400;
-    font-style: normal;
-    font-size: .75em;
-    font-family: $font-family;
+  background: $ironweed;
+  color: $white;
+  content: "beta";
+  display: inline-block;
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  border-radius: 16px;
+  padding: 4px 8px;
+  margin: 0;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.75em;
+  font-family: $font-family;
 }
-#toolMenu .icon-sakai--sakai-conversations+.Mrphs-toolsNav__menuitem--title::after {
-    top: 7px;
+#toolMenu
+  .icon-sakai--sakai-conversations
+  + .Mrphs-toolsNav__menuitem--title::after {
+  top: 7px;
 }
 
-#toolMenu .is-invisible .icon-sakai--sakai-conversations+.Mrphs-toolsNav__menuitem--title::after {
-    right: 26px;
+#toolMenu
+  .is-invisible
+  .icon-sakai--sakai-conversations
+  + .Mrphs-toolsNav__menuitem--title::after {
+  right: 26px;
 }
-.Mrphs-toolMenu-collapsed #toolMenu .icon-sakai--sakai-conversations+.Mrphs-toolsNav__menuitem--title::after {
-    position: relative;
-    display: inline;
-    margin-left: 8px;
-    top:-3px;
-    right: 0;
-    padding: 0 8px;
+.Mrphs-toolMenu-collapsed
+  #toolMenu
+  .icon-sakai--sakai-conversations
+  + .Mrphs-toolsNav__menuitem--title::after {
+  position: relative;
+  display: inline;
+  margin-left: 8px;
+  top: -3px;
+  right: 0;
+  padding: 0 8px;
 }
-.Mrphs-siteHierarchy .icon-sakai--sakai-conversations+.Mrphs-breadcrumb--toolNameText::after {
-    text-transform: lowercase;
-    position: relative;
-    top: -2px;
-    right: 0;
-    margin-left: 8px;
-
+.Mrphs-siteHierarchy
+  .icon-sakai--sakai-conversations
+  + .Mrphs-breadcrumb--toolNameText::after {
+  text-transform: lowercase;
+  position: relative;
+  top: -2px;
+  right: 0;
+  margin-left: 8px;
 }
 .Mrphs-sakai-siteinfo #sakai_conversations_wrap::after {
-    position: relative;
-    display: inline-block;
-    top: 0;
-    right: 0;
+  position: relative;
+  display: inline-block;
+  top: 0;
+  right: 0;
 }
 #reorder-list .icon-sakai--sakai-conversations::after {
-    left: 155px;
-    right: auto;
-    top: 2px;
+  left: 155px;
+  right: auto;
+  top: 2px;
 }
 #conv-search-field {
-    display:none;
+  display: none;
 }
-
 
 // Duke-262
 .textPanel, //default
@@ -250,117 +259,120 @@ body.project .Mrphs-sakai-siteinfo {
 .Mrphs-sakai-syllabus .ui-accordion-content, //syllabus
 .Mrphs-sakai-samigo .portletBody, //samigo
 sakai-course-overview //dashboard
- {
-    h1 {
-        font-size: 2.2em;
+{
+  h1 {
+    font-size: 2.2em;
+  }
+  h2 {
+    font-size: 2em;
+  }
+  h3 {
+    font-size: 1.8em;
+  }
+  h4 {
+    font-size: 1.6em;
+  }
+  h5 {
+    font-size: 1.4em;
+  }
+  #jqueryui-accordion h3 {
+    font-size: 100%;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    line-height: 1.5;
+  }
+  .bg-navy,
+  .bg-copper,
+  .bg-dandelion,
+  .bg-piedmont,
+  .bg-magnolia,
+  .bg-ironweed,
+  .bg-primary,
+  .bg-info,
+  .bg-warning,
+  .bg-danger,
+  .bg-success {
+    padding: 5px;
+    border-radius: 4px;
+    &,
+    &[style],
+    span[style] {
+      color: $castiron;
     }
-    h2 {
-        font-size: 2em;
-    }
-    h3 {
-        font-size: 1.8em;
-
-    }
-    h4 {
-        font-size: 1.6em;
-    }
-    h5 {
-        font-size: 1.4em;
-    }
-    #jqueryui-accordion h3 {
-        font-size: 100%;
-    }
-    h1, h2, h3, h4, h5 {
-        line-height: 1.5;
-    }
-    .bg-navy,
-    .bg-copper,
-    .bg-dandelion,
-    .bg-piedmont,
-    .bg-magnolia,
-    .bg-ironweed,
-    .bg-primary,
-    .bg-info,
-    .bg-warning,
-    .bg-danger,
-    .bg-success {
-        padding: 5px;
-        border-radius: 4px;
-        &,
-        &[style],
-        span[style] {
-            color: $castiron;
-        }
-    }
-    span.bg-navy,
-    span.bg-copper,
-    span.bg-dandelion,
-    span.bg-piedmont,
-    span.bg-magnolia,
-    span.bg-ironweed,
-    span.bg-hatteras,
-    span.bg-primary,
-    span.bg-info,
-    span.bg-warning,
-    span.bg-danger,
-    span.bg-success {
-        padding: 1px 5px;
-    }
-    .bg-navy {
-        background: $navy;
-    }
-    .bg-copper {
-        background: $copper;
-    }
-    .bg-dandelion {
-        background: $dandelion;
-    }
-    .bg-piedmont {
-        background: $piedmont;
-    }
-    .bg-magnolia {
-        background: $magnolia;
-    }
-    .bg-ironweed {
-        background: $ironweed;
-    }
-    .bg-primary {
-        background-color: var(--duke-navy);
-    }
-    .bg-dimmed {
-        background-color: $hatteras;
-    }
-    .bg-ironweed,
+  }
+  span.bg-navy,
+  span.bg-copper,
+  span.bg-dandelion,
+  span.bg-piedmont,
+  span.bg-magnolia,
+  span.bg-ironweed,
+  span.bg-hatteras,
+  span.bg-primary,
+  span.bg-info,
+  span.bg-warning,
+  span.bg-danger,
+  span.bg-success {
+    padding: 1px 5px;
+  }
+  .bg-navy {
+    background: $navy;
+  }
+  .bg-copper {
+    background: $copper;
+  }
+  .bg-dandelion {
+    background: $dandelion;
+  }
+  .bg-piedmont {
+    background: $piedmont;
+  }
+  .bg-magnolia {
+    background: $magnolia;
+  }
+  .bg-ironweed {
+    background: $ironweed;
+  }
+  .bg-primary {
+    background-color: var(--duke-navy);
+  }
+  .bg-dimmed {
+    background-color: $hatteras;
+  }
+  .bg-ironweed,
     .bg-copper,
     .bg-navy,
     .bg-primary,
     // .bg-danger,
     .bg-magnolia {
-        &,
-        &[style],
-        span[style] {
-            color: #fff;
-        }
+    &,
+    &[style],
+    span[style] {
+      color: #fff;
     }
+  }
 }
 .cke.cke_combopanel {
-    width: 360px;
-    height: 440px;
+  width: 360px;
+  height: 440px;
 }
 .cke_panel_container .cke_panel_block {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    grid-template-rows: 30px auto;
-    grid-gap: 10px;
-    h1 {
-        grid-row-start: 1;
-        line-height: 30px;
-        padding: 0 0 0 5px;
-        font-size: 14px;
-    }
-    ul {
-        grid-row-start: 2;
-    }
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  grid-template-rows: 30px auto;
+  grid-gap: 10px;
+  h1 {
+    grid-row-start: 1;
+    line-height: 30px;
+    padding: 0 0 0 5px;
+    font-size: 14px;
+  }
+  ul {
+    grid-row-start: 2;
+  }
 }
 
 $pre-bg: transparent;
@@ -370,19 +382,18 @@ $pre-bg: transparent;
 ///////////////////////////////////////////////////
 
 .workspace {
-    .Mrphs-sakai-dashboard.Mrphs-container {
-        margin-top: -48px;
+  .Mrphs-sakai-dashboard.Mrphs-container {
+    margin-top: -48px;
 
-        .Mrphs-toolTitleNav__button_container {
-            display: none;
-        }
-    } 
+    .Mrphs-toolTitleNav__button_container {
+      display: none;
+    }
+  }
 }
 
 sakai-home-dashboard {
-    --sakai-dashboard-container-padding: 0;
-    --sakai-tool-bg-color: var(--sakai-background-color-1);
-    --sakai-motd-padding: 0;
-    --sakai-motd-margin-top: 16px;
+  --sakai-dashboard-container-padding: 0;
+  --sakai-tool-bg-color: var(--sakai-background-color-1);
+  --sakai-motd-padding: 0;
+  --sakai-motd-margin-top: 16px;
 }
-
