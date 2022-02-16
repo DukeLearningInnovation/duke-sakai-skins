@@ -1,50 +1,50 @@
 /* Duke Color palette */
 $navy: #012169;
 $royal: #005199;
-$dodger: #0E99F0;
+$dodger: #0e99f0;
 $frenchpass: #cce7fe;
 $bay: #243a82;
 $copper: #c64c00;
-$persimmon: #E89923;
-$dandelion: #FFD960;
-$piedmont: #A1B70D;
+$persimmon: #e89923;
+$dandelion: #ffd960;
+$piedmont: #a1b70d;
 $eno: #339898;
-$magnolia: #1D6363;
+$magnolia: #1d6363;
 $prussian: #005587;
-$shale: #0577B1;
+$shale: #0577b1;
 $ironweed: #993399;
 $sakai-red: #cc000a;
-$hatteras: #E2E6ED;
-$ginger: #FCF7E5;
+$hatteras: #e2e6ed;
+$ginger: #fcf7e5;
 $dogwood: #988675;
-$shackleford: #DAD0C6;
+$shackleford: #dad0c6;
 $white: #fff;
 $alabaster: #fafafa;
-$athens: #F8F9FA;
-$whisper: #F3F2F1;
+$athens: #f8f9fa;
+$whisper: #f3f2f1;
 $wildsand: #f5f5f5;
 $gallery: #eee;
-$limestone: #E5E5E5;
+$limestone: #e5e5e5;
 $alto: #dcdcdc;
-$granite: #B5B5B5;
+$granite: #b5b5b5;
 $graphite: #666666;
 $castiron: #262626;
 $primary-color: $navy;
 h1 {
-    font-size: 2.2em;
+  font-size: 2.2em;
 }
 h2 {
-    font-size: 2em;
+  font-size: 2em;
 }
 h3 {
-    font-size: 1.8em;
+  font-size: 1.8em;
 }
 
 h4 {
-    font-size: 1.6em;
+  font-size: 1.6em;
 }
 h5 {
-    font-size: 1.4em;
+  font-size: 1.4em;
 }
 
 .bg-navy,
@@ -59,13 +59,13 @@ h5 {
 .bg-warning,
 .bg-danger,
 .bg-success {
-    padding: 5px;
-    border-radius: 4px;
-    &,
-    &[style],
-    span[style] {
-        color: $castiron;
-    }
+  padding: 5px;
+  border-radius: 4px;
+  &,
+  &[style],
+  span[style] {
+    color: $castiron;
+  }
 }
 span.bg-navy,
 span.bg-copper,
@@ -79,85 +79,85 @@ span.bg-info,
 span.bg-warning,
 span.bg-danger,
 span.bg-success {
-    padding: 0 5px;
+  padding: 0 5px;
 }
 .bg-navy {
-    background: $navy;
+  background: $navy;
 }
 .bg-copper {
-    background: $copper;
+  background: $copper;
 }
 .bg-dandelion {
-    background: $dandelion;
+  background: $dandelion;
 }
 .bg-piedmont {
-    background: $piedmont;
+  background: $piedmont;
 }
 .bg-magnolia {
-    background: $magnolia;
+  background: $magnolia;
 }
 .bg-ironweed {
-    background: $ironweed;
+  background: $ironweed;
 }
 .bg-primary {
-    background-color: var(--duke-navy);
+  background-color: var(--duke-navy);
 }
 .bg-dimmed {
-    background-color: $hatteras;
+  background-color: $hatteras;
 }
 .bg-danger {
-    // background-color: $sakai-red;
+  // background-color: $sakai-red;
 }
 .bg-ironweed,
 .bg-copper,
 .bg-navy,
 .bg-primary,
 // .bg-danger,
-.bg-magnolia{
-    &,
-    &[style],
-    span[style] {
-        color: #fff;
-    }
+.bg-magnolia {
+  &,
+  &[style],
+  span[style] {
+    color: #fff;
+  }
 }
 
 body.cke_editable {
-    padding: 16px;
+  padding: 16px;
 }
 // stylesdropdown
 .cke_panel_listItem {
-    a[role="option"] {
-        text-decoration: none;
-    }
-    .none,
-    .bg-navy,
-    .bg-copper,
-    .bg-dandelion,
-    .bg-piedmont,
-    .bg-magnolia,
-    .bg-ironweed,
-    .bg-hatteras,
-    .bg-primary,
-    .bg-info,
-    .bg-warning,
-    .bg-danger,
-    .bg-success,
-    .bg-dimmed,
-    .bg-danger {
-        padding: 0;
-        font-size: 1em;
-        color: $castiron;
-    }
-    .bg-ironweed,
+  a[role="option"] {
+    text-decoration: none;
+  }
+  .none,
+  .bg-navy,
+  .bg-copper,
+  .bg-dandelion,
+  .bg-piedmont,
+  .bg-magnolia,
+  .bg-ironweed,
+  .bg-hatteras,
+  .bg-primary,
+  .bg-info,
+  .bg-warning,
+  .bg-danger,
+  .bg-success,
+  .bg-dimmed,
+  .bg-danger {
+    padding: 0;
+    font-size: 1em;
+    color: $castiron;
+  }
+  .bg-ironweed,
     .bg-copper,
     .bg-navy,
     // .bg-danger,
     .bg-magnolia {
-        color: #fff;
-    }
-    a[title="Link Button"] {
-        background-color: var(--duke-navy);
-        color: #fff !important; //sadly have to override a ckeditor style with important
-        text-decoration-color: #fff;
-    }
+    color: #fff;
+  }
+  a[title="Link Button"] {
+    background-color: var(--duke-navy);
+    color: #fff !important; //sadly have to override a ckeditor style with important
+    text-decoration-color: #fff;
+  }
 }

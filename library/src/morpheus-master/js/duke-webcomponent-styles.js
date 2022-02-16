@@ -1,4 +1,3 @@
-
 let dukeDashboardStyles = `
 #motd {
   border: 1px solid var(--sakai-border-color);
@@ -70,4 +69,4 @@ let dukeDashboardStyles = `
 }
 `;
 
-export {dukeDashboardStyles as dukeDashboardStyles};
+export { dukeDashboardStyles as dukeDashboardStyles };
