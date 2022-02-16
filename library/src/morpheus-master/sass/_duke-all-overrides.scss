@@ -1336,8 +1336,9 @@ sakai-icon.key {
 
   th {
     background: var(--sakai-active-color-1);
+    //duke-342 Conversation stats table contrast issues
     a {
-      color: var(--sakai-text-color-inverted);
+      color: var(--sakai-text-color-3);
     }
   }
   td {
