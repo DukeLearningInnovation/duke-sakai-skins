@@ -1542,3 +1542,21 @@ div.progress-stat {
     margin: 0 .5em;
   }
 }
+
+// duke-352
+@media only screen and (max-width: 800px) {
+  body.active-more-sites #selectSiteModal {
+    left: 0 !important; //simplepagetool style uses important
+  }
+  ul#otherSitesMenu {
+    margin: 5px;
+  }
+  ul#otherSitesMenu li:not(.otherSitesMenuClose) {
+    margin-bottom: 5px;
+  }
+
+
+  #selectSite .tab-bar .tab-btn:first-of-type {
+    margin-left: 5px;
+  }
+}
