@@ -251,3 +251,28 @@ if (document.querySelector(".Mrphs-headerLogo--institution")) {
     homeLinkContainer.click();
   });
 }
+
+///////////////////////////////////////////////////
+// #359 Add Conversations survey to tool
+///////////////////////////////////////////////////
+
+function dukeAddConversationsSurvey(){
+  // await document.hasOwnProperty('sakai');
+  if ( 'conversations' in window.sakai.translations ) {
+    const surveyContainer = document.createElement("div");
+    surveyContainer.id = "duke-conversations-survey";
+    const classes = ["duke-conversations-survey", "sak-banner-success-inline"];
+    surveyContainer.classList.add(...classes);
+    surveyContainer.innerHTML = `<a href="https://duke.qualtrics.com/jfe/form/SV_064tXBcRDJv3T7w">Share your experience with Conversations!</a>`;
+    let placement = document.querySelector(".Mrphs-sakai-conversations .Mrphs-toolTitleNav");
+    placement.prepend(surveyContainer);
+  }
+}
+
+if (document.readyState == 'loading') {
+  // still loading, wait for the event
+  document.addEventListener('DOMContentLoaded', dukeAddConversationsSurvey);
+} else {
+  // DOM is ready!
+  dukeAddConversationsSurvey();
+}
