@@ -1554,3 +1554,19 @@ div.progress-stat {
     margin-left: 5px;
   }
 }
+
+// duke-359 Conversations survey banner
+#duke-conversations-survey {
+  padding: 8px 8px 8px 50px;
+@media only screen and (min-width: 800px) {
+
+  margin-top:-48px;
+}
+}
+.Mrphs-sakai-conversations .Mrphs-toolTitleNav {
+  justify-content: flex-end;
+  align-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
