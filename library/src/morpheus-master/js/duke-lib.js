@@ -255,17 +255,22 @@ if (document.querySelector(".Mrphs-headerLogo--institution")) {
 ///////////////////////////////////////////////////
 // #359 Add Conversations survey to tool
 ///////////////////////////////////////////////////
-
 function dukeAddConversationsSurvey(){
-  // await document.hasOwnProperty('sakai');
   if ( 'conversations' in window.sakai.translations ) {
     const surveyContainer = document.createElement("div");
     surveyContainer.id = "duke-conversations-survey";
-    const classes = ["duke-conversations-survey", "sak-banner-success-inline"];
+    const classes = ["duke-conversations-survey"];
     surveyContainer.classList.add(...classes);
-    surveyContainer.innerHTML = `<a href="https://duke.qualtrics.com/jfe/form/SV_064tXBcRDJv3T7w">Share your experience with Conversations!</a>`;
-    let placement = document.querySelector(".Mrphs-sakai-conversations .Mrphs-toolTitleNav");
-    placement.prepend(surveyContainer);
+    surveyContainer.innerHTML = `<a target="_blank" title="Complete this survey to share your experience with Conversations." href="https://duke.qualtrics.com/jfe/form/SV_064tXBcRDJv3T7w">Share your Conversations experience with us!<span class="fa fa-external-link"></span></a>`;
+    let placement = document.querySelector(".Mrphs-siteHierarchy");
+    placement.append(surveyContainer);
+    placement.style.flexDirection = "row";
+    placement.style.alignItems = "center";
+    document.querySelector(".Mrphs-hierarchy--sites").style.maxWidth = "70%";
+    let placementLink = document.querySelector(".Mrphs-hierarchy--sites a");
+    placementLink.style.textOverflow = "ellipsis";
+    placementLink.style.overflow = "hidden";
+    placementLink.style.whiteSpace = "nowrap";
   }
 }
 
