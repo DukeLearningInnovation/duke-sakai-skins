@@ -1504,7 +1504,7 @@ $.datepicker._gotoToday = function (id) {
 		// use an icon?
 		icon: 1,
 		// minute increments
-		stepMinute: 5,
+		stepMinute: 1,
 		// use time
 		useTime: false,
 		// Slider options
