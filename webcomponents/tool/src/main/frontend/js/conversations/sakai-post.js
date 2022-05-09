@@ -575,7 +575,7 @@ export class SakaiPost extends reactionsMixin(SakaiElement) {
             <div class="photo">
               <sakai-user-photo
                   user-id="${window.top.portal.user.id}"
-                  size-class="medium-thumbnail"
+                  classes="medium-thumbnail"
               >
               </sakai-user-photo>
             </div>
@@ -682,7 +682,9 @@ export class SakaiPost extends reactionsMixin(SakaiElement) {
 
         <div class="post-topbar">
           <div class="photo">
-            <sakai-user-photo user-id="${this.post.anonymous && !this.canViewAnonymous ? "blank" : this.post.creator}" size-class="medium-thumbnail">
+            <sakai-user-photo
+                user-id="${this.post.anonymous && !this.canViewAnonymous ? "blank" : this.post.creator}"
+                classes="medium-thumbnail">
             </sakai-user-photo>
           </div>
           ${this._renderAuthorDetails()}
@@ -758,7 +760,10 @@ export class SakaiPost extends reactionsMixin(SakaiElement) {
         ` : ""}
         ${this.post.canComment ? html`
         <div class="post-add-comment-block">
-          <div><sakai-user-photo user-id="${window.top.portal.user.id}" size-class="medium-thumbnail"></sakai-user-photo></div>
+          <div>
+            <sakai-user-photo user-id="${window.top.portal.user.id}" classes="medium-thumbnail">
+            </sakai-user-photo>
+          </div>
           <div><sakai-comment-editor post-id="${this.post.id}" site-id="${this.siteId}" topic-id="${this.post.topic}" @comment-created=${this.commentCreated}></sakai-comment-editor></div>
         </div>
         ` : ""}
