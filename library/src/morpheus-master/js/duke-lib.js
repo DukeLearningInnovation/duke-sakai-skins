@@ -261,7 +261,7 @@ function dukeAddConversationsSurvey(){
     surveyContainer.id = "duke-conversations-survey";
     const classes = ["duke-conversations-survey"];
     surveyContainer.classList.add(...classes);
-    surveyContainer.innerHTML = `<a target="_blank" title="Complete this survey to share your experience with Conversations." href="https://duke.qualtrics.com/jfe/form/SV_064tXBcRDJv3T7w">Share your Conversations experience with us!<span class="fa fa-external-link"></span></a>`;
+    surveyContainer.innerHTML = `<a target="_blank" title="Complete this survey to provide feedback on the Conversations beta." href="https://duke.qualtrics.com/jfe/form/SV_a97noVkG7w86tYq">Give feedback on the Conversations beta<span class="fa fa-external-link"></span></a>`;
     let placement = document.querySelector(".Mrphs-siteHierarchy");
     placement.append(surveyContainer);
     placement.style.flexDirection = "row";
