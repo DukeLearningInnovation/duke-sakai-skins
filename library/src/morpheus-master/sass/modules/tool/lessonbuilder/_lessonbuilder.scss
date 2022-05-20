@@ -1,3 +1,94 @@
+// DUKE move mixin to global scope so it is available in overrides
+@mixin sakaiLessonsLayoutColorScheme($color, $lighterOrDarker, $name){
+	// Color scheme generation in Lessons Layouts
+	// Use any color previously defined via defineColorHSL
+	// @include sakaiLessonsLayoutColorScheme($color, $lighterOrDarker, $name)
+	// @param color
+	//      Type: string
+	//      expects the same value used to define a color palette in defineColorHSL
+	// @param lighterOrDarker
+	//      Type: string
+	//      expects a string either lighter or darker
+	// @param name
+	//      Type: string
+	//      expects a string which matches the classes the lessons tool will apply to the markup
+	// @returns a set of CSS selectors and rules
+	// Example usage 
+	//      @include sakaiLessonsLayoutColorScheme('--sakai-color-gray', 'lighter', 'gray');
+
+	$shade1: #{$color}--#{$lighterOrDarker}-1;
+	$shade2: #{$color}--#{$lighterOrDarker}-2;
+	$shade3: #{$color};
+	$shade4: #{$color}--#{$lighterOrDarker}-7;
+	@if $lighterOrDarker == "darker" {
+		$shade1: #{$color}--#{$lighterOrDarker}-4;
+		$shade2: #{$color}--#{$lighterOrDarker}-5;
+		$shade3: #{$color}--#{$lighterOrDarker}-3;
+		$shade4: #{$color}--#{$lighterOrDarker}-7;
+	}
+	.coln#{$name}, .coln#{$name}-trans {
+		background: var(--sakai-background-color-1);
+		border: 1px solid var($shade1);
+	}
+	.coln#{$name}-header, .coln#{$name}-trans-header {
+		@extend .sakai-colorize#{$shade2};
+		border: 1px solid var(#{$shade2});
+	}
+	.collapsibleSectionHeader.coln#{$name}-header:hover, .collapsibleSectionHeader.coln#{$name}-trans-header:hover {
+		@extend .sakai-colorize#{$shade1};
+		border-color: var(#{$shade1});
+	}
+	.collapsibleSectionHeader.coln#{$name}-header:active, .collapsibleSectionHeader.coln#{$name}-trans-header:active {
+		@extend .sakai-colorize#{$shade3};
+		border-color: var(#{$shade3});
+	}
+	.coln#{$name}-header + .section {
+		border: 1px solid var(#{$shade2});
+		// border-top: none; // duke-310
+	}
+	
+	.coln#{$name} {
+		.questionDiv .contentCol, .checklistDiv {
+			@extend .sakai-colorize#{$shade4};
+		}
+		input[type="submit"].question-submit,
+		.linkCell .addStudentContent,
+		input[type="submit"].setStudentZero {
+			@extend .sakai-colorize#{$shade2};
+			border: 1px solid var(#{$shade2});
+			&:hover,
+			&:focus {
+				@extend .sakai-colorize#{$shade1};
+				border: 1px solid var(#{$shade1});
+			}
+			&:active {
+				@extend .sakai-colorize#{$shade3};
+				border: 1px solid var(#{$shade3});
+			}
+		}
+		input[type="submit"].question-submit,.linkCell .addStudentContent, input[type="submit"].setStudentZero {
+			margin-top: $standard-space-4x;
+		}
+	}
+
+	.usebutton.n#{$name},
+	.usebutton.n#{$name}-trans {
+		@extend .sakai-colorize#{$shade2};
+		border: 1px solid var(#{$shade2});
+
+		&:hover,
+		&:focus {
+		@extend .sakai-colorize#{$shade1};
+		border: 1px solid var(#{$shade1});
+		}
+
+		&:active {
+		@extend .sakai-colorize#{$shade3};
+		border: 1px solid var(#{$shade3});
+		}
+	}
+}
+
 .#{$namespace}sakai-lessonbuildertool {
 	.navIntraTool {
 		margin: 0 0 0 0;
@@ -164,81 +255,6 @@
 		&:active {
 			background-color: var(--sakai-background-color-4);
 		}
-	}
-
-	
-	@mixin sakaiLessonsLayoutColorScheme($color, $lighterOrDarker, $name){
-	// Color scheme generation in Lessons Layouts
-	// Use any color previously defined via defineColorHSL
-	// @include sakaiLessonsLayoutColorScheme($color, $lighterOrDarker, $name)
-	// @param color
-	//      Type: string
-	//      expects the same value used to define a color palette in defineColorHSL
-	// @param lighterOrDarker
-	//      Type: string
-	//      expects a string either lighter or darker
-	// @param name
-	//      Type: string
-	//      expects a string which matches the classes the lessons tool will apply to the markup
-	// @returns a set of CSS selectors and rules
-	// Example usage 
-	//      @include sakaiLessonsLayoutColorScheme('--sakai-color-gray', 'lighter', 'gray');
-
-		$shade1: #{$color}--#{$lighterOrDarker}-1;
-		$shade2: #{$color}--#{$lighterOrDarker}-2;
-		$shade3: #{$color};
-		$shade4: #{$color}--#{$lighterOrDarker}-7;
-		@if $lighterOrDarker == "darker" {
-			$shade1: #{$color}--#{$lighterOrDarker}-4;
-			$shade2: #{$color}--#{$lighterOrDarker}-5;
-			$shade3: #{$color}--#{$lighterOrDarker}-3;
-			$shade4: #{$color}--#{$lighterOrDarker}-7;
-		}
-		.coln#{$name}, .coln#{$name}-trans {
-			background: var(--sakai-background-color-1);
-			border: 1px solid var($shade1);
-		}
-		.coln#{$name}-header, .coln#{$name}-trans-header {
-			@extend .sakai-colorize#{$shade2};
-			border: 1px solid var(#{$shade2});
-		}
-		.collapsibleSectionHeader.coln#{$name}-header:hover, .collapsibleSectionHeader.coln#{$name}-trans-header:hover {
-			@extend .sakai-colorize#{$shade1};
-			border-color: var(#{$shade1});
-		}
-		.collapsibleSectionHeader.coln#{$name}-header:active, .collapsibleSectionHeader.coln#{$name}-trans-header:active {
-			@extend .sakai-colorize#{$shade3};
-			border-color: var(#{$shade3});
-		}
-		.coln#{$name}-header + .section {
-			border: 1px solid var(#{$shade2});
-			border-top: none;
-		}
-		
-		.coln#{$name} {
-			.questionDiv .contentCol, .checklistDiv {
-				@extend .sakai-colorize#{$shade4};
-			}
-			input[type="submit"].question-submit,
-			.linkCell .addStudentContent,
-			input[type="submit"].setStudentZero {
-				@extend .sakai-colorize#{$shade2};
-				border: 1px solid var(#{$shade2});
-				&:hover,
-				&:focus {
-					@extend .sakai-colorize#{$shade1};
-					border: 1px solid var(#{$shade1});
-				}
-				&:active {
-					@extend .sakai-colorize#{$shade3};
-					border: 1px solid var(#{$shade3});
-				}
-			}
-			input[type="submit"].question-submit,.linkCell .addStudentContent, input[type="submit"].setStudentZero {
-				margin-top: $standard-space-4x;
-			}
-		}
-
 	}
 
 	@include sakaiLessonsLayoutColorScheme('--sakai-color-gray', 'lighter', 'gray');
