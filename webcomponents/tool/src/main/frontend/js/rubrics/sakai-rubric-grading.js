@@ -2,14 +2,13 @@ import { RubricsElement } from "./rubrics-element.js";
 import { html } from "/webcomponents/assets/lit-element/lit-element.js";
 import "./sakai-rubric-grading-comment.js";
 import { SakaiRubricsLanguage, tr } from "./sakai-rubrics-language.js";
+import { getUserId } from "../sakai-portal-utils.js";
 
 export class SakaiRubricGrading extends RubricsElement {
 
   constructor() {
 
     super();
-
-    this.existingEvaluation = false;
 
     this.rubric = { title: "" };
     this.criteria = [];
@@ -26,6 +25,7 @@ export class SakaiRubricGrading extends RubricsElement {
       entityId: { attribute: "entity-id", type: String },
       evaluatedItemId: { attribute: "evaluated-item-id", type: String },
       evaluatedItemOwnerId: { attribute: "evaluated-item-owner-id", type: String },
+      group: { type: Boolean},
 
       // Non attribute
       evaluation: { type: Object },
@@ -167,6 +167,8 @@ export class SakaiRubricGrading extends RubricsElement {
 
   updateComment(e) {
 
+    console.debug("updateComment");
+
     this.criteria.forEach(c => {
 
       if (c.id === e.detail.criterionId) {
@@ -174,32 +176,59 @@ export class SakaiRubricGrading extends RubricsElement {
       }
     });
 
-    this._dispatchRatingChanged(this.criteria, 1);
-  }
-
-  calculateTotalPointsFromCriteria() {
-
-    this.totalPoints = this.criteria.reduce((a, c) => {
-
-      if (c.pointoverride) {
-        return a + parseFloat(c.pointoverride);
-      } else if (c.selectedvalue) {
-        return a + parseFloat(c.selectedvalue);
-      } else {
-        return a;
-      }
-    }, 0);
+    this.dispatchRatingChanged(this.criteria, 1);
   }
 
   release() {
-    this._dispatchRatingChanged(this.criteria, 2);
+
+    console.debug("release");
+
+    // If there are no criteria, this evaluation has been cancelled.
+    if (this.criteria.length == 0) return;
+
+    this.dispatchRatingChanged(this.criteria, 2).then(evaluation => {
+
+      // We've saved the new returned evaluation. We now need to save the returned, backup copy.
+
+      this.getReturnedEvaluation(evaluation.id).then(retEval => {
+
+        retEval.overallComment = evaluation.overallComment;
+        retEval.criterionOutcomes = evaluation.criterionOutcomes;
+        retEval.criterionOutcomes.forEach(co => { delete co.id; delete co._links; });
+
+        const url = `/rubrics-service/rest/returned-evaluations${retEval?.id ? `/${retEval.id}` : ""}`;
+        fetch(url, {
+          body: JSON.stringify(retEval),
+          credentials: "same-origin",
+          headers: {
+            "Authorization": this.token,
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          },
+          method: retEval?.id ? "PUT" : "POST",
+        })
+        .then(r => {
+
+          if (!r.ok) {
+            throw new Error("Server error while saving returned evaluation");
+          }
+        })
+        .catch(error => console.error(error));
+      })
+      .catch(error => console.error(error));
+    });
   }
 
   save() {
-    this._dispatchRatingChanged(this.criteria, 1);
+
+    console.debug("save");
+
+    this.dispatchRatingChanged(this.criteria, 1);
   }
 
   decorateCriteria() {
+
+    console.debug("decorateCriteria");
 
     this.evaluation.criterionOutcomes.forEach(ed => {
 
@@ -229,10 +258,12 @@ export class SakaiRubricGrading extends RubricsElement {
       });
     });
 
-    this.updateTotalPoints(false);
+    this.updateTotalPoints({ notify: false });
   }
 
   fineTuneRating(e) {
+
+    console.debug("fineTuneRating");
 
     const value = e.target.value;
 
@@ -261,10 +292,12 @@ export class SakaiRubricGrading extends RubricsElement {
     this.dispatchEvent(new CustomEvent("rubric-rating-tuned", { detail: detail, bubbles: true, composed: true }));
 
     this.updateTotalPoints();
-    this._dispatchRatingChanged(this.criteria, 1);
+    this.dispatchRatingChanged(this.criteria, 1);
   }
 
-  _dispatchRatingChanged(criteria, status) {
+  dispatchRatingChanged(criteria, status) {
+
+    console.debug("dispatchRatingChanged");
 
     const crit = criteria.map(c => {
 
@@ -278,22 +311,30 @@ export class SakaiRubricGrading extends RubricsElement {
     });
 
     const evaluation = {
-      evaluatorId: window.top.portal.user.id,
+      evaluatorId: getUserId(),
       evaluatedItemId: this.evaluatedItemId,
       evaluatedItemOwnerId: this.evaluatedItemOwnerId,
+      evaluatedItemOwnerType: this.group ? "GROUP" : "USER",
       overallComment: "",
       criterionOutcomes: crit,
       toolItemRubricAssociation: this.association._links.self.href,
-      status: status
+      status: status,
     };
 
     if (this.evaluation && this.evaluation.id) {
       evaluation.metadata = this.evaluation.metadata;
     }
 
+    return this.saveEvaluation(evaluation, status);
+  }
+
+  saveEvaluation(evaluation) {
+
+    console.debug("saveEvaluation");
+
     let url = "/rubrics-service/rest/evaluations";
     if (this.evaluation && this.evaluation.id) url += `/${this.evaluation.id}`;
-    fetch(url, {
+    return fetch(url, {
       body: JSON.stringify(evaluation),
       credentials: "same-origin",
       headers: {
@@ -302,10 +343,52 @@ export class SakaiRubricGrading extends RubricsElement {
         "Content-Type": "application/json"
       },
       method: this.evaluation && this.evaluation.id ? "PATCH" : "POST"
-    }).then(r => r.json()).then(r => this.evaluation = r);
+    })
+    .then(r => {
+
+      if (r.ok) {
+        return r.json();
+      }
+
+      throw new Error("Server error while saving rubric evaluation");
+    })
+    .then(data => {
+
+      this.evaluation = data;
+      return Promise.resolve(this.evaluation);
+    })
+    .catch(error => console.error(error));
+  }
+
+  deleteEvaluation() {
+
+    console.debug("deleteEvaluation");
+
+    if (!this?.evaluation?.id) return;
+
+    const url = `/rubrics-service/rest/evaluations/${this.evaluation.id}`;
+    fetch(url, {
+      credentials: "same-origin",
+      headers: { "Authorization": this.token, },
+      method: "DELETE"
+    })
+    .then(r => {
+
+      if (r.ok) {
+        this.updateTotalPoints({ notify: true, totalPoints: 0 });
+        this.evaluation = { criterionOutcomes: [] };
+        this.criteria.forEach(c => this.emptyCriterion(c));
+        this.requestUpdate();
+      } else {
+        throw new Error("Server error while deleting evaluation");
+      }
+    })
+    .catch(error => console.error(error));
   }
 
   getOverriddenClass(ovrdvl, selected) {
+
+    console.debug("getOverriddenClass");
 
     if (!this.association.parameters.fineTunePoints) {
       return '';
@@ -318,7 +401,19 @@ export class SakaiRubricGrading extends RubricsElement {
     }
   }
 
+  emptyCriterion(criterion) {
+
+    console.debug("emptyCriterion");
+
+    criterion.selectedvalue = 0.0;
+    criterion.selectedRatingId = 0;
+    criterion.pointoverride = 0.0;
+    criterion.ratings.forEach(r => r.selected = false);
+  }
+
   toggleRating(e) {
+
+    console.debug("toggleRating");
 
     e.stopPropagation();
 
@@ -332,9 +427,7 @@ export class SakaiRubricGrading extends RubricsElement {
     criterion.ratings.forEach(r => r.selected = false);
 
     if (rating.selected) {
-      criterion.selectedvalue = 0.0;
-      criterion.selectedRatingId = 0;
-      criterion.pointoverride = 0.0;
+      this.emptyCriterion(criterion);
       rating.selected = false;
     } else {
       const auxPoints = this.rubric.weighted ?
@@ -353,21 +446,39 @@ export class SakaiRubricGrading extends RubricsElement {
     this.requestUpdate();
     this.updateTotalPoints();
 
-    this._dispatchRatingChanged(this.criteria, 1);
+    this.dispatchRatingChanged(this.criteria, 1);
   }
 
   commentShown(e) {
+
+    console.debug("commentShown");
+
     this.querySelectorAll(`sakai-rubric-grading-comment:not(#${e.target.id})`).forEach(c => c.hide());
   }
 
-  updateTotalPoints(notify = true) {
+  updateTotalPoints(options = { notify: true }) {
 
-    this.calculateTotalPointsFromCriteria();
+    console.debug("updateTotalPoints");
+
+    if (typeof options.totalPoints !== "undefined") {
+      this.totalPoints = options.totalPoints;
+    } else {
+      this.totalPoints = this.criteria.reduce((a, c) => {
+
+        if (c.pointoverride) {
+          return a + parseFloat(c.pointoverride);
+        } else if (c.selectedvalue) {
+          return a + parseFloat(c.selectedvalue);
+        }
+        return a;
+
+      }, 0);
+    }
 
     // Make sure total points is not negative
     if (parseFloat(this.totalPoints) < 0) this.totalPoints = 0;
 
-    if (notify) {
+    if (options.notify) {
       const detail = {
         evaluatedItemId: this.evaluatedItemId,
         entityId: this.entityId,
@@ -377,41 +488,102 @@ export class SakaiRubricGrading extends RubricsElement {
     }
   }
 
+  cancel() {
+
+    console.debug("cancel");
+
+    if (this.evaluation.status !== "DRAFT") return;
+
+    // Get the evaluation from session storage. This should be the last non draft evaluation that
+    // the server originally sent before the user started setting ratings. Save it baack to the
+    // server.
+    this.getReturnedEvaluation(this.evaluation.id).then(retEval => {
+
+      if (retEval?.id) {
+        this.evaluation.criterionOutcomes = retEval.criterionOutcomes;
+        this.evaluation.overallComment = retEval.overallComment;
+        this.evaluation.status = 2;
+
+        // Save cached evaluation and reset the criteria ready for rendering
+        this.saveEvaluation(this.evaluation).then(() => {
+
+          // Unset any ratings
+          this.criteria.forEach(c => c.ratings.forEach(r => r.selected = false));
+          // And set the original ones
+          this.decorateCriteria();
+          this.updateTotalPoints();
+        });
+      } else {
+        this.deleteEvaluation();
+      }
+    }).catch(error => console.error(error));
+  }
+
   getAssociation() {
+
+    console.debug("getAssociation");
 
     if (!this.toolId || !this.entityId || !this.token || !this.evaluatedItemId) {
       return;
     }
 
-    $.ajax({
-      url: `/rubrics-service/rest/rubric-associations/search/by-tool-and-assignment?toolId=${this.toolId}&itemId=${this.entityId}`,
-      headers: { "authorization": this.token }
-    }).done(data => {
+    const url = `/rubrics-service/rest/rubric-associations/search/by-tool-and-assignment?toolId=${this.toolId}&itemId=${this.entityId}`;
+    fetch(url, {
+      credentials: "same-origin",
+      headers: { "Authorization": this.token, "Accept": "application/json" },
+    })
+    .then(r => {
+
+      if (r.ok) {
+        return r.json();
+      }
+
+      throw new Error(`Failed to retrieve association from ${url}. Status: ${r.status}`);
+    })
+    .then(data => {
 
       this.association = data._embedded['rubric-associations'][0];
       this.rubricId = data._embedded['rubric-associations'][0].rubricId;
       this.getRubric(this.rubricId);
-    }).fail((jqXHR, textStatus, errorThrown) => {
-
-      console.info(textStatus);
-      console.error(errorThrown);
-    });
+    })
+    .catch(error => console.error(error));
   }
 
   getRubric(rubricId) {
 
-    $.ajax({
-      url: `/rubrics-service/rest/rubrics/${rubricId}?projection=inlineRubric`,
-      headers: { "authorization": this.token }
-    }).done(rubric => {
+    console.debug("getRubric");
 
-      $.ajax({
-        url: `/rubrics-service/rest/evaluations/search/by-tool-and-assignment-and-submission?toolId=${this.toolId}&itemId=${this.entityId}&evaluatedItemId=${this.evaluatedItemId}`,
-        headers: { "authorization": this.token }
-      }).done(data => {
+    const url = `/rubrics-service/rest/rubrics/${rubricId}?projection=inlineRubric`;
+    fetch(url, {
+      credentials: "same-origin",
+      headers: { "Authorization": this.token, "Accept": "application/json" },
+    })
+    .then(r => {
+
+      if (r.ok) {
+        return r.json();
+      }
+
+      throw new Error(`Failed to retrieve rubric from ${url}. Status: ${r.status}`);
+    })
+    .then(rubric => {
+
+      const evaluationUrl = `/rubrics-service/rest/evaluations/search/by-tool-and-assignment-and-submission?toolId=${this.toolId}&itemId=${this.entityId}&evaluatedItemId=${this.evaluatedItemId}`;
+      fetch(evaluationUrl, {
+        credentials: "same-origin",
+        headers: { "Authorization": this.token },
+      })
+      .then(r => {
+
+        if (r.ok) {
+          return r.json();
+        }
+
+        throw new Error(`Failed to retrieve evaluation from ${evaluationUrl}. Status: ${r.status}`);
+      })
+      .then(data => {
 
         this.evaluation = data._embedded.evaluations[0] || { criterionOutcomes: [] };
-        this.existingEvaluation = true;
 
         this.rubric = rubric;
 
@@ -427,19 +599,34 @@ export class SakaiRubricGrading extends RubricsElement {
         });
 
         this.decorateCriteria();
-      }).fail((jqXHR, textStatus, errorThrown) => {
+        this.updateTotalPoints();
+      })
+      .catch(error => console.error(error));
+    })
+    .catch(error => console.error(error));
+  }
 
-        console.info(textStatus);
-        console.error(errorThrown);
-      });
-    }).fail((jqXHR, textStatus, errorThrown) => {
+  getReturnedEvaluation(originalEvaluationId) {
 
-      console.info(textStatus);
-      console.error(errorThrown);
+    console.debug("getReturnedEvaluation");
+
+    const returnedUrl = `/rubrics-service/rest/returned-evaluations/search/by-original-evaluation-id?id=${originalEvaluationId}`;
+    return fetch(returnedUrl, {
+      credentials: "same-origin",
+      headers: { "Authorization": this.token, "Accept": "application/json" },
+    })
+    .then(r => {
+
+      if (r.ok) {
+        return r.json();
+      } else if (r.status === 404) {
+        return Promise.resolve({ originalEvaluationId });
+      }
+
+      throw new Error("Server error while retrieving returned evaluation");
     });
   }
 }
 
-if (!customElements.get("sakai-rubric-grading")) {
-  customElements.define("sakai-rubric-grading", SakaiRubricGrading);
-}
+const tagName = "sakai-rubric-grading";
+!customElements.get(tagName) && customElements.define(tagName, SakaiRubricGrading);

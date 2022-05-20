@@ -30,20 +30,17 @@
       <title><h:outputText value="#{authorImportExport.export_a} #{authorImportExport.dash} #{assessmentBean.title}" /></title>
 <script>
 function getSelectedType(qtiUrl, cpUrl, emtUrl, e2mt){
-  if ( $("#exportAssessmentForm\\:exportType\\:0").prop("checked") ) {
+  if ( $("#exportAssessmentForm\\:exportType\\:1").prop("checked") ) {
     window.open( qtiUrl, '_qti_export', 'toolbar=yes,menubar=yes,personalbar=no,width=600,height=500,scrollbars=yes,resizable=yes');
   }
-  else if ($("#exportAssessmentForm\\:exportType\\:1").prop("checked")) {
+  else if ($("#exportAssessmentForm\\:exportType\\:0").prop("checked")) {
     window.location = cpUrl;
   }
-  else {
-	//alert("emtUrl.....");
-	if (e2mt === 'false') {
-		window.location = emtUrl;
-	} 
-	else if (confirm('<h:outputText value="#{authorImportExport.export_confirm}" />')) {
-		window.location = emtUrl;	
-	}
+  else if (e2mt === 'false') {
+    window.location = emtUrl;
+  } 
+  else if (confirm('<h:outputText value="#{authorImportExport.export_confirm}" />')) {
+    window.location = emtUrl;  
   }
 }
 </script>
@@ -88,10 +85,10 @@ function getSelectedType(qtiUrl, cpUrl, emtUrl, e2mt){
       <p class="sak-banner-warn"><h:outputText value="#{authorImportExport.cp_message}"/></p>
     </div>
     <h:panelGroup layout="block">
-     <h:outputText value="#{authorImportExport.choose_export_type}"/>
-     <t:selectOneRadio id="exportType" layout="spread" value="1">
-       <f:selectItem itemLabel="#{authorImportExport.qti12}" itemValue="1"/>
+     <h:outputLabel value="#{authorImportExport.choose_export_type}" for="exportType" />
+     <t:selectOneRadio id="exportType" layout="spread" value="2">
        <f:selectItem itemLabel="#{authorImportExport.content_packaging}" itemValue="2"/>
+       <f:selectItem itemLabel="#{authorImportExport.qti12}" itemValue="1"/>
        <f:selectItem itemLabel="#{authorImportExport.markup_text}" itemValue="3"/>
      </t:selectOneRadio>
      <h:panelGrid>

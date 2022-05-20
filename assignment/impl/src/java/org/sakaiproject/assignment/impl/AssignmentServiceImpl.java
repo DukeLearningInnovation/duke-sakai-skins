@@ -465,7 +465,7 @@ public class AssignmentServiceImpl implements AssignmentService, EntityTransferr
 
         try {
             Assignment a = getAssignment(ref);
-            return Optional.of(this.getDeepLink(a.getContext(), a.getId(), userDirectoryService.getCurrentUser().getId()));
+            return Optional.of(getDeepLink(a.getContext(), a.getId(), userDirectoryService.getCurrentUser().getId()));
         } catch (Exception e) {
             return Optional.empty();
         }
@@ -1358,24 +1358,26 @@ public class AssignmentServiceImpl implements AssignmentService, EntityTransferr
                         log.warn("Exception while removing lock for assignment {}, {}", assignment.getId(), e.toString());
                     }
                 }
-                if (assignment.getIsGroup()) { // lock mode ALL for group assignments
-                    for (String groupRef : assignment.getGroups()) {
-                        try {
-                            AuthzGroup group = authzGroupService.getAuthzGroup(groupRef);
-                            group.setLockForReference(reference, AuthzGroup.RealmLockMode.ALL);
-                            authzGroupService.save(group);
-                        } catch (GroupNotDefinedException | AuthzPermissionException e) {
-                            log.warn("Exception while adding lock ALL for assignment {}, {}", assignment.getId(), e.toString());
+                if (!assignment.getDraft()) { // don't add locks for draft assignments
+                    if (assignment.getIsGroup()) { // lock mode ALL for group assignments
+                        for (String groupRef : assignment.getGroups()) {
+                            try {
+                                AuthzGroup group = authzGroupService.getAuthzGroup(groupRef);
+                                group.setLockForReference(reference, AuthzGroup.RealmLockMode.ALL);
+                                authzGroupService.save(group);
+                            } catch (GroupNotDefinedException | AuthzPermissionException e) {
+                                log.warn("Exception while adding lock ALL for assignment {}, {}", assignment.getId(), e.toString());
+                            }
                         }
-                    }
-                } else { // lock mode DELETE for assignments released to groups
-                    for (String groupRef : assignment.getGroups()) {
-                        try {
-                            AuthzGroup group = authzGroupService.getAuthzGroup(groupRef);
-                            group.setLockForReference(reference, AuthzGroup.RealmLockMode.DELETE);
-                            authzGroupService.save(group);
-                        } catch (GroupNotDefinedException | AuthzPermissionException e) {
-                            log.warn("Exception while adding lock DELETE for assignment {}, {}", assignment.getId(), e.toString());
+                    } else { // lock mode DELETE for assignments released to groups
+                        for (String groupRef : assignment.getGroups()) {
+                            try {
+                                AuthzGroup group = authzGroupService.getAuthzGroup(groupRef);
+                                group.setLockForReference(reference, AuthzGroup.RealmLockMode.DELETE);
+                                authzGroupService.save(group);
+                            } catch (GroupNotDefinedException | AuthzPermissionException e) {
+                                log.warn("Exception while adding lock DELETE for assignment {}, {}", assignment.getId(), e.toString());
+                            }
                         }
                     }
                 }
@@ -2645,7 +2647,7 @@ public class AssignmentServiceImpl implements AssignmentService, EntityTransferr
     @Override
     public boolean assignmentUsesAnonymousGrading(Assignment assignment) {
         if (assignment != null) {
-            return Boolean.valueOf(assignment.getProperties().get(AssignmentServiceConstants.NEW_ASSIGNMENT_CHECK_ANONYMOUS_GRADING));
+            return Boolean.parseBoolean(assignment.getProperties().get(AssignmentServiceConstants.NEW_ASSIGNMENT_CHECK_ANONYMOUS_GRADING));
         }
         return false;
     }
@@ -2657,7 +2659,7 @@ public class AssignmentServiceImpl implements AssignmentService, EntityTransferr
     }
 
     @Override
-    public String getDeepLinkWithPermissions(String context, String assignmentId, boolean allowReadAssignment, boolean allowAddAssignment, boolean allowSubmitAssignment) throws Exception {
+    public String getDeepLinkWithPermissions(String context, String assignmentId, boolean allowReadAssignment, boolean allowAddAssignment, boolean allowSubmitAssignment, boolean allowGradeAssignment) throws Exception {
         Assignment a = getAssignment(assignmentId);
 
         String assignmentContext = a.getContext(); // assignment context
@@ -2669,7 +2671,14 @@ public class AssignmentServiceImpl implements AssignmentService, EntityTransferr
                 ToolConfiguration fromTool = site.getToolForCommonId("sakai.assignment.grades");
                 // Three different urls to be rendered depending on the
                 // user's permission
-                if (allowAddAssignment) {
+                if (allowGradeAssignment) {
+                    return serverConfigurationService.getPortalUrl()
+                            + "/directtool/"
+                            + fromTool.getId()
+                            + "?assignmentId="
+                            + AssignmentReferenceReckoner.reckoner().context(context).id(assignmentId).reckon().getReference()
+                            + "&panel=Main&sakai_action=doGrade_assignment";
+                } else if (allowAddAssignment) {
                     return serverConfigurationService.getPortalUrl()
                             + "/directtool/"
                             + fromTool.getId()
@@ -2711,8 +2720,9 @@ public class AssignmentServiceImpl implements AssignmentService, EntityTransferr
         boolean allowReadAssignment = permissionCheck(SECURE_ACCESS_ASSIGNMENT, resourceString, userId);
         boolean allowAddAssignment = permissionCheck(SECURE_ADD_ASSIGNMENT, resourceString, userId) || (!getGroupsAllowFunction(SECURE_ADD_ASSIGNMENT, context, userId).isEmpty());
         boolean allowSubmitAssignment = permissionCheck(SECURE_ADD_ASSIGNMENT_SUBMISSION, resourceString, userId);
+        boolean allowGradeAssignment = permissionCheck(SECURE_GRADE_ASSIGNMENT_SUBMISSION, resourceString, userId);
 
-        return getDeepLinkWithPermissions(context, assignmentId, allowReadAssignment, allowAddAssignment, allowSubmitAssignment);
+        return getDeepLinkWithPermissions(context, assignmentId, allowReadAssignment, allowAddAssignment, allowSubmitAssignment, allowGradeAssignment);
     }
 
     @Override
@@ -3697,6 +3707,11 @@ public class AssignmentServiceImpl implements AssignmentService, EntityTransferr
                 String contentType = resource.getContentType();
 
                 ResourceProperties props = resource.getProperties();
+                if ("true".equals(props.getProperty(AssignmentConstants.PROP_INLINE_SUBMISSION)))
+                {
+                    // File for the inline submission - the inline text has a separate file designated in the archive, so skip
+                    continue;
+                }
                 String displayName = props.getPropertyFormatted(props.getNamePropDisplayName());
                 displayName = escapeInvalidCharsEntry(displayName);
 
@@ -3819,6 +3834,7 @@ public class AssignmentServiceImpl implements AssignmentService, EntityTransferr
         }
     }
 
+    @Transactional
     public String createContentReviewAssignment(Assignment assignment, String assignmentRef, Instant openTime, Instant dueTime, Instant closeTime) {
         Map<String, Object> opts = new HashMap<>();
         Map<String, String> p = assignment.getProperties();
@@ -4007,6 +4023,7 @@ public class AssignmentServiceImpl implements AssignmentService, EntityTransferr
                         // group assignment
                         if (oAssignment.getTypeOfAccess() == GROUP) {
                             nAssignment.setTypeOfAccess(GROUP);
+                            nAssignment.setDraft(true); // for group assignments always set to draft
                             Site oSite = siteService.getSite(oAssignment.getContext());
                             Site nSite = siteService.getSite(nAssignment.getContext());
 
@@ -4103,28 +4120,6 @@ public class AssignmentServiceImpl implements AssignmentService, EntityTransferr
                                 ResourceProperties.PROP_ASSIGNMENT_DUEDATE_CALENDAR_EVENT_ID, toCalendarEvent.getId());
                             nProperties.put(AssignmentConstants.NEW_ASSIGNMENT_DUE_DATE_SCHEDULED, Boolean.TRUE.toString());
                             nProperties.put(ResourceProperties.NEW_ASSIGNMENT_CHECK_ADD_DUE_DATE, Boolean.TRUE.toString());
-                        }
-
-                        String openDateAnnounced = StringUtils.trimToNull(oProperties.get(AssignmentConstants.NEW_ASSIGNMENT_OPEN_DATE_ANNOUNCED));
-                        String fromAnnouncementId = StringUtils.trimToNull(oProperties.get(ResourceProperties.PROP_ASSIGNMENT_OPENDATE_ANNOUNCEMENT_MESSAGE_ID));
-                        AnnouncementChannel fromChannel = getAnnouncementChannel(oAssignment.getContext());
-                        if (fromChannel != null && fromAnnouncementId != null) {
-                            AnnouncementMessage fromAnnouncement = fromChannel.getAnnouncementMessage(fromAnnouncementId);
-                            AnnouncementChannel toChannel = getAnnouncementChannel(nAssignment.getContext());
-                            if (toChannel == null) {
-                                // Create the announcement channel
-                                String toChannelId = announcementService.channelReference(nAssignment.getContext(), siteService.MAIN_CONTAINER);
-                                announcementService.commitChannel(announcementService.addAnnouncementChannel(toChannelId));
-                                toChannel = getAnnouncementChannel(nAssignment.getContext());
-                            }
-                            AnnouncementMessage toAnnouncement
-                                = toChannel.addAnnouncementMessage(fromAnnouncement.getAnnouncementHeader().getSubject()
-                                    , fromAnnouncement.getAnnouncementHeader().getDraft()
-                                    , fromAnnouncement.getAnnouncementHeader().getAttachments()
-                                    , fromAnnouncement.getBody());
-                            nProperties.put(AssignmentConstants.NEW_ASSIGNMENT_OPEN_DATE_ANNOUNCED, Boolean.TRUE.toString());
-                            nProperties.put(ResourceProperties.PROP_ASSIGNMENT_OPENDATE_ANNOUNCEMENT_MESSAGE_ID, toAnnouncement.getId());
-                            nProperties.put(ResourceProperties.NEW_ASSIGNMENT_CHECK_AUTO_ANNOUNCE, Boolean.TRUE.toString());
                         }
                     }
 
@@ -4629,9 +4624,10 @@ public class AssignmentServiceImpl implements AssignmentService, EntityTransferr
     }
 
     /**
-     * Gets all attachments in the submission that are acceptable to the content review service
+     * {@inheritDoc}
      */
-    private List<ContentResource> getAllAcceptableAttachments(AssignmentSubmission s) {
+    @Override
+    public List<ContentResource> getAllAcceptableAttachments(AssignmentSubmission s) {
         List<ContentResource> attachments = new ArrayList<>();
         for (String attachment : s.getAttachments()) {
             Reference attachmentRef = entityManager.newReference(attachment);

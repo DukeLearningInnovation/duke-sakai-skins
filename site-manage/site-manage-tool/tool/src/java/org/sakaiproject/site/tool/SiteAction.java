@@ -2943,7 +2943,7 @@ public class SiteAction extends PagedResourceActionII {
 			List<String> selectedTools = new ArrayList<>();
 			List<String> filteredTools = new ArrayList<>();
 			for (String toolId : toolsToInclude) {
-				if (!filteredTools.contains(toolId)) {
+				if ((!filteredTools.contains(toolId) && !ToolManager.isStealthed(toolId)) || SecurityService.isSuperUser()) {
 					filteredTools.add(toolId);
 				}
 
@@ -3086,19 +3086,20 @@ public class SiteAction extends PagedResourceActionII {
 			if (addMissingTools) {
 				
                 selectedTools = allImportableToolIdsInOriginalSites;
-				
-				context.put("selectedTools", selectedTools); 
+
 				//set tools in destination site into context so we can markup the lists and show which ones are new
 				context.put("toolsInDestinationSite", importableToolsIdsInDestinationSite);
 				
 			} else {
-				
-                selectedTools = importableToolsIdsInDestinationSite;
-
 				//just just the ones in the destination site
-				context.put("selectedTools", selectedTools); 
+                selectedTools = importableToolsIdsInDestinationSite;
 			}
-			
+
+			if (!SecurityService.isSuperUser()) {
+				selectedTools = selectedTools.stream().filter(toolID -> !ToolManager.isStealthed(toolID)).collect(Collectors.toList());
+			}
+			context.put("selectedTools", selectedTools);
+
 			//build a map of sites and tools in those sites that have content
 			Map<String,Set<String>> siteToolsWithContent = this.getSiteImportToolsWithContent(importSites, selectedTools);
 			context.put("siteToolsWithContent", siteToolsWithContent);
@@ -4179,7 +4180,7 @@ public class SiteAction extends PagedResourceActionII {
 	 */
 	private void pageOrderToolTitleIntoContext(Context context, SessionState state, String siteType, boolean newSite, String overrideSitePageOrderSetting) {
 		// check if this is an existing site and PageOrder is enabled for the site. If so, show tool title
-		if (!newSite && notStealthOrHiddenTool("sakai-site-pageorder-helper") && isPageOrderAllowed(siteType, overrideSitePageOrderSetting))
+		if (!newSite && !ToolManager.isStealthed("sakai-site-pageorder-helper") && isPageOrderAllowed(siteType, overrideSitePageOrderSetting))
 		{
 			// the actual page titles
 			context.put(STATE_TOOL_REGISTRATION_TITLE_LIST, state.getAttribute(STATE_TOOL_REGISTRATION_TITLE_LIST));
@@ -4555,7 +4556,7 @@ public class SiteAction extends PagedResourceActionII {
 		{
 			state.setAttribute(stateHelperString, helperId);
 		}
-		if (notStealthOrHiddenTool(helperId)) {
+		if (!ToolManager.isStealthed(helperId)) {
 			return true;
 		}
 		return false;
@@ -6439,7 +6440,7 @@ private Map<String, List<MyTool>> getTools(SessionState state, String type, Site
 						if (tr != null) 
 						{
 								String toolId = tr.getId();
-								if (isSiteTypeInToolCategory(SiteTypeUtil.getTargetSiteType(type), tr) && notStealthOrHiddenTool(toolId) ) // SAK 23808
+								if (isSiteTypeInToolCategory(SiteTypeUtil.getTargetSiteType(type), tr) && !ToolManager.isStealthed(toolId) ) // SAK 23808
 								{
 									newTool = new MyTool();
 									newTool.title = tr.getTitle();
@@ -9996,7 +9997,7 @@ private Map<String, List<MyTool>> getTools(SessionState state, String type, Site
 														Tool tool = toolConf.getTool();
 														String toolId = StringUtils.trimToEmpty(tool.getId());
 
-														if (StringUtils.isNotBlank(toolId) && !notStealthOrHiddenTool(toolId)) {
+														if (StringUtils.isNotBlank(toolId) && ToolManager.isStealthed(toolId)) {
 															// Found a stealthed tool, queue for removal
 															log.debug("found stealthed tool {}", toolId);
 															rmToolList.add(toolConf);
@@ -11807,20 +11808,6 @@ private Map<String, List<MyTool>> getTools(SessionState state, String type, Site
 			}
 		}
 	}
-
-	/**
-	 * Is the tool stealthed or hidden
-	 * @param toolId
-	 * @return
-	 */
-	public static boolean notStealthOrHiddenTool(String toolId) {
-		Tool tool = ToolManager.getTool(toolId);
-		Set<Tool> tools = ToolManager.findTools(Collections.emptySet(), null);
-		boolean result =  tool != null && tools.contains(tool);
-		return result;
-
-	}
-
 
 	/**
 	 * Is the siteType listed in the tool properties list of categories?

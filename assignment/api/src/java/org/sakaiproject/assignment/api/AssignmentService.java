@@ -32,6 +32,7 @@ import java.util.Set;
 import org.sakaiproject.assignment.api.model.Assignment;
 import org.sakaiproject.assignment.api.model.AssignmentSubmission;
 import org.sakaiproject.assignment.api.model.AssignmentSubmissionSubmitter;
+import org.sakaiproject.content.api.ContentResource;
 import org.sakaiproject.entity.api.Entity;
 import org.sakaiproject.entity.api.EntityProducer;
 import org.sakaiproject.entity.api.Reference;
@@ -658,13 +659,14 @@ public interface AssignmentService extends EntityProducer {
      *
      * @param context               The site id
      * @param assignmentId          The assignment id
-     * @param allowReadAssignment   Is the curent user allowed to read?
-     * @param allowAddAssignment    Is the curent user allowed to add assignments?
-     * @param allowSubmitAssignment Is the curent user allowed to submit assignments?
+     * @param allowReadAssignment   Is the current user allowed to read?
+     * @param allowAddAssignment    Is the current user allowed to add assignments?
+     * @param allowSubmitAssignment Is the current user allowed to submit assignments?
+     * @param allowGradeAssignment Is the current user allowed to grade assignments?
      * @return The url as a String
      */
     public String getDeepLinkWithPermissions(String context, String assignmentId, boolean allowReadAssignment
-            , boolean allowAddAssignment, boolean allowSubmitAssignment) throws Exception;
+            , boolean allowAddAssignment, boolean allowSubmitAssignment, boolean allowGradeAssignment) throws Exception;
 
     /**
      * Get a link directly into an assignment itself. Depending on your status, you
@@ -780,6 +782,11 @@ public interface AssignmentService extends EntityProducer {
      * @return true if content review results for the given submission can be displayed.
      */
     public boolean isContentReviewVisibleForSubmission(AssignmentSubmission submission);
+
+    /**
+     * Gets all attachments in the submission that are acceptable to the content review service
+     */
+    public List<ContentResource> getAllAcceptableAttachments(AssignmentSubmission submission);
 
     /**
      * Get an assignment that is linked with a gradebook item

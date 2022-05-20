@@ -97,6 +97,7 @@ import org.sakaiproject.entitybroker.entityprovider.capabilities.Createable;
 import org.sakaiproject.entitybroker.entityprovider.capabilities.InputTranslatable;
 import org.sakaiproject.entitybroker.entityprovider.capabilities.Statisticable;
 import org.sakaiproject.entitybroker.util.AbstractEntityProvider;
+import org.sakaiproject.exception.IdUnusedException;
 import org.sakaiproject.lessonbuildertool.LessonBuilderAccessAPI;
 import org.sakaiproject.lessonbuildertool.SimpleChecklistItem;
 import org.sakaiproject.lessonbuildertool.SimplePage;
@@ -1073,7 +1074,12 @@ public class LessonBuilderEntityProducer extends AbstractEntityProvider
 	               if (checklistArr != null && !checklistArr.isEmpty()) {
 		               for (Object checklistObj : checklistArr) {
 			               JSONObject checklistObjJson = (JSONObject) checklistObj;
-			               checklistObjJson.put("link", itemMap.get(checklistObjJson.get("link")));
+				       String link = checklistObjJson.get("link").toString();
+				       if ("-1".equals(link)) {
+					   checklistObjJson.put("link", new Integer(-1));
+				       } else {
+					   checklistObjJson.put("link", itemMap.get(checklistObjJson.get("link")));
+				       }
 		               }
 	               }
 	               attributeObj.put("checklistItems", checklistArr); // Update the JSON object for the JSON attribute with the modified checklist
@@ -2283,6 +2289,8 @@ public class LessonBuilderEntityProducer extends AbstractEntityProvider
                         String newReferenceId = StringUtils.replace(oldReferenceId, oldSiteId, newSiteId);
                         contentHostingService.copy(oldReferenceId, newReferenceId);
                         replacedBody = StringUtils.replace(replacedBody, oldSiteId, newSiteId);
+                        } catch(IdUnusedException ide) {
+                            log.warn("Warn transfering file from site {} to site {}.", oldSiteId, newSiteId, ide);
                         } catch(Exception e) {
                             log.error("Error transfering file from site {} to site {}.", oldSiteId, newSiteId, e);
                         }

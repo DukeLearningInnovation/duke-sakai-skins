@@ -119,6 +119,8 @@ public class DeliveryActionListener
 
   private EventTrackingService eventTrackingService = ComponentManager.get(EventTrackingService.class);
 
+  private GradingService service = new GradingService();
+
   /**
    * ACTION.
    * @param ae
@@ -221,7 +223,6 @@ public class DeliveryActionListener
       // (String "sequence"+itemId, Integer sequence) and
       // (String "items", Long itemscount)
       Map itemGradingHash = new HashMap();
-      GradingService service = new GradingService();
       PublishedAssessmentService pubService = new PublishedAssessmentService();
       AssessmentGradingData ag = null;
       SecureDeliveryServiceAPI secureDelivery = SamigoApiFactory.getInstance().getSecureDeliveryServiceAPI();
@@ -1355,6 +1356,11 @@ public class DeliveryActionListener
     while (key1.hasNext())
     {
     	j++;
+
+      // only once for calculated question
+      if (j > 1 && item.getTypeId().equals(TypeIfc.CALCULATED_QUESTION)) {
+          break;
+      }
       // We need to store the answers in an arraylist in case they're
       // randomized -- we assign labels here, and then step through
       // them again later, and we have to make sure the order is the
@@ -2297,18 +2303,19 @@ public class DeliveryActionListener
       long gradingId = determineCalcQGradingId(delivery);
       String agentId = determineCalcQAgentId(delivery, bean);
 
-      HashMap<Integer, String> answersMap = new HashMap<Integer, String>();
-      GradingService service = new GradingService();
-      // texts is the display text that will show in the question. AnswersMap gets populated with
-      // pairs such as key:x, value:42.0
-      List<String> texts = service.extractCalcQAnswersArray(answersMap, item, gradingId, agentId);
-      String questionText = texts.get(0);
+      service.getAnswersMap().clear();
+      List<String> texts = service.extractCalcQAnswersArray(service.getAnswersMap(), item, gradingId, agentId);
+      if (texts.isEmpty())
+      {
+          log.error("Unable to extract any question text from calculated question with item id {}. The formula for this question may be invalid.", item.getItemId());
+          texts = Collections.singletonList(rb.get("calc.extract_text_error").toString());
+      }
+      service.setTexts(texts);
+      String questionText = service.getTexts().get(0);
 
       ItemTextIfc text = (ItemTextIfc) item.getItemTextArraySorted().toArray()[0];
       List<FinBean> fins = new ArrayList<FinBean>();
       bean.setInstruction(questionText); // will be referenced in table of contents
-
-      int numOfAnswers = answersMap.size();
 
       int i = 0;
       List<AnswerIfc> calcQuestionEntities = text.getAnswerArraySorted();
@@ -2338,7 +2345,7 @@ public class DeliveryActionListener
           FinBean fbean = new FinBean();
           fbean.setItemContentsBean(bean);
           fbean.setAnswer(answer);
-          fbean.setText((String) texts.toArray()[i++]);
+          fbean.setText((String) service.getTexts().toArray()[i++]);
           fbean.setHasInput(Boolean.TRUE); // input box
 
           List<ItemGradingData> datas = bean.getItemGradingDataArray();
@@ -2356,7 +2363,7 @@ public class DeliveryActionListener
                       {
                           answer.setText("");
                       }
-                      fbean.setIsCorrect(service.getCalcQResult(data, item, answersMap, i));
+                      fbean.setIsCorrect(service.getCalcQResult(data, item, service.getAnswersMap(), i));
                   }
               }
           }
@@ -2364,8 +2371,8 @@ public class DeliveryActionListener
       }
 
       FinBean fbean = new FinBean();
-      if(texts.toArray().length>i)
-          fbean.setText( (String) texts.toArray()[i]);
+      if(service.getTexts().toArray().length>i)
+          fbean.setText( (String) service.getTexts().toArray()[i]);
       else
           fbean.setText("");
       fbean.setHasInput(Boolean.FALSE);
@@ -2852,15 +2859,14 @@ public class DeliveryActionListener
 	  String agentId = determineCalcQAgentId(delivery, itemBean);
 	  
 	  String keysString = "";
-	  GradingService service = new GradingService();
-	
-	HashMap<Integer, String> answersMap = new HashMap<Integer, String>();
-	service.extractCalcQAnswersArray(answersMap, item, gradingId, agentId); // return value not used, answersMap is populated
-	
+
+	service.getAnswersMap().clear();
+	service.setTexts(service.extractCalcQAnswersArray(service.getAnswersMap(), item, gradingId, agentId));
+
 	int answerSequence = 1; // this corresponds to the sequence value assigned in extractCalcQAnswersArray()
 	int decimalPlaces = 3;
-	while(answerSequence <= answersMap.size()) {
-		  String answer = (String)answersMap.get(answerSequence);
+	while(answerSequence <= service.getAnswersMap().size()) {
+		  String answer = (String)service.getAnswersMap().get(answerSequence);
 		  decimalPlaces = Integer.valueOf(answer.substring(answer.indexOf(',')+1, answer.length()));
 		  answer = answer.substring(0, answer.indexOf("|")); // cut off extra data e.g. "|2,3"
 		  

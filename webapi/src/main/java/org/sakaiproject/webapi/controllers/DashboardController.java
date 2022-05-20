@@ -171,6 +171,8 @@ public class DashboardController extends AbstractSakaiApiController {
                 }
                 bean.setMotd(motdString);
             }
+        } catch (IdUnusedException idue) {
+            log.debug("No MOTD set.");
         } catch (Exception e) {
             log.warn("Failed to set the MOTD for {}", userId, e);
         }

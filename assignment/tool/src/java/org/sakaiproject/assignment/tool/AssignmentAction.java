@@ -88,6 +88,7 @@ import java.util.Date;
 import java.util.Enumeration;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.TreeMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -1722,6 +1723,7 @@ public class AssignmentAction extends PagedResourceActionII {
                 // the attachments from the previous submission
                 Set<String> submittedAttachments = s.getAttachments();
                 newAttachments = areAttachmentsModified(submittedAttachments, currentAttachments);
+                putSubmissionLogMessagesInContext(context, s);
             } else {
                 // There is no previous submission, attachments are modified if anything has been uploaded
                 newAttachments = CollectionUtils.isNotEmpty(currentAttachments);
@@ -2103,6 +2105,7 @@ public class AssignmentAction extends PagedResourceActionII {
 									.collect(Collectors.toMap(User::getId, Function.identity()));
 					context.put("submitterNames", getSubmitterFormattedNames(s, "build_student_view_submission_confirmation_context"));
                 }
+                putSubmissionLogMessagesInContext(context, s);
             }
         }
 
@@ -2518,6 +2521,7 @@ public class AssignmentAction extends PagedResourceActionII {
                 }
             }
             context.put("NamePropContentReviewOptoutUrl", ContentReviewConstants.URKUND_OPTOUT_URL);
+            putSubmissionLogMessagesInContext(context, submission);
         }
 
         if (taggingManager.isTaggable() && submission != null) {
@@ -3574,6 +3578,7 @@ public class AssignmentAction extends PagedResourceActionII {
 
                 // try to put in grade overrides
                 if (a.getIsGroup()) {
+                    context.put("groupRef", "/site/" + a.getContext() + "/group/" + s.getGroupId());
                     Map<String, Object> grades = new HashMap<>();
                     for (String userId : users.keySet()) {
                         String userGrade = (String) state.getAttribute(GRADE_SUBMISSION_GRADE + "_" + userId);
@@ -3638,6 +3643,7 @@ public class AssignmentAction extends PagedResourceActionII {
             s.getAttachments().forEach(r -> attachmentReferences.put(r, entityManager.newReference(r)));
             context.put("submissionAttachmentReferences", attachmentReferences);
 
+            putSubmissionLogMessagesInContext(context, s);
             rangeAndGroups.buildInstructorGradeSubmissionContextGroupCheck(assignment, s.getGroupId(), state);
         }
 
@@ -4241,6 +4247,31 @@ public class AssignmentAction extends PagedResourceActionII {
         context.put("value_" + timeName + "Year", (Integer) state.getAttribute(year));
         context.put("value_" + timeName + "Hour", (Integer) state.getAttribute(hour));
         context.put("value_" + timeName + "Min", (Integer) state.getAttribute(min));
+    }
+
+    private void putSubmissionLogMessagesInContext(Context context, AssignmentSubmission submission) {
+        List<String> messages = new LinkedList<>();
+        Map<String, String> properties = submission.getProperties();
+        Map<Integer, String> orderedLogKeys = properties.keySet().stream()
+                .filter(k -> k.startsWith("log"))
+                .map(k -> new String[] {k, StringUtils.split(k, "log")[0]})
+                .collect(Collectors.toMap(a -> new Integer(a[1]), a -> a[0], (e1, e2) -> e1, TreeMap::new));
+
+        orderedLogKeys.values().stream().map(properties::get).map(formattedText::escapeHtml).forEach(messages::add);
+
+        context.put("submissionLog", messages);
+    }
+
+    private String getNextSubmissionLogKey(AssignmentSubmission submission) {
+        String keyPrefix = "log";
+        Map<String, String> properties = submission.getProperties();
+        List<Integer> keys = properties.keySet().stream()
+                .filter(k -> k.startsWith("log"))
+                .map(k -> new Integer(StringUtils.split(k, "log")[0]))
+                .sorted()
+                .collect(Collectors.toList());
+        int next = keys.isEmpty() ? 0 : keys.get(keys.size() - 1) + 1;
+        return keyPrefix + next;
     }
 
     private List getPrevFeedbackAttachments(Map<String, String> p) {
@@ -5266,6 +5297,14 @@ public class AssignmentAction extends PagedResourceActionII {
             context.put("searchString", state.getAttribute(VIEW_SUBMISSION_SEARCH) != null ? state.getAttribute(VIEW_SUBMISSION_SEARCH) : "");
 
             context.put("showSubmissionByFilterSearchOnly", state.getAttribute(SUBMISSIONS_SEARCH_ONLY) != null && ((Boolean) state.getAttribute(SUBMISSIONS_SEARCH_ONLY)) ? Boolean.TRUE : Boolean.FALSE);
+
+            if (a.getContentReview())
+            {
+                Map<String, String> properties = a.getProperties();
+                boolean isSubmissionIndexed = "true".equalsIgnoreCase(properties.get("store_inst_index"));
+                String plagiarismNoteKey = isSubmissionIndexed ? "gen.thesubswill.indexed" : "gen.thesubswill";
+                context.put("plagiarismNote", rb.getFormattedMessage(plagiarismNoteKey, contentReviewService.getServiceName()));
+            }
         }
 
         String template = getContext(data).get("template");
@@ -6433,6 +6472,28 @@ public class AssignmentAction extends PagedResourceActionII {
                     properties.remove(AssignmentConstants.SUBMITTER_USER_ID);
                 }
 
+                // submission log
+                StringBuilder logEntry = new StringBuilder();
+                DateTimeFormatter dtf = DateTimeFormatter.RFC_1123_DATE_TIME
+                        .withZone(userTimeService.getLocalTimeZone(u.getId()).toZoneId())
+                        .withLocale(preferencesService.getLocale(u.getId()));
+                logEntry.append(dtf.format(Instant.now()));
+                boolean anonymousGrading = Boolean.parseBoolean(a.getProperties().get(NEW_ASSIGNMENT_CHECK_ANONYMOUS_GRADING));
+                String subOrDraft = post ? rb.getString("listsub.submitted") : rb.getString("listsub.submitted.draft");
+                if (!anonymousGrading) {
+                    if (submitter != null && !submitter.getEid().equals(u.getEid())) {
+                        logEntry.append(" ").append(submitter.getDisplayName())
+                                .append(" (").append(submitter.getEid()).append(") ").append(subOrDraft)
+                                .append(" ").append(rb.getString("listsub.submitted.on.behalf"))
+                                .append(" ").append(u.getDisplayName()).append(" (").append(u.getEid()).append(")");
+                    } else {
+                        logEntry.append(" ").append(u.getDisplayName())
+                                .append(" (").append(u.getEid()).append(") ")
+                                .append(subOrDraft);
+                    }
+                }
+                submission.getProperties().put(getNextSubmissionLogKey(submission), logEntry.toString());
+
                 try {
                     assignmentService.updateSubmission(submission);
                 } catch (PermissionException e) {
@@ -6442,12 +6503,15 @@ public class AssignmentAction extends PagedResourceActionII {
                 }
 
                 // SAK-26322 - add inline as an attachment for the content review service
-                if (post && a.getContentReview()) {
+                if (post) {
                     if (!isHtmlEmpty(text)) {
+                        /* prepares a file representing the inline content;
+                         * needed whether or not content review is used - it will be queued retroactively if we enable content review on the assignment in the future */
                         prepareInlineForContentReview(text, submission, state, u);
                     }
+
                     // Check if we need to post the attachments
-                    if (!submission.getAttachments().isEmpty()) {
+                    if (a.getContentReview() && !submission.getAttachments().isEmpty()) {
                         assignmentService.postReviewableSubmissionAttachments(submission);
                     }
                 }
@@ -7205,6 +7269,14 @@ public class AssignmentAction extends PagedResourceActionII {
 
         if (validify && state.getAttribute(NEW_ASSIGNMENT_DESCRIPTION_EMPTY) != null) {
             addAlert(state, rb.getString("thiasshas"));
+        }
+
+        Integer assignmentType = params.getInt(NEW_ASSIGNMENT_SUBMISSION_TYPE);
+        if ( assignmentType != null && assignmentType == 6 ) {
+            Integer contentId = params.getInt(NEW_ASSIGNMENT_CONTENT_ID);
+            if ( contentId < 1 ) {
+                addAlert(state, rb.getString("pleaseselectlti"));
+            }
         }
 
         // allow resubmission numbers
@@ -8092,7 +8164,8 @@ public class AssignmentAction extends PagedResourceActionII {
                     }
                 }
             }
-            if (newAssignment) {
+            //SAK-45967
+            if (newAssignment || !a.getDraft()) {
                 // post new assignment event since it is fully initialized by now
                 eventTrackingService.post(eventTrackingService.newEvent(AssignmentConstants.EVENT_ADD_ASSIGNMENT, assignmentReference, true));
             }
@@ -8105,7 +8178,7 @@ public class AssignmentAction extends PagedResourceActionII {
      * @param state
      * @param params
      * @param siteId
-     * @param a
+     * @param assignment
      */
     private void saveAssignmentSupplementItem(SessionState state,
                                               ParameterParser params, String siteId, Assignment assignment) {
@@ -8323,7 +8396,9 @@ public class AssignmentAction extends PagedResourceActionII {
      * Add submission objects if necessary for non-electronic type of assignment
      *
      * @param state
-     * @param a
+     * @param submissions
+     * @param addSubmissionForUsers
+     * @param assignment
      */
     private void addRemoveSubmissionsForNonElectronicAssignment(SessionState state, List submissions, HashSet<String> addSubmissionForUsers, HashSet<String> removeSubmissionForUsers, Assignment assignment) {
         // create submission object for those user who doesn't have one yet
@@ -8642,7 +8717,7 @@ public class AssignmentAction extends PagedResourceActionII {
      * Add event to calendar and then persist the event id to the assignment properties
      *
      * @param state
-     * @param a               AssignmentEdit
+     * @param assignment      Assignment
      * @param title           Event title
      * @param dueTime         Assignment due date/time
      * @param c               Calendar
@@ -11480,8 +11555,8 @@ public class AssignmentAction extends PagedResourceActionII {
         state.setAttribute(NEW_ASSIGNMENT_SECTION, "001");
         state.setAttribute(NEW_ASSIGNMENT_SUBMISSION_TYPE, Assignment.SubmissionType.TEXT_AND_ATTACHMENT_ASSIGNMENT_SUBMISSION.ordinal());
         Boolean withGradesConfig = serverConfigurationService.getBoolean("assignment.grade.default", Boolean.TRUE);
-        state.setAttribute(WITH_GRADES, withGradesConfig);
         if (withGradesConfig) {
+            state.setAttribute(WITH_GRADES, Boolean.TRUE);
             state.setAttribute(NEW_ASSIGNMENT_GRADE_TYPE, SCORE_GRADE_TYPE.ordinal());
             String defaultPointsConfig = serverConfigurationService.getString("assignment.points.default", "");
             if (NumberUtils.isParsable(defaultPointsConfig)) {
@@ -13324,13 +13399,25 @@ public class AssignmentAction extends PagedResourceActionII {
                         continue;
                     }
                 }
+                User contentReviewSubmitter = null;
+                if (assignment.getContentReview()) {
+                    // Identify the user submitting to the content review service
+                    if (assignment.getIsGroup()) {
+                        // Same behaviour as submit_on_behalf_of in group assignments - use the current user
+                        contentReviewSubmitter = userDirectoryService.getCurrentUser();
+                    } else {
+                        try {
+                            contentReviewSubmitter = userDirectoryService.getUser(eid);
+                        }
+                        catch (UserNotDefinedException e) {
+                            log.warn("Cannot find user {} for submission {}; skipping", eid, submission.getId());
+                            continue;
+                        }
+                    }
+                }
+
                 UploadGradeWrapper w = submissionTable.get(eid);
                 if (w != null) {
-                    // the submission text
-                    if (hasSubmissionText) {
-                        submission.setSubmittedText(w.getText());
-                    }
-
                     // the feedback text
                     if (hasFeedbackText) {
                         submission.setFeedbackText(w.getFeedbackText());
@@ -13338,14 +13425,32 @@ public class AssignmentAction extends PagedResourceActionII {
 
                     // the submission attachment
                     if (hasSubmissionAttachment) {
-                        // update the submission attachments with newly added ones from zip file
-                        Set<String> submittedAttachments = submission.getAttachments();
-                        for (Object o : w.getSubmissionAttachments()) {
-                            Reference a = (Reference) o;
-                            if (!submittedAttachments.contains(a.getReference())) {
-                                submittedAttachments.add(a.getReference());
+                        // update the submission attachments with newly added ones from the zip file
+                        List<Reference> newAttachments = w.getSubmissionAttachments();
+                        if (!newAttachments.isEmpty()) {
+                            Set<String> submittedAttachments = submission.getAttachments();
+                            // To eliminate duplication, it would be good to clear existing attachments here; but only once we have submission histories (would introduce data loss atm)
+                            newAttachments.stream().forEach(ref -> {
+                                if (!submittedAttachments.contains(ref.getReference())) {
+                                    submittedAttachments.add(ref.getReference());
+                                }
+                            });
+                        }
+                    }
+
+                    // the submission text
+                    if (hasSubmissionText) {
+                        String submissionText = w.getText();
+                        if (assignment.getContentReview()) {
+                            if (!isHtmlEmpty(submissionText)) {
+                                prepareInlineForContentReview(submissionText, submission, state, contentReviewSubmitter);
                             }
                         }
+                        submission.setSubmittedText(submissionText);
+                    }
+
+                    if (assignment.getContentReview() && !submission.getAttachments().isEmpty()) {
+                        assignmentService.postReviewableSubmissionAttachments(submission);
                     }
 
                     // the feedback attachment
@@ -13405,6 +13510,11 @@ public class AssignmentAction extends PagedResourceActionII {
                         }
                         submission.setDateSubmitted(timestamp);
                         submission.setSubmitted(true);
+                    }
+                    else if (submission.getDateSubmitted() == null && (submission.getSubmittedText() != null || !submission.getAttachments().isEmpty()))
+                    {
+                        // Timestamp isn't present; use the current time
+                        submission.setDateSubmitted(Instant.now());
                     }
 
                     // for further information

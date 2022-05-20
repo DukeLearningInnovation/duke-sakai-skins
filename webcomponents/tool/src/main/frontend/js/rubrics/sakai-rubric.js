@@ -202,8 +202,6 @@ export class SakaiRubric extends RubricsElement {
     if(saveWeightsBtn) saveWeightsBtn.setAttribute('disabled', true);
 
     this.rubric.criterions.forEach(cr => {
-
-      cr.weight = parseFloat(cr.weight);
       $.ajax({
         url: `/rubrics-service/rest/criterions/${cr.id}`,
         headers: { "authorization": this.token },
@@ -234,17 +232,16 @@ export class SakaiRubric extends RubricsElement {
     var criterionModified = this.rubric.criterions.find(el => el.id === payload.criterionId);
     var oldValue = criterionModified.weight;
 
-    payload.value = payload.value.toLocaleString(this.locale);
     criterionModified.weight = payload.value;
     if (oldValue === payload.value) {
       return;
     }
 
-    const total = this.rubric.criterions.reduce((acc, el) => acc + parseFloat(el.weight.toLocaleString(this.locale)), 0);
+    const total = this.rubric.criterions.reduce((acc, el) => acc + el.weight, 0);
 
     this.validWeight = total == 100;
 
-    this.totalWeight = total;
+    this.totalWeight = total.toLocaleString(this.locale);
     this.requestUpdate();
   }
 
@@ -255,7 +252,7 @@ export class SakaiRubric extends RubricsElement {
     }
     this.totalWeight = 0;
     this.rubric.criterions.forEach(cr => {
-      this.totalWeight = this.totalWeight + parseFloat(cr.weight);
+      this.totalWeight = this.totalWeight + cr.weight;
     });
     this.validWeight = this.totalWeight == 100;
   }
@@ -314,10 +311,10 @@ export class SakaiRubric extends RubricsElement {
 
     if (this.rubric.metadata.public) {
       this.shareTitleKey = "revoke";
-      this.shareIcon = "fa-share-square-o fa-flip-horizontal";
+      this.shareIcon = "fa-globe text-primary";
     } else {
       this.shareTitleKey = "share";
-      this.shareIcon = "fa-share-square-o";
+      this.shareIcon = "fa-eye-slash text-muted";
     }
     this.shareValues = this.rubric.title;
   }

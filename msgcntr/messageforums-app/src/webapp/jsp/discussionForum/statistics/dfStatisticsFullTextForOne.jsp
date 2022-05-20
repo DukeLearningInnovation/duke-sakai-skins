@@ -8,7 +8,7 @@
 <f:view>
   <sakai:view>
   
-  	<h:form id="dfStatisticsForm" rendered="#{ForumTool.instructor}">
+	<h:form id="dfStatisticsForm" rendered="#{ForumTool.instructor || mfStatisticsBean.isAuthor}">
 		<!-- discussionForum/statistics/dfStatisticsFullTextForOne.jsp -->
   	       	<script>includeLatestJQuery("msgcntr");</script>
        		<script src="/messageforums-tool/js/sak-10625.js"></script>
@@ -96,7 +96,7 @@
 								<f:convertDateTime pattern="#{msgs.date_format_paren}" timeZone="#{ForumTool.userTimeZone}" locale="#{ForumTool.userLocale}"/>
 							</h:outputText>
 						<f:verbatim></p></f:verbatim>						
-						<h:panelGroup style="display:block;float:right;width:15%;text-align:right;font-weight:bold">
+						<h:panelGroup rendered="#{ForumTool.instructor}" style="display:block;float:right;width:15%;text-align:right;font-weight:bold">
 							<h:commandLink action="#{ForumTool.processActionDisplayInThread}" title=" #{msgs.stat_display_in_thread}" >
 								<f:param value="#{stat.forumId}" name="forumId"/>
 		  				  		<f:param value="#{stat.topicId}" name="topicId"/>

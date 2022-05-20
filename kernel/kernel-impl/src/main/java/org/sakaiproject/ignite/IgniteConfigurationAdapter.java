@@ -3,6 +3,7 @@ package org.sakaiproject.ignite;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -15,6 +16,7 @@ import org.apache.ignite.configuration.DataStorageConfiguration;
 import org.apache.ignite.configuration.DeploymentMode;
 import org.apache.ignite.configuration.IgniteConfiguration;
 import org.apache.ignite.configuration.TransactionConfiguration;
+import org.apache.ignite.failure.FailureHandler;
 import org.apache.ignite.logger.slf4j.Slf4jLogger;
 import org.apache.ignite.plugin.segmentation.SegmentationPolicy;
 import org.apache.ignite.spi.checkpoint.cache.CacheCheckpointSpi;
@@ -43,6 +45,7 @@ public class IgniteConfigurationAdapter extends AbstractFactoryBean<IgniteConfig
     public static final String IGNITE_METRICS_UPDATE_FREQ = "ignite.metrics.update.freq";
     public static final String IGNITE_METRICS_LOG_FREQ = "ignite.metrics.log.freq";
     public static final String IGNITE_TCP_MESSAGE_QUEUE_LIMIT = "ignite.tcpMessageQueueLimit";
+    public static final String IGNITE_TCP_SLOW_CLIENT_MESSAGE_QUEUE_LIMIT = "ignite.tcpSlowClientMessageQueueLimit";
     public static final String IGNITE_STOP_ON_FAILURE = "ignite.stopOnFailure";
 
     private static final IgniteConfiguration igniteConfiguration = new IgniteConfiguration();
@@ -80,6 +83,7 @@ public class IgniteConfigurationAdapter extends AbstractFactoryBean<IgniteConfig
             name = serverConfigurationService.getServerName();
             node = serverConfigurationService.getServerId();
             int tcpMessageQueueLimit = serverConfigurationService.getInt(IGNITE_TCP_MESSAGE_QUEUE_LIMIT, 1024);
+            int tcpSlowClientMessageQueueLimit = serverConfigurationService.getInt(IGNITE_TCP_SLOW_CLIENT_MESSAGE_QUEUE_LIMIT, tcpMessageQueueLimit / 2);
             boolean stopOnFailure = serverConfigurationService.getBoolean(IGNITE_STOP_ON_FAILURE, true);
 
             Map<String, Object> attributes = new HashMap<>();
@@ -109,6 +113,7 @@ public class IgniteConfigurationAdapter extends AbstractFactoryBean<IgniteConfig
             TransactionConfiguration transactionConfiguration = new TransactionConfiguration();
             transactionConfiguration.setDefaultTxConcurrency(TransactionConcurrency.OPTIMISTIC);
             transactionConfiguration.setDefaultTxIsolation(TransactionIsolation.READ_COMMITTED);
+            transactionConfiguration.setDefaultTxTimeout(30 * 1000);
             igniteConfiguration.setTransactionConfiguration(transactionConfiguration);
 
             igniteConfiguration.setDeploymentMode(DeploymentMode.CONTINUOUS);
@@ -125,9 +130,12 @@ public class IgniteConfigurationAdapter extends AbstractFactoryBean<IgniteConfig
 
             igniteConfiguration.setFailureDetectionTimeout(20000);
             if (stopOnFailure) {
-                igniteConfiguration.setFailureHandler(new IgniteStopNodeAndExitHandler());
+                IgniteStopNodeAndExitHandler failureHandler = new IgniteStopNodeAndExitHandler();
+                failureHandler.setIgnoredFailureTypes(Collections.emptySet());
+                igniteConfiguration.setFailureHandler(failureHandler);
             }
 
+            igniteConfiguration.setSystemWorkerBlockedTimeout(20000);
             igniteConfiguration.setSegmentationPolicy(SegmentationPolicy.NOOP);
 
             // local node network configuration
@@ -135,7 +143,14 @@ public class IgniteConfigurationAdapter extends AbstractFactoryBean<IgniteConfig
             TcpDiscoverySpi tcpDiscovery = new TcpDiscoverySpi();
             TcpDiscoveryVmIpFinder finder = new TcpDiscoveryVmIpFinder();
 
+            // limits outbound/inbound message queue
             tcpCommunication.setMessageQueueLimit(tcpMessageQueueLimit);
+
+            if (tcpSlowClientMessageQueueLimit > tcpMessageQueueLimit) {
+                tcpSlowClientMessageQueueLimit = tcpMessageQueueLimit;
+            }
+            // detection of a nodes with a high outbound message queue
+            tcpCommunication.setSlowClientQueueLimit(tcpSlowClientMessageQueueLimit);
 
             Set<String> discoveryAddresses = new HashSet<>();
             String localDiscoveryAddress;
