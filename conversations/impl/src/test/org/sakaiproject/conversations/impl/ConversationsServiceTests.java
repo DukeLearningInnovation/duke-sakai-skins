@@ -1065,8 +1065,151 @@ public class ConversationsServiceTests extends AbstractTransactionalJUnit4Spring
             posts = conversationsService.getPostsByTopicId(topicBean.siteId, topicBean.id, 0, null, null);
             assertTrue(0 == posts.iterator().next().reactionTotals.get(Reaction.GOOD_ANSWER));
         } catch (ConversationsPermissionsException cpe) {
-            cpe.printStackTrace();
             fail("Unexpected exception when reacting to post");
+        }
+    }
+
+    @Test
+    public void topicResolved() {
+
+        switchToUser1();
+
+        TopicTransferBean topicBean = createTopic(true);
+
+        try {
+            PostTransferBean postBean = new PostTransferBean();
+            postBean.message = "Great topic";
+            postBean.topic = topicBean.id;
+            postBean.siteId = siteId;
+
+            PostTransferBean savedPost = conversationsService.savePost(postBean, true);
+
+            List<TopicTransferBean> topics = conversationsService.getTopicsForSite(siteId);
+            assertFalse(topics.get(0).resolved);
+
+            switchToInstructor();
+            savedPost.message = "Great!";
+            savedPost = conversationsService.savePost(savedPost, true);
+            topics = conversationsService.getTopicsForSite(siteId);
+            assertFalse(topics.get(0).resolved);
+
+            PostTransferBean instructorPost = new PostTransferBean();
+            instructorPost.message = "Here's an answer from above";
+            instructorPost.topic = topicBean.id;
+            instructorPost.siteId = siteId;
+
+            conversationsService.savePost(instructorPost, true);
+
+            topics = conversationsService.getTopicsForSite(siteId);
+            assertTrue(topics.get(0).resolved);
+        } catch (ConversationsPermissionsException cpe) {
+            fail("Unexpected exception when testing topic resolved");
+        }
+    }
+
+    @Test
+    public void testReferenceReckoner() {
+
+        String topicId = "2389sdoijcieo";
+        String postId = "533fhslslk";
+        String commentId = "50399dsfdg";
+
+        String topicRef = Entity.SEPARATOR + "conversations" + Entity.SEPARATOR + siteId + Entity.SEPARATOR + "t" + Entity.SEPARATOR + topicId;
+        ConversationsReference ref = ConversationsReferenceReckoner.reckoner().reference(topicRef).reckon();
+        assertEquals(siteId, ref.getSiteId());
+        assertEquals("t", ref.getType());
+        assertEquals(topicId, ref.getId());
+
+        String postRef = Entity.SEPARATOR + "conversations" + Entity.SEPARATOR + siteId + Entity.SEPARATOR + "p" + Entity.SEPARATOR + postId;
+        ref = ConversationsReferenceReckoner.reckoner().reference(postRef).reckon();
+        assertEquals(siteId, ref.getSiteId());
+        assertEquals("p", ref.getType());
+        assertEquals(postId, ref.getId());
+
+        String commentRef = Entity.SEPARATOR + "conversations" + Entity.SEPARATOR + siteId + Entity.SEPARATOR + "c" + Entity.SEPARATOR + commentId;
+        ref = ConversationsReferenceReckoner.reckoner().reference(commentRef).reckon();
+        assertEquals(siteId, ref.getSiteId());
+        assertEquals("c", ref.getType());
+        assertEquals(commentId, ref.getId());
+
+        ref = ConversationsReferenceReckoner.reckoner().siteId(siteId).type("t").id(topicId).reckon();
+        String reckonedRef = ref.getReference();
+        assertEquals(topicRef, reckonedRef);
+
+        ref = ConversationsReferenceReckoner.reckoner().siteId(siteId).type("p").id(postId).reckon();
+        reckonedRef = ref.getReference();
+        assertEquals(postRef, reckonedRef);
+
+        ref = ConversationsReferenceReckoner.reckoner().siteId(siteId).type("c").id(commentId).reckon();
+        reckonedRef = ref.getReference();
+        assertEquals(commentRef, reckonedRef);
+    }
+
+    @Test
+    public void markPostsViewed() {
+
+        switchToUser1();
+
+        TopicTransferBean topicBean = createTopic(true);
+
+        try {
+            PostTransferBean postBean = new PostTransferBean();
+            postBean.siteId = siteId;
+            postBean.topic = topicBean.id;
+            postBean.setMessage("Here is my message");
+            postBean = conversationsService.savePost(postBean, true);
+
+            PostTransferBean postBean2 = new PostTransferBean();
+            postBean2.siteId = siteId;
+            postBean2.topic = topicBean.id;
+            postBean2.setMessage("Here is my message");
+            postBean2 = conversationsService.savePost(postBean2, true);
+
+            switchToUser2();
+
+            List<TopicTransferBean> topics = conversationsService.getTopicsForSite(siteId);
+            assertEquals(1, topics.size());
+
+            topicBean = topics.get(0);
+            assertEquals(2, topicBean.numberOfUnreadPosts);
+
+            conversationsService.markPostsViewed(new HashSet(Arrays.asList(new String[] {postBean.id, postBean2.id})), topicBean.id);
+
+            topics = conversationsService.getTopicsForSite(siteId);
+            topicBean = topics.get(0);
+            assertEquals(0, topicBean.numberOfUnreadPosts);
+
+            switchToInstructor();
+            Map<String, Object> data = conversationsService.getSiteStats(siteId, null, null, 1, null);
+            List<ConversationsStat> stats = (List<ConversationsStat>) data.get("stats");
+            assertEquals(3, stats.size());
+
+            Optional<ConversationsStat> stat = stats.stream().filter(cs -> cs.name.equals(user2SortName)).findAny();
+
+            assertTrue(stat.isPresent());
+
+            assertEquals(1L, (long) stat.get().topicsViewed);
+
+            switchToUser1();
+
+            PostTransferBean postBean3 = new PostTransferBean();
+            postBean3.siteId = siteId;
+            postBean3.topic = topicBean.id;
+            postBean3.setMessage("Here is my message");
+            postBean3 = conversationsService.savePost(postBean3, true);
+
+            switchToInstructor();
+            data = conversationsService.getSiteStats(siteId, null, null, 1, null);
+            stats = (List<ConversationsStat>) data.get("stats");
+            stat = stats.stream().filter(cs -> cs.name.equals(user2SortName)).findAny();
+            assertTrue(stat.isPresent());
+            assertEquals(0L, (long) stat.get().topicsViewed);
+        } catch (ConversationsPermissionsException cpe) {
+            cpe.printStackTrace();
+            fail();
+        } catch (Exception e) {
+            e.printStackTrace();
+            fail();
         }
     }
 
@@ -1094,6 +1237,77 @@ public class ConversationsServiceTests extends AbstractTransactionalJUnit4Spring
             fail("Unexpected exception when creating topic");
         }
         return null;
+    }
+
+    private void setupStudentPermissions() {
+
+        when(securityService.unlock(Permissions.ROLETYPE_INSTRUCTOR.label, siteRef)).thenReturn(false);
+        when(securityService.unlock(Permissions.MODERATE.label, siteRef)).thenReturn(false);
+        when(securityService.unlock(Permissions.TOPIC_CREATE.label, siteRef)).thenReturn(true);
+        when(securityService.unlock(Permissions.TOPIC_UPDATE_OWN.label, siteRef)).thenReturn(true);
+        when(securityService.unlock(Permissions.TOPIC_UPDATE_ANY.label, siteRef)).thenReturn(false);
+        when(securityService.unlock(Permissions.TOPIC_DELETE_OWN.label, siteRef)).thenReturn(true);
+        when(securityService.unlock(Permissions.TOPIC_DELETE_ANY.label, siteRef)).thenReturn(false);
+        when(securityService.unlock(Permissions.TOPIC_TAG.label, siteRef)).thenReturn(true);
+        when(securityService.unlock(Permissions.TOPIC_PIN.label, siteRef)).thenReturn(false);
+        when(securityService.unlock(Permissions.TAG_CREATE.label, siteRef)).thenReturn(false);
+        when(securityService.unlock(Permissions.VIEW_GROUP_TOPICS.label, siteRef)).thenReturn(false);
+        when(securityService.unlock(Permissions.POST_CREATE.label, siteRef)).thenReturn(true);
+        when(securityService.unlock(Permissions.POST_UPDATE_OWN.label, siteRef)).thenReturn(true);
+        when(securityService.unlock(Permissions.POST_UPDATE_ANY.label, siteRef)).thenReturn(false);
+        when(securityService.unlock(Permissions.POST_DELETE_OWN.label, siteRef)).thenReturn(true);
+        when(securityService.unlock(Permissions.POST_DELETE_ANY.label, siteRef)).thenReturn(false);
+        when(securityService.unlock(Permissions.POST_REACT.label, siteRef)).thenReturn(true);
+        when(securityService.unlock(Permissions.POST_UPVOTE.label, siteRef)).thenReturn(true);
+        when(securityService.unlock(Permissions.COMMENT_CREATE.label, siteRef)).thenReturn(true);
+        when(securityService.unlock(Permissions.COMMENT_UPDATE_OWN.label, siteRef)).thenReturn(true);
+        when(securityService.unlock(Permissions.COMMENT_UPDATE_ANY.label, siteRef)).thenReturn(false);
+        when(securityService.unlock(Permissions.COMMENT_DELETE_OWN.label, siteRef)).thenReturn(true);
+        when(securityService.unlock(Permissions.COMMENT_DELETE_ANY.label, siteRef)).thenReturn(false);
+        when(securityService.unlock(Permissions.VIEW_ANONYMOUS.label, siteRef)).thenReturn(false);
+        when(securityService.unlock(Permissions.VIEW_STATISTICS.label, siteRef)).thenReturn(false);
+
+        when(securityService.unlock(SiteService.SITE_VISIT, siteRef)).thenReturn(true);
+    }
+
+    private void switchToInstructor() {
+
+        when(sessionManager.getCurrentSessionUserId()).thenReturn(instructor);
+
+        when(securityService.unlock(Permissions.ROLETYPE_INSTRUCTOR.label, siteRef)).thenReturn(true);
+        when(securityService.unlock(instructor, Permissions.ROLETYPE_INSTRUCTOR.label, siteRef)).thenReturn(true);
+        when(securityService.unlock(Permissions.MODERATE.label, siteRef)).thenReturn(true);
+        when(securityService.unlock(Permissions.TOPIC_CREATE.label, siteRef)).thenReturn(true);
+        when(securityService.unlock(Permissions.TOPIC_UPDATE_OWN.label, siteRef)).thenReturn(true);
+        when(securityService.unlock(Permissions.TOPIC_UPDATE_ANY.label, siteRef)).thenReturn(true);
+        when(securityService.unlock(Permissions.TOPIC_DELETE_OWN.label, siteRef)).thenReturn(true);
+        when(securityService.unlock(Permissions.TOPIC_DELETE_ANY.label, siteRef)).thenReturn(true);
+        when(securityService.unlock(Permissions.TOPIC_TAG.label, siteRef)).thenReturn(true);
+        when(securityService.unlock(Permissions.TOPIC_PIN.label, siteRef)).thenReturn(true);
+        when(securityService.unlock(Permissions.TAG_CREATE.label, siteRef)).thenReturn(true);
+        when(securityService.unlock(Permissions.VIEW_GROUP_TOPICS.label, siteRef)).thenReturn(true);
+        when(securityService.unlock(Permissions.POST_CREATE.label, siteRef)).thenReturn(true);
+        when(securityService.unlock(Permissions.POST_UPDATE_OWN.label, siteRef)).thenReturn(true);
+        when(securityService.unlock(Permissions.POST_UPDATE_ANY.label, siteRef)).thenReturn(true);
+        when(securityService.unlock(Permissions.POST_DELETE_OWN.label, siteRef)).thenReturn(true);
+        when(securityService.unlock(Permissions.POST_DELETE_ANY.label, siteRef)).thenReturn(true);
+        when(securityService.unlock(Permissions.POST_REACT.label, siteRef)).thenReturn(true);
+        when(securityService.unlock(Permissions.POST_UPVOTE.label, siteRef)).thenReturn(true);
+        when(securityService.unlock(Permissions.COMMENT_CREATE.label, siteRef)).thenReturn(true);
+        when(securityService.unlock(Permissions.COMMENT_UPDATE_OWN.label, siteRef)).thenReturn(true);
+        when(securityService.unlock(Permissions.COMMENT_UPDATE_ANY.label, siteRef)).thenReturn(true);
+        when(securityService.unlock(Permissions.COMMENT_DELETE_OWN.label, siteRef)).thenReturn(true);
+        when(securityService.unlock(Permissions.COMMENT_DELETE_ANY.label, siteRef)).thenReturn(true);
+        when(securityService.unlock(Permissions.VIEW_ANONYMOUS.label, siteRef)).thenReturn(true);
+        when(securityService.unlock(Permissions.VIEW_STATISTICS.label, siteRef)).thenReturn(true);
+
+        when(securityService.unlock(SiteService.SITE_VISIT, siteRef)).thenReturn(true);
+        when(securityService.unlock(SiteService.SECURE_UPDATE_SITE, siteRef)).thenReturn(true);
+
+        try {
+            when(userDirectoryService.getUser(instructor)).thenReturn(instructorUser);
+        } catch (UserNotDefinedException unde) {
+        }
     }
 
     private void switchToUser1() {
