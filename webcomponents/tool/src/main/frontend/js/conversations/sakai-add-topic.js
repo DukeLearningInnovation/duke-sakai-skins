@@ -2,7 +2,13 @@ import { html } from "../assets/lit-element/lit-element.js";
 import { SakaiElement } from "../sakai-element.js";
 import "../sakai-editor.js";
 import "../sakai-icon.js";
-import { QUESTION, DISCUSSION, INSTRUCTORS, SITE, GROUP } from "./sakai-conversations-constants.js";
+import "../sakai-date-picker.js";
+import { AVAILABILITY_DATED,
+          AVAILABILITY_NOW,
+          QUESTION,
+          DISCUSSION,
+          INSTRUCTORS,
+          SITE, GROUP } from "./sakai-conversations-constants.js";
 
 export class SakaiAddTopic extends SakaiElement {
 
@@ -214,14 +220,20 @@ export class SakaiAddTopic extends SakaiElement {
             <div @click=${this.setType}
                 data-type="${QUESTION}"
                 class="topic-type-toggle ${this.topic.type === QUESTION ? "active" : ""}">
-              <sakai-icon type="question" size="medium"></sakai-icon>
-              <div>${this.i18n["type_question"]}</div>
+              <div>
+                <sakai-icon type="question" size="medium"></sakai-icon>
+                <div>${this.i18n.type_question}</div>
+              </div>
+              <div class="topic-type-description">${this.i18n.question_type_description}</div>
             </div>
             <div @click=${this.setType}
                 data-type="${DISCUSSION}"
                 class="topic-type-toggle ${this.topic.type === DISCUSSION ? "active" : ""}">
-              <sakai-icon type="forums" size="medium"></sakai-icon>
-              <div>${this.i18n["type_discussion"]}</div>
+              <div>
+                <sakai-icon type="forums" size="medium"></sakai-icon>
+                <div>${this.i18n.type_discussion}</div>
+              </div>
+              <div class="topic-type-description">${this.i18n.discussion_type_description}</div>
             </div>
           </div>
         </div>
