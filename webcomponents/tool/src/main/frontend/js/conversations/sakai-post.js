@@ -674,7 +674,6 @@ export class SakaiPost extends reactionsMixin(SakaiElement) {
       <div id="post-${this.post.id}"
           data-post-id="${this.post.id}"
           class="post ${this.post.isInstructor ? "instructor" : ""}
-          ${this.post.hidden ? "soft-deleted" : ""}
           ${(!this.post.comments || !this.post.comments.length) && !this.post.canComment ? "post-without-comment-block" : ""}">
         ${this.post.hidden ? html`
         <div class="post-soft-deleted">This post has been deleted. Click restore to restore it.</div>
