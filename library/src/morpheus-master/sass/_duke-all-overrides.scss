@@ -750,491 +750,491 @@ ul#otherSitesMenu li:nth-child(3):not(.otherSitesMenuClose) a {
   background: none;
 }
 
-// SAK-46187
-.sakai-options-menu-content a {
-  color: var(--link-color);
-}
-#conv-settings {
-  background: var(--sakai-background-color-2);
-}
-#conv-settings > div > a {
-  color: var(--sakai-text-color-dimmed);
-}
+// SAK-46187 SAK-46922
+// .sakai-options-menu-content a {
+//   color: var(--link-color);
+// }
+// #conv-settings {
+//   background: var(--sakai-background-color-2);
+// }
+// #conv-settings > div > a {
+//   color: var(--sakai-text-color-dimmed);
+// }
 
-#conv-settings > div.setting-active > a {
-  color: var(--sakai-text-color-1);
-}
-.conv-topbar {
-  border-bottom: 1px solid var(--sakai-border-color);
-}
-#conv-settings {
-  color: var(--sakai-text-color-dimmed);
-}
-.conv-settings-and-create {
-  .conv-settings-link {
-    a {
-      color: var(--sakai-text-color-dimmed);
-    }
-  }
-}
-.conv-add-topic {
-  // background: var(--button-primary-background);
-  // color: var(--button-primary-text-color);
-  @include sakai_primary_button();
-  margin-left: 8px;
-  a {
-    color: var(--button-primary-color);
-  }
-}
-#conv-content {
-  border-left: var(--sakai-border-color) 1px solid;
-}
-.tag {
-  background: var(--sakai-background-color-2);
-  color: var(--sakai-text-color-1);
-}
-@media (max-width: 800px) {
-  .add-topic-icon {
-    color: var(--button-primary-color);
-  }
-  .topic-summary.selected {
-    border: 1px solid var(--sakai-border-color);
-  }
-}
-#add-topic-title {
-  color: var(--sakai-text-color-1);
-}
-#summary {
-  background: var(--sakai-background-color-2);
+// #conv-settings > div.setting-active > a {
+//   color: var(--sakai-text-color-1);
+// }
+// .conv-topbar {
+//   border-bottom: 1px solid var(--sakai-border-color);
+// }
+// #conv-settings {
+//   color: var(--sakai-text-color-dimmed);
+// }
+// .conv-settings-and-create {
+//   .conv-settings-link {
+//     a {
+//       color: var(--sakai-text-color-dimmed);
+//     }
+//   }
+// }
+// .conv-add-topic {
+//   // background: var(--button-primary-background);
+//   // color: var(--button-primary-text-color);
+//   @include sakai_primary_button();
+//   margin-left: 8px;
+//   a {
+//     color: var(--button-primary-color);
+//   }
+// }
+// #conv-content {
+//   border-left: var(--sakai-border-color) 1px solid;
+// }
+// .tag {
+//   background: var(--sakai-background-color-2);
+//   color: var(--sakai-text-color-1);
+// }
+// @media (max-width: 800px) {
+//   .add-topic-icon {
+//     color: var(--button-primary-color);
+//   }
+//   .topic-summary.selected {
+//     border: 1px solid var(--sakai-border-color);
+//   }
+// }
+// #add-topic-title {
+//   color: var(--sakai-text-color-1);
+// }
+// #summary {
+//   background: var(--sakai-background-color-2);
 
-  border: 1px solid var(--sakai-border-color);
-}
+//   border: 1px solid var(--sakai-border-color);
+// }
 
-.add-topic-label {
-  color: var(--sakai-text-color-1);
-}
-#conv-edit-tags-link-wrapper > a {
-  color: var(--link-color);
-}
-.topic-type-toggle {
-  background: var(--sakai-background-color-2);
-  border: 1px solid var(--sakai-border-color);
-}
+// .add-topic-label {
+//   color: var(--sakai-text-color-1);
+// }
+// #conv-edit-tags-link-wrapper > a {
+//   color: var(--link-color);
+// }
+// .topic-type-toggle {
+//   background: var(--sakai-background-color-2);
+//   border: 1px solid var(--sakai-border-color);
+// }
 
-.topic-type-toggle div {
-  color: var(--sakai-text-color-3);
-}
-.active {
-  background: var(--sakai-active-color-1);
-  color: var(--sakai-text-color-3);
-}
-.tag-remove-icon sakai-icon {
-  color: var(--errorBanner-color);
-}
-.conv-error {
-  background: var(--errorBanner-bgcolor) !important;
-  color: var(--errorBanner-color);
-}
-.required {
-  color: var(--sakai-text-color-1);
-}
-.topic-option-label {
-  color: var(--sakai-text-color-1);
-}
-.selected-tag {
-  background-color: var(--sakai-active-color-1);
-}
+// .topic-type-toggle div {
+//   color: var(--sakai-text-color-3);
+// }
+// .active {
+//   background: var(--sakai-active-color-1);
+//   color: var(--sakai-text-color-3);
+// }
+// .tag-remove-icon sakai-icon {
+//   color: var(--errorBanner-color);
+// }
+// .conv-error {
+//   background: var(--errorBanner-bgcolor) !important;
+//   color: var(--errorBanner-color);
+// }
+// .required {
+//   color: var(--sakai-text-color-1);
+// }
+// .topic-option-label {
+//   color: var(--sakai-text-color-1);
+// }
+// .selected-tag {
+//   background-color: var(--sakai-active-color-1);
+// }
 
-#button-block {
-  border-top: var(--sakai-border-color) 1px solid;
-}
-.button {
-  background: var(--button-primary-background);
-  border-radius: $button-radius;
-  color: var(--button-primary-text-color);
-}
+// #button-block {
+//   border-top: var(--sakai-border-color) 1px solid;
+// }
+// .button {
+//   background: var(--button-primary-background);
+//   border-radius: $button-radius;
+//   color: var(--button-primary-text-color);
+// }
 
-.cke_chrome {
-  border: 1px solid var(--sakai-border-color);
-}
-#settings-guidelines-preview {
-  border: 1px solid var(--sakai-border-color);
-}
-.add-topic-wrapper h1 {
-  color: var(--sakai-text-color-1);
-}
-#tag-creation-field {
-  background: var(--sakai-background-color-2);
-  border: 1px solid var(--sakai-border-color);
-}
-.tag-editor input[type="text"] {
-  background: var(--sakai-background-color-2);
-  border: 1px solid var(--sakai-border-color);
-}
-.tag-label {
-  background: var(--sakai-background-color-2);
-  color: var(--sakai-text-color-1);
-}
+// .cke_chrome {
+//   border: 1px solid var(--sakai-border-color);
+// }
+// #settings-guidelines-preview {
+//   border: 1px solid var(--sakai-border-color);
+// }
+// .add-topic-wrapper h1 {
+//   color: var(--sakai-text-color-1);
+// }
+// #tag-creation-field {
+//   background: var(--sakai-background-color-2);
+//   border: 1px solid var(--sakai-border-color);
+// }
+// .tag-editor input[type="text"] {
+//   background: var(--sakai-background-color-2);
+//   border: 1px solid var(--sakai-border-color);
+// }
+// .tag-label {
+//   background: var(--sakai-background-color-2);
+//   color: var(--sakai-text-color-1);
+// }
 
-.tag-row {
-  border-top: 1px solid var(--sakai-border-color);
-}
-.tag-buttons input {
-  border: 1px solid var(--button-border-color);
-  background: var(--button-background);
-  color: var(--button-text-color);
-}
-.tag-buttons input[value="Delete"] {
-  background: var(--errorBanner-bgcolor);
-  color: var(--errorBanner-color);
-  border: 1px solid var(--errorBanner-bordercolor);
-}
-.post-creator-name {
-  color: var(--sakai-text-color-1);
-}
-.post-creator-instructor {
-  @extend .sakai-colorize--sakai-color-purple--lighter-6;
-}
+// .tag-row {
+//   border-top: 1px solid var(--sakai-border-color);
+// }
+// .tag-buttons input {
+//   border: 1px solid var(--button-border-color);
+//   background: var(--button-background);
+//   color: var(--button-text-color);
+// }
+// .tag-buttons input[value="Delete"] {
+//   background: var(--errorBanner-bgcolor);
+//   color: var(--errorBanner-color);
+//   border: 1px solid var(--errorBanner-bordercolor);
+// }
+// .post-creator-name {
+//   color: var(--sakai-text-color-1);
+// }
+// .post-creator-instructor {
+//   @extend .sakai-colorize--sakai-color-purple--lighter-6;
+// }
 
-.post-created-date {
-  color: var(--sakai-text-color-dimmed);
-}
+// .post-created-date {
+//   color: var(--sakai-text-color-dimmed);
+// }
 
-.conv-instructors-answer {
-  color: var(--sakai-text-color-1);
-}
-.post-comments-block {
-  background: var(--sakai-background-color-2);
-}
-.post-upvote-container {
-  background: var(--sakai-active-color-1);
-  border: 1px solid var(--sakai-active-color-2);
-  color: var(--sakai-text-color-3);
-}
+// .conv-instructors-answer {
+//   color: var(--sakai-text-color-1);
+// }
+// .post-comments-block {
+//   background: var(--sakai-background-color-2);
+// }
+// .post-upvote-container {
+//   background: var(--sakai-active-color-1);
+//   border: 1px solid var(--sakai-active-color-2);
+//   color: var(--sakai-text-color-3);
+// }
 
-.no-votes {
-  background: var(--sakai-background-color-1);
-}
+// .no-votes {
+//   background: var(--sakai-background-color-1);
+// }
 
-.post-message {
-  color: var(--sakai-text-color-1);
-}
-.post-comment-toggle-block {
-  color: var(--link-color);
-}
+// .post-message {
+//   color: var(--sakai-text-color-1);
+// }
+// .post-comment-toggle-block {
+//   color: var(--link-color);
+// }
 
-.post-comment-toggle-block .reactions-link > a {
-  color: var(--link-color);
-}
-.post {
-  border: 1px solid var(--sakai-border-color);
-}
+// .post-comment-toggle-block .reactions-link > a {
+//   color: var(--link-color);
+// }
+// .post {
+//   border: 1px solid var(--sakai-border-color);
+// }
 
-.post-without-comment-block {
-  border: 1px solid var(--sakai-border-color);
-}
-.instructor {
-  background: var(--successBanner-bgcolor);
-  border: 1px solid var(--sakai-border-color);
-}
+// .post-without-comment-block {
+//   border: 1px solid var(--sakai-border-color);
+// }
+// .instructor {
+//   background: var(--successBanner-bgcolor);
+//   border: 1px solid var(--sakai-border-color);
+// }
 
-.post .message {
-  color: var(--sakai-text-color-1);
-}
-.discussion-post-vbar {
-  background: var(--sakai-background-color-2);
-}
+// .post .message {
+//   color: var(--sakai-text-color-1);
+// }
+// .discussion-post-vbar {
+//   background: var(--sakai-background-color-2);
+// }
 
-.discussion-post-content-wrapper {
-  background: var(--sakai-background-color-2);
+// .discussion-post-content-wrapper {
+//   background: var(--sakai-background-color-2);
 
-  &.new {
-    background-color: var(--sakai-active-color-1);
-  }
-}
-.post-actions-block {
-  color: var(--link-color);
-}
-.post-replies-toggle-block {
-  color: var(--link-color);
-}
-.discussion-post-new {
-  background: var(--successBanner-bgcolor);
-  color: var(--successBanner-color);
-}
-.topic-list-pinned-header {
-  background: var(--sakai-background-color-2);
-  color: var(--sakai-text-color-1);
-}
+//   &.new {
+//     background-color: var(--sakai-active-color-1);
+//   }
+// }
+// .post-actions-block {
+//   color: var(--link-color);
+// }
+// .post-replies-toggle-block {
+//   color: var(--link-color);
+// }
+// .discussion-post-new {
+//   background: var(--successBanner-bgcolor);
+//   color: var(--successBanner-color);
+// }
+// .topic-list-pinned-header {
+//   background: var(--sakai-background-color-2);
+//   color: var(--sakai-text-color-1);
+// }
 
-#topic-list-filters select {
-  background: var(--sakai-background-color-1);
-  border: 1px solid var(--sakai-border-color);
-}
+// #topic-list-filters select {
+//   background: var(--sakai-background-color-1);
+//   border: 1px solid var(--sakai-border-color);
+// }
 
-#topic-list-topics {
-  border-right: 1px solid var(--sakai-border-color);
-}
-.topic-summary {
-  border: 1px solid var(--sakai-border-color);
-}
-.topic-summary-title-wrapper {
-  color: var(--sakai-text-color-3);
-}
-.topic-summary-title-wrapper {
-  color: var(--sakai-active-color-3);
-}
-.draft {
-  color: var(--errorBanner-color);
-}
-.unanswered {
-  background: var(--sakai-background-color-2);
-}
+// #topic-list-topics {
+//   border-right: 1px solid var(--sakai-border-color);
+// }
+// .topic-summary {
+//   border: 1px solid var(--sakai-border-color);
+// }
+// .topic-summary-title-wrapper {
+//   color: var(--sakai-text-color-3);
+// }
+// .topic-summary-title-wrapper {
+//   color: var(--sakai-active-color-3);
+// }
+// .draft {
+//   color: var(--errorBanner-color);
+// }
+// .unanswered {
+//   background: var(--sakai-background-color-2);
+// }
 
-.unread {
-  border: 1px solid var(--sakai-active-color-1);
-}
+// .unread {
+//   border: 1px solid var(--sakai-active-color-1);
+// }
 
-.unread-icon {
-  sakai-icon {
-    color: var(--sakai-primary-color-1);
-  }
-}
+// .unread-icon {
+//   sakai-icon {
+//     color: var(--sakai-primary-color-1);
+//   }
+// }
 
-.topic-summary-title {
-  color: var(--sakai-text-color-3);
-}
+// .topic-summary-title {
+//   color: var(--sakai-text-color-3);
+// }
 
-.answered-icon {
-  color: var(--successBanner-bgcolor);
-}
+// .answered-icon {
+//   color: var(--successBanner-bgcolor);
+// }
 
-.unanswered-icon {
-  color: var(--sakai-text-color-inverted);
-}
+// .unanswered-icon {
+//   color: var(--sakai-text-color-inverted);
+// }
 
-.question-icon {
-  color: var(--duke-copper);
-}
+// .question-icon {
+//   color: var(--duke-copper);
+// }
 
-.discussion-icon-wrapper {
-  background-color: var(--duke-ironweed);
-  color: var(--sakai-background-color-1);
-}
+// .discussion-icon-wrapper {
+//   background-color: var(--duke-ironweed);
+//   color: var(--sakai-background-color-1);
+// }
 
-.topic-summary-creator-block {
-  color: var(--sakai-text-color-dimmed);
-}
-.new-posts-number {
-  color: var(--sakai-text-color-3);
-}
+// .topic-summary-creator-block {
+//   color: var(--sakai-text-color-dimmed);
+// }
+// .new-posts-number {
+//   color: var(--sakai-text-color-3);
+// }
 
-.selected {
-  background: var(--sakai-active-color-1);
-  border: 1px solid var(--sakai-active-color-2);
-  color: var(--sakai-text-color-3);
-}
-.selected * {
-  color: var(--sakai-text-color-3);
-}
+// .selected {
+//   background: var(--sakai-active-color-1);
+//   border: 1px solid var(--sakai-active-color-2);
+//   color: var(--sakai-text-color-3);
+// }
+// .selected * {
+//   color: var(--sakai-text-color-3);
+// }
 
-.selected {
-  .discussion-icon {
-    color: var(--sakai-text-color-inverted);
-  }
+// .selected {
+//   .discussion-icon {
+//     color: var(--sakai-text-color-inverted);
+//   }
 
-  .question-icon {
-    color: var(--duke-copper);
-  }
-}
-.topic-content {
-  border-bottom: 1px var(--sakai-border-color) solid;
-}
+//   .question-icon {
+//     color: var(--duke-copper);
+//   }
+// }
+// .topic-content {
+//   border-bottom: 1px var(--sakai-border-color) solid;
+// }
 
-.topic-tag {
-  color: var(--sakai-text-color-dimmed);
-}
+// .topic-tag {
+//   color: var(--sakai-text-color-dimmed);
+// }
 
-.options-menu {
-  background: var(--sakai-background-color-1);
-  border: 1px solid var(--sakai-border-color);
-}
+// .options-menu {
+//   background: var(--sakai-background-color-1);
+//   border: 1px solid var(--sakai-border-color);
+// }
 
-.options-menu > div {
-  color: var(--sakai-text-color-1);
-}
+// .options-menu > div {
+//   color: var(--sakai-text-color-1);
+// }
 
-.topic-creator-name,
-.post-creator-name {
-  color: var(--sakai-text-color-1);
-}
+// .topic-creator-name,
+// .post-creator-name {
+//   color: var(--sakai-text-color-1);
+// }
 
-.topic-created-date,
-.post-created-date,
-.topic-question-asked {
-  color: var(--sakai-text-color-dimmed);
-}
+// .topic-created-date,
+// .post-created-date,
+// .topic-question-asked {
+//   color: var(--sakai-text-color-dimmed);
+// }
 
-.topic-title-and-status {
-  border-bottom: 1px solid var(--sakai-border-color);
-}
-.topic-status-text {
-  color: var(--sakai-text-color-1);
-}
+// .topic-title-and-status {
+//   border-bottom: 1px solid var(--sakai-border-color);
+// }
+// .topic-status-text {
+//   color: var(--sakai-text-color-1);
+// }
 
-.topic-message {
-  color: var(--sakai-text-color-1);
-}
+// .topic-message {
+//   color: var(--sakai-text-color-1);
+// }
 
-.topic-message-bottom-bar {
-  color: var(--link-color);
-}
-.good-question-on,
-.reaction-on {
-  background: var(--sakai-active-color-1);
-  color: var(--sakai-text-color-3);
-}
-.topic-reactions-popup {
-  background: var(--sakai-background-color-1);
-  border: 1px solid var(--sakai-border-color);
-}
+// .topic-message-bottom-bar {
+//   color: var(--link-color);
+// }
+// .good-question-on,
+// .reaction-on {
+//   background: var(--sakai-active-color-1);
+//   color: var(--sakai-text-color-3);
+// }
+// .topic-reactions-popup {
+//   background: var(--sakai-background-color-1);
+//   border: 1px solid var(--sakai-border-color);
+// }
 
-sakai-icon.heart {
-  color: var(--infoBanner-color);
-}
+// sakai-icon.heart {
+//   color: var(--infoBanner-color);
+// }
 
-sakai-icon.lightbulb {
-  color: var(--successBanner-color);
-}
+// sakai-icon.lightbulb {
+//   color: var(--successBanner-color);
+// }
 
-sakai-icon.key {
-  color: var(--errorBanner-color);
-}
+// sakai-icon.key {
+//   color: var(--errorBanner-color);
+// }
 
-.topic-message-reactions-bar {
-  color: var(--sakai-text-color-3);
-}
-.topic-status sakai-icon {
-  color: var(--errorBanner-color);
-}
+// .topic-message-reactions-bar {
+//   color: var(--sakai-text-color-3);
+// }
+// .topic-status sakai-icon {
+//   color: var(--errorBanner-color);
+// }
 
-.topic-message-reactions-bar > .topic-reaction {
-  background: var(--sakai-background-color-1);
-  border: 1px solid var(--sakai-border-color);
-}
-.topic-no-replies-block {
-  background: var(--sakai-background-color-2);
-}
+// .topic-message-reactions-bar > .topic-reaction {
+//   background: var(--sakai-background-color-1);
+//   border: 1px solid var(--sakai-border-color);
+// }
+// .topic-no-replies-block {
+//   background: var(--sakai-background-color-2);
+// }
 
-.topic-no-replies-message {
-  color: var(--sakai-text-color-1);
-}
-.topic {
-  min-height: 100vh;
-}
-#conv-topbar-and-content,
-#conv-content {
-  min-width: 0;
-}
-.topic-reply-block {
-  background: var(--sakai-background-color-2);
-  box-shadow: var(--elevation-4dp);
-  margin: 0 -44px 0 -28px;
-  z-index: 1000;
-  a:hover,
-  a:focus {
-    text-decoration: none;
-  }
-}
-.placeholder {
-  background: unset;
-  min-width: 100%;
-  width: 0;
-  div {
-    color: var(--link-color);
-  }
-  div:not(:first-child) {
-    padding: 8px;
-  }
-  > div:first-child {
-    margin-right: 8px;
-  }
-  > div:nth-child(2) {
-    min-width: 100px;
-    order: 3;
-    @include sakai_primary_button();
-    margin-left: 8px;
-    &::before {
-      @extend .fa;
-      @extend .fa-mail-reply;
-      margin: 0 8px 0 0;
-    }
-  }
-  > div:nth-child(3) {
-    font-weight: 400;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    flex: 1;
-  }
-}
+// .topic-no-replies-message {
+//   color: var(--sakai-text-color-1);
+// }
+// .topic {
+//   min-height: 100vh;
+// }
+// #conv-topbar-and-content,
+// #conv-content {
+//   min-width: 0;
+// }
+// .topic-reply-block {
+//   background: var(--sakai-background-color-2);
+//   box-shadow: var(--elevation-4dp);
+//   margin: 0 -44px 0 -28px;
+//   z-index: 1000;
+//   a:hover,
+//   a:focus {
+//     text-decoration: none;
+//   }
+// }
+// .placeholder {
+//   background: unset;
+//   min-width: 100%;
+//   width: 0;
+//   div {
+//     color: var(--link-color);
+//   }
+//   div:not(:first-child) {
+//     padding: 8px;
+//   }
+//   > div:first-child {
+//     margin-right: 8px;
+//   }
+//   > div:nth-child(2) {
+//     min-width: 100px;
+//     order: 3;
+//     @include sakai_primary_button();
+//     margin-left: 8px;
+//     &::before {
+//       @extend .fa;
+//       @extend .fa-mail-reply;
+//       margin: 0 8px 0 0;
+//     }
+//   }
+//   > div:nth-child(3) {
+//     font-weight: 400;
+//     text-overflow: ellipsis;
+//     white-space: nowrap;
+//     overflow: hidden;
+//     flex: 1;
+//   }
+// }
 
-.conv-post-editor-header span:nth-child(2) {
-  font-weight: 400;
-}
-.topic-reply-button-block {
-  background: var(--button-primary-background);
-  color: var(--button-primary-text-color);
-}
+// .conv-post-editor-header span:nth-child(2) {
+//   font-weight: 400;
+// }
+// .topic-reply-button-block {
+//   background: var(--button-primary-background);
+//   color: var(--button-primary-text-color);
+// }
 
-.answered-icon {
-  color: var(--successBanner-color);
-}
+// .answered-icon {
+//   color: var(--successBanner-color);
+// }
 
-.unanswered-icon {
-  color: var(--warnBanner-color);
-}
+// .unanswered-icon {
+//   color: var(--warnBanner-color);
+// }
 
-.topic-title-wrapper {
-  color: var(--sakai-text-color-1);
-}
-.topic-posts-block {
-  .topic-posts-header {
-    color: var(--sakai-text-color-1);
-  }
-}
+// .topic-title-wrapper {
+//   color: var(--sakai-text-color-1);
+// }
+// .topic-posts-block {
+//   .topic-posts-header {
+//     color: var(--sakai-text-color-1);
+//   }
+// }
 
-.post-to-topic {
-  background: var(--sakai-background-color-3);
-}
+// .post-to-topic {
+//   background: var(--sakai-background-color-3);
+// }
 
-.topic-wrapper {
-  border: 1px solid var(--sakai-border-color);
-}
+// .topic-wrapper {
+//   border: 1px solid var(--sakai-border-color);
+// }
 
-.topic-more-replies-block {
-  color: var(--link-color);
-}
-#statistics-timeframe-block {
-  div {
-    color: var(--sakai-text-color-1);
-  }
-}
-#statistics-report-table {
-  th {
-    background: var(--sakai-active-color-1);
-    //duke-342 Conversation stats table contrast issues
-    a {
-      color: var(--sakai-text-color-3);
-    }
-  }
-  td {
-    color: var(--sakai-text-color-1);
-  }
-}
-hr {
-  border-color: var(--sakai-border-color);
-}
+// .topic-more-replies-block {
+//   color: var(--link-color);
+// }
+// #statistics-timeframe-block {
+//   div {
+//     color: var(--sakai-text-color-1);
+//   }
+// }
+// #statistics-report-table {
+//   th {
+//     background: var(--sakai-active-color-1);
+//     //duke-342 Conversation stats table contrast issues
+//     a {
+//       color: var(--sakai-text-color-3);
+//     }
+//   }
+//   td {
+//     color: var(--sakai-text-color-1);
+//   }
+// }
+// hr {
+//   border-color: var(--sakai-border-color);
+// }
 
 /////////////////////////////////
 // Duke Conversations Customziations
